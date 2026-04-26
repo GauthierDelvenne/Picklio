@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-//use App\Helpers\UserConnected;
+use App\Helpers\UserConnected;
 //use App\Models\Lang;
 use ReflectionClass;
 
@@ -19,7 +19,7 @@ trait PicklioTrait
 
     public function __construct()
     {
-//        $this->userConnected = UserConnected::getUser();
+        $this->userConnected = UserConnected::getUser();
 //        $this->activeLang = Lang::getDefaultLangId();
 //        $this->translatedLang = $this->activeLang;
 //        $this->langs = Lang::all();
