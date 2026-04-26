@@ -18,6 +18,10 @@ use App\Livewire\admin\client\ClientSettings;
 use App\Livewire\admin\client\ClientStatistics;
 use App\Livewire\admin\client\ClientStock;
 use App\Livewire\admin\client\ClientStocks;
+use App\Livewire\auth\Login;
+use App\Livewire\auth\password\ForgetPassword;
+use App\Livewire\auth\password\ResetPassword;
+use App\Livewire\auth\Register;
 use App\Livewire\front\Basket;
 use App\Livewire\front\Catalogue;
 use App\Livewire\front\Catalogues;
@@ -39,8 +43,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             return Route::post('/livewire/update', $handle);
         });
 
-        /** ADMIN */
-
+        /** LOGIN */
+        Route::get(__('route.auth.login'), Login::class)->name('auth.login');
+        Route::get(__('route.auth.register'), Register::class)->name('auth.register');
+        Route::get(__('route.auth.password.forget-password'), ForgetPassword::class)->name('auth.password.forget-password');
+        Route::get(__('route.auth.password.reset-password'), ResetPassword::class)->name('auth.password.reset-password');
+        Route::get(__('route.auth.password.reset-password').'/{token}', ResetPassword::class)->name('auth.password.reset-password');
         /** ADMIN */
         Route::group(['prefix' => __('route.admin.admin.prefix')], function () {
             Route::get(__('route.admin.admin.dashboard'), Dashboard::class)->name('admin.dashboard');

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 return [
@@ -36,6 +37,14 @@ return [
         'basket' => 'panier',
         'slot' => 'creneaux',
         'order-confirmation' => 'confirmation-commande',
+    ],
+    'auth' => [
+        'login' => 'connexion',
+        'register' => 'inscription',
+        'password' => [
+            'reset-password' => 'reinitialiser-mot-de-passe',
+            'forget-password' => 'recuperer-mot-de-passe',
+        ],
     ],
 
 ];

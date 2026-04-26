@@ -36,5 +36,13 @@ return [
             'order-confirmation' => 'Confirmation de commande',
             'settings' => 'Paramètre',
         ],
+        'auth' => [
+            'login' => 'Connexion',
+            'register' => 'S’inscrire',
+            'password' => [
+                'reset-password' => 'Réinitialiser le mot de passe',
+                'forget-password' => 'Récupérer le mot de passe',
+            ],
+        ],
     ],
 ];

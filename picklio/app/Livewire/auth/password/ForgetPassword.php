@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Livewire\auth\password;
+
+use App\Livewire\form\auth\password\ForgetPasswordForm;
+use App\Livewire\PicklioComponent;
+
+class ForgetPassword extends PicklioComponent
+{
+    public ForgetPasswordForm $form;
+
+    public function forgetPassword()
+    {
+        if ($this->form->forgetPassword()) {
+
+        } else {
+
+        }
+    }
+
+    public function render()
+    {
+        return view('livewire.auth.password.forget-password')
+            ->layout('layouts.auth')->title(__('commons.pageName.auth.password.forget-password'));
+    }
+}
