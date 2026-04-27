@@ -24,7 +24,9 @@
     <flux:dropdown position="top" align="start" class="max-lg:hidden">
         <flux:sidebar.profile avatar="https://fluxui.dev/img/demo/user.png" name="Olivia Martin"/>
         <flux:menu>
-            <flux:menu.item icon="arrow-right-start-on-rectangle">Logout</flux:menu.item>
+            <flux:menu.item icon="arrow-right-start-on-rectangle">
+                <livewire:auth.logout/>
+            </flux:menu.item>
         </flux:menu>
     </flux:dropdown>
 </flux:sidebar>
@@ -34,7 +36,8 @@
     <flux:dropdown position="top" alignt="start">
         <flux:profile avatar="https://fluxui.dev/img/demo/user.png"/>
         <flux:menu>
-            <flux:menu.item icon="arrow-right-start-on-rectangle">Logout</flux:menu.item>
+            <flux:menu.item icon="arrow-right-start-on-rectangle">            <livewire:auth.logout/>
+            </flux:menu.item>
         </flux:menu>
     </flux:dropdown>
 </flux:header>

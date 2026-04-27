@@ -4,6 +4,7 @@ namespace App\Livewire\auth;
 
 use App\Livewire\form\auth\LoginForm;
 use App\Livewire\PicklioComponent;
+use App\Models\Role;
 
 class Login extends PicklioComponent
 {
@@ -11,9 +12,16 @@ class Login extends PicklioComponent
 
     public function login()
     {
-        if ($this->form->authenticate()) {
+        $auth = $this->form->authenticate()->account;
+        if (! empty($auth)) {
             // TODO : Peut-être revoir le redirect en fonction du compte ou juste rediriger sur la home et la personne va ou elle veut en fonction de ce qu'elle veut faire
-            $this->redirectRoute('front.home', navigate: true);
+            if ($auth->role_id === Role::ADMIN) {
+                $this->redirectRoute('admin.dashboard', navigate: true);
+            } elseif ($auth->role_id === Role::MERCHANT) {
+                $this->redirectRoute('client.dashboard', navigate: true);
+            } elseif ($auth->role_id === Role::CLIENT) {
+                $this->redirectRoute('front.home', navigate: true);
+            }
         } else {
 
         }

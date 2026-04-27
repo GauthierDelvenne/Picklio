@@ -45,6 +45,7 @@ return [
             'reset-password' => 'reinitialiser-mot-de-passe',
             'forget-password' => 'recuperer-mot-de-passe',
         ],
+        'logout' => 'deconnexion',
     ],
 
 ];

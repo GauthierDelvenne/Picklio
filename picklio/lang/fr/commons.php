@@ -43,6 +43,7 @@ return [
                 'reset-password' => 'Réinitialiser le mot de passe',
                 'forget-password' => 'Récupérer le mot de passe',
             ],
+            'logout' => 'Se déconnecter',
         ],
     ],
 ];
