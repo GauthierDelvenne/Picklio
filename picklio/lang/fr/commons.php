@@ -46,4 +46,8 @@ return [
             'logout' => 'Se déconnecter',
         ],
     ],
+    'sidebar' => [
+        'change-site' => 'Changer de site',
+        'mini-site' => 'Mini-site',
+    ],
 ];

@@ -30,11 +30,16 @@
                            :current="request()->routeIs('admin.settings')">{{__('commons.pageName.admin.admin.settings')}}</flux:sidebar.item>
     </flux:sidebar.nav>
     <flux:dropdown position="top" align="start" class="max-lg:hidden">
-        <flux:sidebar.profile avatar="https://fluxui.dev/img/demo/user.png" name="Olivia Martin"/>
+        <flux:button class="w-full">{{__('commons.sidebar.change-site')}</flux:button>
         <flux:menu>
             <flux:menu.item icon="arrow-right-start-on-rectangle">
                 <livewire:auth.logout/>
             </flux:menu.item>
+            <a href="{{route('front.home')}}">
+                <flux:menu.item icon="home">
+                    {{__('commons.sidebar.mini-site')}}
+                </flux:menu.item>
+            </a>
         </flux:menu>
     </flux:dropdown>
 </flux:sidebar>
@@ -42,11 +47,16 @@
     <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left"/>
     <flux:spacer/>
     <flux:dropdown position="top" alignt="start">
-        <flux:profile avatar="https://fluxui.dev/img/demo/user.png"/>
+        <flux:button class="w-full">{{__('commons.sidebar.change-site')}</flux:button>
         <flux:menu>
             <flux:menu.item icon="arrow-right-start-on-rectangle">
                 <livewire:auth.logout/>
             </flux:menu.item>
+            <a href="{{route('front.home')}}">
+                <flux:menu.item icon="home">
+                    {{__('commons.sidebar.mini-site')}}
+                </flux:menu.item>
+            </a>
         </flux:menu>
     </flux:dropdown>
 </flux:header>
