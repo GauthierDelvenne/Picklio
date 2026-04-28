@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\Status;
 use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\Form;
 
@@ -79,7 +80,7 @@ class UpdateOrCreateMerchantForm extends Form
 
         );
 
-        return true;
+        return $user;
     }
 
     public function rules()
@@ -89,8 +90,11 @@ class UpdateOrCreateMerchantForm extends Form
             'firstname' => 'required|string',
             'lastname' => 'required|string',
             'description' => 'nullable|string',
-            'email' => 'required|email',
-            'phone' => 'nullable',
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('users', 'email')->ignore($this->account?->user_id),
+            ],            'phone' => 'nullable',
             'status_id' => 'required',
             'postal_code' => 'required',
             'address' => 'required|string',

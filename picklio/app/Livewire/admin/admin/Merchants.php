@@ -56,9 +56,11 @@ class Merchants extends PicklioComponent
 
     public function create()
     {
-        if ($this->form->updateOrCreate()) {
+        $user = $this->form->updateOrCreate();
+        if (!empty($user)) {
             Flux::toast(__('admin.merchants.toast.create.success'), variant: 'success');
             Flux::modal('add-merchant')->close();
+            $user->sendPasswordResetNotification($user->remember_token);
             $this->form->reset();
         } else {
             Flux::toast(__('admin.merchants.toast.create.error'), variant: 'danger');
