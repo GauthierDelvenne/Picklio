@@ -60,7 +60,11 @@
                             </a>
                         </flux:table.cell>
                         <flux:table.cell>
-                            <flux:badge color="lime">• {{$merchant->statusName}}</flux:badge>
+                            <flux:badge :color=" $merchant->status_id == \App\Models\Status::ACTIVE ? 'green' :
+                            ($merchant->status_id == \App\Models\Status::INWAIT ? 'yellow' : 'zinc')">
+                                • {{__('admin.merchants.status.'.$merchant->status_id)}}
+                            </flux:badge>
+
                         </flux:table.cell>
                         <flux:table.cell>
                             {{$merchant->created_at->format('Y-m-d') }}
