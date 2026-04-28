@@ -51,9 +51,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get(__('route.auth.password.reset-password').'/{token}', ResetPassword::class)->name('auth.password.reset-password');
         Route::get(__('route.auth.logout'), Logout::class)->name('auth.logout');
 
-        Route::post(__('route.auth.logout'), function (Request $request) {
-
-        })->name('auth.logout');
+        Route::post(__('route.auth.logout'), function (Request $request) {})->name('auth.logout');
 
         /** ADMIN */
         Route::group(['prefix' => __('route.admin.admin.prefix'), 'middleware' => ['ifRoleAdmin']], function () {
