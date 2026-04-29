@@ -16,17 +16,22 @@ return new class extends Migration
             $table->string('role');
             $table->timestamps();
         });
+        Schema::create('statuses', function (Blueprint $table) {
+            $table->id();
+            $table->string('status');
+            $table->timestamps();
+        });
 
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('role_id')->constrained();
+            $table->foreignId('status_id')->nullable()->constrained();
             $table->string('firstname');
             $table->string('lastname');
             $table->string('description')->nullable();
             $table->string('email');
             $table->string('phone')->nullable();
-            $table->string('status')->nullable();
             $table->integer('postal_code')->nullable();
             $table->string('address')->nullable();
             $table->string('country')->nullable();
@@ -41,5 +46,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('accounts');
         Schema::dropIfExists('roles');
+        Schema::dropIfExists('statuses');
     }
 };

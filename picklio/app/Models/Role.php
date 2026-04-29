@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Fillable(['role'])]
 class Role extends Model
@@ -26,8 +27,8 @@ class Role extends Model
     /**
      * RELATION
      */
-    public function account(): BelongsTo
+    public function account(): HasMany
     {
-        return $this->belongsTo(Account::class);
+        return $this->hasMany(Account::class);
     }
 }

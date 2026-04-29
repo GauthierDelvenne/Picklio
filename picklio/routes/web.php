@@ -19,6 +19,7 @@ use App\Livewire\admin\client\ClientStatistics;
 use App\Livewire\admin\client\ClientStock;
 use App\Livewire\admin\client\ClientStocks;
 use App\Livewire\auth\Login;
+use App\Livewire\auth\Logout;
 use App\Livewire\auth\password\ForgetPassword;
 use App\Livewire\auth\password\ResetPassword;
 use App\Livewire\auth\Register;
@@ -47,10 +48,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get(__('route.auth.login'), Login::class)->name('auth.login');
         Route::get(__('route.auth.register'), Register::class)->name('auth.register');
         Route::get(__('route.auth.password.forget-password'), ForgetPassword::class)->name('auth.password.forget-password');
-        Route::get(__('route.auth.password.reset-password'), ResetPassword::class)->name('auth.password.reset-password');
         Route::get(__('route.auth.password.reset-password').'/{token}', ResetPassword::class)->name('auth.password.reset-password');
+        Route::get(__('route.auth.logout'), Logout::class)->name('auth.logout');
+
+        Route::post(__('route.auth.logout'), function (Request $request) {})->name('auth.logout');
+
         /** ADMIN */
-        Route::group(['prefix' => __('route.admin.admin.prefix')], function () {
+        Route::group(['prefix' => __('route.admin.admin.prefix'), 'middleware' => ['ifRoleAdmin']], function () {
             Route::get(__('route.admin.admin.dashboard'), Dashboard::class)->name('admin.dashboard');
             Route::group(['prefix' => __('route.admin.admin.orders')],
                 function () {
@@ -81,12 +85,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         });
 
         /** CLIENTS */
-        Route::group(['prefix' => __('route.admin.client.prefix')], function () {
+        Route::group(['prefix' => __('route.admin.client.prefix'), 'middleware' => ['ifRoleMerchant']], function () {
             Route::get(__('route.admin.client.dashboard'), ClientDashboard::class)->name('client.dashboard');
             Route::group(['prefix' => __('route.admin.admin.stocks')],
                 function () {
                     Route::get('/', ClientStocks::class)->name('client.stock.index');
-                    Route::get('{stock}', ClientStock::class)->name('client.stock.show');
+                    Route::get('{product}', ClientStock::class)->name('client.stock.show');
                 }
             );
             Route::group(['prefix' => __('route.admin.client.messages')],

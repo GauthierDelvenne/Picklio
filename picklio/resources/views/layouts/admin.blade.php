@@ -12,11 +12,12 @@
     @fluxAppearance
 
 </head>
-<body>
+<body class="bg-zinc-800">
 
 @include('partials.admin.admin.sidebar')
 {{ $slot }}
 
+<flux:toast />
 @livewireScripts
 @fluxScripts
 </body>

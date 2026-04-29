@@ -27,7 +27,7 @@ class LoginForm extends Form
             ]);
         }
 
-        return $validatedData;
+        return Auth::user();
     }
 
     public function rules()
