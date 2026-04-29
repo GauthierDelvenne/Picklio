@@ -90,7 +90,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             Route::group(['prefix' => __('route.admin.admin.stocks')],
                 function () {
                     Route::get('/', ClientStocks::class)->name('client.stock.index');
-                    Route::get('{stock}', ClientStock::class)->name('client.stock.show');
+                    Route::get('{product}', ClientStock::class)->name('client.stock.show');
                 }
             );
             Route::group(['prefix' => __('route.admin.client.messages')],

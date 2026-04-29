@@ -6,18 +6,15 @@ use App\Livewire\form\admin\admin\UpdateOrCreateMerchantForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Account;
 use App\Models\Status;
+use App\Traits\SortingTrait;
 use Flux\Flux;
 use Livewire\Attributes\Computed;
 use Livewire\WithPagination;
 
 class Merchants extends PicklioComponent
 {
+    use SortingTrait;
     use WithPagination;
-
-    public $sortBy = 'users.name';
-
-    public $sortDirection = 'asc';
-
     public $countries;
 
     public $search;
@@ -29,16 +26,7 @@ class Merchants extends PicklioComponent
     public function mount(): void
     {
         $this->countries = config('countries');
-    }
-
-    public function sort(string $field): void
-    {
-        if ($this->sortBy === $field) {
-            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
-        } else {
-            $this->sortBy = $field;
-            $this->sortDirection = 'asc';
-        }
+        $this->sortBy = 'users.name';
     }
 
     /**
@@ -57,7 +45,7 @@ class Merchants extends PicklioComponent
     public function create()
     {
         $user = $this->form->updateOrCreate();
-        if (!empty($user)) {
+        if (! empty($user)) {
             Flux::toast(__('admin.merchants.toast.create.success'), variant: 'success');
             Flux::modal('add-merchant')->close();
             $user->sendPasswordResetNotification($user->remember_token);

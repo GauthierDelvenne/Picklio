@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Account;
 use App\Models\Role;
+use App\Models\Status;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,18 +22,35 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RoleSeeder::class);
         $this->call(StatusSeeder::class);
+        $this->call(ProductCategorySeeder::class);
 
-        $user = User::factory()->create([
-            'name' => 'Delvenne Gauthier',
-            'email' => 'gauthierdelvenne@gmail.com',
+// ADMIN
+        $userA = User::factory()->create([
+            'name' => 'ADMIN',
+            'email' => 'admin@gmail.com',
         ]);
         Account::factory()->create([
-            'user_id' => $user->id,
+            'user_id' => $userA->id,
             'role_id' => Role::ADMIN,
-            'firstname' => 'gauthier',
-            'lastname' => 'delvenne',
-            'email' => 'gauthierdelvenne@gmail.com',
-            'phone' => '0497546943',
+            'firstname' => 'Ad',
+            'lastname' => 'Min',
+            'email' => 'admin@gmail.com',
+            'phone' => '0497444444',
+        ]);
+
+// MERCHANT
+        $userC = User::factory()->create([
+            'name' => 'MERCHANT',
+            'email' => 'merchant@gmail.com',
+        ]);
+        Account::factory()->create([
+            'user_id' => $userC->id,
+            'role_id' => Role::MERCHANT,
+            'status_id' => Status::ACTIVE,
+            'firstname' => 'Mer',
+            'lastname' => 'Chant',
+            'email' => 'merchant@gmail.com',
+            'phone' => '0497444445',
         ]);
     }
 }

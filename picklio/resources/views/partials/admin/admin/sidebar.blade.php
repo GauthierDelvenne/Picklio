@@ -30,7 +30,7 @@
                            :current="request()->routeIs('admin.settings')">{{__('commons.pageName.admin.admin.settings')}}</flux:sidebar.item>
     </flux:sidebar.nav>
     <flux:dropdown position="top" align="start" class="max-lg:hidden">
-        <flux:button class="w-full">{{__('commons.sidebar.change-site')}</flux:button>
+        <flux:button class="w-full">{{__('commons.sidebar.change-site')}}</flux:button>
         <flux:menu>
             <flux:menu.item icon="arrow-right-start-on-rectangle">
                 <livewire:auth.logout/>
@@ -47,7 +47,7 @@
     <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left"/>
     <flux:spacer/>
     <flux:dropdown position="top" alignt="start">
-        <flux:button class="w-full">{{__('commons.sidebar.change-site')}</flux:button>
+        <flux:button class="w-full">{{__('commons.sidebar.change-site')}}</flux:button>
         <flux:menu>
             <flux:menu.item icon="arrow-right-start-on-rectangle">
                 <livewire:auth.logout/>

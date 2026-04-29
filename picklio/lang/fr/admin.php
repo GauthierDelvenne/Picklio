@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 return [
     'commons' => [
         'search' => 'Rechercher',
@@ -36,12 +37,12 @@ return [
         'arrived' => 'Date d’arrivé',
         'delete-confirm' => 'Voulez vous vraiment supprimer :name ?',
         'delete-title' => 'Voulez vraiment le supprimer ?',
-        'delete-reversed' => 'Vous êtes sur le point de supprimer ce projet.<br> Cette action est irréversible.',
+        'delete-reversed' => 'Vous êtes sur le point de le supprimer.<br> Cette action est irréversible.',
         'form' => [
             'name' => [
                 'label' => 'Nom de la boite',
                 'attribute' => 'nom de la boite',
-                'placeholder' => 'Nom de la boite'
+                'placeholder' => 'Nom de la boite',
             ],
             'firstname' => [
                 'label' => 'Prénom',
