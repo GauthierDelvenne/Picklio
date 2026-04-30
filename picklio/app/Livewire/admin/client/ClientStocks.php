@@ -5,7 +5,6 @@ namespace App\Livewire\admin\client;
 use App\Livewire\PicklioComponent;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use App\Models\Stock;
 use App\Traits\SortingTrait;
 use Flux\Flux;
 use Livewire\Attributes\Computed;
@@ -19,7 +18,9 @@ class ClientStocks extends PicklioComponent
     public $search;
 
     public $account;
+
     public $categories;
+
     public $category;
 
     public function mount(): void
@@ -32,6 +33,7 @@ class ClientStocks extends PicklioComponent
     {
         $this->resetPage();
     }
+
     public function delete(Product $product)
     {
         $product->stock->delete();
@@ -43,6 +45,7 @@ class ClientStocks extends PicklioComponent
             Flux::toast(__('client.products.toast.delete.error'), variant: 'danger');
         }
     }
+
     #[Computed]
     public function products()
     {
@@ -71,9 +74,7 @@ class ClientStocks extends PicklioComponent
     public function veryLowStockCount()
     {
         return Product::where('products.account_id', $this->account->id)
-            ->join('stocks', 'stocks.product_id', '=', 'products.id')
-            ->join('product_categories', 'products.product_category_id', '=', 'product_categories.id')
-            ->where('stocks.quantity', '<=', 'product_categories.capacity * 0.10')
+            ->veryLowStock()
             ->count();
     }
 

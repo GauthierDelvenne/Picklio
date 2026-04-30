@@ -2,7 +2,7 @@
     <div class="flex justify-between gap-10 mb-12">
         <flux:heading size="xl" level="1">{{__('commons.pageName.admin.admin.merchants')}}</flux:heading>
         <flux:modal.trigger name="add-merchant">
-            <flux:button>
+            <flux:button variant="primary">
                 <flux:icon.plus/>
                 {{__('admin.merchants.add')}}
             </flux:button>
@@ -25,7 +25,7 @@
         </flux:card>
 
     </div>
-    <div class="bg-zinc-900 p-10 rounded-2xl">
+    <div class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
         <div class="mb-4 flex justify-between ">
             <flux:heading size="l">{{__('commons.pageName.admin.admin.merchants')}}</flux:heading>
             <div class="mb-4 flex gap-10">
@@ -55,7 +55,7 @@
                 @forelse($this->merchants as $merchant)
                     <flux:table.row>
                         <flux:table.cell>
-                            <a href="{{ route('admin.merchant.show', $merchant->id) }}">
+                            <a href="{{ route('admin.merchant.show', $merchant->id) }}" class="hover:text-(--color-accent-content)">
                                 {{$merchant->user_name}}
                             </a>
                         </flux:table.cell>
@@ -76,9 +76,9 @@
                                 </flux:button>
                                 <flux:menu>
                                     <a href="{{route('admin.merchant.show', $merchant->id)}}">
-                                        <flux:menu.item>{{__('admin.commons.buttons.edit')}}</flux:menu.item>
+                                        <flux:menu.item class="hover:text-(--color-accent-content)">{{__('admin.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
-                                    <flux:menu.item wire:click="delete({{$merchant}})"
+                                    <flux:menu.item wire:click="delete({{$merchant}})" class="hover:text-(--color-accent-content)"
                                                     wire:confirm="{{__('admin.merchants.delete-confirm', ['name' => $merchant->user_name])}}">{{__('admin.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:popover>

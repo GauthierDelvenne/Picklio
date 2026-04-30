@@ -28,7 +28,7 @@
         </flux:card>
 
     </div>
-    <div class="bg-zinc-900 p-10 rounded-2xl">
+    <div class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
         <div class="mb-4 flex justify-between ">
             <flux:heading size="l">{{__('commons.pageName.admin.admin.stocks')}}</flux:heading>
             <div class="mb-4 flex gap-10">
@@ -70,7 +70,7 @@
                             </div>
                         </flux:table.cell>
                         <flux:table.cell>
-                            <a href="{{ route('client.stock.show', $product->id) }}">
+                            <a href="{{ route('client.stock.show', $product->id) }}" class="hover:text-(--color-accent-content)">
                                 {{$product->name}}
                             </a>
                         </flux:table.cell>
@@ -94,10 +94,10 @@
                                     <flux:icon.ellipsis-horizontal/>
                                 </flux:button>
                                 <flux:menu>
-                                    <a href="{{route('client.stock.show', $product->id)}}">
+                                    <a href="{{route('client.stock.show', $product->id)}}" class="hover:text-(--color-accent-content)">
                                         <flux:menu.item>{{__('client.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
-                                    <flux:menu.item wire:click="delete({{$product}})"
+                                    <flux:menu.item wire:click="delete({{$product}})" class="hover:text-(--color-accent-content)"
                                                     wire:confirm="{{__('client.products.delete-confirm', ['name' => $product->user_name])}}">{{__('client.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:popover>

@@ -45,6 +45,7 @@ class Product extends Model
     {
         return number_format($this->price / 100, 2, ',', ' ').' €';
     }
+
     public function getPriceFormattedWithoutSymbolAttribute(): string
     {
         return number_format($this->price / 100, 2, ',', ' ');
@@ -69,5 +70,20 @@ class Product extends Model
     public function scopeWhereAccount(Builder $query, $accountID): Builder
     {
         return $query->where('account_id', $accountID);
+    }
+
+    public function scopeVeryLowStock(Builder $query): Builder
+    {
+        return $query->join('stocks', 'stocks.product_id', '=', 'products.id')
+            ->join('product_categories', 'products.product_category_id', '=', 'product_categories.id')
+            ->where('stocks.quantity', '<=', 'product_categories.capacity * 0.10');
+    }
+
+    public function scopeLowStock(Builder $query): Builder
+    {
+        return $query->join('stocks', 'stocks.product_id', '=', 'products.id')
+            ->join('product_categories', 'products.product_category_id', '=', 'product_categories.id')
+            ->where('stocks.quantity', '>', 'product_categories.capacity * 0.10')
+            ->where('stocks.quantity', '<=', 'product_categories.capacity * 0.25');
     }
 }
