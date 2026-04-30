@@ -123,7 +123,7 @@ class UpdateProductForm extends Form
 
     }
 
-    public function validationAttribute()
+    public function validationAttributes()
     {
         return [
             'name' => strtolower(__('client.products.forms.name.attribute')),

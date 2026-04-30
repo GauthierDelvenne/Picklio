@@ -1,3 +1,3 @@
-<div wire:click="logout">
+<div wire:click="logout" >
     {{__('commons.pageName.auth.logout')}}
 </div>

@@ -74,9 +74,7 @@ class ClientStocks extends PicklioComponent
     public function veryLowStockCount()
     {
         return Product::where('products.account_id', $this->account->id)
-            ->join('stocks', 'stocks.product_id', '=', 'products.id')
-            ->join('product_categories', 'products.product_category_id', '=', 'product_categories.id')
-            ->where('stocks.quantity', '<=', 'product_categories.capacity * 0.10')
+            ->veryLowStock()
             ->count();
     }
 

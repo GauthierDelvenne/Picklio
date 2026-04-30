@@ -37,11 +37,11 @@
     <flux:dropdown position="top" align="start" class="max-lg:hidden">
         <flux:button class="w-full">{{__('commons.sidebar.change-site')}}</flux:button>
         <flux:menu>
-            <flux:menu.item icon="arrow-right-start-on-rectangle">
+            <flux:menu.item icon="arrow-right-start-on-rectangle" class="hover:text-(--color-accent-content)">
                 <livewire:auth.logout/>
             </flux:menu.item>
             <a href="{{route('front.home')}}">
-                <flux:menu.item icon="home">
+                <flux:menu.item icon="home" class="hover:text-(--color-accent-content)">
                     {{__('commons.sidebar.mini-site')}}
                 </flux:menu.item>
             </a>
@@ -54,11 +54,11 @@
     <flux:dropdown position="top" alignt="start">
         <flux:button class="w-full">{{__('commons.sidebar.change-site')}}</flux:button>
         <flux:menu>
-            <flux:menu.item icon="arrow-right-start-on-rectangle">
+            <flux:menu.item icon="arrow-right-start-on-rectangle" class="hover:text-(--color-accent-content)">
                 <livewire:auth.logout/>
             </flux:menu.item>
             <a href="{{route('front.home')}}">
-                <flux:menu.item icon="home">
+                <flux:menu.item icon="home" class="hover:text-(--color-accent-content)">
                     {{__('commons.sidebar.mini-site')}}
                 </flux:menu.item>
             </a>
