@@ -1,4 +1,125 @@
 <flux:main>
-    <flux:heading size="xl" level="1">{{__('commons.pageName.admin.client.dashboard')}}</flux:heading>
-    <flux:separator variant="subtle"/>
+    <div class="flex justify-between gap-10 mb-12">
+        <flux:heading size="xl" level="1">{{__('commons.pageName.admin.client.dashboard')}}</flux:heading>
+    </div>
+    <div class="flex justify-between gap-10 mb-12">
+        <flux:card class="w-md">
+            <flux:heading class="flex items-center gap-2">Revenu Total</flux:heading>
+            <flux:text class="mt-2">123€</flux:text>
+        </flux:card>
+        <flux:card class="w-md">
+            <flux:heading class="flex items-center gap-2">Commandes total</flux:heading>
+            <flux:text class="mt-2">500</flux:text>
+        </flux:card>
+        <flux:card class="w-md">
+            <flux:heading class="flex items-center gap-2">Ventes moyenne</flux:heading>
+            <flux:text class="mt-2">25€</flux:text>
+        </flux:card>
+        <flux:card class="w-md">
+            <flux:heading class="flex items-center gap-2">Meuilleurs ventes</flux:heading>
+            <flux:text class="mt-2">Baguette</flux:text>
+        </flux:card>
+
+    </div>
+    <div class="flex gap-10">
+        <div class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl grow">
+            <div class="mb-4 flex justify-between ">
+                <flux:heading size="l">{{__('commons.pageName.admin.admin.stocks')}}</flux:heading>
+                <div class="mb-4 flex gap-10">
+                    <flux:select wire:model.live="category">
+                        <flux:select.option
+                            value="">{{__('client.products.forms.category.placeholder')}}</flux:select.option>
+                        @foreach($this->categories as $key => $categories)
+                            <flux:select.option
+                                value="{{$categories->id}}">{{__('client.products.categories.'.$categories->id)}}</flux:select.option>
+                        @endforeach
+                    </flux:select>
+                    <flux:input wire:model.live.debounce.500ms="search" icon="magnifying-glass"
+                                placeholder="{{__('client.commons.search')}}"/>
+                </div>
+            </div>
+
+            <flux:table :paginate="$this->products">
+                <flux:table.columns>
+                    <flux:table.column>Photo</flux:table.column>
+                    <flux:table.column sortable :sorted="$sortBy === 'products.name'" :direction="$sortDirection"
+                                       wire:click="sort('products.name')">{{__('client.products.forms.name.placeholder')}}
+                    </flux:table.column>
+                    <flux:table.column>{{__('client.products.forms.category.label')}}</flux:table.column>
+                    <flux:table.column>{{__('client.products.status')}}</flux:table.column>
+                    <flux:table.column>{{__('client.products.stock')}}</flux:table.column>
+                    <flux:table.column>{{__('client.products.forms.price.label')}}</flux:table.column>
+                    <flux:table.column></flux:table.column>
+
+                </flux:table.columns>
+                <flux:table.rows>
+                    @forelse($this->products as $product)
+                        <flux:table.row>
+                            <flux:table.cell>
+                                <div class="w-9 h-9 rounded">
+                                    <img
+                                        src="{{ $product->pictureUrl(600) }}"
+                                        srcset="{{ $product->pictureUrl(300) }} 300w, {{ $product->pictureUrl(600) }} 600w,{{ $product->pictureUrl(900) }} 900w"
+                                        sizes="(max-width: 400px) 300px, (max-width: 700px) 600px, 900px"
+                                        alt="{{$product->name}}" class="w-full h-full object-cover rounded">
+                                </div>
+                            </flux:table.cell>
+                            <flux:table.cell>
+                                <a href="{{ route('client.stock.show', $product->id) }}">
+                                    {{$product->name}}
+                                </a>
+                            </flux:table.cell>
+                            <flux:table.cell>
+                                {{__('client.products.categories.'.$product->product_category_id)}}
+                            </flux:table.cell>
+                            <flux:table.cell>
+                                <flux:badge
+                                    :color=" $product->stock->isVeryLowStock ? 'red' : ($product->stock->isLowStock ? 'yellow' : 'green')">
+                                    {{$product->stock->isVeryLowStock ? 'Critique' : ($product->stock->isLowStock ? 'Bas' : 'Bon')}}                            </flux:badge>
+                            </flux:table.cell>
+                            <flux:table.cell>
+                                {{$product->stock->quantity}}/{{$product->productCategory->capacity}}
+                            </flux:table.cell>
+                            <flux:table.cell>
+                                {{$product->priceFormatted}}
+                            </flux:table.cell>
+                            <flux:table.cell>
+                                <flux:dropdown position="left" align="center">
+                                    <flux:button variant="ghost">
+                                        <flux:icon.ellipsis-horizontal/>
+                                    </flux:button>
+                                    <flux:menu>
+                                        <a href="{{route('client.stock.show', $product->id)}}">
+                                            <flux:menu.item>{{__('client.commons.buttons.edit')}}</flux:menu.item>
+                                        </a>
+                                        <flux:menu.item wire:click="delete({{$product}})"
+                                                        wire:confirm="{{__('client.products.delete-confirm', ['name' => $product->user_name])}}">{{__('client.commons.buttons.delete')}}</flux:menu.item>
+                                    </flux:menu>
+                                </flux:popover>
+                            </flux:table.cell>
+                        </flux:table.row>
+                    @empty
+                        <flux:table.row>
+                            <flux:table.cell>
+                                {{__('client.commons.empty')}}
+                            </flux:table.cell>
+                        </flux:table.row>
+                    @endforelse
+
+                </flux:table.rows>
+            </flux:table>
+        </div>
+        <flux:card>
+            <flux:heading class="flex items-center gap-2">Messages</flux:heading>
+            <div class="mt-2 flex gap-4">
+                <flux:avatar size="lg" name="Ad Min" class="mt-2"/>
+                <div>
+                    <flux:text class="mt-2">Titre du message</flux:text>
+                    <flux:text class="mt-2">{{\Carbon\Carbon::now()->diffForHumans()}}</flux:text>
+                </div>
+
+            </div>
+        </flux:card>
+    </div>
+
 </flux:main>

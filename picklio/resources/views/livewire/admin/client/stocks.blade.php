@@ -28,7 +28,7 @@
         </flux:card>
 
     </div>
-    <div class="bg-zinc-900 p-10 rounded-2xl">
+    <div class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
         <div class="mb-4 flex justify-between ">
             <flux:heading size="l">{{__('commons.pageName.admin.admin.stocks')}}</flux:heading>
             <div class="mb-4 flex gap-10">

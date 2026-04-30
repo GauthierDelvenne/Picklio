@@ -36,7 +36,7 @@ class ClientStock extends PicklioComponent
         if ($this->product->delete()) {
             Flux::toast(__('client.products.toast.delete.success'), variant: 'success');
             Flux::modal('delete-product')->close();
-            $this->redirectRoute('admin.merchant.index');
+            $this->redirectRoute('client.stock.index');
         } else {
             Flux::toast(__('client.products.toast.delete.error'), variant: 'danger');
         }
@@ -45,6 +45,6 @@ class ClientStock extends PicklioComponent
     {
         return view('livewire.admin.client.stock')
             ->layout('layouts.client')
-            ->title(__('commons.pageName.admin.admin.stock').' | Client');
+            ->title(__('commons.pageName.admin.admin.stock').' | '.__('commons.pageName.admin.client.stock'));
     }
 }
