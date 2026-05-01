@@ -2,15 +2,81 @@
 
 namespace App\Livewire\admin\admin;
 
+use App\Livewire\form\admin\admin\CreateMessageForm;
 use App\Livewire\PicklioComponent;
-use Livewire\Component;
+use App\Models\Message;
+use App\Traits\SortingTrait;
+use Flux\Flux;
+use Livewire\Attributes\Computed;
+use Livewire\WithPagination;
 
 class Messages extends PicklioComponent
 {
+    use SortingTrait;
+    use WithPagination;
+
+    public $search;
+
+    public $messageStatus;
+
+    public CreateMessageForm $form;
+
+    public function mount(): void
+    {
+        $this->sortBy = 'users.name';
+    }
+
+    public function updatedMessageStatus()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function create()
+    {
+        if ($this->form->create()) {
+            Flux::toast(__('admin.messages.toast.create.success'), variant: 'success');
+            Flux::modal('add-merchant')->close();
+            $this->form->reset();
+        } else {
+            Flux::toast(__('admin.messages.toast.create.error'), variant: 'danger');
+        }
+    }
+
+    public function delete(Message $message)
+    {
+        if ($message->delete()) {
+            Flux::toast(__('admin.messages.toast.delete.success'), variant: 'success');
+            Flux::modal('delete-message')->close();
+        } else {
+            Flux::toast(__('admin.messages.toast.delete.error'), variant: 'danger');
+        }
+    }
+
+    #[Computed]
+    public function messages()
+    {
+        return Message::join('accounts', 'messages.recipient_id', '=', 'accounts.id')
+            ->join('users', 'accounts.user_id', '=', 'users.id')
+            ->select('messages.*', 'users.name as name')
+            ->when($this->search, function ($query) {
+                $query->where('users.name', 'like', '%'.$this->search.'%');
+            })
+            ->when($this->messageStatus, function ($query) {
+                $query->where('messages.message_status_id', $this->messageStatus);
+            })
+            ->orderBy($this->sortBy, $this->sortDirection)
+            ->paginate(15);
+    }
+
     public function render()
     {
         return view('livewire.admin.admin.messages')
             ->layout('layouts.admin')
-            ->title(__('commons.pageName.admin.admin.messages').' | Admin');
+            ->title(__('commons.pageName.admin.admin.messages') . ' | Admin');
     }
 }

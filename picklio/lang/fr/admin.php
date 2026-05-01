@@ -12,6 +12,7 @@ return [
             'add' => 'Ajouter',
             'cancel' => 'Annuler',
             'update' => 'Mettre à jour le stock',
+            'send' => 'Envoyer',
         ],
     ],
     'settings' => [
@@ -34,7 +35,7 @@ return [
             '2' => 'En attente',
             '3' => 'Inactif',
         ],
-        'shop-name' => 'Nom du magasins',
+        'shop-name' => 'Nom du commerce',
         'arrived' => 'Date d’arrivé',
         'delete-confirm' => 'Voulez vous vraiment supprimer :name ?',
         'delete-title' => 'Voulez vraiment le supprimer ?',
@@ -163,6 +164,61 @@ return [
             '23' => 'Mobilier & Décoration intérieure',
             '24' => 'Soins naturels & Bio',
             '25' => 'Parfums & Senteurs locales',
+        ],
+    ],
+    'messages' => [
+        'send' => 'Envoyez un message',
+        'edit' => 'Modifier un message',
+        'shop-name' => 'Nom du commerce',
+        'admin-name' => 'Nom de L’entrepôt',
+        'delete-confirm' => 'Voulez vous vraiment supprimer le message de :name ?',
+        'delete-title' => 'Voulez vraiment le supprimer ?',
+        'delete-reversed' => 'Vous êtes sur le point de le supprimer.<br> Cette action est irréversible.',
+        'title' => 'Le message',
+        'form' => [
+            'title' => [
+                'label' => 'Titre',
+                'attribute' => 'titre',
+                'placeholder' => 'Le titre du message',
+            ],
+            'description' => [
+                'label' => 'Description',
+                'attribute' => 'description',
+                'placeholder' => 'Le contenu du message',
+            ],
+            'status' => [
+                'label' => 'Status',
+                'attribute' => 'status',
+                'placeholder' => 'Le status du message',
+            ],
+            'recipient' => [
+                'label' => 'Envoyer à',
+                'attribute' => 'envoyer à',
+                'placeholder' => 'Envoyer un message à',
+            ],
+            'sender' => [
+                'label' => 'Envoyeur',
+                'attribute' => 'envoyeur',
+            ],
+        ],
+        'status' => [
+            '1' => 'Valide',
+            '2' => 'En attente',
+            '3' => 'Invalide',
+        ],
+        'toast' => [
+            'create' => [
+                'success' => 'Le message a bien été crée',
+                'error' => 'Une erreur est survenu lors de la création',
+            ],
+            'update' => [
+                'success' => 'Le message a bien été modifié',
+                'error' => 'Une erreur est survenu lors de la modification',
+            ],
+            'delete' => [
+                'success' => 'Le message a bien été supprimé',
+                'error' => 'Une erreur est survenu lors de la suppression',
+            ],
         ],
     ],
 

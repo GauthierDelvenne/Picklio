@@ -11,6 +11,8 @@ return [
             'delete' => 'Supprimer',
             'add' => 'Ajouter',
             'cancel' => 'Annuler',
+            'validate' => 'Valider le message',
+            'refuse' => 'Refuser le message',
         ],
     ],
     'settings' => [
