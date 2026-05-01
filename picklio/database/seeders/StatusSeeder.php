@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\MessageStatus;
 use App\Models\Role;
 use App\Models\Status;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -18,6 +19,11 @@ class StatusSeeder extends Seeder
             ['status' => 'active'],
             ['status' => 'in_wait'],
             ['status' => 'inactive'],
+        ]);
+        MessageStatus::factory()->createMany([
+            ['status' => 'valid'],
+            ['status' => 'unread'],
+            ['status' => 'unvalid'],
         ]);
     }
 }
