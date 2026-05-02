@@ -17,6 +17,7 @@ class RoleSeeder extends Seeder
             ['role' => 'admin'],
             ['role' => 'merchant'],
             ['role' => 'client'],
+            ['role' => 'warehouse'],
         ]);
     }
 }

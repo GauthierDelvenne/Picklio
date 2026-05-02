@@ -23,6 +23,58 @@ return [
             'system' => 'Paramètre système',
         ],
         'lang' => 'Changez la langue',
+        'accounts' => [
+            'title' => 'Changez les informations du compte',
+            'toast' => [
+                'update' => [
+                    'success' => 'Le compte a bien été modifié',
+                    'error' => 'Une erreur est survenu lors de la modification',
+                ],
+            ],
+        ],
+        'warehouse' => [
+            'title' => 'Changez les informations de l’entrepôt',
+            'toast' => [
+                'update' => [
+                    'success' => 'L’entrepôt a bien été modifié',
+                    'error' => 'Une erreur est survenu lors de la modification',
+                ],
+            ],
+            'forms' => [
+                'name' => [
+                    'label' => 'Nom de l’entrepôt',
+                    'attribute' => 'nom de l’entrepôt',
+                ],
+                'phone' => [
+                    'label' => 'Téléphone',
+                    'attribute' => 'téléphone',
+                ],
+                'email' => [
+                    'label' => 'Email',
+                    'attribute' => 'email',
+                ],
+                'address' => [
+                    'label' => 'Adresse de l’entrepôt',
+                    'attribute' => 'adresse de l’entrepôt',
+                ],
+                'postal_code' => [
+                    'label' => 'Code postal',
+                    'attribute' => 'code postal',
+                ],
+                'country' => [
+                    'label' => 'Pays',
+                    'attribute' => 'pays',
+                ],
+                'opening_time' => [
+                    'label' => 'Heure d’ouverture',
+                    'attribute' => 'heure d’ouverture',
+                ],
+                'closing_time' => [
+                    'label' => 'Heure de fermeture',
+                    'attribute' => 'heure de fermeture',
+                ],
+            ],
+        ],
     ],
     'merchants' => [
         'add' => 'Ajouter un commerçant',

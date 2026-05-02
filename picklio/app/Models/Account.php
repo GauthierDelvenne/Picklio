@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['firstname', 'lastname', 'description', 'email', 'phone', 'postal_code', 'address', 'country', 'user_id', 'role_id', 'status_id'])]
+#[Fillable(['firstname', 'lastname', 'description', 'email', 'phone', 'postal_code', 'address', 'country', 'user_id', 'role_id', 'status_id', 'id'])]
 class Account extends Model
 {
     /** @use HasFactory<AccountFactory> */

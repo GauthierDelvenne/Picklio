@@ -6,6 +6,7 @@ use App\Models\Account;
 use App\Models\Role;
 use App\Models\Status;
 use App\Models\User;
+use App\Models\Warehouse;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -26,7 +27,7 @@ class DatabaseSeeder extends Seeder
 
 // ADMIN
         $userA = User::factory()->create([
-            'name' => 'ADMIN',
+            'name' => 'Ad Min',
             'email' => 'admin@gmail.com',
         ]);
         Account::factory()->create([
@@ -38,9 +39,10 @@ class DatabaseSeeder extends Seeder
             'phone' => '0497444444',
         ]);
 
+
 // MERCHANT
         $userC = User::factory()->create([
-            'name' => 'MERCHANT',
+            'name' => 'Mer Chant',
             'email' => 'merchant@gmail.com',
         ]);
         Account::factory()->create([
@@ -51,6 +53,32 @@ class DatabaseSeeder extends Seeder
             'lastname' => 'Chant',
             'email' => 'merchant@gmail.com',
             'phone' => '0497444445',
+            'address' => 'Rue de liège,2',
+            'postal_code' => '4000',
+            'country' => 'BE',
+        ]);
+        // WAREHOUSE
+        $userC = User::factory()->create([
+            'name' => 'Ware House',
+            'email' => 'warhouse@gmail.com',
+        ]);
+        Account::factory()->create([
+            'user_id' => $userC->id,
+            'role_id' => Role::WAREHOUSE,
+            'firstname' => 'Ware',
+            'lastname' => 'House',
+            'email' => 'warehouse@gmail.com',
+            'phone' => '0497444444',
+        ]);
+        Warehouse::factory()->create([
+            'name' => 'Picklio',
+            'phone' => '04 97 54 69 43',
+            'email' => 'picklio@gmail.com',
+            'address' => 'Rue de liège,2',
+            'postal_code' => '4000',
+            'country' => 'BE',
+            'opening_time' => '10:00',
+            'closing_time' => '20:00',
         ]);
     }
 }
