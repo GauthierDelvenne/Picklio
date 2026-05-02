@@ -15,7 +15,7 @@ class Login extends PicklioComponent
         $auth = $this->form->authenticate()->account;
         if (! empty($auth)) {
             // TODO : Peut-être revoir le redirect en fonction du compte ou juste rediriger sur la home et la personne va ou elle veut en fonction de ce qu'elle veut faire
-            if ($auth->role_id === Role::ADMIN) {
+            if ($auth->role_id === Role::ADMIN || $auth->role_id === Role::WAREHOUSE) {
                 $this->redirectRoute('admin.dashboard', navigate: true);
             } elseif ($auth->role_id === Role::MERCHANT) {
                 $this->redirectRoute('client.dashboard', navigate: true);

@@ -16,7 +16,7 @@ class CheckAdminMiddleware
         }
 
         $account = auth()->user()->account;
-        if ($account->role_id != Role::ADMIN) {
+        if ($account->role_id != Role::ADMIN && $account->role_id != Role::WAREHOUSE) {
             abort(403);
         }
 

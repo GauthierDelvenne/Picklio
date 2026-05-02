@@ -12,7 +12,7 @@
     @fluxAppearance
 
 </head>
-<body class="bg-zinc-800">
+<body class="bg-white text-black dark:bg-zinc-800 dark:text-white">
 
 @include('partials.admin.admin.sidebar')
 {{ $slot }}
