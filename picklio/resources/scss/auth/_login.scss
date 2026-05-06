@@ -1,0 +1,108 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-4;
+    margin-top: $space-12;
+    @include laptop {
+        flex-direction: row;
+        justify-content: center;
+        gap: $space-12;
+    }
+    @include desktop {
+        gap: $space-32;
+    }
+    @include wide {
+        gap: $space-48;
+    }
+
+    &__formContainer {
+        &__title {
+            font-size: $text-2xl;
+            margin-bottom: $space-3;
+            @include laptop-l {
+                font-size: $text-3xl;
+            }
+            @include desktop {
+                font-size: $text-5xl;
+            }
+            @include wide {
+                font-size: $text-6xl;
+            }
+        }
+
+        &__inputContainer {
+            &__input {
+                &__error {
+                }
+            }
+
+            &__forgetPassword {
+            }
+
+            &__svg {
+
+            }
+        }
+
+        &__checkboxContainer {
+            margin-top: -$space-2;
+            @include laptop-l {
+                margin-top: -$space-4;
+            }
+            @include desktop {
+                margin-top: -$space-6;
+            }
+
+            &__checkbox {
+                &__error {
+                }
+            }
+        }
+
+
+        &__button {
+            margin-bottom: $space-3;
+            @include laptop-l {
+                margin-bottom: $space-5;
+            }
+            @include desktop {
+                margin-bottom: $space-8;
+            }
+
+            &__svg {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        &__noAccount {
+            @include laptop-l {
+                font-size: $text-xl;
+            }
+            @include desktop {
+                font-size: $text-2xl;
+            }
+            @include wide {
+                font-size: $text-3xl;
+            }
+
+            &__link {
+                color: $tangerine-600;
+                font-weight: 600;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: $tangerine-400;
+                }
+            }
+        }
+    }
+
+    .imgContainer {
+        display: none;
+        @include laptop {
+            display: block;
+        }
+    }
+}

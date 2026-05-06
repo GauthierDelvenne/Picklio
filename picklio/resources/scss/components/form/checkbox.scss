@@ -1,0 +1,28 @@
+.checkboxContainer {
+    margin-bottom: $space-3;
+    @include laptop-l {
+        font-size: $text-xl;
+        margin-bottom: $space-5;
+    }
+    @include desktop {
+        font-size: $text-2xl;
+        margin-bottom: $space-8;
+    }
+    @include wide {
+        font-size: $text-3xl;
+    }
+    &__label {
+
+    }
+
+    &__input {
+        accent-color: $tangerine-400;
+    }
+
+    &__error {
+        color: $error;
+        @include laptop-l {
+            font-size: $text-lg;
+        }
+    }
+}

@@ -3,15 +3,17 @@
         <h1 class="forgetPassword__formContainer__title">{{__('front.forget-password.title')}}</h1>
         <p class="forgetPassword__formContainer__subtitle">{{__('front.forget-password.subtitle')}}</p>
         <x-form.input div-class="forgetPassword__formContainer__inputContainer" name="email"
-                      label="{{__('auth.form.email.label')}}"
+                      label="{{__('auth.form.email.label')}}" required="true"
                       type="email" model="form.email" placeholder="{{__('auth.form.email.label')}}"
                       input-class="forgetPassword__formContainer__inputContainer__input"
                       input-error-class="forgetPassword__formContainer__inputContainer__input__error"/>
 
 
-        <button type="submit" class="forgetPassword__formContainer__button">{{__('auth.form.button.forget')}}</button>
+        <button type="submit" class="button button--icon forgetPassword__formContainer__button">{{__('auth.form.button.forget')}}
+            <x-svg.svg class="forgetPassword__formContainer__button__svg" name="arrow"/>
+        </button>
         <p class="forgetPassword__formContainer__returnLogin">
-            <a href="{{route('auth.login')}}" class="forgetPassword__formContainer__returnLogin--link">
+            <a href="{{route('auth.login')}}" class="forgetPassword__formContainer__returnLogin__link">
                 {{__('front.forget-password.return-login')}}
             </a>
         </p>

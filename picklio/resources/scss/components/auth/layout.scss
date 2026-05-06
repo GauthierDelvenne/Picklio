@@ -1,0 +1,12 @@
+.body{
+    margin: 16px;
+    background-color: $tangerine-50-80;
+    color: $tangerine-950;
+    @include laptop    { margin: 32px; }
+}
+.logoContainer {
+    text-align: center;
+    &__logo {
+
+    }
+}

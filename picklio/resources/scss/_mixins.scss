@@ -1,0 +1,24 @@
+// Mobile first — min-width (à partir de) // avant 425px
+@mixin tablet {
+    @media (min-width: 425px) { @content; } // entre 425px - 767px
+}
+
+@mixin laptop {
+    @media (min-width: 768px) { @content; } // entre 768px - 1023px
+}
+
+@mixin laptop-l {
+    @media (min-width: 1024px) { @content; } // entre 1024px - 1279px
+}
+
+@mixin desktop {
+    @media (min-width: 1280px) { @content; } // entre 1280px - 1439px
+}
+
+@mixin desktop-l {
+    @media (min-width: 1440px) { @content; } // entre 1440px - 1919px
+}
+
+@mixin wide {
+    @media (min-width: 1920px) { @content; } // apres 1920px
+}

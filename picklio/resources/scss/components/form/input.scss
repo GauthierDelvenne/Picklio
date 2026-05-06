@@ -1,0 +1,117 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+    margin-bottom: $space-3;
+    position: relative;
+    @include laptop-l {
+        font-size: $text-xl;
+        margin-bottom: $space-5;
+    }
+    @include desktop {
+        font-size: $text-2xl;
+        margin-bottom: $space-6;
+    }
+    @include wide {
+        font-size: $text-3xl;
+    }
+
+    abbr {
+        color: $tangerine-500;
+    }
+
+    &__label {
+
+    }
+
+    &__wrapper {
+        position: relative;
+
+        &__input {
+            width: 100%;
+            padding: $space-2;
+            background: $tangerine-50;
+            border: 1px solid $tangerine-100;
+            border-radius: $radius-sm;
+            box-shadow: $box-shadow;
+            font-size: $text-sm;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            @include laptop-l {
+                font-size: $text-base;
+            }
+            @include desktop {
+                font-size: $text-xl;
+            }
+            @include wide {
+                font-size: $text-2xl;
+            }
+
+            &:hover {
+                border-color: $tangerine-300;
+                box-shadow: $box-shadow, 0 0 0 3px $tangerine-200-50;
+            }
+
+            &:focus {
+                outline: none;
+                border-color: $tangerine-500;
+                box-shadow: $box-shadow, 0 0 0 3px $tangerine-200-50;
+            }
+        }
+
+        &__icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+            svg {
+                fill: $tangerine-600;
+                transition: fill 0.3s;
+
+                width: 20px;
+                height: 20px;
+
+                &:hover {
+                    fill: $tangerine-500;
+                }
+            }
+        }
+    }
+
+    &__error {
+        color: $error;
+        @include laptop-l {
+            font-size: $text-lg;
+        }
+        @include desktop {
+            font-size: $text-base;
+        }
+        @include wide {
+            font-size: $text-xl;
+        }
+    }
+
+    &__forgetPassword {
+        font-size: $text-xsm;
+        position: absolute;
+        top: calc($text-base - $text-xsm);
+        right: 0;
+        transition: color 0.3s;
+
+        @include laptop-l {
+            font-size: $text-sm;
+            top: calc($text-xl - $text-sm);
+        }
+        @include desktop {
+            font-size: $text-base;
+            top: calc($text-2xl - $text-base);
+        }
+        @include wide {
+            font-size: $text-xl;
+            top: calc($text-3xl - $text-xl);
+        }
+
+        &:hover {
+            color: $tangerine-400;
+        }
+    }
+}
