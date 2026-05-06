@@ -166,6 +166,7 @@ return [
     'url' => 'Le champ :attribute doit être une URL valide.',
     'ulid' => 'Le champ :attribute doit être un ULID valide.',
     'uuid' => 'Le champ :attribute doit être un UUID valide.',
+    'abbr-required' => 'Obligatoire',
 
     /*
     |--------------------------------------------------------------------------

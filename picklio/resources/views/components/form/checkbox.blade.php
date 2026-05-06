@@ -1,8 +1,8 @@
-<div class="{{$divClass}}">
+<div class="checkboxContainer {{$divClass}}">
     <input type="checkbox" id="{{ $name }}" @isset($model) wire:model="{{ $model }}" @endisset value="{{ $name }}"
-           class="{{$inputClass}}">
-    <label for="{{ $name }}">{{ $label }}</label>
+           class="checkboxContainer__input {{$inputClass}}">
+    <label for="{{ $name }}" class="checkboxContainer__label">{{ $label }}</label>
     @error($model)
-    <div class="{{$inputErrorClass}}">{{ $message }}</div>
+    <div class="checkboxContainer__error {{$inputErrorClass}}">{{ $message }}</div>
     @enderror
 </div>

@@ -1,0 +1,40 @@
+.button {
+    padding: $space-3;
+    border-radius: $radius-md;
+    width: 100%;
+    background-color: $tangerine-100;
+    color: $tangerine-600;
+    font-weight: 600;
+    box-shadow: $box-shadow;
+    transition: color 0.3s;
+
+    .icon {
+        fill: $tangerine-600;
+        transition: fill 0.3s, rotate 0.3s;
+    }
+
+    &:hover {
+        color: $tangerine-500;
+
+        .icon {
+            fill: $tangerine-500;
+            rotate: 45deg;
+        }
+    }
+
+    &--icon {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    @include laptop-l {
+        font-size: $text-xl;
+    }
+    @include desktop {
+        font-size: $text-2xl;
+    }
+    @include wide {
+        font-size: $text-3xl;
+    }
+}
