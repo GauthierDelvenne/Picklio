@@ -1,0 +1,166 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $space-8;
+    margin-top: $space-8;
+    margin-bottom: $space-16;
+
+    &__imgContainer {
+        z-index: 5;
+
+        &__img {
+            height: 40px;
+            transition: transform ease 0.3s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    &__navbar {
+        padding: $space-4;
+        @include laptop {
+            width: 100%;
+
+        }
+
+        &__burger-input {
+            display: none;
+
+            &:checked {
+                ~ .header__navbar__liste {
+                    transform: translateX(0);
+                    opacity: 1;
+                    z-index: 4;
+                }
+
+                ~ .header__navbar__burger-icon {
+                    .header__navbar__burger-icon__line--1 {
+                        top: 50%;
+                        transform: translateY(-50%) rotate(45deg);
+                    }
+
+                    .header__navbar__burger-icon__line--2 {
+                        opacity: 0;
+                    }
+
+                    .header__navbar__burger-icon__line--3 {
+                        bottom: 50%;
+                        transform: translateY(50%) rotate(-45deg);
+                    }
+                }
+            }
+        }
+
+        &__burger-icon {
+            position: relative;
+            width: 2.5rem;
+            height: 2.5rem;
+            cursor: pointer;
+            z-index: 5;
+            display: block;
+
+            @include laptop {
+                display: none;
+            }
+
+            &:hover &__line {
+                background-color: $tangerine-300;
+            }
+
+            &__line {
+                position: absolute;
+                width: 80%;
+                height: 3px;
+                background-color: $tangerine-500;
+                left: 10%;
+                transition: all ease 0.3s;
+
+                &--1 {
+                    top: 25%;
+                }
+
+                &--2 {
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                &--3 {
+                    bottom: 25%;
+                }
+            }
+        }
+
+        &__liste {
+            position: fixed;
+            inset: 0;
+            background-color: $tangerine-50;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: $space-4;
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: transform ease 0.3s, opacity ease 0.3s;
+
+            @include laptop {
+                position: static;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: $space-3;
+                background-color: transparent;
+                transform: translateX(0);
+                opacity: 1;
+            }
+            @include desktop {
+                gap: $space-6;
+            }
+
+            &__item {
+                transition: color ease 0.3s;
+                border-bottom: solid 0 transparent;
+
+                &__link {
+                    font-weight: 600;
+                    @include desktop {
+                        font-size: $text-2xl;
+                    }
+
+                    &__svg {
+                        fill: $tangerine-600;
+                        transition: fill ease 0.3s, transform ease 0.3s;
+                        width: 25px;
+                        height: 25px;
+                        @include desktop {
+                            width: 35px;
+                            height: 35px;
+                        }
+
+                        &:hover {
+                            fill: $tangerine-500;
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+
+                .active {
+                    color: $tangerine-600;
+                    border-bottom: solid 3px $tangerine-600;
+                }
+
+                &:hover {
+                    color: $tangerine-600;
+                }
+
+                &--push {
+                    @include laptop {
+                        margin-left: auto;
+                    }
+                }
+            }
+        }
+    }
+}

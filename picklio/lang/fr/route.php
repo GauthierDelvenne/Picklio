@@ -37,6 +37,9 @@ return [
         'basket' => 'panier',
         'slot' => 'creneaux',
         'order-confirmation' => 'confirmation-commande',
+        'profil' => 'profil',
+        'legal-notice' => 'mentions-legales',
+        'privacy-policy' => 'politique-de-confidentialite',
     ],
     'auth' => [
         'login' => 'connexion',
