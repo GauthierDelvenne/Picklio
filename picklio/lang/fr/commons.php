@@ -35,6 +35,9 @@ return [
             'slot' => 'Créneaux',
             'order-confirmation' => 'Confirmation de commande',
             'settings' => 'Paramètre',
+            'profil' => 'Profil',
+            'legal-notice' => 'Mentions légales',
+            'privacy-policy' => 'Politique de confidentialité',
         ],
         'auth' => [
             'login' => 'Connexion',

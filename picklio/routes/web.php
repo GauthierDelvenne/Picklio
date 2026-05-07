@@ -28,7 +28,10 @@ use App\Livewire\front\Catalogue;
 use App\Livewire\front\Catalogues;
 use App\Livewire\front\FrontMerchant;
 use App\Livewire\front\Home;
+use App\Livewire\front\LegalNotice;
 use App\Livewire\front\OrderConfirmation;
+use App\Livewire\front\PrivacyPolicy;
+use App\Livewire\front\Profil;
 use App\Livewire\front\Slot;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
@@ -115,5 +118,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get(__('route.front.basket'), Basket::class)->name('front.basket');
         Route::get(__('route.front.slot'), Slot::class)->name('front.slot');
         Route::get(__('route.front.order-confirmation'), OrderConfirmation::class)->name('front.order-confirmation');
+        Route::get(__('route.front.profil'), Profil::class)->name('front.profil');
+        Route::get(__('route.front.legal-notice'), LegalNotice::class)->name('front.legal-notice');
+        Route::get(__('route.front.privacy-policy'), PrivacyPolicy::class)->name('front.privacy-policy');
 
     });

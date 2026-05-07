@@ -1,0 +1,27 @@
+.legalNotice {
+    display: flex;
+    flex-direction: column;
+    gap: $space-8;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    &__firstSection {
+        &__title {
+
+        }
+    }
+
+    &__sectionContainer {
+        display: flex;
+        flex-direction: column;
+        gap: $space-2;
+
+        &__title {
+
+        }
+
+        &__content {
+
+        }
+    }
+}
