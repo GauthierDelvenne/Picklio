@@ -1,0 +1,69 @@
+.footer {
+    background-color: $tangerine-100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $space-4;
+    font-size: $text-sm;
+    margin-top: $space-16;
+    padding-top: $space-8;
+    padding-bottom: $space-8;
+    min-height: 250px;
+    @include laptop {
+        flex-direction: row;
+    }
+    @include laptop-l {
+        font-size: $text-base;
+    }
+
+    &__mandatoryContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &__imgContainer {
+            &__img {
+                width: 280px;
+                transition: transform ease 0.3s;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+
+        &__text {
+            font-size: $text-xsm;
+
+            &__link {
+                transition: color ease 0.3s;
+
+                &:hover {
+                    color: $tangerine-600;
+                }
+            }
+        }
+    }
+
+    &__infoContainer {
+        &__title {
+            font-weight: 600;
+            font-size: $text-base;
+            @include laptop-l {
+                font-size: $text-xl;
+            }
+        }
+
+        &__liste {
+            &__item {
+                &__link {
+                    transition: color ease 0.3s;
+
+                    &:hover {
+                        color: $tangerine-600;
+                    }
+                }
+            }
+        }
+    }
+}

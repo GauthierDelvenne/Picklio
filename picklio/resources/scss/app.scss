@@ -5,11 +5,22 @@
 // Base
 @import "reset";
 
+// Utils
+@import "utils/hidden";
+@import "utils/layout";
+@import "utils/margin";
+
 // Auth
 @import "auth/login";
 @import "auth/register";
 @import "auth/forget-password";
 @import "auth/reset-password";
+
+// Front
+@import "front/partials/header";
+@import "front/partials/footer";
+@import "front/legal-notice";
+@import "front/privacy-policy";
 
 // Components
 @import "components/form/input";
@@ -18,4 +29,3 @@
 @import "components/button";
 
 @import "components/auth/imgContainer";
-@import "components/auth/layout";

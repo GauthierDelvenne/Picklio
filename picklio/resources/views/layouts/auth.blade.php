@@ -14,7 +14,7 @@
     @livewireStyles
 
 </head>
-<body class="body">
+<body class="body body--auth">
 <div class="logoContainer">
     <img class="logoContainer__logo" src="{{asset('images/logo-name.svg')}}" alt="Picklio logo">
 </div>
