@@ -1,0 +1,105 @@
+.home {
+    &__introContainer {
+        display: flex;
+        justify-content: center;
+        gap: $space-8;
+        margin-bottom: $space-32;
+        @include laptop {
+        }
+        @include laptop-l {
+            gap: $space-12;
+            margin-bottom: $space-48;
+        }
+        @include desktop {
+            gap: $space-40;
+        }
+
+        &__contentContainer {
+            display: flex;
+            flex-direction: column;
+            gap: $space-8;
+            @include tablet {
+                max-width: 450px;
+            }
+            @include laptop-l {
+                max-width: 800px;
+            }
+
+            &__title {
+                @include laptop-l {
+                    font-size: $text-3xl;
+                }
+                @include desktop-l {
+                    font-size: $text-4xl;
+                }
+            }
+
+            &__content {
+                @include laptop-l {
+                    font-size: $text-xl;
+                }
+                @include desktop-l {
+                    font-size: $text-2xl;
+                }
+            }
+
+            &__buttonContainer {
+                display: flex;
+                flex-direction: column;
+                gap: $space-4;
+
+                &__button {
+
+                    &__svg {
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+            }
+
+            &__liste {
+                display: flex;
+                justify-content: space-around;
+                gap: $space-8;
+
+                &__item {
+                    position: relative;
+                    @include laptop-l {
+                        font-size: $text-3xl;
+                    }
+
+                    &__svg {
+                        position: absolute;
+                        width: auto;
+                        aspect-ratio: 5 / 1;
+                        fill: $tangerine-200-50;
+                        bottom: 0;
+                        z-index: -1;
+                    }
+                }
+            }
+        }
+
+        &__imgContainer {
+            display: none;
+            width: 333px;
+            height: 333px;
+            aspect-ratio: 1;
+            @include laptop {
+                display: block;
+            }
+            @include laptop-l {
+                width: 500px;
+                height: 500px;
+            }
+
+            &__img {
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+}

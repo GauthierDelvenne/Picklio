@@ -1,0 +1,59 @@
+.howItWork__card {
+    background-color: $tangerine-100;
+    border-radius: $text-lg;
+    padding: $space-4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-2;
+
+    &__title {
+        @include laptop-l {
+            font-size: $text-2xl;
+        }
+        @include desktop-l {
+            font-size: $text-3xl;
+        }
+    }
+
+    &__svg {
+        fill: $tangerine-600;
+        width: 125px;
+        height: 125px;
+    }
+
+    &__subTitle {
+        position: relative;
+        width: fit-content;
+        @include laptop-l {
+            font-size: $text-xl;
+        }
+        @include desktop-l {
+            font-size: $text-2xl;
+        }
+
+        &__span {
+            position: relative;
+            z-index: 2;
+            font-weight: 600;
+        }
+
+        &__svg {
+            position: absolute;
+            width: auto;
+            aspect-ratio: 5 / 1;
+            fill: $tangerine-200-50;
+            bottom: -10px;
+        }
+    }
+
+    &__content {
+        text-align: center;
+        @include laptop-l {
+            font-size: $text-xl;
+        }
+        @include desktop-l {
+            font-size: $text-2xl;
+        }
+    }
+}

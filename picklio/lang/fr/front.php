@@ -3,6 +3,30 @@
 declare(strict_types=1);
 
 return [
+    'commons' => [
+        'howItWork' => [
+            'title' => 'Comment ça fonctionne ?',
+            'button' => 'Commencer maintenant',
+            'stepOne' => [
+                'title' => 'Première étape',
+                'subTitle' => 'Parcourez et ajoutez',
+                'content' => 'Tous vos commerces locaux réunis
+                dans <strong>un seul panier</strong>',
+            ],
+            'stepTwo' => [
+                'title' => 'Deuxième étape',
+                'subTitle' => 'Choisissez votre créneau',
+                'content' => '<strong>Planifiez </strong>votre
+                passage selon votre emploi du temps',
+            ],
+            'stepThree' => [
+                'title' => 'Troisième étape',
+                'subTitle' => 'Retirez vos achats',
+                'content' => '<strong>Payez sur place à la
+                    borne</strong> et repartez avec vos produits, rapidement et facilement',
+            ],
+        ],
+    ],
 
     'settings' => [
         'theme' => [
@@ -177,6 +201,25 @@ return [
             'title' => 'Modifications de la politique',
             'content' => 'Cette politique peut être mise à jour au cours du développement du projet. La date de dernière mise à jour sera indiquée en bas de cette page.',
             'subContent' => '<strong>Dernière mise à jour : </strong>le 7 mai 2026',
+        ],
+    ],
+    'home' => [
+        'intro' => [
+            'title' => 'Le meilleur de vos commerces réunis en un seul lieu',
+            'content' => 'Avec notre plateforme de click & collect,
+                profitez de vos
+                commerces
+                préférés depuis un seul endroit. Tous les produits de vos commerçants locaux sont centralisés dans notre
+                entrepôt, prêts à être retirés rapidement. Commandez en ligne, choisissez votre créneau et venez
+                récupérer
+                vos achats en toute simplicité.',
+            'buttonDiscover' => 'Découvrez les produits de nos commerçants',
+            'buttonJoin' => 'Devenir un de nos commerçants',
+            'quality' => [
+                '1' => 'Pratique',
+                '2' => 'Sans stress',
+                '3' => 'Rapide',
+            ],
         ],
     ],
 ];
