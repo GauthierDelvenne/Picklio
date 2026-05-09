@@ -35,4 +35,6 @@
         </div>
     </section>
     <x-front.howItWork/>
+    <x-front.productList :products="$this->products" title="{{__('front.home.alimentaryList.title')}}"
+                         button="{{__('front.home.alimentaryList.button')}}"/>
 </div>

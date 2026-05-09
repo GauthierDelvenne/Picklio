@@ -26,6 +26,7 @@ return [
                     borne</strong> et repartez avec vos produits, rapidement et facilement',
             ],
         ],
+        'sale-by' =>'Vendu par',
     ],
 
     'settings' => [
@@ -220,6 +221,10 @@ return [
                 '2' => 'Sans stress',
                 '3' => 'Rapide',
             ],
+        ],
+        'alimentaryList' => [
+            'title' => 'Découvrez nos produits alimentaires',
+            'button' => 'Voir plus',
         ],
     ],
 ];

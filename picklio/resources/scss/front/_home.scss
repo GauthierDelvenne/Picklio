@@ -1,14 +1,18 @@
 .home {
+    display: flex;
+    flex-direction: column;
+    gap: $space-32;
+    @include laptop-l {
+        gap: $space-48;
+    }
     &__introContainer {
         display: flex;
         justify-content: center;
         gap: $space-8;
-        margin-bottom: $space-32;
         @include laptop {
         }
         @include laptop-l {
             gap: $space-12;
-            margin-bottom: $space-48;
         }
         @include desktop {
             gap: $space-40;
