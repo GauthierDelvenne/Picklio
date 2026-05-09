@@ -29,15 +29,13 @@ class Stock extends Model
     /**
      * ACCESSORS
      */
-    public function getIsLowStockAttribute(): bool
+    public function isLowStock(int $capacity): bool
     {
-        $capacity = $this->product->productCategory->capacity;
         return $this->quantity <= $capacity * 0.25;
     }
 
-    public function getIsVeryLowStockAttribute(): bool
+    public function isVeryLowStock(int $capacity): bool
     {
-        $capacity = $this->product->productCategory->capacity;
         return $this->quantity <= $capacity * 0.10;
     }
 }

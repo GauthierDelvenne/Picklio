@@ -80,5 +80,6 @@ class DatabaseSeeder extends Seeder
             'opening_time' => '10:00',
             'closing_time' => '20:00',
         ]);
+        $this->call(ProductSeeder::class);
     }
 }

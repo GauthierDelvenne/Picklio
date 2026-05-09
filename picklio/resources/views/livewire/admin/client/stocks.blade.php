@@ -79,8 +79,8 @@
                         </flux:table.cell>
                         <flux:table.cell>
                             <flux:badge
-                                :color=" $product->stock->isVeryLowStock ? 'red' : ($product->stock->isLowStock ? 'yellow' : 'green')">
-                                {{$product->stock->isVeryLowStock ? 'Critique' : ($product->stock->isLowStock ? 'Bas' : 'Bon')}}                            </flux:badge>
+                                :color=" $product->stock->isVeryLowStock($product->productCategory->capacity) ? 'red' : ($product->stock->isLowStock($product->productCategory->capacity) ? 'yellow' : 'green')">
+                                {{$product->stock->isVeryLowStock($product->productCategory->capacity) ? 'Critique' : ($product->stock->isLowStock($product->productCategory->capacity) ? 'Bas' : 'Bon')}}                            </flux:badge>
                         </flux:table.cell>
                         <flux:table.cell>
                             {{$product->stock->quantity}}/{{$product->productCategory->capacity}}
