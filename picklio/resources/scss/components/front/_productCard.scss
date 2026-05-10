@@ -1,0 +1,143 @@
+.productCard {
+    display: flex;
+    flex-direction: column;
+    background-color: $tangerine-100;
+    padding: $space-4;
+    border-radius: $radius-lg;
+    width: fit-content;
+    transition: background-color ease-in 0.2s;
+
+    &:hover {
+        background-color: $tangerine-200;
+    }
+
+    &:has(.no-card-hover:hover) {
+        background-color: $tangerine-100;
+    }
+
+    &__imgContainer {
+        width: 200px;
+        height: 200px;
+        aspect-ratio: 1;
+        position: relative;
+
+        &__img {
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+            border-radius: $radius-lg;
+        }
+
+        &__tagContainer {
+            display: flex;
+            flex-direction: column;
+            gap: $space-2;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: $text-xsm;
+            font-weight: 600;
+
+            &__tagItem {
+                background-color: $tangerine-200;
+                color: $tangerine-700;
+                width: fit-content;
+                padding: $space-1;
+                border-radius: $radius-sm;
+
+                &__tag {
+
+                }
+            }
+        }
+    }
+
+    &__contentContainer {
+        display: flex;
+        flex-direction: column;
+        gap: $space-8;
+        margin-top: $space-4;
+
+        &__informationContainer {
+            &__title {
+                font-weight: 500;
+
+            }
+
+            &__saleBy {
+                font-size: $text-sm;
+
+                &__span {
+                    color: $tangerine-700;
+                }
+            }
+        }
+
+        &__orderContainer {
+            display: flex;
+            align-items: center;
+            gap: $space-2;
+
+            &__price {
+
+            }
+
+            &__selectContainer {
+                background-color: $tangerine-50-80;
+                padding: $space-1;
+                border-radius: $radius-sm;
+                display: flex;
+                margin-left: auto;
+                align-items: center;
+                z-index: 5;
+                transition: background-color ease-in 0.2s;
+
+                &__svg {
+                    width: 15px;
+                    height: 15px;
+                    transition: transform ease-in 0.3s, fill ease-in 0.3s;
+
+                    &:hover {
+                        transform: scale(1.2);
+                        fill: $tangerine-600;
+                    }
+                }
+
+                &__value {
+                    width: 40px;
+                    border: none;
+                    text-align: center;
+                    font-size: $text-lg;
+                    font-weight: 500;
+                    color: black;
+                    background: transparent;
+                    outline: none;
+
+                    -moz-appearance: textfield;
+
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                }
+            }
+
+            &__svg {
+                width: 20px;
+                height: 20px;
+                transition: transform ease-in 0.3s, fill ease-in 0.3s;
+
+                &:hover {
+                    transform: scale(1.2);
+                    fill: $tangerine-600;
+                }
+            }
+        }
+
+    }
+
+}
+
+

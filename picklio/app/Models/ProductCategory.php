@@ -63,8 +63,6 @@ class ProductCategory extends Model
 
     const NATURAL_ORGANIC_CARE = 24;
 
-    const LOCAL_PERFUMES_SCENTS = 25;
-
     /**
      * RELATIONS
      */

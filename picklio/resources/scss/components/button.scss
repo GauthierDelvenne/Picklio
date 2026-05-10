@@ -1,7 +1,6 @@
 .button {
     padding: $space-3;
     border-radius: $radius-md;
-    width: 100%;
     background-color: $tangerine-100;
     color: $tangerine-600;
     font-weight: 600;
@@ -26,6 +25,19 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    &--tabs {
+        cursor: pointer;
+        @include laptop-l {
+            font-size: $text-lg;
+        }
+        @include desktop {
+            font-size: $text-xl;
+        }
+        @include wide {
+            font-size: $text-xl;
+        }
     }
 
     @include laptop-l {

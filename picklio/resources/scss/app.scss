@@ -21,6 +21,7 @@
 @import "front/partials/footer";
 @import "front/legal-notice";
 @import "front/privacy-policy";
+@import "front/home";
 
 // Components
 @import "components/form/input";
@@ -29,3 +30,9 @@
 @import "components/button";
 
 @import "components/auth/imgContainer";
+
+@import "components/front/howItWork";
+@import "components/front/howItWorkCard";
+@import "components/front/productList";
+@import "components/front/productCard";
+@import "components/front/productCategoryCard";

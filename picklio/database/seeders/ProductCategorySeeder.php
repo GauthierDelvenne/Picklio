@@ -40,7 +40,6 @@ class ProductCategorySeeder extends Seeder
             ['name' => 'Furniture & Interior Decoration',     'capacity' => 10],
 
             ['name' => 'Natural & Organic Care',              'capacity' => 60],
-            ['name' => 'Local Perfumes & Scents',             'capacity' => 40],
         ];
 
         foreach ($categories as $category) {

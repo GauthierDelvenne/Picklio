@@ -1,0 +1,31 @@
+<?php
+return [
+    'alimentary' => [
+        '1' => 'bread',
+        '2' => 'meat',
+        '3' => 'cheese',
+        '4' => 'cherries',
+        '5' => 'pepper',
+        '6' => 'beer-stein',
+        '7' => 'cheers',
+        '8' => 'cookie',
+        '9' => 'chef',
+        '10' => 'bio',
+    ],
+    'noAlimentary' => [
+        '11' => 'handmade',
+        '12' => 'pot',
+        '13' => 'jewel',
+        '14' => 'soap',
+        '15' => 'candle',
+        '16' => 'art',
+        '17' => 'sewing',
+        '18' => 't-shirt',
+        '19' => 'shoe',
+        '20' => 'leather',
+        '21' => 'feather',
+        '22' => 'fork-knife',
+        '23' => 'decoration',
+        '24' => 'organic',
+    ],
+];

@@ -49,7 +49,10 @@ class ClientStocks extends PicklioComponent
     #[Computed]
     public function products()
     {
-        return Product::with('stock')
+        return Product::with([
+            'stock',
+            'productCategory',
+        ])
             ->whereAccount($this->account->id)
             ->when($this->search, function ($query) {
                 $query->where('name', 'like', '%'.$this->search.'%');
