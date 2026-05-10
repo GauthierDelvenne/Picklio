@@ -200,7 +200,7 @@ return [
             '7' => 'Vins & Spiritueux',
             '8' => 'Chocolats & Confiseries',
             '9' => 'Traiteur & Cuisine',
-            '10' => 'Producteurs bio',
+            '10' => 'Produits bio',
             '11' => 'Créations artisanales',
             '12' => 'Poterie & Céramique',
             '13' => 'Bijoux & Accessoires faits main',

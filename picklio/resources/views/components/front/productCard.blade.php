@@ -17,16 +17,21 @@
     <div class="productCard__contentContainer">
         <div class="productCard__contentContainer__informationContainer">
             <p class="productCard__contentContainer__informationContainer__title">{{$title}}</p>
-            <p class="productCard__contentContainer__informationContainer__saleBy"><span class="productCard__contentContainer__informationContainer__saleBy__span">{{__('front.commons.sale-by')}}</span> {{$saleBy}}</p>
+            <p class="productCard__contentContainer__informationContainer__saleBy"><span
+                    class="productCard__contentContainer__informationContainer__saleBy__span">{{__('front.commons.sale-by')}}</span> {{$saleBy}}
+            </p>
         </div>
         <div class="productCard__contentContainer__orderContainer">
             <p class="productCard__contentContainer__orderContainer__price">{{$price}}</p>
-            <div class="productCard__contentContainer__orderContainer__selectContainer">
+            {{--            TODO INCREMENT DECREMENT--}}
+            <div x-on:click.prevent.stop class="productCard__contentContainer__orderContainer__selectContainer no-card-hover">
                 <x-svg.svg class="productCard__contentContainer__orderContainer__selectContainer__svg" name="minus"/>
-                <input type="number" name="itemNumber" id="itemNumber" placeholder="00" class="productCard__contentContainer__orderContainer__selectContainer__value">
+                <input type="number" name="itemNumber" id="itemNumber-{{ $productId }}" placeholder="00"
+                       class="productCard__contentContainer__orderContainer__selectContainer__value">
                 <x-svg.svg class="productCard__contentContainer__orderContainer__selectContainer__svg" name="plus"/>
             </div>
-            <x-svg.svg class="productCard__contentContainer__orderContainer__svg" name="basket"/>
+            <x-svg.svg x-on:click.prevent.stop class="productCard__contentContainer__orderContainer__svg no-card-hover"
+                       name="basket"/>
         </div>
     </div>
 </div>

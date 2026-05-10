@@ -1,0 +1,38 @@
+.productCategoryCard {
+    background-color: $tangerine-100;
+    border-radius: $radius-md;
+    padding: $space-4;
+    gap: $space-4;
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    max-width: 120px;
+    align-items: center;
+    transition: background-color ease-in 0.3s;
+
+    &__svg {
+        width: 50px;
+        height: 50px;
+        fill: $tangerine-600;
+        transition: transform ease-in 0.3s;
+    }
+
+    &__title {
+        font-size: $text-xsm;
+        text-align: center;
+        transition: transform ease-in 0.3s, font-weight ease-in 0.3s;
+    }
+
+    &:hover {
+        background-color: $tangerine-200;
+
+        .productCategoryCard__svg {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .productCategoryCard__title {
+            font-weight: 600;
+            transform: scale(1.1);
+        }
+    }
+}

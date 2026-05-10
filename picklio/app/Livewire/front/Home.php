@@ -5,22 +5,45 @@ namespace App\Livewire\front;
 use App\Livewire\PicklioComponent;
 use App\Models\Product;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Url;
 
 class Home extends PicklioComponent
 {
+    public $alimentaryCategories;
+    public $noAlimentaryCategories;
+    #[Url]
+    public $activeTab = 'tab1';
+    public function mount()
+    {
+        $this->alimentaryCategories = config('category.alimentary');
+        $this->noAlimentaryCategories = config('category.noAlimentary');
+    }
+    public function changeTab($tabName)
+    {
+        $this->activeTab = $tabName;
+    }
     #[Computed]
-    public function products()
+    public function alimentaryProducts()
     {
         return Product::with([
             'stock',
             'productCategory',
-        ])->limit(6)->get();
+        ])->alimentaryProduct()->limit(6)->get();
+    }
+
+    #[Computed]
+    public function noAlimentaryProducts()
+    {
+        return Product::with([
+            'stock',
+            'productCategory',
+        ])->noAlimentaryProduct()->limit(6)->get();
     }
 
     public function render()
     {
         return view('livewire.front.home')
             ->layout('layouts.front')
-            ->title(__('commons.pageName.front.home').' | Picklio');
+            ->title(__('commons.pageName.front.home') . ' | Picklio');
     }
 }

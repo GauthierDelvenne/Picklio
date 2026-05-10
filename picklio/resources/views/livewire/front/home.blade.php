@@ -35,6 +35,66 @@
         </div>
     </section>
     <x-front.howItWork/>
-    <x-front.productList :products="$this->products" title="{{__('front.home.alimentaryList.title')}}"
-                         button="{{__('front.home.alimentaryList.button')}}"/>
+    <div class="home__categoriesSelectContainer">
+        <div class="home__categoriesSelectContainer__buttonContainer">
+            <button
+                class="button button--tabs home__categoriesSelectContainer__buttonContainer__button @if($activeTab == 'tab1') active @endif"
+                wire:click="changeTab('tab1')">{{__('front.home.alimentaryList.tabs')}}</button>
+            <button
+                class="button button--tabs home__categoriesSelectContainer__buttonContainer__button @if($activeTab == 'tab2') active @endif"
+                wire:click="changeTab('tab2')">{{__('front.home.noAlimentaryList.tabs')}}</button>
+        </div>
+
+        {{--     todo faire le redirect avec filtre--}}
+
+        @if($activeTab == 'tab1')
+            <x-front.productList :products="$this->alimentaryProducts" title="{{__('front.home.alimentaryList.title')}}"
+                                 button="{{__('front.home.alimentaryList.button')}}"/>
+        @elseif($activeTab == 'tab2')
+            <x-front.productList :products="$this->noAlimentaryProducts"
+                                 title="{{__('front.home.noAlimentaryList.title')}}"
+                                 button="{{__('front.home.noAlimentaryList.button')}}"/>
+        @endif
+        <section class="home__categoriesSelectContainer__productCategories paddingMedia">
+            <div class="home__categoriesSelectContainer__productCategories__titleContainer">
+                <h2 class="home__categoriesSelectContainer__productCategories__titleContainer__title">{{__('front.home.productCategories.title')}}</h2>
+
+            </div>
+            @if($activeTab == 'tab1')
+                <div class="home__categoriesSelectContainer__productCategories__categoryContainer">
+                    @foreach($this->alimentaryCategories as $category)
+                        <x-front.productCategoryCard name="{{$category}}"
+                                                     title="{!!__('client.products.categories.'.$loop->index + 1)!!}"/>
+                    @endforeach
+                </div>
+            @elseif($activeTab == 'tab2')
+                <div class="home__categoriesSelectContainer__productCategories__categoryContainer">
+                    @foreach($this->noAlimentaryCategories as $category)
+                        <x-front.productCategoryCard name="{{$category}}"
+                                                     title="{!!__('client.products.categories.'.$loop->index + 1)!!}"/>
+                    @endforeach
+                </div>
+            @endif
+
+        </section>
+    </div>
+    <hr class="home__hr">
+    <section id="merchant" class="home__merchantContainer paddingMedia">
+        <div class="home__merchantContainer__imgContainer">
+            <img class="home__merchantContainer__imgContainer__img" src="{{asset('images/merchant.webp')}}"
+                 alt="Un vendeur">
+        </div>
+        <div class="home__merchantContainer__contentContainer">
+
+            <h2 class="home__merchantContainer__contentContainer__title">
+                {{__('front.home.inviteMerchant.title')}}
+            </h2>
+            <p class="home__merchantContainer__contentContainer__content">
+                {{__('front.home.inviteMerchant.content')}}
+            </p>
+            <a href=""
+               class="button button--icon home__merchantContainer__contentContainer__button"> {{__('front.home.inviteMerchant.button')}}
+                <x-svg.svg class="home__merchantContainer__contentContainer__button__svg" name="arrow"/>
+            </a></div>
+    </section>
 </div>

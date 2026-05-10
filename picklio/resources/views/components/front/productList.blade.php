@@ -8,13 +8,16 @@
     </div>
     <div class="productList__productContainer">
         @foreach($products as $product)
-            <x-front.productCard img="{{$product->picture_path}}"
-                                 category="{!!  __('client.products.categories.'.$product->product_category_id)!!}"
-                                 is-new="{{$product->created_at > now()->subDays(7) ? 'New' : ''}}"
-                                 title="{{$product->name}}"
-                                 sale-by="{{$product->account->user->name}}"
-                                 price="{{$product->priceFormatted}}"
-            />
+            <a class="productList__productContainer__link" href="{{ route('front.catalogue.show', $product->id) }}">
+                <x-front.productCard img="{{$product->picture_path}}"
+                                     category="{!!  __('client.products.categories.'.$product->product_category_id)!!}"
+                                     is-new="{{$product->created_at > now()->subDays(7) ? 'New' : ''}}"
+                                     title="{{$product->name}}"
+                                     sale-by="{{$product->account->user->name}}"
+                                     price="{{$product->priceFormatted}}"
+                                     product-id="{{$product->id}}"
+                />
+            </a>
         @endforeach
     </div>
 </section>

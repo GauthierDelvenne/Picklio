@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use function Termwind\render;
 
 #[Fillable(['account_id', 'product_category_id', 'name', 'description', 'price', 'percentage', 'start_at', 'end_at', 'picture_path', 'is_active', 'id'])]
 class Product extends Model
@@ -43,7 +44,7 @@ class Product extends Model
      */
     public function getPriceFormattedAttribute(): string
     {
-        return number_format($this->price / 100, 2, ',', ' ').' €';
+        return number_format($this->price / 100, 2, ',', ' ') . ' €';
     }
 
     public function getPriceFormattedWithoutSymbolAttribute(): string
@@ -61,7 +62,7 @@ class Product extends Model
 
         $fileName = basename($this->picture_path);
 
-        return asset('storage/'.$variantPath.'/'.$fileName);
+        return asset('storage/' . $variantPath . '/' . $fileName);
     }
 
     /**
@@ -85,5 +86,40 @@ class Product extends Model
             ->join('product_categories', 'products.product_category_id', '=', 'product_categories.id')
             ->where('stocks.quantity', '>', 'product_categories.capacity * 0.10')
             ->where('stocks.quantity', '<=', 'product_categories.capacity * 0.25');
+    }
+
+    public function scopeAlimentaryProduct(Builder $query): Builder
+    {
+        return $query->whereIn('product_category_id', [
+            ProductCategory::ARTISAN_BAKERY,
+            ProductCategory::LOCAL_BUTCHER_CHARCUTERIE,
+            ProductCategory::BELGIAN_CHEESE_DAIRY,
+            ProductCategory::SEASONAL_FRUITS_VEGETABLES,
+            ProductCategory::FINE_GROCERY_TERROIR,
+            ProductCategory::BELGIAN_CRAFT_BEERS,
+            ProductCategory::LOCAL_WINES_SPIRITS,
+            ProductCategory::BELGIAN_CHOCOLATES,
+            ProductCategory::CATERING_TERROIR_CUISINE,
+            ProductCategory::LOCAL_ORGANIC_PRODUCERS,
+        ]);
+    }
+    public function scopeNoAlimentaryProduct(Builder $query): Builder
+    {
+        return $query->whereIn('product_category_id', [
+            ProductCategory::ARTISAN_CREATIONS,
+            ProductCategory::POTTERY_CERAMICS,
+            ProductCategory::HANDMADE_JEWELRY,
+            ProductCategory::ARTISAN_SOAPS_COSMETICS,
+            ProductCategory::ARTISAN_CANDLES_SCENTS,
+            ProductCategory::LOCAL_ART_DECORATION,
+            ProductCategory::LOCAL_TEXTILE_SEWING,
+            ProductCategory::LOCAL_FASHION_CLOTHING,
+            ProductCategory::ARTISAN_SHOES,
+            ProductCategory::LOCAL_LEATHER_GOODS,
+            ProductCategory::LOCAL_HOME_LINEN,
+            ProductCategory::KITCHEN_UTENSILS,
+            ProductCategory::FURNITURE_INTERIOR_DECO,
+            ProductCategory::NATURAL_ORGANIC_CARE,
+        ]);
     }
 }

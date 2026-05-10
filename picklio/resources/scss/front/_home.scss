@@ -5,6 +5,7 @@
     @include laptop-l {
         gap: $space-48;
     }
+
     &__introContainer {
         display: flex;
         justify-content: center;
@@ -102,6 +103,141 @@
                 object-position: center;
                 width: 100%;
                 height: 100%;
+            }
+        }
+    }
+
+    &__categoriesSelectContainer {
+        &__buttonContainer {
+            display: flex;
+            justify-content: center;
+            gap: $space-4;
+            margin-bottom: $space-12;
+
+            &__button {
+
+            }
+
+            .active {
+                background-color: $tangerine-400;
+                color: $tangerine-50;
+
+                &:hover {
+                    color: $tangerine-50;
+                }
+            }
+        }
+
+        &__productCategories {
+            display: flex;
+            flex-direction: column;
+            gap: $space-8;
+            margin-top: $space-16;
+
+            @include wide {
+                max-width: 1700px;
+                margin: auto;
+
+            }
+
+            &__titleContainer {
+
+                &__title {
+                    @include laptop-l {
+                        font-size: $text-3xl;
+                    }
+                    @include desktop-l {
+                        font-size: $text-4xl;
+                    }
+                }
+            }
+
+
+            &__categoryContainer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: $space-4;
+            }
+        }
+    }
+
+    &__hr {
+        width: 80vw;
+        margin: -$space-12 auto;
+    }
+
+    &__merchantContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $space-4;
+        @include laptop {
+            flex-direction: row;
+            align-items: flex-start;
+            margin: auto;
+            gap: $space-12;
+        }
+        @include laptop-l {
+            gap: $space-24;
+        }
+
+        &__imgContainer {
+            width: 200px;
+            height: 200px;
+            aspect-ratio: 1;
+            position: relative;
+            @include laptop-l {
+                width: 400px;
+                height: 400px;
+            }
+            &__img {
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height: 100%;
+                border-radius: $radius-lg;
+            }
+        }
+
+        &__contentContainer {
+            display: flex;
+            flex-direction: column;
+            gap: $space-2;
+            text-align: center;
+            max-width: 400px;
+            @include laptop {
+                text-align: left;
+                max-width: 800px;
+                gap: $space-8;
+            }
+
+            &__title {
+                @include laptop-l {
+                    font-size: $text-3xl;
+                }
+                @include desktop-l {
+                    font-size: $text-4xl;
+                }
+            }
+
+            &__content {
+                @include laptop-l {
+                    font-size: $text-xl;
+                }
+                @include desktop-l {
+                    font-size: $text-2xl;
+                }
+            }
+
+            &__button {
+                display: flex;
+                gap: $space-4;
+                width: fit-content;
+                &__svg {
+                    width: 20px;
+                    height: 20px;
+                }
             }
         }
     }

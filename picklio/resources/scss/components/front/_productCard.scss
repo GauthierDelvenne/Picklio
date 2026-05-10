@@ -5,6 +5,15 @@
     padding: $space-4;
     border-radius: $radius-lg;
     width: fit-content;
+    transition: background-color ease-in 0.2s;
+
+    &:hover {
+        background-color: $tangerine-200;
+    }
+
+    &:has(.no-card-hover:hover) {
+        background-color: $tangerine-100;
+    }
 
     &__imgContainer {
         width: 200px;
@@ -81,10 +90,18 @@
                 display: flex;
                 margin-left: auto;
                 align-items: center;
+                z-index: 5;
+                transition: background-color ease-in 0.2s;
 
                 &__svg {
                     width: 15px;
                     height: 15px;
+                    transition: transform ease-in 0.3s, fill ease-in 0.3s;
+
+                    &:hover {
+                        transform: scale(1.2);
+                        fill: $tangerine-600;
+                    }
                 }
 
                 &__value {
@@ -110,8 +127,17 @@
             &__svg {
                 width: 20px;
                 height: 20px;
+                transition: transform ease-in 0.3s, fill ease-in 0.3s;
+
+                &:hover {
+                    transform: scale(1.2);
+                    fill: $tangerine-600;
+                }
             }
         }
 
     }
+
 }
+
+

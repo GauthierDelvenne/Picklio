@@ -26,7 +26,7 @@ return [
                     borne</strong> et repartez avec vos produits, rapidement et facilement',
             ],
         ],
-        'sale-by' =>'Vendu par',
+        'sale-by' => 'Vendu par',
     ],
 
     'settings' => [
@@ -224,7 +224,21 @@ return [
         ],
         'alimentaryList' => [
             'title' => 'Découvrez nos produits alimentaires',
+            'tabs' => 'Les produits alimentaires',
             'button' => 'Voir plus',
+        ],
+        'noAlimentaryList' => [
+            'title' => 'Découvrez nos produits non alimentaires',
+            'tabs' => 'Les produits non alimentaires',
+            'button' => 'Voir plus',
+        ],
+        'productCategories' => [
+            'title' => 'Les catégories',
+        ],
+        'inviteMerchant' => [
+            'title' => 'Vous êtes marchands, producteur, vendeur ?',
+            'content' => 'Entrez dans notre réseau de commerçants connectés. Faites partie d’une plateforme qui réinvente le shopping local : vos produits sont centralisés dans un entrepôt unique, vos ventes sont suivies en temps réel, et vos clients bénéficient d’un retrait simple et rapide. Rejoignez-nous pour développer votre commerce sans complexité.',
+            'button' => 'Nous rejoindre maintenant',
         ],
     ],
 ];
