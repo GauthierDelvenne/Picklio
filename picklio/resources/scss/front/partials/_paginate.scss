@@ -1,0 +1,38 @@
+.pagination {
+    display: flex;
+    list-style: none;
+    gap: $space-2;
+    margin-top: $space-2;
+
+    .page-item {
+        .page-link {
+            display: block;
+            padding: $space-2 $space-4;
+            border-radius: $radius-md;
+            background-color: $tangerine-100;
+            cursor: pointer;
+            font-size: $text-sm;
+            transition: background-color ease-in 0.3s;
+
+            &:hover {
+                background-color: $tangerine-300;
+            }
+        }
+
+        &.active .page-link {
+            background: $tangerine-400;
+            color: $tangerine-50;
+            border-color: $tangerine-400;
+        }
+
+        &.disabled .page-link {
+            opacity: 0.4;
+            cursor: default;
+            pointer-events: none;
+        }
+    }
+}
+
+.small.text-muted {
+    font-size: $text-sm;
+}

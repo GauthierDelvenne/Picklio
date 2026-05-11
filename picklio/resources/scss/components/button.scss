@@ -27,6 +27,16 @@
         justify-content: space-between;
     }
 
+    @include laptop-l {
+        font-size: $text-xl;
+    }
+    @include desktop {
+        font-size: $text-2xl;
+    }
+    @include wide {
+        font-size: $text-3xl;
+    }
+
     &--tabs {
         cursor: pointer;
         @include laptop-l {
@@ -40,13 +50,30 @@
         }
     }
 
-    @include laptop-l {
-        font-size: $text-xl;
-    }
-    @include desktop {
-        font-size: $text-2xl;
-    }
-    @include wide {
-        font-size: $text-3xl;
+    &--filter {
+        .icon {
+            &--desc {
+                rotate: 90deg;
+            }
+        }
+        &:hover {
+            .icon {
+                rotate: -45deg;
+
+                &--desc {
+                    rotate: 45deg;
+                }
+            }
+        }
+
+        @include laptop-l {
+            font-size: $text-lg;
+        }
+        @include desktop {
+            font-size: $text-lg;
+        }
+        @include wide {
+            font-size: $text-lg;
+        }
     }
 }

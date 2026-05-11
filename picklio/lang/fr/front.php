@@ -241,4 +241,55 @@ return [
             'button' => 'Nous rejoindre maintenant',
         ],
     ],
+    'catalogue' => [
+        'productSection' => [
+            'title' => 'Les produits',
+            'priceFilter' => [
+                'title' => 'Trier par prix',
+                'ascending' => 'Prix croissant',
+                'descending' => 'Prix décroissant',
+            ],
+            'nameFilter' => [
+                'title' => 'Trier par nom',
+                'nameAscending' => 'Nom A/Z',
+                'nameDescending' => 'Nom Z/A',
+            ],
+            'merchantFilter' => 'Commerçants',
+            'categoryFilter' => 'Catégories',
+            'searchFilter' => 'Rechercher',
+            'empty' => 'Il n’y a aucun article qui correspond à la recherche',
+        ],
+        'contactSection' => [
+            'title' => 'Vous n’avez pas trouvé ce vous chercher ?',
+            'informationContainer' => [
+                'title' => 'Une suggestion ?',
+                'content' => 'Vous n’avez pas trouvé ce que vous vouliez.<br/> N’hésitez pas à nous envoyer vos suggestions de <strong>produits</strong> ou bien de <strong>commerçant</strong>. ',
+            ],
+            'form' => [
+                'button' => 'Envoyer le formulaire',
+                'name' => [
+                    'label' => 'Nom Prénom',
+                    'attribute' => 'nom prénom',
+                ],
+                'email' => [
+                    'label' => 'Email',
+                    'attribute' => 'email',
+                ],
+                'merchantSuggest' => [
+                    'label' => 'Suggestions de commerces',
+                    'attribute' => 'suggestions de commerces',
+                ],
+                'productSuggest' => [
+                    'label' => 'Suggestions de produits',
+                    'attribute' => 'suggestions de produits',
+                ],
+            ],
+            'toast' => [
+                'create' => [
+                    'success' => 'Le message a bien été envoyé',
+                    'error' => 'Une erreur est survenu lors de l’envoye',
+                ],
+            ],
+        ],
+    ],
 ];

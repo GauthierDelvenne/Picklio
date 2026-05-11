@@ -26,4 +26,8 @@ class MessageStatus extends Model
     {
         return $this->hasMany(Message::class);
     }
+    public function suggestMessages()
+    {
+        return $this->hasMany(SuggestMessage::class);
+    }
 }

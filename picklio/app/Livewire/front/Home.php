@@ -10,24 +10,30 @@ use Livewire\Attributes\Url;
 class Home extends PicklioComponent
 {
     public $alimentaryCategories;
+
     public $noAlimentaryCategories;
+
     #[Url]
     public $activeTab = 'tab1';
+
     public function mount()
     {
         $this->alimentaryCategories = config('category.alimentary');
         $this->noAlimentaryCategories = config('category.noAlimentary');
     }
+
     public function changeTab($tabName)
     {
         $this->activeTab = $tabName;
     }
+
     #[Computed]
     public function alimentaryProducts()
     {
         return Product::with([
             'stock',
             'productCategory',
+            'account',
         ])->alimentaryProduct()->limit(6)->get();
     }
 
@@ -37,6 +43,7 @@ class Home extends PicklioComponent
         return Product::with([
             'stock',
             'productCategory',
+            'account',
         ])->noAlimentaryProduct()->limit(6)->get();
     }
 
@@ -44,6 +51,6 @@ class Home extends PicklioComponent
     {
         return view('livewire.front.home')
             ->layout('layouts.front')
-            ->title(__('commons.pageName.front.home') . ' | Picklio');
+            ->title(__('commons.pageName.front.home').' | Picklio');
     }
 }

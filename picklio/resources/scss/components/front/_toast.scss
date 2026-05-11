@@ -1,0 +1,11 @@
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: $succes;
+    color: $tangerine-50;
+    padding: $space-4;
+    border-radius: $radius-sm;
+    box-shadow: $box-shadow;
+    z-index: 10;
+}
