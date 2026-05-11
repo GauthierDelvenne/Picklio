@@ -2,6 +2,7 @@
 
 namespace App\Livewire\front;
 
+use App\Livewire\form\front\SendMessageForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Account;
 use App\Models\Product;
@@ -26,9 +27,19 @@ class Catalogues extends PicklioComponent
 
     public $categories;
 
+    public SendMessageForm $form;
+
     public function mount(): void
     {
         $this->categories = ProductCategory::all();
+    }
+
+    public function sendMessage()
+    {
+        if ($this->form->create()) {
+            $this->dispatch('form-sent');
+            $this->form->reset();
+        }
     }
 
     public function updatedSearch()

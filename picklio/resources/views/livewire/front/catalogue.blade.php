@@ -141,5 +141,68 @@
             </div>
         </div>
     </section>
+    <section class="catalogue__contactSection paddingMedia">
+        <h2 class="catalogue__contactSection__title">{{__('front.catalogue.contactSection.title')}}</h2>
+        <div class="catalogue__contactSection__blockContainer">
+            <div class="catalogue__contactSection__blockContainer__informationContainer">
+                <p class="catalogue__contactSection__blockContainer__informationContainer__title">{{__('front.catalogue.contactSection.informationContainer.title')}}</p>
+                <p class="catalogue__contactSection__blockContainer__informationContainer__content">{!!__('front.catalogue.contactSection.informationContainer.content')!!}</p>
+            </div>
+            <div x-data="{ show: false }" x-on:form-sent.window="show = true; setTimeout(() => show = false, 3000)" class="catalogue__contactSection__blockContainer__formContainer">
+                <x-form.form wire-submit="sendMessage"
+                             class="catalogue__contactSection__blockContainer__formContainer__form">
+                    <div class="catalogue__contactSection__blockContainer__formContainer__form__container">
+                        <x-form.input
+                            div-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer"
+                            name="name"
+                            label="{{__('front.catalogue.contactSection.form.name.label')}}" required="true"
+                            type="text" model="form.name"
+                            placeholder="{{__('front.catalogue.contactSection.form.name.label')}}"
+                            input-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer__input"
+                            input-error-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer__input__error"/>
+                        <x-form.input
+                            div-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer"
+                            name="email"
+                            label="{{__('front.catalogue.contactSection.form.email.label')}}" required="true"
+                            type="email" model="form.email"
+                            placeholder="{{__('front.catalogue.contactSection.form.email.label')}}"
+                            input-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer__input"
+                            input-error-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer__input__error"/>
+                    </div>
+                    <div class="catalogue__contactSection__blockContainer__formContainer__form__container">
+                        <x-form.textarea
+                            div-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer"
+                            name="merchantSuggest"
+                            label="{{__('front.catalogue.contactSection.form.merchantSuggest.label')}}"
+                            type="textarea" model="form.merchantSuggest"
+                            placeholder="{{__('front.catalogue.contactSection.form.merchantSuggest.label')}}"
+                            input-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer__input"
+                            input-error-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer__input__error"/>
+                        <x-form.textarea
+                            div-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer"
+                            name="productSuggest"
+                            label="{{__('front.catalogue.contactSection.form.productSuggest.label')}}"
+                            type="textarea" model="form.productSuggest"
+                            placeholder="{{__('front.catalogue.contactSection.form.productSuggest.label')}}"
+                            input-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer__input"
+                            input-error-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer__input__error"/>
+                    </div>
 
+                    <button type="submit"
+                            class="button button--icon catalogue__contactSection__blockContainer__formContainer__form__button">
+                        {{__('front.catalogue.contactSection.form.button')}}
+                        <x-svg.svg class="catalogue__contactSection__blockContainer__formContainer__form__button__svg"
+                                   name="arrow"/>
+                    </button>
+                </x-form.form>
+                <div
+                    x-show="show"
+                    x-transition
+                    class="toast"
+                >
+                    {{__('front.catalogue.contactSection.toast.create.success')}}
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
