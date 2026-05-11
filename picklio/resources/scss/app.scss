@@ -19,9 +19,11 @@
 // Front
 @import "front/partials/header";
 @import "front/partials/footer";
+@import "front/partials/paginate";
 @import "front/legal-notice";
 @import "front/privacy-policy";
 @import "front/home";
+@import "front/catalogue";
 
 // Components
 @import "components/form/input";

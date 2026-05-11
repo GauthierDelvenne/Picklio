@@ -2,8 +2,10 @@
     display: flex;
     flex-direction: column;
     gap: $space-8;
-    max-width: 1700px;
-    margin: auto;
+    @include wide {
+        max-width: 1700px;
+        margin: auto;
+    }
 
     &__titleContainer {
         display: flex;

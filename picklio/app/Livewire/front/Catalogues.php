@@ -3,9 +3,97 @@
 namespace App\Livewire\front;
 
 use App\Livewire\PicklioComponent;
+use App\Models\Account;
+use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\Role;
+use App\Traits\SortingTrait;
+use Livewire\Attributes\Computed;
+use Livewire\WithPagination;
 
 class Catalogues extends PicklioComponent
 {
+    use SortingTrait;
+    use WithPagination;
+
+    public $search;
+
+    public $searchMerchant;
+
+    public $merchant = [];
+
+    public $category = [];
+
+    public $categories;
+
+    public function mount(): void
+    {
+        $this->categories = ProductCategory::all();
+    }
+
+    public function updatedSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedMerchant()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedCategory()
+    {
+        $this->resetPage();
+    }
+
+    public function sortByPrice()
+    {
+        $this->sortBy = 'price';
+        $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        $this->resetPage();
+    }
+
+    public function sortByName()
+    {
+        $this->sortBy = 'name';
+        $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        $this->resetPage();
+    }
+
+    #[Computed]
+    public function products()
+    {
+        return Product::with([
+            'stock',
+            'productCategory',
+            'account',
+        ])
+            ->where('is_active', 1)
+            ->when($this->search, function ($query) {
+                $query->where('name', 'like', '%'.$this->search.'%');
+            })
+            ->when($this->category, function ($query) {
+                $query->whereIn('product_category_id', $this->category);
+            })
+            ->when($this->merchant, function ($query) {
+                $query->whereIn('account_id', $this->merchant);
+            })
+            ->orderBy($this->sortBy, $this->sortDirection)
+            ->paginate(20);
+    }
+
+    #[Computed]
+    public function merchants()
+    {
+        return Account::join('users', 'users.id', 'accounts.user_id')
+            ->with('user')
+            ->when($this->searchMerchant, function ($query) {
+                $query->where('users.name', 'like', '%'.$this->searchMerchant.'%');
+            })
+            ->where('role_id', Role::MERCHANT)
+            ->get();
+    }
+
     public function render()
     {
         return view('livewire.front.catalogue')

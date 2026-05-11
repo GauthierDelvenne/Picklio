@@ -1,0 +1,142 @@
+.catalogue {
+    display: flex;
+    flex-direction: column;
+    gap: $space-32;
+    @include laptop-l {
+        gap: $space-48;
+    }
+
+    &__productSection {
+        display: flex;
+        flex-direction: column;
+        gap: $space-12;
+        @include wide {
+            min-width: 1700px;
+            margin: auto;
+        }
+
+        &__title {
+
+        }
+
+        &__filterContainer {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            gap: $space-4;
+
+            @include laptop-l {
+                flex-direction: row;
+            }
+
+            &__buttonContainer {
+                display: flex;
+                gap: $space-4;
+
+                &__button {
+                    display: flex;
+                    gap: $space-4;
+
+                    &__svg {
+                        rotate: -90deg;
+                        width: 20px;
+                        height: 20px;
+
+                        &--desc {
+                            rotate: 90deg;
+
+                        }
+                    }
+                }
+            }
+
+            &__otherFilterContainer {
+                display: flex;
+                flex-wrap: wrap;
+                gap: $space-4;
+                @include laptop {
+                    flex-wrap: nowrap;
+                }
+
+                &__wrapper {
+                    position: relative;
+
+                    &__button {
+
+                    }
+
+                    &__itemContainer {
+                        padding: $space-4;
+                        position: absolute;
+                        background-color: $tangerine-100;
+                        z-index: 6;
+                        top: $space-16;
+                        right: -$space-16;
+                        border-radius: $radius-md;
+                        display: grid;
+                        gap: $space-4;
+                        box-shadow: $box-shadow;
+
+                        @include laptop-l {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+
+                        &__searchContainer {
+                            grid-column: span 2 / span 2;
+
+                            &__search {
+                                background-color: $tangerine-50;
+                                padding: $space-2;
+                                border-radius: $radius-md;
+                                box-shadow: $box-shadow;
+                                font-size: $text-sm;
+                            }
+                        }
+
+                        &__item {
+                            width: max-content;
+                            display: flex;
+                            gap: $space-2;
+
+                            &__label {
+                            }
+
+                            &__input {
+                                accent-color: $tangerine-400;
+                            }
+                        }
+                    }
+                }
+
+                &__search {
+                    width: 100%;
+                    @include tablet {
+                        width: auto;
+                    }
+                }
+            }
+        }
+
+        &__productContainer {
+            &__product {
+                display: flex;
+                flex-wrap: wrap;
+                gap: $space-6;
+                justify-content: center;
+
+                &__link {
+
+                }
+
+                &__empty {
+                    font-size: $text-xl;
+                    font-weight: 600;
+                }
+            }
+
+            &__paginate {
+
+            }
+        }
+    }
+}

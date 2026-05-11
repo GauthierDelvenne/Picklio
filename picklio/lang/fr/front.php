@@ -241,4 +241,23 @@ return [
             'button' => 'Nous rejoindre maintenant',
         ],
     ],
+    'catalogue' => [
+        'productSection' => [
+            'title' => 'Les produits',
+            'priceFilter' => [
+                'title' => 'Trier par prix',
+                'ascending' => 'Prix croissant',
+                'descending' => 'Prix décroissant',
+            ],
+            'nameFilter' => [
+                'title' => 'Trier par nom',
+                'nameAscending' => 'Nom A/Z',
+                'nameDescending' => 'Nom Z/A',
+            ],
+            'merchantFilter' => 'Commerçants',
+            'categoryFilter' => 'Catégories',
+            'searchFilter' => 'Rechercher',
+            'empty' => 'Il n’y a aucun article qui correspond à la recherche',
+        ],
+    ],
 ];
