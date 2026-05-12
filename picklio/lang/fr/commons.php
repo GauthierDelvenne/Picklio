@@ -15,6 +15,7 @@ return [
                 'message' => 'Message',
                 'statistics' => 'Statistique',
                 'settings' => 'Paramètre',
+                'suggestMessage' => 'Suggestion',
             ],
             'client' => [
                 'dashboard' => 'Dashboard',

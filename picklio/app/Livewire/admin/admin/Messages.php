@@ -5,6 +5,7 @@ namespace App\Livewire\admin\admin;
 use App\Livewire\form\admin\admin\CreateMessageForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Message;
+use App\Models\SuggestMessage;
 use App\Traits\SortingTrait;
 use Flux\Flux;
 use Livewire\Attributes\Computed;
@@ -18,6 +19,10 @@ class Messages extends PicklioComponent
     public $search;
 
     public $messageStatus;
+
+    public $suggestMessageStatus;
+
+    public $suggestSearch;
 
     public CreateMessageForm $form;
 
@@ -36,11 +41,21 @@ class Messages extends PicklioComponent
         $this->resetPage();
     }
 
+    public function updatedSuggestMessageStatus()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedSuggestSearch()
+    {
+        $this->resetPage();
+    }
+
     public function create()
     {
         if ($this->form->create()) {
             Flux::toast(__('admin.messages.toast.create.success'), variant: 'success');
-            Flux::modal('add-merchant')->close();
+            Flux::modal('send-message')->close();
             $this->form->reset();
         } else {
             Flux::toast(__('admin.messages.toast.create.error'), variant: 'danger');
@@ -50,6 +65,15 @@ class Messages extends PicklioComponent
     public function delete(Message $message)
     {
         if ($message->delete()) {
+            Flux::toast(__('admin.messages.toast.delete.success'), variant: 'success');
+            Flux::modal('delete-message')->close();
+        } else {
+            Flux::toast(__('admin.messages.toast.delete.error'), variant: 'danger');
+        }
+    }
+    public function deleteSuggest(SuggestMessage $suggestMessage)
+    {
+        if ($suggestMessage->delete()) {
             Flux::toast(__('admin.messages.toast.delete.success'), variant: 'success');
             Flux::modal('delete-message')->close();
         } else {
@@ -73,10 +97,24 @@ class Messages extends PicklioComponent
             ->paginate(15);
     }
 
+    #[Computed]
+    public function suggestMessages()
+    {
+        return SuggestMessage::join('accounts', 'suggest_messages.recipient_id', '=', 'accounts.id')
+            ->select('suggest_messages.*')
+            ->when($this->suggestSearch, function ($query) {
+                $query->where('name', 'like', '%'.$this->suggestSearch.'%');
+            })
+            ->when($this->suggestMessageStatus, function ($query) {
+                $query->where('suggest_messages.message_status_id', $this->suggestMessageStatus);
+            })
+            ->paginate(15);
+    }
+
     public function render()
     {
         return view('livewire.admin.admin.messages')
             ->layout('layouts.admin')
-            ->title(__('commons.pageName.admin.admin.messages') . ' | Admin');
+            ->title(__('commons.pageName.admin.admin.messages').' | Admin');
     }
 }

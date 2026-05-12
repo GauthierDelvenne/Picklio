@@ -11,6 +11,7 @@ use App\Livewire\admin\admin\Settings;
 use App\Livewire\admin\admin\Statistics;
 use App\Livewire\admin\admin\Stock;
 use App\Livewire\admin\admin\Stocks;
+use App\Livewire\admin\admin\SuggestMessage;
 use App\Livewire\admin\client\ClientDashboard;
 use App\Livewire\admin\client\ClientMessage;
 use App\Livewire\admin\client\ClientMessages;
@@ -80,6 +81,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             Route::group(['prefix' => __('route.admin.admin.messages')],
                 function () {
                     Route::get('/', Messages::class)->name('admin.message.index');
+                    Route::get(__('route.admin.admin.suggestMessage').'/{suggestMessage}', SuggestMessage::class)->name('admin.message.suggest.show');
                     Route::get('{message}', Message::class)->name('admin.message.show');
                 }
             );

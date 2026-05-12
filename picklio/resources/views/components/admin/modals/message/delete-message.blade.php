@@ -2,7 +2,7 @@
     <div>
         <flux:heading size="lg">{{__('admin.messages.delete-title')}}</flux:heading>
         <flux:text class="mt-2">
-            {{__('admin.messages.delete-reversed')}}
+            {!!__('admin.messages.delete-reversed')!!}
         </flux:text>
     </div>
     <div class="flex gap-2">
