@@ -113,7 +113,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::group(['prefix' => __('route.front.catalogue')],
             function () {
                 Route::get('/', Catalogues::class)->name('front.catalogue.index');
-                Route::get('{catalogue}', Catalogue::class)->name('front.catalogue.show');
+                Route::get('{product}', Catalogue::class)->name('front.catalogue.show');
             }
         );
         Route::get(__('route.front.merchant'), FrontMerchant::class)->name('front.merchant');

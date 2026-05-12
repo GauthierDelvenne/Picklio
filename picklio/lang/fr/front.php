@@ -292,4 +292,11 @@ return [
             ],
         ],
     ],
+    'product' => [
+        'button' => 'Ajoutez au panier',
+        'discover' => [
+            'title' => 'Découvrez une suggestion de produits',
+            'button' => 'Voir plus',
+        ],
+    ],
 ];
