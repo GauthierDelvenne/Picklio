@@ -92,7 +92,7 @@
             <p class="home__merchantContainer__contentContainer__content">
                 {{__('front.home.inviteMerchant.content')}}
             </p>
-            <a href=""
+            <a href="{{route('front.merchant')}}"
                class="button button--icon home__merchantContainer__contentContainer__button"> {{__('front.home.inviteMerchant.button')}}
                 <x-svg.svg class="home__merchantContainer__contentContainer__button__svg" name="arrow"/>
             </a></div>
