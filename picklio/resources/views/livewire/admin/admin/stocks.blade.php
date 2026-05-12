@@ -63,7 +63,8 @@
                 @forelse($this->products as $product)
                     <flux:table.row>
                         <flux:table.cell>
-                            <a href="{{ route('admin.stock.show', $product->id) }}" class="hover:text-(--color-accent-content)">
+                            <a href="{{ route('admin.stock.show', $product->id) }}"
+                               class="hover:text-(--color-accent-content)">
                                 {{$product->name}}
                             </a>
                         </flux:table.cell>
@@ -75,8 +76,8 @@
                         </flux:table.cell>
                         <flux:table.cell>
                             <flux:badge
-                                :color=" $product->stock->isVeryLowStock ? 'red' : ($product->stock->isLowStock ? 'yellow' : 'green')">
-                                {{$product->stock->isVeryLowStock ? 'Critique' : ($product->stock->isLowStock ? 'Bas' : 'Bon')}}                            </flux:badge>
+                                :color=" $product->stock->isVeryLowStock($product->productCategory->capacity) ? 'red' : ($product->stock->isLowStock($product->productCategory->capacity) ? 'yellow' : 'green')">
+                                {{$product->stock->isVeryLowStock($product->productCategory->capacity) ? 'Critique' : ($product->stock->isLowStock($product->productCategory->capacity) ? 'Bas' : 'Bon')}}                            </flux:badge>
                         </flux:table.cell>
                         <flux:table.cell>
                             {{$product->stock->quantity}}/{{$product->productCategory->capacity}}
@@ -91,9 +92,11 @@
                                 </flux:button>
                                 <flux:menu>
                                     <a href="{{route('admin.stock.show', $product->id)}}">
-                                        <flux:menu.item class="hover:text-(--color-accent-content)">{{__('client.commons.buttons.edit')}}</flux:menu.item>
+                                        <flux:menu.item
+                                            class="hover:text-(--color-accent-content)">{{__('client.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
-                                    <flux:menu.item wire:click="delete({{$product}})" class="hover:text-(--color-accent-content)"
+                                    <flux:menu.item wire:click="delete({{$product}})"
+                                                    class="hover:text-(--color-accent-content)"
                                                     wire:confirm="{{__('client.products.delete-confirm', ['name' => $product->user_name])}}">{{__('client.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:popover>
@@ -115,13 +118,14 @@
             <flux:heading class="flex items-center gap-2">Dernière activité</flux:heading>
             @forelse($this->lastAddProductsActivities as $lastAddProductsActivity)
                 <div class="mt-2 flex gap-4 justify-between">
-                    <a href="{{ route('admin.stock.show', $product->id) }}">
+                    <a href="{{ route('admin.stock.show', $lastAddProductsActivity->id) }}">
                         <flux:text class="mt-2 hover:text-(--color-accent-content)">
                             {{$lastAddProductsActivity->account->user->name}}
                             {{__('words.add')}} {{$lastAddProductsActivity->name}}
                         </flux:text>
                     </a>
-                    <flux:text class="mt-2">    {{ \Carbon\Carbon::parse($product->updated_at)->diffForHumans() }}
+                    <flux:text
+                        class="mt-2">    {{ \Carbon\Carbon::parse($lastAddProductsActivity->updated_at)->diffForHumans() }}
                     </flux:text>
                 </div>
             @empty
@@ -133,14 +137,15 @@
             <flux:heading class="flex items-center gap-2">Dernière activité</flux:heading>
             @forelse($this->lastUpdateProductsActivities as $lastUpdateProductsActivity)
                 <div class="mt-2 flex gap-4 justify-between">
-                    <a href="{{ route('admin.stock.show', $product->id) }}">
+                    <a href="{{ route('admin.stock.show', $lastUpdateProductsActivity->id) }}">
                         <flux:text class="mt-2 hover:text-(--color-accent-content)">
                             {{$lastUpdateProductsActivity->account->user->name}}
                             {{__('words.update')}}
                             {{$lastUpdateProductsActivity->name}}
                         </flux:text>
                     </a>
-                    <flux:text class="mt-2">    {{ \Carbon\Carbon::parse($product->updated_at)->diffForHumans() }}
+                    <flux:text
+                        class="mt-2">    {{ \Carbon\Carbon::parse($lastUpdateProductsActivity->updated_at)->diffForHumans() }}
                     </flux:text>
                 </div>
             @empty

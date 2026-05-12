@@ -53,7 +53,7 @@ class Stocks extends PicklioComponent
     #[Computed]
     public function products()
     {
-        return Product::with('stock')
+        return Product::with(['stock', 'productCategory', 'account.user'])
             ->when($this->search, function ($query) {
                 $query->where('name', 'like', '%'.$this->search.'%');
             })
@@ -84,20 +84,20 @@ class Stocks extends PicklioComponent
     #[Computed]
     public function lastAddProductsActivities()
     {
-        return Product::with('stock')
+        return Product::with(['stock', 'account.user'])
             ->where('created_at', '>=', now()->subDays(3))
             ->orderByDesc('created_at')
-            ->limit(10)
+            ->limit(5)
             ->get();
     }
 
     #[Computed]
     public function lastUpdateProductsActivities()
     {
-        return Product::with('stock')
-            ->orWhere('updated_at', '>=', now()->subDays(3))
+        return Product::with(['stock', 'account.user'])
+            ->where('updated_at', '>=', now()->subDays(3))
             ->orderByDesc('updated_at')
-            ->limit(10)
+            ->limit(5)
             ->get();
     }
 
