@@ -5,6 +5,7 @@ namespace App\Livewire\admin\admin;
 use App\Livewire\form\admin\admin\CreateMessageForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Message;
+use App\Models\NewMerchantMessage;
 use App\Models\SuggestMessage;
 use App\Traits\SortingTrait;
 use Flux\Flux;
@@ -23,6 +24,8 @@ class Messages extends PicklioComponent
     public $suggestMessageStatus;
 
     public $suggestSearch;
+    public $newMerchantStatus;
+    public $newMerchantSearch;
 
     public CreateMessageForm $form;
 
@@ -47,6 +50,15 @@ class Messages extends PicklioComponent
     }
 
     public function updatedSuggestSearch()
+    {
+        $this->resetPage();
+    }
+    public function updatedNewMerchantStatus()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedNewMerchantSearch()
     {
         $this->resetPage();
     }
@@ -80,6 +92,15 @@ class Messages extends PicklioComponent
             Flux::toast(__('admin.messages.toast.delete.error'), variant: 'danger');
         }
     }
+    public function deleteNewMerchant(NewMerchantMessage $newMerchantMessages)
+    {
+        if ($newMerchantMessages->delete()) {
+            Flux::toast(__('admin.messages.toast.delete.success'), variant: 'success');
+            Flux::modal('delete-message')->close();
+        } else {
+            Flux::toast(__('admin.messages.toast.delete.error'), variant: 'danger');
+        }
+    }
 
     #[Computed]
     public function messages()
@@ -107,6 +128,19 @@ class Messages extends PicklioComponent
             })
             ->when($this->suggestMessageStatus, function ($query) {
                 $query->where('suggest_messages.message_status_id', $this->suggestMessageStatus);
+            })
+            ->paginate(15);
+    }
+    #[Computed]
+    public function newMerchantMessages()
+    {
+        return NewMerchantMessage::join('accounts', 'new_merchant_messages.recipient_id', '=', 'accounts.id')
+            ->select('new_merchant_messages.*')
+            ->when($this->newMerchantSearch, function ($query) {
+                $query->where('name', 'like', '%'.$this->newMerchantSearch.'%');
+            })
+            ->when($this->newMerchantStatus, function ($query) {
+                $query->where('new_merchant_messages.message_status_id', $this->newMerchantStatus);
             })
             ->paginate(15);
     }

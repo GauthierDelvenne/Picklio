@@ -18,6 +18,7 @@ return [
             'statistics' => 'statistique',
             'settings' => 'parametre',
             'suggestMessage' => 'suggestion',
+            'newMerchantMessage' => 'nouveau-client',
         ],
         'client' => [
             'prefix' => 'client',

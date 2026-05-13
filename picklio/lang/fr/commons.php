@@ -16,6 +16,7 @@ return [
                 'statistics' => 'Statistique',
                 'settings' => 'Paramètre',
                 'suggestMessage' => 'Suggestion',
+                'newMerchantMessage' => 'Nouveau Client',
             ],
             'client' => [
                 'dashboard' => 'Dashboard',
