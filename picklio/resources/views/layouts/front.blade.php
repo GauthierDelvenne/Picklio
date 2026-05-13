@@ -13,12 +13,14 @@
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
 
     @livewireStyles
+    @cookieconsentscripts
 
 </head>
 <body class="body body--front">
 <h1 class="sr-only">{{ $title ?? config('app.name') }}</h1>
 @livewire('front.components.header')
 {{ $slot }}
+@cookieconsentview
 @livewire('front.components.footer')
 @livewireScripts
 </body>
