@@ -4,11 +4,14 @@ namespace App\Livewire\front;
 
 use App\Livewire\form\front\SendMerchantMessageForm;
 use App\Livewire\PicklioComponent;
+use App\Mail\NewMerchantMessageMail;
 use App\Models\Warehouse;
+use Mail;
 
 class FrontMerchant extends PicklioComponent
 {
     public $countries;
+
     public $warehouse;
 
     public SendMerchantMessageForm $form;
@@ -23,6 +26,7 @@ class FrontMerchant extends PicklioComponent
     {
         if ($this->form->create()) {
             $this->dispatch('form-sent');
+            Mail::to($this->form->email)->send(new NewMerchantMessageMail);
             $this->form->reset();
         }
     }
@@ -31,6 +35,6 @@ class FrontMerchant extends PicklioComponent
     {
         return view('livewire.front.merchant')
             ->layout('layouts.front')
-            ->title(__('commons.pageName.front.merchant') . ' | Picklio');
+            ->title(__('commons.pageName.front.merchant').' | Picklio');
     }
 }
