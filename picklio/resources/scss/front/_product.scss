@@ -1,0 +1,200 @@
+.product {
+    display: flex;
+    flex-direction: column;
+    gap: $space-32;
+    @include laptop-l {
+        gap: $space-48;
+    }
+    &__informationContainer {
+        @include laptop {
+            display: flex;
+            justify-content: center;
+            gap: $space-8;
+        }
+
+        &__imgContainer {
+            display: flex;
+            flex-direction: column;
+            gap: $space-1;
+            width: auto;
+            height: auto;
+            max-width: 400px;
+            aspect-ratio: 1;
+            position: relative;
+            @include laptop-l {
+                max-width: 600px;
+            }
+
+            &__img {
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height: 100%;
+                border-radius: $radius-lg;
+            }
+
+            &__breadCrumb {
+                display: flex;
+                align-items: center;
+                gap: $space-2;
+
+                &__item {
+                    display: flex;
+                    @include laptop-l {
+                        font-size: $text-lg;
+                    }
+                    @include desktop-l {
+                        font-size: $text-xl;
+                    }
+                    &__link {
+                        font-weight: 600;
+                        font-size: $text-xl;
+                    }
+
+                    &__svg {
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+            }
+        }
+
+        &__contentContainer {
+            display: flex;
+            flex-direction: column;
+            gap: $space-4;
+            margin-top: $space-8;
+            @include laptop-l {
+                max-width: 600px;
+            }
+
+            &__titleContainer {
+                &__title {
+                    @include laptop-l {
+                        font-size: $text-3xl;
+                    }
+                    @include desktop-l {
+                        font-size: $text-4xl;
+                    }
+                }
+
+                &__saleBy {
+                    @include laptop-l {
+                        font-size: $text-xl;
+                    }
+                    @include desktop-l {
+                        font-size: $text-2xl;
+                    }
+
+                    &__span {
+                        color: $tangerine-500;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            &__descriptionContainer {
+                &__category {
+                    font-weight: bold;
+                    @include laptop-l {
+                        font-size: $text-xl;
+                    }
+                    @include desktop-l {
+                        font-size: $text-2xl;
+                    }
+                }
+
+                &__description {
+                    @include laptop-l {
+                        font-size: $text-lg;
+                    }
+                    @include desktop-l {
+                        font-size: $text-xl;
+                    }
+                }
+            }
+
+            &__hr {
+                border-color: $tangerine-500;
+            }
+
+            &__orderContainer {
+                display: flex;
+
+                &__price {
+                    @include laptop-l {
+                        font-size: $text-xl;
+                    }
+                    @include desktop-l {
+                        font-size: $text-2xl;
+                    }
+                }
+
+                &__selectContainer {
+                    background-color: $tangerine-100;
+                    padding: $space-1;
+                    border-radius: $radius-sm;
+                    display: flex;
+                    margin-left: auto;
+                    align-items: center;
+                    z-index: 5;
+                    transition: background-color ease-in 0.2s;
+                    gap: $space-4;
+
+                    &__svg {
+                        width: 15px;
+                        height: 15px;
+                        transition: transform ease-in 0.3s, fill ease-in 0.3s;
+
+                        &:hover {
+                            transform: scale(1.2);
+                            fill: $tangerine-600;
+                        }
+
+                        @include laptop-l {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+
+                    &__value {
+                        width: 40px;
+                        border: none;
+                        text-align: center;
+                        font-size: $text-lg;
+                        font-weight: 500;
+                        color: black;
+                        background: transparent;
+                        outline: none;
+                        -moz-appearance: textfield;
+
+                        &::-webkit-outer-spin-button,
+                        &::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+
+                        @include laptop-l {
+                            font-size: $text-xl;
+                        }
+                        @include desktop-l {
+                            font-size: $text-2xl;
+                        }
+                    }
+                }
+            }
+
+            &__buttonContainer {
+                &__button {
+                    display: flex;
+                    gap: $space-2;
+
+                    &__svg {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

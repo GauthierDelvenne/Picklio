@@ -23,7 +23,7 @@ class Message extends PicklioComponent
     }
     public function delete()
     {
-        if ($this->account->delete()) {
+        if ($this->message->delete()) {
             Flux::toast(__('admin.messages.toast.delete.success'), variant: 'success');
             Flux::modal('delete-message')->close();
             $this->redirectRoute('admin.message.index');

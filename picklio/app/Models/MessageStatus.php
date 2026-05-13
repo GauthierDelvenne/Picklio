@@ -30,4 +30,8 @@ class MessageStatus extends Model
     {
         return $this->hasMany(SuggestMessage::class);
     }
+    public function newMerchantMessages()
+    {
+        return $this->hasMany(NewMerchantMessage::class);
+    }
 }

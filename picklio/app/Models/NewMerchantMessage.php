@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-#[Fillable(['recipient_id', 'message_status_id', 'name', 'email', 'merchantSuggest', 'productSuggest', 'id'])]
-class SuggestMessage extends Model
+#[Fillable(['recipient_id', 'message_status_id', 'firstname', 'lastname', 'name', 'email', 'description', 'address', 'postal_code', 'country', 'id'])]
+class NewMerchantMessage extends Model
 {
     use HasFactory;
 

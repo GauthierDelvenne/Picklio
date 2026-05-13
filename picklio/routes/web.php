@@ -5,12 +5,14 @@ use App\Livewire\admin\admin\Merchant;
 use App\Livewire\admin\admin\Merchants;
 use App\Livewire\admin\admin\Message;
 use App\Livewire\admin\admin\Messages;
+use App\Livewire\admin\admin\NewMerchantMessage;
 use App\Livewire\admin\admin\Order;
 use App\Livewire\admin\admin\Orders;
 use App\Livewire\admin\admin\Settings;
 use App\Livewire\admin\admin\Statistics;
 use App\Livewire\admin\admin\Stock;
 use App\Livewire\admin\admin\Stocks;
+use App\Livewire\admin\admin\SuggestMessage;
 use App\Livewire\admin\client\ClientDashboard;
 use App\Livewire\admin\client\ClientMessage;
 use App\Livewire\admin\client\ClientMessages;
@@ -80,6 +82,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             Route::group(['prefix' => __('route.admin.admin.messages')],
                 function () {
                     Route::get('/', Messages::class)->name('admin.message.index');
+                    Route::get(__('route.admin.admin.suggestMessage').'/{suggestMessage}', SuggestMessage::class)->name('admin.message.suggest.show');
+                    Route::get(__('route.admin.admin.newMerchantMessage').'/{newMerchantMessage}', NewMerchantMessage::class)->name('admin.message.new-merchant.show');
                     Route::get('{message}', Message::class)->name('admin.message.show');
                 }
             );
@@ -111,7 +115,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::group(['prefix' => __('route.front.catalogue')],
             function () {
                 Route::get('/', Catalogues::class)->name('front.catalogue.index');
-                Route::get('{catalogue}', Catalogue::class)->name('front.catalogue.show');
+                Route::get('{product}', Catalogue::class)->name('front.catalogue.show');
             }
         );
         Route::get(__('route.front.merchant'), FrontMerchant::class)->name('front.merchant');

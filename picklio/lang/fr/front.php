@@ -292,4 +292,120 @@ return [
             ],
         ],
     ],
+    'product' => [
+        'button' => 'Ajoutez au panier',
+        'discover' => [
+            'title' => 'Découvrez une suggestion de produits',
+            'button' => 'Voir plus',
+        ],
+    ],
+    'merchant' => [
+        'title' => 'Développez votre commerce',
+        'content' => 'Vous êtes commerçant et souhaitez vendre vos produits en ligne facilement sans complexité technique ?<br/>Notre plateforme de click & collect vous permet de toucher de nouveaux clients tout en simplifiant votre organisation. Grâce à un système centralisé avec retrait en entrepôt, vous n’avez plus à gérer la logistique côté client. Vous vous concentrez sur l’essentiel : vos produits et vos ventes.',
+        'button' => 'Nous rejoindre',
+        'cardContainer' => [
+            'title' => 'Les avantages',
+            '1' => [
+                'title' => 'Une solution simple et efficace',
+                'content' => [
+                    'title' => 'Notre objectif est de vous proposer un outil :',
+                    'ulItem' => [
+                        '1' => 'Facile à utiliser',
+                        '2' => 'Rapide à prendre en main',
+                        '3' => 'Adapté à tous les niveaux',
+                    ],
+                    'endText' => 'Où aucune compétence technique n’est requise.',
+                ],
+            ],
+            '2' => [
+                'title' => 'Un espace marchand complet',
+                'content' => [
+                    'title' => 'En rejoignant la plateforme, vous bénéficiez d’un espace administrateur dédié pour gérer votre activité en toute autonomie. <br/>Depuis votre interface, vous pouvez :',
+                    'ulItem' => [
+                        '1' => 'Ajouter et modifier vos produits en quelques clics',
+                        '2' => 'Gérer vos prix, vos stocks et vos promotions',
+                        '3' => 'Suivre vos ventes et vos performances',
+                        '4' => 'Consulter les commandes contenant vos articles',
+                    ],
+                    'endText' => 'Tout est conçu pour vous offrir une gestion simple, claire et efficace.',
+                ],
+            ],
+            '3' => [
+                'title' => 'Une logistique simplifiée',
+                'content' => [
+                    'title' => 'Nous centralisons les commandes dans un entrepôt unique.',
+                    'ulItem' => [
+                        '1' => 'Les clients commandent en ligne',
+                        '2' => 'Nous préparons les commandes',
+                        '3' => 'Les clients viennent les récupérer sur place',
+                    ],
+                    'endText' => 'Vous n’avez pas à gérer le retrait client et vous gagnez du temps au quotidien',
+                ],
+            ],
+            '4' => [
+                'title' => 'Développez votre visibilité',
+                'content' => [
+                    'title' => 'Rejoindre la plateforme, c’est aussi :',
+                    'ulItem' => [
+                        '1' => 'Toucher une nouvelle clientèle',
+                        '2' => 'Augmenter vos ventes',
+                        '3' => 'Valoriser vos produits',
+                    ],
+                ],
+            ],
+        ],
+        'contactSection' => [
+            'title' => 'Rejoignez-nous dès maintenant',
+            'informationContainer' => [
+                'title' => 'Contactez-nous',
+                'content' => 'Intégrez une plateforme pensée pour les commerçants et développez votre activité simplement.',
+                'address' => '4160 Anthisnes, Cour d’Omalius, 1',
+                'phone' => '+32 477  45 56 67',
+                'email' => 'picklio@gmail.com',
+            ],
+            'contactContainer' => [
+                'toast' => [
+                    'create' => [
+                        'success' => 'Le message a bien été envoyé',
+                        'error' => 'Une erreur est survenu lors de l’envoye',
+                    ],
+                ],
+                'form' => [
+                    'button' => 'Envoyez le formulaire',
+                    'firstname' => [
+                        'label' => 'Prénom',
+                        'attribute' => 'prénom',
+                    ],
+                    'lastname' => [
+                        'label' => 'Nom',
+                        'attribute' => 'nom',
+                    ],
+                    'name' => [
+                        'label' => 'Nom d’entreprise',
+                        'attribute' => 'nom d’entreprise',
+                    ],
+                    'email' => [
+                        'label' => 'Email',
+                        'attribute' => 'email',
+                    ],
+                    'description' => [
+                        'label' => 'Description',
+                        'attribute' => 'description',
+                    ],
+                    'postal_code' => [
+                        'label' => 'Code postal',
+                        'attribute' => 'code postal',
+                    ],
+                    'address' => [
+                        'label' => 'Adresse',
+                        'attribute' => 'adresse',
+                    ],
+                    'country' => [
+                        'label' => 'Pays',
+                        'attribute' => 'pays',
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];
