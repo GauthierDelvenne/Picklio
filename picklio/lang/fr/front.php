@@ -407,5 +407,44 @@ return [
                 ],
             ],
         ],
+        'partContainer' => [
+            'title' => 'Rejoindre Picklio, ça coûte combien ?',
+            'content' => 'Aucun abonnement, aucun frais d’entrée . Vous ne payez que lorsque vous vendez .',
+            'commissionContainer' => [
+                'title' => 'Commission par vente',
+                'content' => 'Un seul pourcentage retenu sur chaque vente réalisée via Picklio. Cette commission couvre le stockage à l’entrepôt, la gestion logistique et la mise en relation avec les clients.',
+            ],
+            'exampleContainer' => [
+                'title' => 'Exemple concret : pot de miel à 8 €',
+                'example' => [
+                    '1' => [
+                        'text' => 'Prix de vente',
+                        'price' => '8,00€',
+                    ],
+                    '2' => [
+                        'text' => 'Commission Picklio (10%)',
+                        'price' => '-0,80€',
+                    ],
+                    '3' => [
+                        'text' => 'Vous recevez',
+                        'price' => '7,20€',
+                    ],
+                ],
+            ],
+            'textContainer' => [
+                '1' => [
+                    'title' => 'Quand est-ce que je reçois mon argent ?',
+                    'text' => 'Picklio vous reverse votre part chaque mois, une fois les commandes du mois clôturées et les transactions validées en entrepôt.',
+                ],
+                '2' => [
+                    'title' => 'Qui fixe le prix de mes produits ?',
+                    'text' => 'Vous définissez vous-même le prix de vente depuis votre espace marchand. La commission est calculée automatiquement sur ce montant.',
+                ],
+                '3' => [
+                    'title' => 'Y a-t-il des frais cachés ?',
+                    'text' => 'Non. La commission de 10% est le seul coût lié à votre présence sur Picklio. Aucun frais d’inscription, de stockage ou de visibilité.',
+                ],
+            ],
+        ],
     ],
 ];
