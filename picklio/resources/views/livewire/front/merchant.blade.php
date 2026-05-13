@@ -101,10 +101,12 @@
                 <p class="merchant__contactSection__blockContainer__informationContainer__title">{{__('front.merchant.contactSection.informationContainer.title')}}</p>
                 <p class="merchant__contactSection__blockContainer__informationContainer__content">{!!__('front.merchant.contactSection.informationContainer.content')!!}</p>
                 <p class="merchant__contactSection__blockContainer__informationContainer__info">{!!__('front.merchant.contactSection.informationContainer.address')!!}</p>
-                <p class="merchant__contactSection__blockContainer__informationContainer__info"><a href="tel:{{$warehouse->phone}}">{{$warehouse->phone}}</a></p>
-                <p class="merchant__contactSection__blockContainer__informationContainer__info"><a href="mailto:{{$warehouse->email}}">{{$warehouse->email}}</a></p>
+                <p class="merchant__contactSection__blockContainer__informationContainer__info"><a
+                        href="tel:{{$warehouse->phone}}">{{$warehouse->phone}}</a></p>
+                <p class="merchant__contactSection__blockContainer__informationContainer__info"><a
+                        href="mailto:{{$warehouse->email}}">{{$warehouse->email}}</a></p>
             </div>
-            <div x-data="{ show: false }" x-on:form-sent.window="show = true; setTimeout(() => show = false, 3000)"
+            <div id="form" x-data="{ show: false }" x-on:form-sent.window="show = true; setTimeout(() => show = false, 3000)"
                  class="merchant__contactSection__blockContainer__formContainer">
                 <x-form.form wire-submit="sendMessage"
                              class="merchant__contactSection__blockContainer__formContainer__form">
@@ -206,6 +208,48 @@
                     {{__('front.merchant.contactSection.contactContainer.toast.create.success')}}
                 </div>
             </div>
+        </div>
+    </section>
+    <section class="merchant__partContainer paddingMedia">
+        <h2 class="merchant__partContainer__title">{{__('front.merchant.partContainer.title')}}</h2>
+        <p class="merchant__partContainer__content">{{__('front.merchant.partContainer.content')}}</p>
+        <div class="merchant__partContainer__cardContainer">
+            <div class="merchant__partContainer__cardContainer__commissionContainer">
+                <p class="merchant__partContainer__cardContainer__commissionContainer__percentage">10%</p>
+                <div class="merchant__partContainer__cardContainer__commissionContainer__textContainer">
+                    <p class="merchant__partContainer__cardContainer__commissionContainer__textContainer__title">{{__('front.merchant.partContainer.commissionContainer.title')}}</p>
+                    <p class="merchant__partContainer__cardContainer__commissionContainer__textContainer__content">{{__('front.merchant.partContainer.commissionContainer.content')}}</p>
+                </div>
+            </div>
+            <div class="merchant__partContainer__cardContainer__exampleContainer">
+                <p class="merchant__partContainer__cardContainer__exampleContainer__title">{{__('front.merchant.partContainer.exampleContainer.title')}}</p>
+                <div class="merchant__partContainer__cardContainer__exampleContainer__example">
+                    <p class="merchant__partContainer__cardContainer__exampleContainer__example__text">{{__('front.merchant.partContainer.exampleContainer.example.1.text')}}</p>
+                    <p class="merchant__partContainer__cardContainer__exampleContainer__example__price">{{__('front.merchant.partContainer.exampleContainer.example.1.price')}}</p>
+                </div>
+                <div class="merchant__partContainer__cardContainer__exampleContainer__example">
+                    <p class="merchant__partContainer__cardContainer__exampleContainer__example__text">{{__('front.merchant.partContainer.exampleContainer.example.2.text')}}</p>
+                    <p class="merchant__partContainer__cardContainer__exampleContainer__example__price">{{__('front.merchant.partContainer.exampleContainer.example.2.price')}}</p>
+                </div>
+                <div class="merchant__partContainer__cardContainer__exampleContainer__example">
+                    <p class="merchant__partContainer__cardContainer__exampleContainer__example__text">{{__('front.merchant.partContainer.exampleContainer.example.3.text')}}</p>
+                    <p class="merchant__partContainer__cardContainer__exampleContainer__example__price">{{__('front.merchant.partContainer.exampleContainer.example.3.price')}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="merchant__partContainer__textContainer">
+            <p class="merchant__partContainer__textContainer__title">{{__('front.merchant.partContainer.textContainer.1.title')}}</p>
+            <p class="merchant__partContainer__textContainer__text">{{__('front.merchant.partContainer.textContainer.1.text')}}</p>
+        </div>
+        <hr>
+        <div class="merchant__partContainer__textContainer">
+            <p class="merchant__partContainer__textContainer__title">{{__('front.merchant.partContainer.textContainer.2.title')}}</p>
+            <p class="merchant__partContainer__textContainer__text">{{__('front.merchant.partContainer.textContainer.2.text')}}</p>
+        </div>
+        <hr>
+        <div class="merchant__partContainer__textContainer">
+            <p class="merchant__partContainer__textContainer__title">{{__('front.merchant.partContainer.textContainer.3.title')}}</p>
+            <p class="merchant__partContainer__textContainer__text">{{__('front.merchant.partContainer.textContainer.3.text')}}</p>
         </div>
     </section>
 </div>
