@@ -36,15 +36,33 @@
                 </a>
             </li>
             <li class="header__navbar__liste__item header__navbar__liste__item--push">
-                <a href="{{route('front.basket')}}" class="header__navbar__liste__item__link @if(Route::currentRouteName() === 'front.basket') active @endif">
+                <a href="{{route('front.basket')}}"
+                   class="header__navbar__liste__item__link @if(Route::currentRouteName() === 'front.basket') active @endif">
                     <x-svg.svg class="header__navbar__liste__item__link__svg" name="basket"/>
                 </a>
             </li>
             <li class="header__navbar__liste__item">
-                <a href="{{route('front.profil')}}" class="header__navbar__liste__item__link @if(Route::currentRouteName() === 'front.profil') active @endif">
+                <a href="{{route('front.profil')}}"
+                   class="header__navbar__liste__item__link @if(Route::currentRouteName() === 'front.profil') active @endif">
                     <x-svg.svg class="header__navbar__liste__item__link__svg" name="profil"/>
                 </a>
             </li>
+            @if($this->is_admin)
+                <li class="header__navbar__liste__item">
+                    <a href="{{route('admin.dashboard')}}"
+                       class="header__navbar__liste__item__link">
+                        <x-svg.svg class="header__navbar__liste__item__link__svg" name="admin"/>
+                    </a>
+                </li>
+            @endif
+            @if($this->is_merchant)
+                <li class="header__navbar__liste__item">
+                    <a href="{{route('client.dashboard')}}"
+                       class="header__navbar__liste__item__link">
+                        <x-svg.svg class="header__navbar__liste__item__link__svg" name="admin"/>
+                    </a>
+                </li>
+            @endif
         </ul>
     </nav>
 </header>
