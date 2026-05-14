@@ -204,6 +204,7 @@
                     x-show="show"
                     x-transition
                     class="toast"
+                    x-cloak
                 >
                     {{__('front.merchant.contactSection.contactContainer.toast.create.success')}}
                 </div>
