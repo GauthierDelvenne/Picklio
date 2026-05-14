@@ -45,8 +45,6 @@
                 wire:click="changeTab('tab2')">{{__('front.home.noAlimentaryList.tabs')}}</button>
         </div>
 
-        {{--     todo faire le redirect avec filtre--}}
-
         @if($activeTab == 'tab1')
             <x-front.productList :products="$this->alimentaryProducts" title="{{__('front.home.alimentaryList.title')}}"
                                  button="{{__('front.home.alimentaryList.button')}}"/>
@@ -62,15 +60,15 @@
             </div>
             @if($activeTab == 'tab1')
                 <div class="home__categoriesSelectContainer__productCategories__categoryContainer">
-                    @foreach($this->alimentaryCategories as $category)
-                        <x-front.productCategoryCard name="{{$category}}"
+                    @foreach($this->alimentaryCategories as $id => $category)
+                        <x-front.productCategoryCard name="{{$category}}"  wire-click="goToCategory({{ $id }})"
                                                      title="{!!__('client.products.categories.'.$loop->index + 1)!!}"/>
                     @endforeach
                 </div>
             @elseif($activeTab == 'tab2')
                 <div class="home__categoriesSelectContainer__productCategories__categoryContainer">
-                    @foreach($this->noAlimentaryCategories as $category)
-                        <x-front.productCategoryCard name="{{$category}}"
+                    @foreach($this->noAlimentaryCategories as $id => $category)
+                        <x-front.productCategoryCard name="{{$category}}" wire-click="goToCategory({{ $id }})"
                                                      title="{!!__('client.products.categories.'.$loop->index + 1)!!}"/>
                     @endforeach
                 </div>
