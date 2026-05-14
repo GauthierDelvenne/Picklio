@@ -100,6 +100,7 @@ return [
     | these middleware but typically this provided default is preferred.
     |
     */
+    'routes' => false,
 
     'middleware' => ['web'],
 
