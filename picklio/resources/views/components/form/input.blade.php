@@ -11,7 +11,6 @@
     'required'          => false,
     'eyeIcon'        => false,
 ])
-
 <div class="inputContainer {{$divClass}}">
     <label class="inputContainer__label" for="{{$name}}">{{$label}}@if($required)
             <abbr title="{{__('validation.abbr-required')}}" aria-hidden="true">*</abbr>

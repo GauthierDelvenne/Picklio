@@ -124,10 +124,16 @@
                         }
                     }
 
-                    &__svg {
-                        rotate: -90deg;
-                        width: 20px;
-                        height: 20px;
+                    .active {
+                        rotate: 180deg;
+                    }
+
+                    &__svgContainer {
+                        &__svg {
+                            rotate: -90deg;
+                            width: 20px;
+                            height: 20px;
+                        }
                     }
                 }
 

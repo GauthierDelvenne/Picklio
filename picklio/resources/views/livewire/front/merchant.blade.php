@@ -23,9 +23,12 @@
             <article :class="{ 'active': active === 1 }" class="merchant__cardContainer__container__itemContainer">
                 <div class="merchant__cardContainer__container__itemContainer__titleContainer">
                     <h3 class="merchant__cardContainer__container__itemContainer__titleContainer__title">{{__('front.merchant.cardContainer.1.title')}}</h3>
-                    <x-svg.svg x-on:click="active = active === 1 ? null : 1"
-                               class="merchant__cardContainer__container__itemContainer__titleContainer__svg"
-                               name="arrow"/>
+                    <div :class="{ 'active': active === 1 }"
+                         class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
+                        <x-svg.svg x-on:click="active = active === 1 ? null : 1"
+                                   class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
+                                   name="arrow"/>
+                    </div>
                 </div>
                 <div x-cloak x-show="active === 1"
                      class="merchant__cardContainer__container__itemContainer__contentContainer">
@@ -41,9 +44,13 @@
             <article :class="{ 'active': active === 2 }" class="merchant__cardContainer__container__itemContainer">
                 <div class="merchant__cardContainer__container__itemContainer__titleContainer">
                     <h3 class="merchant__cardContainer__container__itemContainer__titleContainer__title">{{__('front.merchant.cardContainer.2.title')}}</h3>
-                    <x-svg.svg x-on:click="active = active === 2 ? null : 2"
-                               class="merchant__cardContainer__container__itemContainer__titleContainer__svg"
-                               name="arrow"/>
+                    <div :class="{ 'active': active === 2 }"
+                         class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
+
+                        <x-svg.svg x-on:click="active = active === 2 ? null : 2"
+                                   class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
+                                   name="arrow"/>
+                    </div>
                 </div>
                 <div x-cloak x-show="active === 2"
                      class="merchant__cardContainer__container__itemContainer__contentContainer">
@@ -60,9 +67,13 @@
             <article :class="{ 'active': active === 3 }" class="merchant__cardContainer__container__itemContainer">
                 <div class="merchant__cardContainer__container__itemContainer__titleContainer">
                     <h3 class="merchant__cardContainer__container__itemContainer__titleContainer__title">{{__('front.merchant.cardContainer.3.title')}}</h3>
-                    <x-svg.svg x-on:click="active = active === 3 ? null : 3"
-                               class="merchant__cardContainer__container__itemContainer__titleContainer__svg"
-                               name="arrow"/>
+                    <div :class="{ 'active': active === 3 }"
+                         class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
+
+                        <x-svg.svg x-on:click="active = active === 3 ? null : 3"
+                                   class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
+                                   name="arrow"/>
+                    </div>
                 </div>
                 <div x-cloak x-show="active === 3"
                      class="merchant__cardContainer__container__itemContainer__contentContainer">
@@ -78,9 +89,13 @@
             <article :class="{ 'active': active === 4 }" class="merchant__cardContainer__container__itemContainer">
                 <div class="merchant__cardContainer__container__itemContainer__titleContainer">
                     <h3 class="merchant__cardContainer__container__itemContainer__titleContainer__title">{{__('front.merchant.cardContainer.4.title')}}</h3>
-                    <x-svg.svg x-on:click="active = active === 4 ? null : 4"
-                               class="merchant__cardContainer__container__itemContainer__titleContainer__svg"
-                               name="arrow"/>
+                    <div :class="{ 'active': active === 4 }"
+                         class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
+
+                        <x-svg.svg x-on:click="active = active === 4 ? null : 4"
+                                   class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
+                                   name="arrow"/>
+                    </div>
                 </div>
                 <div x-cloak x-show="active === 4"
                      class="merchant__cardContainer__container__itemContainer__contentContainer">
@@ -106,7 +121,8 @@
                 <p class="merchant__contactSection__blockContainer__informationContainer__info"><a
                         href="mailto:{{$warehouse->email}}">{{$warehouse->email}}</a></p>
             </div>
-            <div id="form" x-data="{ show: false }" x-on:form-sent.window="show = true; setTimeout(() => show = false, 3000)"
+            <div id="form" x-data="{ show: false }"
+                 x-on:form-sent.window="show = true; setTimeout(() => show = false, 3000)"
                  class="merchant__contactSection__blockContainer__formContainer">
                 <x-form.form wire-submit="sendMessage"
                              class="merchant__contactSection__blockContainer__formContainer__form">
@@ -204,6 +220,7 @@
                     x-show="show"
                     x-transition
                     class="toast"
+                    x-cloak
                 >
                     {{__('front.merchant.contactSection.contactContainer.toast.create.success')}}
                 </div>

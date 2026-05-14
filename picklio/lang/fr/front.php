@@ -447,4 +447,50 @@ return [
             ],
         ],
     ],
+    'profil' => [
+        'informationContainer' => [
+            'title' => 'Vos informations',
+            'empty' => 'Vous devez avoir un compte pour voir les informations',
+            'edit-profil' => 'Modifier vos informations',
+            'toast-profil' => 'Vous avez bien modifier vos informations',
+            'toast-delete' => 'Vous avez bien supprimer le compte',
+            'edit-password' => 'Modifier votre mot de passe',
+            'form' => [
+                'email' => [
+                    'label' => 'Email',
+                    'attribute' => 'email',
+                ],
+                'phone' => [
+                    'label' => 'Téléphone',
+                    'attribute' => 'téléphone',
+                ],
+                'password' => [
+                    'label' => 'Nouveau mot de passe',
+                    'attribute' => 'nouveau mot de passe',
+                    'regex' => 'Le mot de passe doit contenir au moins une lettre minuscule et une lettre majuscule.',
+                ],
+                'current_password' => [
+                    'label' => 'Mot de passe actuel',
+                    'attribute' => 'mot de passe actuel',
+                ],
+                'firstname' => [
+                    'label' => 'Prénom',
+                    'attribute' => 'prénom',
+                ],
+                'lastname' => [
+                    'label' => 'Nom',
+                    'attribute' => 'nom',
+                ],
+            ],
+        ],
+        'order' => [
+            'title' => 'Vos commandes',
+        ],
+        'account' => [
+            'title' => 'Session et sécurité',
+            'disconnect' => 'Déconnecter mon compte',
+            'delete' => 'Supprimer mon compte',
+            'delete-message' => 'Voulez-vous vraiment supprimer votre compte ? <br/> Cette action est <strong>irréversible</strong> !',
+        ],
+    ],
 ];

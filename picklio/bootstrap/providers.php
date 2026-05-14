@@ -1,6 +1,12 @@
 <?php
 
+use App\Providers\AppServiceProvider;
+use App\Providers\CookiesServiceProvider;
+use App\Providers\FortifyServiceProvider;
+
 return [
-    App\Providers\AppServiceProvider::class,
-    App\Providers\FortifyServiceProvider::class,
+    AppServiceProvider::class,
+    FortifyServiceProvider::class,
+    Laravel\Fortify\FortifyServiceProvider::class,
+    CookiesServiceProvider::class,
 ];

@@ -9,6 +9,7 @@
 @import "utils/hidden";
 @import "utils/layout";
 @import "utils/margin";
+@import "utils/modal";
 
 // Auth
 @import "auth/login";
@@ -26,6 +27,7 @@
 @import "front/catalogue";
 @import "front/product";
 @import "front/merchant";
+@import "front/profil";
 
 // Components
 @import "components/form/input";

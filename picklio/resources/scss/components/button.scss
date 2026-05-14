@@ -10,6 +10,8 @@
     .icon {
         fill: $tangerine-600;
         transition: fill 0.3s, rotate 0.3s;
+        width: 20px;
+        height: 20px;
     }
 
     &:hover {
@@ -56,6 +58,7 @@
                 rotate: 90deg;
             }
         }
+
         &:hover {
             .icon {
                 rotate: -45deg;
@@ -74,6 +77,15 @@
         }
         @include wide {
             font-size: $text-lg;
+        }
+    }
+
+    &--danger {
+        background-color: $error;
+        color: $tangerine-50;
+
+        &:hover {
+            color: white;
         }
     }
 }

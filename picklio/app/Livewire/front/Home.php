@@ -46,7 +46,10 @@ class Home extends PicklioComponent
             'account',
         ])->noAlimentaryProduct()->limit(6)->get();
     }
-
+    public function goToCategory($categoryId): void
+    {
+        $this->redirect(route('front.catalogue.index', ['category' => [$categoryId]]));
+    }
     public function render()
     {
         return view('livewire.front.home')

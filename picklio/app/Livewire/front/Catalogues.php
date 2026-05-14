@@ -4,13 +4,16 @@ namespace App\Livewire\front;
 
 use App\Livewire\form\front\SendMessageForm;
 use App\Livewire\PicklioComponent;
+use App\Mail\SuggestMessageMail;
 use App\Models\Account;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Role;
 use App\Traits\SortingTrait;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Url;
 use Livewire\WithPagination;
+use Mail;
 
 class Catalogues extends PicklioComponent
 {
@@ -22,7 +25,7 @@ class Catalogues extends PicklioComponent
     public $searchMerchant;
 
     public $merchant = [];
-
+    #[Url]
     public $category = [];
 
     public $categories;
@@ -38,6 +41,7 @@ class Catalogues extends PicklioComponent
     {
         if ($this->form->create()) {
             $this->dispatch('form-sent');
+            Mail::to($this->form->email)->send(new SuggestMessageMail);
             $this->form->reset();
         }
     }

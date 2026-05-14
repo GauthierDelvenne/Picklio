@@ -17,4 +17,18 @@ return [
             'button' => 'Réinitialiser votre mot de passe',
         ],
     ],
+    'front' => [
+        'newMerchantMessage' => [
+            'subject' => 'Réception du formulaire',
+            'title' => 'Merci d’avoir envoyé un formulaire',
+            'description' => 'Vous avez fait une demande d’intégration. Elle sera traitée sous peu et vous serez recontacté prochainement pour un entretien, si votre profil correspond à nos exigences.',
+            'button' => 'Retourner sur le site',
+        ],
+        'suggestMessage' => [
+            'subject' => 'Réception du formulaire',
+            'title' => 'Merci pour votre retour',
+            'description' => 'Vous nous avez envoyé des suggestions d’articles et/ou de commerçants. Celle-ci sera traitée sous peu et Picklio essaiera de pallier ce manque.',
+            'button' => 'Retourner sur le site',
+        ],
+    ],
 ];
