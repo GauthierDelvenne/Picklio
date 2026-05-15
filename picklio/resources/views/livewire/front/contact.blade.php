@@ -101,13 +101,13 @@
                 </button>
             </x-form.form>
         </div>
-        <div
+        <dialog
             x-show="show"
             x-transition
             class="toast"
             x-cloak
         >
             {{__('front.catalogue.contactSection.toast.create.success')}}
-        </div>
+        </dialog>
     </section>
 </div>

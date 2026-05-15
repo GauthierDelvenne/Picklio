@@ -195,14 +195,14 @@
                                    name="arrow"/>
                     </button>
                 </x-form.form>
-                <div
+                <dialog
                     x-show="show"
                     x-transition
                     class="toast"
                     x-cloak
                 >
                     {{__('front.catalogue.contactSection.toast.create.success')}}
-                </div>
+                </dialog>
             </div>
         </div>
     </section>

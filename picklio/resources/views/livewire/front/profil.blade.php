@@ -55,7 +55,7 @@
             @endif
 
         </div>
-        <div x-show="open" x-cloak
+        <dialog x-show="open" x-cloak
              class="modal--overlay profil__informationContainer__modalContainer">
             <x-form wire-submit="update"
                     class="modal profil__informationContainer__modalContainer__form">
@@ -104,8 +104,8 @@
                                name="arrow"/>
                 </button>
             </x-form>
-        </div>
-        <div x-show="openPassword" x-cloak
+        </dialog>
+        <dialog x-show="openPassword" x-cloak
              class="modal--overlay profil__informationContainer__modalContainer">
             <x-form wire-submit="updatePassword"
                     class="modal profil__informationContainer__modalContainer__form">
@@ -137,15 +137,15 @@
                                name="arrow"/>
                 </button>
             </x-form>
-        </div>
-        <div
+        </dialog>
+        <dialog
             x-show="showSuccess"
             x-transition
             class="toast"
             x-cloak
         >
             {{__('front.profil.informationContainer.toast-profil')}}
-        </div>
+        </dialog>
     </section>
     <section class="profil__order paddingMedia">
         <h2 class="profil__order__title">{{__('front.profil.order.title')}}</h2>
@@ -176,12 +176,12 @@
             </div>
         </section>
     @endif
-    <div
+    <dialog
         x-show="deleteAccount"
         x-transition
         class="toast"
         x-cloak
     >
         {{__('front.profil.informationContainer.toast-delete')}}
-    </div>
+    </dialog>
 </div>
