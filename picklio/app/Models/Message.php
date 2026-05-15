@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -29,5 +30,16 @@ class Message extends Model
     public function status(): BelongsTo
     {
         return $this->belongsTo(MessageStatus::class, 'message_status_id');
+    }
+
+    /**
+     * SCOPE
+     */
+    public function scopeMessage(Builder $query, $accountId):Builder
+    {
+        return $query->join('accounts', 'messages.sender_id', '=', 'accounts.id')
+            ->join('users', 'accounts.user_id', '=', 'users.id')
+            ->where('recipient_id', $accountId)
+            ->select('messages.*', 'users.name as name');
     }
 }

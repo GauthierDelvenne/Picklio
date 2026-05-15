@@ -5,6 +5,7 @@ namespace App\Livewire\admin\admin;
 use App\Livewire\form\admin\admin\UpdateMessageForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Message as MessageModel;
+use App\Models\Role;
 use Flux\Flux;
 
 class Message extends PicklioComponent
@@ -21,6 +22,7 @@ class Message extends PicklioComponent
             Flux::toast(__('admin.messages.toast.update.error'), variant: 'danger');
         }
     }
+
     public function delete()
     {
         if ($this->message->delete()) {

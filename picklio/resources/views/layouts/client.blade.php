@@ -14,7 +14,8 @@
 </head>
 <body class="bg-white text-black dark:bg-zinc-800 dark:text-white">
 
-@include('partials.admin.client.sidebar')
+@livewire('admin.client.partials.sidebar')
+
 {{ $slot }}
 <flux:toast />
 

@@ -19,6 +19,7 @@ return [
             'settings' => 'parametre',
             'suggestMessage' => 'suggestion',
             'newMerchantMessage' => 'nouveau-client',
+            'contactMessage' => 'contact',
         ],
         'client' => [
             'prefix' => 'client',

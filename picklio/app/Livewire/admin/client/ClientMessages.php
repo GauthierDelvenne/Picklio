@@ -2,10 +2,13 @@
 
 namespace App\Livewire\admin\client;
 
+use App\Livewire\form\admin\client\CreateMessageForm;
 use App\Livewire\PicklioComponent;
+use App\Models\ContactMessage;
 use App\Models\Message;
 use App\Models\MessageStatus;
 use App\Traits\SortingTrait;
+use Flux\Flux;
 use Livewire\Attributes\Computed;
 use Livewire\WithPagination;
 
@@ -17,8 +20,16 @@ class ClientMessages extends PicklioComponent
     public $search;
 
     public $messageStatus;
+
     public $messageStatuses;
+
+    public $contactStatus;
+
+    public $contactSearch;
+
     public $account;
+
+    public CreateMessageForm $form;
 
     public function mount(): void
     {
@@ -27,12 +38,19 @@ class ClientMessages extends PicklioComponent
         $this->messageStatuses = MessageStatus::all();
     }
 
-    public function updatedMessageStatus()
+    public function create()
     {
-        $this->resetPage();
+        if ($this->form->create()) {
+            Flux::toast(__('admin.messages.toast.create.success'), variant: 'success');
+            Flux::modal('send-message')->close();
+            $this->form->reset();
+        } else {
+            Flux::toast(__('admin.messages.toast.create.error'), variant: 'danger');
+        }
+
     }
 
-    public function updatedSearch()
+    public function updated()
     {
         $this->resetPage();
     }
@@ -40,17 +58,27 @@ class ClientMessages extends PicklioComponent
     #[Computed]
     public function messages()
     {
-        return Message::join('accounts', 'messages.sender_id', '=', 'accounts.id')
-            ->join('users', 'accounts.user_id', '=', 'users.id')
-            ->where('recipient_id', $this->account->id)
-            ->select('messages.*', 'users.name as name')
+        return Message::message($this->account->id)
             ->when($this->search, function ($query) {
-                $query->where('users.name', 'like', '%'.$this->search.'%');
+                $query->where('users.name', 'like', '%' . $this->search . '%');
             })
             ->when($this->messageStatus, function ($query) {
                 $query->where('messages.message_status_id', $this->messageStatus);
             })
             ->orderBy($this->sortBy, $this->sortDirection)
+            ->paginate(15);
+    }
+
+    #[Computed]
+    public function contactMessages()
+    {
+        return ContactMessage::contactMessage($this->account->id)
+            ->when($this->contactSearch, function ($query) {
+                $query->where('name', 'like', '%' . $this->contactSearch . '%');
+            })
+            ->when($this->contactStatus, function ($query) {
+                $query->where('contact_messages.message_status_id', $this->contactStatus);
+            })
             ->paginate(15);
     }
 
