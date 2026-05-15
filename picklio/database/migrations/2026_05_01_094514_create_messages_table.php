@@ -45,6 +45,17 @@ return new class extends Migration {
             $table->string('country');
             $table->timestamps();
         });
+        Schema::create('contact_messages', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('recipient_id')->constrained('accounts');
+            $table->foreignId('message_status_id')->constrained();
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone')->nullable();
+            $table->string('title');
+            $table->string('description');
+            $table->timestamps();
+        });
     }
 
 
@@ -53,6 +64,7 @@ return new class extends Migration {
         Schema::dropIfExists('messages');
         Schema::dropIfExists('suggest_messages');
         Schema::dropIfExists('new_merchant_messages');
+        Schema::dropIfExists('contact_messages');
         Schema::dropIfExists('message_statuses');
     }
 };

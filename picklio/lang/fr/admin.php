@@ -220,6 +220,7 @@ return [
     ],
     'messages' => [
         'suggestMessage' => 'Les suggestion client',
+        'newMerchantMessage' => 'Les inscriptions de nouveau commerçants',
         'information' => 'Les informations client',
         'information-merchant' => 'Les informations du nouveau commerçant',
         'user-message' => 'Le message du client',
@@ -228,7 +229,9 @@ return [
         'shop-name' => 'Nom du commerce',
         'user-name' => 'Nom de la personne',
         'user-email' => 'Email de la personne',
+        'user-phone' => 'Téléphone de la personne',
         'user-description' => 'Description',
+        'user-title' => 'Titre',
         'user-address' => 'Adresse',
         'user-merchantSuggest' => 'Suggestion de commerçants',
         'user-productSuggest' => 'Suggestion de produits',

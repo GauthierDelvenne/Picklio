@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\admin\admin\partials;
+namespace App\Livewire\admin\client\partials;
 
 use App\Livewire\PicklioComponent;
 use App\Models\ContactMessage;
@@ -17,15 +17,13 @@ class Sidebar extends PicklioComponent
     public function mount(): void
     {
         $message = Message::where('message_status_id', MessageStatus::UNREAD)->where('messages.recipient_id', $this->userConnected->account->id)->count();
-        $suggestMessage = SuggestMessage::where('message_status_id', MessageStatus::UNREAD)->count();
-        $newMerchantMessage = NewMerchantMessage::where('message_status_id', MessageStatus::UNREAD)->count();
         $contactMessage = ContactMessage::where('message_status_id', MessageStatus::UNREAD)->where('contact_messages.recipient_id', $this->userConnected->account->id)->count();
 
-        $this->messageCount = $message + $suggestMessage + $newMerchantMessage + $contactMessage;
+        $this->messageCount = $message + $contactMessage;
     }
 
     public function render(): View
     {
-        return view('partials.admin.admin.sidebar');
+        return view('partials.admin.client.sidebar');
     }
 }

@@ -16,7 +16,8 @@ return [
                 'statistics' => 'Statistique',
                 'settings' => 'Paramètre',
                 'suggestMessage' => 'Suggestion',
-                'newMerchantMessage' => 'Nouveau Client',
+                'newMerchantMessage' => 'Nouveau commerçant',
+                'contactMessage' => 'Message Client',
             ],
             'client' => [
                 'dashboard' => 'Dashboard',
@@ -40,6 +41,7 @@ return [
             'profil' => 'Profil',
             'legal-notice' => 'Mentions légales',
             'privacy-policy' => 'Politique de confidentialité',
+            'contact' => 'Contact',
         ],
         'auth' => [
             'login' => 'Connexion',

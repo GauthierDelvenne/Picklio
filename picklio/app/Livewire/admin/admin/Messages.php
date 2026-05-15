@@ -4,6 +4,7 @@ namespace App\Livewire\admin\admin;
 
 use App\Livewire\form\admin\admin\CreateMessageForm;
 use App\Livewire\PicklioComponent;
+use App\Models\ContactMessage;
 use App\Models\Message;
 use App\Models\NewMerchantMessage;
 use App\Models\SuggestMessage;
@@ -17,6 +18,7 @@ class Messages extends PicklioComponent
     use SortingTrait;
     use WithPagination;
 
+    public $account;
     public $search;
 
     public $messageStatus;
@@ -24,41 +26,24 @@ class Messages extends PicklioComponent
     public $suggestMessageStatus;
 
     public $suggestSearch;
+
     public $newMerchantStatus;
+
     public $newMerchantSearch;
+
+    public $contactStatus;
+
+    public $contactSearch;
 
     public CreateMessageForm $form;
 
     public function mount(): void
     {
         $this->sortBy = 'users.name';
+        $this->account = $this->userConnected->account;
     }
 
-    public function updatedMessageStatus()
-    {
-        $this->resetPage();
-    }
-
-    public function updatedSearch()
-    {
-        $this->resetPage();
-    }
-
-    public function updatedSuggestMessageStatus()
-    {
-        $this->resetPage();
-    }
-
-    public function updatedSuggestSearch()
-    {
-        $this->resetPage();
-    }
-    public function updatedNewMerchantStatus()
-    {
-        $this->resetPage();
-    }
-
-    public function updatedNewMerchantSearch()
+    public function updated()
     {
         $this->resetPage();
     }
@@ -74,15 +59,6 @@ class Messages extends PicklioComponent
         }
     }
 
-    public function delete(Message $message)
-    {
-        if ($message->delete()) {
-            Flux::toast(__('admin.messages.toast.delete.success'), variant: 'success');
-            Flux::modal('delete-message')->close();
-        } else {
-            Flux::toast(__('admin.messages.toast.delete.error'), variant: 'danger');
-        }
-    }
     public function deleteSuggest(SuggestMessage $suggestMessage)
     {
         if ($suggestMessage->delete()) {
@@ -92,6 +68,17 @@ class Messages extends PicklioComponent
             Flux::toast(__('admin.messages.toast.delete.error'), variant: 'danger');
         }
     }
+
+    public function delete(Message $message)
+    {
+        if ($message->delete()) {
+            Flux::toast(__('admin.messages.toast.delete.success'), variant: 'success');
+            Flux::modal('delete-message')->close();
+        } else {
+            Flux::toast(__('admin.messages.toast.delete.error'), variant: 'danger');
+        }
+    }
+
     public function deleteNewMerchant(NewMerchantMessage $newMerchantMessages)
     {
         if ($newMerchantMessages->delete()) {
@@ -105,9 +92,7 @@ class Messages extends PicklioComponent
     #[Computed]
     public function messages()
     {
-        return Message::join('accounts', 'messages.recipient_id', '=', 'accounts.id')
-            ->join('users', 'accounts.user_id', '=', 'users.id')
-            ->select('messages.*', 'users.name as name')
+        return Message::message($this->account->id)
             ->when($this->search, function ($query) {
                 $query->where('users.name', 'like', '%'.$this->search.'%');
             })
@@ -131,6 +116,7 @@ class Messages extends PicklioComponent
             })
             ->paginate(15);
     }
+
     #[Computed]
     public function newMerchantMessages()
     {
@@ -141,6 +127,19 @@ class Messages extends PicklioComponent
             })
             ->when($this->newMerchantStatus, function ($query) {
                 $query->where('new_merchant_messages.message_status_id', $this->newMerchantStatus);
+            })
+            ->paginate(15);
+    }
+
+    #[Computed]
+    public function contactMessages()
+    {
+        return ContactMessage::contactMessage($this->account->id)
+            ->when($this->contactSearch, function ($query) {
+                $query->where('name', 'like', '%'.$this->contactSearch.'%');
+            })
+            ->when($this->contactStatus, function ($query) {
+                $query->where('contact_messages.message_status_id', $this->contactStatus);
             })
             ->paginate(15);
     }

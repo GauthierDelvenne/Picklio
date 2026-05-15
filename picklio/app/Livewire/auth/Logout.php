@@ -13,7 +13,7 @@ class Logout extends PicklioComponent
         Session::invalidate();
         Session::regenerateToken();
 
-        $this->redirectRoute('auth.login', navigate: true);
+        $this->redirectRoute('auth.login');
     }
     public function render()
     {

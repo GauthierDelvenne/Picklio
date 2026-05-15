@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\admin\admin\ContactMessage;
 use App\Livewire\admin\admin\Dashboard;
 use App\Livewire\admin\admin\Merchant;
 use App\Livewire\admin\admin\Merchants;
@@ -28,6 +29,7 @@ use App\Livewire\auth\Register;
 use App\Livewire\front\Basket;
 use App\Livewire\front\Catalogue;
 use App\Livewire\front\Catalogues;
+use App\Livewire\front\Contact;
 use App\Livewire\front\FrontMerchant;
 use App\Livewire\front\Home;
 use App\Livewire\front\LegalNotice;
@@ -84,6 +86,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
                     Route::get('/', Messages::class)->name('admin.message.index');
                     Route::get(__('route.admin.admin.suggestMessage').'/{suggestMessage}', SuggestMessage::class)->name('admin.message.suggest.show');
                     Route::get(__('route.admin.admin.newMerchantMessage').'/{newMerchantMessage}', NewMerchantMessage::class)->name('admin.message.new-merchant.show');
+                    Route::get(__('route.admin.admin.contactMessage').'/{contactMessage}', ContactMessage::class)->name('admin.message.contact.show');
                     Route::get('{message}', Message::class)->name('admin.message.show');
                 }
             );
@@ -103,6 +106,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             Route::group(['prefix' => __('route.admin.client.messages')],
                 function () {
                     Route::get('/', ClientMessages::class)->name('client.message.index');
+                    Route::get(__('route.admin.admin.contactMessage').'/{contactMessage}', ContactMessage::class)->name('client.message.contact.show');
                     Route::get('{message}', ClientMessage::class)->name('client.message.show');
                 }
             );
@@ -125,5 +129,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get(__('route.front.profil'), Profil::class)->name('front.profil');
         Route::get(__('route.front.legal-notice'), LegalNotice::class)->name('front.legal-notice');
         Route::get(__('route.front.privacy-policy'), PrivacyPolicy::class)->name('front.privacy-policy');
+        Route::get(__('route.front.contact'), Contact::class)->name('front.contact');
 
     });
