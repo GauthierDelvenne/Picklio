@@ -40,6 +40,7 @@ return [
             'profil' => 'Profil',
             'legal-notice' => 'Mentions légales',
             'privacy-policy' => 'Politique de confidentialité',
+            'contact' => 'Contact',
         ],
         'auth' => [
             'login' => 'Connexion',

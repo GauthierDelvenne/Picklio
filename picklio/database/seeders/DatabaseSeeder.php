@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             'lastname' => 'Chant',
             'email' => 'merchant@gmail.com',
             'phone' => '0497444445',
-            'address' => 'Rue de liège,2',
+            'address' => 'Rue de liège 2,',
             'postal_code' => '4000',
             'country' => 'BE',
         ]);
@@ -74,7 +74,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Picklio',
             'phone' => '04 97 54 69 43',
             'email' => 'picklio@gmail.com',
-            'address' => 'Rue de liège,2',
+            'address' => 'Rue de liège 2,',
             'postal_code' => '4000',
             'country' => 'BE',
             'opening_time' => '10:00',

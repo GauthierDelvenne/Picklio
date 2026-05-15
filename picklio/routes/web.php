@@ -28,6 +28,7 @@ use App\Livewire\auth\Register;
 use App\Livewire\front\Basket;
 use App\Livewire\front\Catalogue;
 use App\Livewire\front\Catalogues;
+use App\Livewire\front\Contact;
 use App\Livewire\front\FrontMerchant;
 use App\Livewire\front\Home;
 use App\Livewire\front\LegalNotice;
@@ -125,5 +126,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get(__('route.front.profil'), Profil::class)->name('front.profil');
         Route::get(__('route.front.legal-notice'), LegalNotice::class)->name('front.legal-notice');
         Route::get(__('route.front.privacy-policy'), PrivacyPolicy::class)->name('front.privacy-policy');
+        Route::get(__('route.front.contact'), Contact::class)->name('front.contact');
 
     });

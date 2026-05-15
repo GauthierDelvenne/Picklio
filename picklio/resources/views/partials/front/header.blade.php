@@ -35,6 +35,12 @@
                     {{__('commons.pageName.front.merchant')}}
                 </a>
             </li>
+            <li class="header__navbar__liste__item">
+                <a href="{{route('front.contact')}}"
+                   class="header__navbar__liste__item__link @if(Route::currentRouteName() === 'front.contact') active @endif">
+                    {{__('commons.pageName.front.contact')}}
+                </a>
+            </li>
             <li class="header__navbar__liste__item header__navbar__liste__item--push">
                 <a href="{{route('front.basket')}}"
                    class="header__navbar__liste__item__link @if(Route::currentRouteName() === 'front.basket') active @endif">
@@ -47,6 +53,7 @@
                     <x-svg.svg class="header__navbar__liste__item__link__svg" name="profil"/>
                 </a>
             </li>
+
             @if($this->is_admin)
                 <li class="header__navbar__liste__item">
                     <a href="{{route('admin.dashboard')}}"

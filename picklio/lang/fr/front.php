@@ -493,4 +493,49 @@ return [
             'delete-message' => 'Voulez-vous vraiment supprimer votre compte ? <br/> Cette action est <strong>irréversible</strong> !',
         ],
     ],
+    'contact' => [
+        'informationContainer' => [
+            'title' => 'Nous contacter ?',
+            'text' => 'Nos canaux de communication',
+            'card' => [
+                'title' => 'Comment nous contacter',
+                'contact-us' => 'Pour nous contacter, vous pouvez remplir le formulaire
+                ci-dessous, nous joindre par téléphone ou par
+                e-mail.',
+                'contact-them' => 'Si vous souhaitez contacter l’un de nos marchands,
+                n’hésitez pas à compléter le formulaire en
+                sélectionnant le nom du magasin concerné. Nous vous répondrons dans les plus brefs délais.',
+            ],
+        ],
+        'formContainer' => [
+            'title' =>'Formulaire de contact',
+            'form' => [
+                'name' => [
+                    'label' => 'Nom - Prénom',
+                    'attribute' => 'nom - prénom',
+                ],
+                'email' => [
+                    'label' => 'Email',
+                    'attribute' => 'email',
+                ],
+                'phone' => [
+                    'label' => 'Téléphone',
+                    'attribute' => 'téléphone',
+                ],
+                'merchant' => [
+                    'label' => 'Choisir un commerçant',
+                    'attribute' => 'choisir un commerçant',
+                ],
+                'title' => [
+                    'label' => 'Titre',
+                    'attribute' => 'titre',
+                ],
+                'description' => [
+                    'label' => 'Description',
+                    'attribute' => 'description',
+                ],
+
+            ],
+        ],
+    ],
 ];
