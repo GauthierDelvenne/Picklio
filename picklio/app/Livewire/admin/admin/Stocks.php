@@ -20,34 +20,30 @@ class Stocks extends PicklioComponent
 
     public $account;
 
-    public $categories;
-
     public $category;
-
-    public $merchants;
 
     public $merchant;
 
     public function mount(): void
     {
         $this->account = $this->userConnected->account;
-        $this->categories = ProductCategory::all();
-        $this->merchants = Account::where('role_id', Role::MERCHANT)->get();
     }
 
-    public function updatedSearch()
+    public function updated()
     {
         $this->resetPage();
     }
 
-    public function updatedCategory()
+    #[Computed(persist: true)]
+    public function categories()
     {
-        $this->resetPage();
+        return ProductCategory::all();
     }
 
-    public function updatedMerchant()
+    #[Computed(persist: true)]
+    public function merchants()
     {
-        $this->resetPage();
+        return Account::where('role_id', Role::MERCHANT)->with('user')->get();
     }
 
     #[Computed]
@@ -81,17 +77,7 @@ class Stocks extends PicklioComponent
             ->count();
     }
 
-    #[Computed]
-    public function lastAddProductsActivities()
-    {
-        return Product::with(['stock', 'account.user'])
-            ->where('created_at', '>=', now()->subDays(3))
-            ->orderByDesc('created_at')
-            ->limit(5)
-            ->get();
-    }
-
-    #[Computed]
+    #[Computed(persist: true)]
     public function lastUpdateProductsActivities()
     {
         return Product::with(['stock', 'account.user'])

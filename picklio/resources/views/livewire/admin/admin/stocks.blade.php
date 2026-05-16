@@ -116,25 +116,6 @@
     <div class="flex justify-between gap-10 mt-12">
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">Dernière activité</flux:heading>
-            @forelse($this->lastAddProductsActivities as $lastAddProductsActivity)
-                <div class="mt-2 flex gap-4 justify-between">
-                    <a href="{{ route('admin.stock.show', $lastAddProductsActivity->id) }}">
-                        <flux:text class="mt-2 hover:text-(--color-accent-content)">
-                            {{$lastAddProductsActivity->account->user->name}}
-                            {{__('words.add')}} {{$lastAddProductsActivity->name}}
-                        </flux:text>
-                    </a>
-                    <flux:text
-                        class="mt-2">    {{ \Carbon\Carbon::parse($lastAddProductsActivity->updated_at)->diffForHumans() }}
-                    </flux:text>
-                </div>
-            @empty
-                <flux:text class="mt-2">{{__('client.commons.empty')}}</flux:text>
-            @endforelse
-
-        </flux:card>
-        <flux:card class="w-md">
-            <flux:heading class="flex items-center gap-2">Dernière activité</flux:heading>
             @forelse($this->lastUpdateProductsActivities as $lastUpdateProductsActivity)
                 <div class="mt-2 flex gap-4 justify-between">
                     <a href="{{ route('admin.stock.show', $lastUpdateProductsActivity->id) }}">

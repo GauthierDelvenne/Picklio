@@ -29,7 +29,7 @@ class CreateMessageForm extends Form
         parent::__construct($component, $propertyName);
         $this->messageStatuses = MessageStatus::all();
         $this->sender_id = $component->userConnected->account->id;
-        $this->recipients = Account::merchants()->get();
+        $this->recipients = Account::with('user')->merchants()->get();
     }
 
     public function create()
