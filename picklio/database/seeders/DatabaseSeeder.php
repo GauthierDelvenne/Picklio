@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(StatusSeeder::class);
         $this->call(ProductCategorySeeder::class);
 
-// ADMIN
+        // ADMIN
         $userA = User::factory()->create([
             'name' => 'Ad Min',
             'email' => 'admin@gmail.com',
@@ -39,8 +39,7 @@ class DatabaseSeeder extends Seeder
             'phone' => '0497444444',
         ]);
 
-
-// MERCHANT
+        // MERCHANT
         $userC = User::factory()->create([
             'name' => 'Mer Chant',
             'email' => 'merchant@gmail.com',
@@ -80,6 +79,16 @@ class DatabaseSeeder extends Seeder
             'opening_time' => '10:00',
             'closing_time' => '20:00',
         ]);
+        User::factory(9)
+            ->create()
+            ->each(function (User $user) {
+                Account::factory()->create([
+                    'user_id' => $user->id,
+                    'role_id' => Role::MERCHANT,
+                    'status_id' => Status::ACTIVE,
+                    'email' => $user->email,
+                ]);
+            });
         $this->call(ProductSeeder::class);
     }
 }

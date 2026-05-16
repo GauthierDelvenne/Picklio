@@ -8,6 +8,7 @@ use App\Models\Role;
 use App\Models\Stock;
 use App\Models\StockMovement;
 use Illuminate\Database\Seeder;
+use Intervention\Image\Colors\Oklab\Channels\A;
 
 class ProductSeeder extends Seeder
 {
@@ -16,21 +17,27 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        $merchant = Account::where('role_id', Role::MERCHANT)->first();
-        $products = Product::factory(10)->create([
-            'account_id' => $merchant->id,
-        ]);
+        $merchants = Account::where('role_id', Role::MERCHANT)->get();
+        foreach ($merchants as $merchant) {
+            $products = Product::factory(10)->create([
+                'account_id' => $merchant->id,
 
-        foreach ($products as $product) {
-            Stock::factory()->create([
-                'product_id' => $product->id,
-                'quantity' => 1,
             ]);
-            StockMovement::factory()->create([
-                'product_id' => $product->id,
-                'quantity' => 1,
-                'type' => StockMovement::TYPE_NEW,
-            ]);
+
+            foreach ($products as $product) {
+                $capacity = $product->productCategory->capacity;
+                $quantity = rand(1, $capacity);
+                Stock::factory()->create([
+                    'product_id' => $product->id,
+                    'quantity' => $quantity,
+                ]);
+                StockMovement::factory()->create([
+                    'product_id' => $product->id,
+                    'quantity' => $quantity,
+                    'type' => StockMovement::TYPE_NEW,
+                ]);
+            }
         }
+
     }
 }
