@@ -1,0 +1,132 @@
+.basket {
+    &__container {
+        &__title {
+            margin-bottom: $space-4;
+            @include laptop-l {
+                font-size: $text-3xl;
+            }
+            @include desktop-l {
+                font-size: $text-4xl;
+            }
+        }
+
+        &__basketContainer {
+            display: flex;
+            gap: $space-12;
+
+            &__itemContainer {
+                display: flex;
+                flex-direction: column;
+                gap: $space-8;
+                flex-grow: 1;
+
+                &__card {
+                    background-color: $tangerine-100;
+                    padding: $space-4;
+                    border-radius: $radius-lg;
+
+                    display: flex;
+                    align-items: center;
+                    gap: $space-4;
+
+                    &__imgContainer {
+                        width: 75px;
+                        height: 75px;
+                        aspect-ratio: 1;
+                        position: relative;
+
+                        &__img {
+                            object-fit: cover;
+                            object-position: center;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: $radius-lg;
+                        }
+                    }
+
+                    &__name {
+                        transition: color ease 0.3s, transform ease 0.3s;
+
+                        &__link {
+
+                        }
+
+                        &:hover {
+                            color: $tangerine-600;
+                            transform: scale(1.1);
+                        }
+                    }
+
+                    .shopCard {
+                        margin-left: auto;
+
+                        &__priceContainer {
+                            gap: $space-4;
+                        }
+                    }
+
+                    &__delete {
+                        width: 20px;
+                        height: 20px;
+
+                        &__svg {
+                            width: 20px;
+                            height: 20px;
+                            transition: transform ease-in 0.3s, fill ease-in 0.3s;
+
+                            &:hover {
+                                transform: scale(1.2);
+                                fill: $tangerine-600;
+                            }
+                        }
+                    }
+
+                    &__empty {
+                        &__link {
+
+                        }
+                    }
+                }
+            }
+
+            &__priceContainer {
+                background-color: $tangerine-100;
+                padding: $space-8;
+                border-radius: $radius-lg;
+                display: flex;
+                flex-direction: column;
+
+                &__title {
+
+                }
+
+                &__hr {
+
+                }
+
+                &__valueContainer {
+                    display: flex;
+                    justify-content: space-between;
+
+                    &__title {
+
+                    }
+
+                    &__value {
+
+                    }
+                }
+
+                &__button {
+                    &__svg {
+
+                    }
+                }
+
+                &__condition {
+
+                }
+            }
+        }
+    }
+}
