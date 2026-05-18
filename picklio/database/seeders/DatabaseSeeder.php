@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Account;
+use App\Models\PickupSlot;
 use App\Models\Role;
 use App\Models\Status;
 use App\Models\User;
@@ -90,5 +91,6 @@ class DatabaseSeeder extends Seeder
                 ]);
             });
         $this->call(ProductSeeder::class);
+        $this->call(PickupSlotSeeder::class);
     }
 }

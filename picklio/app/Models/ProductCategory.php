@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['name', 'slug', 'capacity'])]
+#[Fillable(['name', 'slug', 'capacity', 'tax'])]
 class ProductCategory extends Model
 {
     use HasFactory;
