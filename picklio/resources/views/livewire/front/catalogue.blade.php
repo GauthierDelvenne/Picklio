@@ -121,8 +121,8 @@
         <div class="catalogue__productSection__productContainer">
             <div class="catalogue__productSection__productContainer__product">
                 @forelse($this->products as $product)
-                    <a class="catalogue__productSection__productContainer__product__link"
-                       href="{{ route('front.catalogue.show', $product->id) }}">
+                    <a wire:key="product-{{ $product->id }}"  class="catalogue__productSection__productContainer__product__link"
+                       href="{{ route('front.catalogue.show', $product->id) }}" >
                         <x-front.productCard :img="$product"
                                              category="{!!  __('client.products.categories.'.$product->product_category_id)!!}"
                                              is-new="{{$product->created_at > now()->subDays(7) ? 'New' : ''}}"

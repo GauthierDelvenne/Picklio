@@ -508,7 +508,7 @@ return [
             ],
         ],
         'formContainer' => [
-            'title' =>'Formulaire de contact',
+            'title' => 'Formulaire de contact',
             'form' => [
                 'name' => [
                     'label' => 'Nom - Prénom',
@@ -535,6 +535,22 @@ return [
                     'attribute' => 'description',
                 ],
 
+            ],
+        ],
+    ],
+    'order' => [
+        'toast' => [
+            'add' => [
+                'success' => 'Le produit a été ajouté',
+                'error' => 'Une erreur est survenu lors de l’ajout',
+            ],
+            'remove' => [
+                'success' => 'Le produit a été supprimé',
+                'error' => 'Une erreur est survenu lors de la suppression',
+            ],
+            'max' => [
+                'success' => 'Vous avez atteint la quantité maximale',
+                'error' => 'Une erreur est survenu lors de l’ajout',
             ],
         ],
     ],

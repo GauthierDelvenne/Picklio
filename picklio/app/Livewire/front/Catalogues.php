@@ -46,17 +46,7 @@ class Catalogues extends PicklioComponent
         }
     }
 
-    public function updatedSearch()
-    {
-        $this->resetPage();
-    }
-
-    public function updatedMerchant()
-    {
-        $this->resetPage();
-    }
-
-    public function updatedCategory()
+    public function updated()
     {
         $this->resetPage();
     }
