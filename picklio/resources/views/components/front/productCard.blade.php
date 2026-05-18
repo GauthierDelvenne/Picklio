@@ -29,18 +29,10 @@
                     class="productCard__contentContainer__informationContainer__saleBy__span">{{__('front.commons.sale-by')}}</span> {{$saleBy}}
             </p>
         </div>
-        <div class="productCard__contentContainer__orderContainer">
-            <p class="productCard__contentContainer__orderContainer__price">{{$price}}</p>
-            {{--            TODO INCREMENT DECREMENT--}}
-            <div x-on:click.prevent.stop
-                 class="productCard__contentContainer__orderContainer__selectContainer no-card-hover">
-                <x-svg.svg class="productCard__contentContainer__orderContainer__selectContainer__svg" name="minus"/>
-                <input type="number" name="itemNumber" id="itemNumber-{{ $productId }}" placeholder="00"
-                       class="productCard__contentContainer__orderContainer__selectContainer__value">
-                <x-svg.svg class="productCard__contentContainer__orderContainer__selectContainer__svg" name="plus"/>
-            </div>
-            <x-svg.svg x-on:click.prevent.stop class="productCard__contentContainer__orderContainer__svg no-card-hover"
-                       name="basket"/>
-        </div>
+        <livewire:front.components.shop-card
+            :price="$price"
+            :productId="$productId"
+            :card="true"
+        />
     </div>
 </div>

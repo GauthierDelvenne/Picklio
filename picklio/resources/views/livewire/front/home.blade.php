@@ -61,15 +61,16 @@
             @if($activeTab == 'tab1')
                 <div class="home__categoriesSelectContainer__productCategories__categoryContainer">
                     @foreach($this->alimentaryCategories as $id => $category)
-                        <x-front.productCategoryCard name="{{$category}}"  wire-click="goToCategory({{ $id }})"
-                                                     title="{!!__('client.products.categories.'.$loop->index + 1)!!}"/>
+                        <x-front.productCategoryCard name="{{$category}}" wire-click="goToCategory({{ $id }})"
+                                                     title="{!!__('client.products.categories.'.$id)!!}"/>
                     @endforeach
                 </div>
             @elseif($activeTab == 'tab2')
+                {{--                TODO REVOIR HOMOGÉNÉITÉ PICTOS--}}
                 <div class="home__categoriesSelectContainer__productCategories__categoryContainer">
                     @foreach($this->noAlimentaryCategories as $id => $category)
                         <x-front.productCategoryCard name="{{$category}}" wire-click="goToCategory({{ $id }})"
-                                                     title="{!!__('client.products.categories.'.$loop->index + 1)!!}"/>
+                                                     title="{!!__('client.products.categories.'.$id)!!}"/>
                     @endforeach
                 </div>
             @endif

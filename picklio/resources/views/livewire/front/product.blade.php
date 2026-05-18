@@ -2,8 +2,9 @@
     <section class="product__informationContainer paddingMedia">
         <div class="product__informationContainer__imgContainer">
             <ul class="product__informationContainer__imgContainer__breadCrumb">
-                <li class="product__informationContainer__imgContainer__breadCrumb__item"><a href="{{ route('front.catalogue.index') }}"
-                                                         class="product__informationContainer__imgContainer__breadCrumb__item__link">{{__('commons.pageName.front.catalogue')}}</a>
+                <li class="product__informationContainer__imgContainer__breadCrumb__item"><a
+                        href="{{ route('front.catalogue.index') }}"
+                        class="product__informationContainer__imgContainer__breadCrumb__item__link">{{__('commons.pageName.front.catalogue')}}</a>
                 </li>
                 <li class="product__informationContainer__imgContainer__breadCrumb__item">
                     <x-svg.svg class="product__informationContainer__imgContainer__breadCrumb__item__svg" name="arrow"/>
@@ -33,29 +34,11 @@
                 <p class="product__informationContainer__contentContainer__descriptionContainer__description">{{$product->description}}</p>
             </div>
             <hr class="product__informationContainer__contentContainer__hr">
-            <div class="product__informationContainer__contentContainer__orderContainer">
-                <p class="product__informationContainer__contentContainer__orderContainer__price">{{$product->priceFormatted}}</p>
-                {{--            TODO INCREMENT DECREMENT--}}
-                <div x-on:click.prevent.stop
-                     class="product__informationContainer__contentContainer__orderContainer__selectContainer">
-                    <x-svg.svg
-                        class="product__informationContainer__contentContainer__orderContainer__selectContainer__svg"
-                        name="minus"/>
-                    <input type="number" name="itemNumber" id="itemNumber-{{ $product->id }}" placeholder="00"
-                           class="product__informationContainer__contentContainer__orderContainer__selectContainer__value">
-                    <x-svg.svg
-                        class="product__informationContainer__contentContainer__orderContainer__selectContainer__svg"
-                        name="plus"/>
-                </div>
-            </div>
-            <div class="product__informationContainer__contentContainer__buttonContainer">
-                <button
-                    class="button button--icon product__informationContainer__contentContainer__buttonContainer__button">
-                    {{__('front.product.button')}}
-                    <x-svg.svg class="product__informationContainer__contentContainer__buttonContainer__button__svg"
-                               name="arrow"/>
-                </button>
-            </div>
+            <livewire:front.components.shop-card
+                :price="$product->priceFormatted"
+                :productId="$product->id"
+                :card="false"
+            />
         </div>
     </section>
     <x-front.productList :products="$this->products"

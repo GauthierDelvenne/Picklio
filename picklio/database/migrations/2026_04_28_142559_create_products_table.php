@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('slug');
             $table->integer('capacity');
+            $table->integer('tax');
             $table->timestamps();
         });
 
