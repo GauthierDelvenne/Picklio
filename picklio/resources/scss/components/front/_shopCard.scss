@@ -9,7 +9,8 @@
         gap: $space-1;
 
         &__price {
-
+            display: flex;
+            flex-direction: column;
             @include laptop-l {
                 font-size: $text-xl;
             }
@@ -19,6 +20,11 @@
 
             &--card {
                 font-size: $text-base;
+            }
+
+            &__span {
+                font-size: $text-xsm;
+                color: $tangerine-600;
             }
         }
 
@@ -42,6 +48,7 @@
                 &:hover {
                     transform: scale(1.2);
                     fill: $tangerine-600;
+                    cursor: pointer;
                 }
 
                 @include laptop-l {
@@ -99,6 +106,8 @@
             &:hover {
                 transform: scale(1.2);
                 fill: $tangerine-600;
+                cursor: pointer;
+
             }
         }
     }

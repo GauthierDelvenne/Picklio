@@ -59,15 +59,27 @@ class Basket extends PicklioComponent
         }
     }
 
+    #[Computed]
+    public function priceHTVA()
+    {
+        $tvaAmounts = [
+            'htva' => 0,
+            'tva' => 0,
+        ];
+        foreach ($this->orderItems as $id => $orderItem) {
+            $tvaAmounts['htva'] += round($orderItem->price / (1 + $orderItem->product->productCategory->tax / 100), 2);
+            $tvaAmounts['tva'] += round($orderItem->price - ($orderItem->price / (1 + $orderItem->product->productCategory->tax / 100)), 2);
+
+        }
+        $tvaAmounts['htva'] =  number_format($tvaAmounts['htva'] / 100, 2, ',', ' ') . ' €';
+        $tvaAmounts['tva'] =  number_format($tvaAmounts['tva'] / 100, 2, ',', ' ') . ' €';
+        return $tvaAmounts;
+    }
+
     #[On('edit-product')]
     public function resetTotalPrice()
     {
-        if (!empty($this->userConnected)) {
-            $this->cart = Order::with(['orderItems', 'orderItems.product'])
-                ->where('account_id', $this->userConnected->account->id)
-                ->where('status', Order::INITCART)
-                ->first();
-        }
+        unset($this->orderItems);
     }
 
     public function render()

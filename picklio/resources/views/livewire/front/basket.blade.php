@@ -6,7 +6,8 @@
         <div class="basket__container__basketContainer">
             <div class="basket__container__basketContainer__itemContainer">
                 @forelse($this->orderItems as $orderItem)
-                    <div wire:key="orderItem-{{ $orderItem->id }}" class="basket__container__basketContainer__itemContainer__card">
+                    <div wire:key="orderItem-{{ $orderItem->id }}"
+                         class="basket__container__basketContainer__itemContainer__card">
                         <div class="basket__container__basketContainer__itemContainer__card__imgContainer">
                             @if($orderItem->product->picture_path == 'images/missing-product.webp')
                                 <img src="{{asset($orderItem->product->picture_path)}}" alt=""
@@ -61,23 +62,23 @@
                     <div class="basket__container__basketContainer__priceContainer__valueContainer">
                         <p class="basket__container__basketContainer__priceContainer__valueContainer__title">Prix
                             HTVA</p>
-                        <p class="basket__container__basketContainer__priceContainer__valueContainer__value"></p>
+                        <p class="basket__container__basketContainer__priceContainer__valueContainer__value">{{$this->priceHTVA['htva']}}</p>
                     </div>
                     <div class="basket__container__basketContainer__priceContainer__valueContainer">
                         <p class="basket__container__basketContainer__priceContainer__valueContainer__title">TVA
-                            21%*</p>
-                        <p class="basket__container__basketContainer__priceContainer__valueContainer__value"></p>
+                            <span class="basket__container__basketContainer__priceContainer__valueContainer__title__span">21% *</span></p>
+                        <p class="basket__container__basketContainer__priceContainer__valueContainer__value">{{$this->priceHTVA['tva']}}</p>
                     </div>
                     <hr class="basket__container__basketContainer__priceContainer__hr">
                     <div class="basket__container__basketContainer__priceContainer__valueContainer">
                         <p class="basket__container__basketContainer__priceContainer__valueContainer__title">Total</p>
                         <p class="basket__container__basketContainer__priceContainer__valueContainer__value">{{$orderItem->order->priceFormatted}}</p>
                     </div>
-                    <button class="button button--icon basket__container__basketContainer__priceContainer__button">
+                    <a href="{{ route('front.slot') }}" class="button button--icon basket__container__basketContainer__priceContainer__button">
                         Continuer
                         <x-svg.svg class="basket__container__basketContainer__priceContainer__button__svg"
                                    name="arrow"/>
-                    </button>
+                    </a>
                     <p class="basket__container__basketContainer__priceContainer__condition">*21% par défaut et 6%
                         produit alimentaire</p>
                 </aside>

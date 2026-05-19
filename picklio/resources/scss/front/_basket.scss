@@ -1,5 +1,11 @@
 .basket {
     &__container {
+        @include wide {
+            max-width: 1700px;
+            margin: auto;
+
+        }
+
         &__title {
             margin-bottom: $space-4;
             @include laptop-l {
@@ -45,6 +51,7 @@
                     }
 
                     &__name {
+                        color: $tangerine-700;
                         transition: color ease 0.3s, transform ease 0.3s;
 
                         &__link {
@@ -77,6 +84,8 @@
                             &:hover {
                                 transform: scale(1.2);
                                 fill: $tangerine-600;
+                                cursor: pointer;
+
                             }
                         }
                     }
@@ -95,13 +104,19 @@
                 border-radius: $radius-lg;
                 display: flex;
                 flex-direction: column;
+                gap: $space-4;
 
                 &__title {
-
+                    @include laptop-l {
+                        font-size: $text-xl;
+                    }
+                    @include desktop-l {
+                        font-size: $text-2xl;
+                    }
                 }
 
                 &__hr {
-
+                    border-color: $tangerine-500;
                 }
 
                 &__valueContainer {
@@ -109,7 +124,12 @@
                     justify-content: space-between;
 
                     &__title {
+                        font-weight: 600;
 
+                        &__span {
+                            font-size: $text-sm;
+                            color: $tangerine-600;
+                        }
                     }
 
                     &__value {
@@ -117,14 +137,23 @@
                     }
                 }
 
+                .button {
+                    background-color: $tangerine-200;
+                }
+
                 &__button {
                     &__svg {
 
                     }
+
                 }
 
                 &__condition {
-
+                    font-size: $text-xsm;
+                    color: $tangerine-600;
+                    @include laptop-l {
+                        font-size: $text-sm;
+                    }
                 }
             }
         }
