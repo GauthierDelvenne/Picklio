@@ -539,6 +539,16 @@ return [
         ],
     ],
     'order' => [
+        'title' => 'Votre panier',
+        'empty' => 'Vous n’avez rien dans votre panier',
+        'login' => 'Connectez-vous',
+        'basket-total' => 'Total de votre panier',
+        'price-htva' => 'Prix HTVA',
+        'price-tva' => 'TVA',
+        'price-total' => 'Total',
+        'button' => 'Continuer',
+        'condition' => '*21% par défaut et 6% produit alimentaire',
+        'max' => 'Max',
         'toast' => [
             'add' => [
                 'success' => 'Le produit a été ajouté',

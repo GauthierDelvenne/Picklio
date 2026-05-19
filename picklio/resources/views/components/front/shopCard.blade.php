@@ -17,7 +17,7 @@
                            class="shopCard__priceContainer__selectContainer__svg"
                            name="plus"/>
             @else
-                <p class="shopCard__priceContainer__selectContainer__max">MAX</p>
+                <p class="shopCard__priceContainer__selectContainer__max">{{__('front.order.max')}}</p>
             @endif
         </div>
         @if($this->card && !$this->basket)
