@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['product_id', 'quantity'])]
+#[Fillable(['product_id', 'quantity', 'quantity_reserved'])]
 class Stock extends Model
 {
     use HasFactory;
@@ -37,5 +37,10 @@ class Stock extends Model
     public function isVeryLowStock(int $capacity): bool
     {
         return $this->quantity <= $capacity * 0.10;
+    }
+
+    public function getAvailableQuantityAttribute(): int
+    {
+        return $this->quantity - $this->quantity_reserved;
     }
 }

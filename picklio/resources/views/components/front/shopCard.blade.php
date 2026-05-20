@@ -2,7 +2,8 @@
      x-on:add-product.window="show = true; setTimeout(() => show = false, 3000)"
      x-on:max-product.window="max = true; setTimeout(() => max = false, 3000)">
     <div class="shopCard__priceContainer">
-        <p class="shopCard__priceContainer__price @if($this->card) shopCard__priceContainer__price--card  @endif">{{$this->price}}</p>
+        <p class="shopCard__priceContainer__price @if($this->card) shopCard__priceContainer__price--card  @endif">{{$this->price}} @if($this->basket) <span class="shopCard__priceContainer__price__span">{{$this->product->priceFormatted}}/u</span> @endif
+        </p>
         <div x-on:click.prevent.stop
              class="shopCard__priceContainer__selectContainer @if($this->card) shopCard__priceContainer__selectContainer--card no-card-hover  @endif">
             <x-svg.svg wire:click="decrement"
@@ -16,7 +17,7 @@
                            class="shopCard__priceContainer__selectContainer__svg"
                            name="plus"/>
             @else
-                <p class="shopCard__priceContainer__selectContainer__max">MAX</p>
+                <p class="shopCard__priceContainer__selectContainer__max">{{__('front.order.max')}}</p>
             @endif
         </div>
         @if($this->card && !$this->basket)

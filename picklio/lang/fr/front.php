@@ -539,6 +539,17 @@ return [
         ],
     ],
     'order' => [
+        'title' => 'Votre panier',
+        'danger' => 'Votre panier à une durée limiter, si après 2h, il n’a pas été finaliser, il sera alors reinitialisé',
+        'empty' => 'Vous n’avez rien dans votre panier',
+        'login' => 'Connectez-vous',
+        'basket-total' => 'Total de votre panier',
+        'price-htva' => 'Prix HTVA',
+        'price-tva' => 'TVA',
+        'price-total' => 'Total',
+        'button' => 'Continuer',
+        'condition' => '*21% par défaut et 6% produit alimentaire',
+        'max' => 'Max',
         'toast' => [
             'add' => [
                 'success' => 'Le produit a été ajouté',
@@ -553,5 +564,38 @@ return [
                 'error' => 'Une erreur est survenu lors de l’ajout',
             ],
         ],
+    ],
+    'slot' => [
+        'little_word' => [
+            'from' => 'Du',
+            'to' => 'au',
+        ],
+        'button' => 'Valider et continuer',
+        'empty-slot' => 'Veuillez choisir un jour mon afficher les plages horaires',
+        'weekContainer' => [
+            'title' => 'Choisir une semaine',
+        ],
+        'dayContainer' => [
+            'title' => 'Choisir un jour',
+        ],
+        'slotContainer' => [
+            'title' => 'Choisir une heure',
+        ],
+        'form' => [
+            'pickup_date' => [
+                'attribute' => 'choisir un jour',
+            ],
+            'time' => [
+                'attribute' => 'choisir une heure',
+            ],
+        ],
+    ],
+    'order-confirmation' => [
+        'thanks' => 'Merci pour votre achat !',
+        'product' => 'Vos produits',
+        'information' => 'Information de commande',
+        'slot' => 'Créneaux',
+        'email' => 'Email',
+        'total' => 'Total à payer',
     ],
 ];

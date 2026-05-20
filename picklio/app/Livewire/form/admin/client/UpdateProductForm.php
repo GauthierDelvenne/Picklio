@@ -113,7 +113,7 @@ class UpdateProductForm extends Form
             'name' => 'required|string',
             'description' => 'required|string',
             'category_id' => 'required|exists:product_categories,id',
-            'price' => 'required|decimal:2',
+            'price' => 'required|decimal:0,2',
             'percentage' => 'nullable|integer|max:100|min:0',
             'start_at' => 'nullable|date|before_or_equal:end_at',
             'end_at' => 'nullable|date|after_or_equal:start_at',

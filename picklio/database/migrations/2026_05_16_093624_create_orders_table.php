@@ -9,6 +9,7 @@ return new class extends Migration {
     {
         Schema::create('pickup_slots', function (Blueprint $table) {
             $table->id();
+            $table->integer('day_iso');
             $table->time('time');
             $table->string('max_orders')->default('2');
             $table->timestamps();
@@ -16,8 +17,10 @@ return new class extends Migration {
 
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->uuid()->unique();
             $table->foreignId('account_id')->constrained();
             $table->foreignId('pickup_slot_id')->constrained();
+            $table->date('pickup_date');
             $table->string('status');
             $table->string('total_price');
             $table->timestamps();

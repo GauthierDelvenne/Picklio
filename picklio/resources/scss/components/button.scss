@@ -88,4 +88,13 @@
             color: white;
         }
     }
+
+    &--left {
+        &:hover {
+            .icon {
+
+                rotate: 135deg;
+            }
+        }
+    }
 }

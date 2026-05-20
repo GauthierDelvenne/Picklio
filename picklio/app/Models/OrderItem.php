@@ -36,12 +36,14 @@ class OrderItem extends Model
      */
     public function getPriceQuantityAttribute()
     {
-        return $this->product->price * $this->quantity;
+        if (!empty($this->quantity)) {
+            return $this->product->price * $this->quantity;
+        }
     }
 
     public function getPriceFormattedAttribute()
     {
-        return number_format($this->priceQuantity / 100, 2, ',', ' ').' €';
+        return number_format($this->priceQuantity / 100, 2, ',', ' ') . ' €';
     }
 
     /**
