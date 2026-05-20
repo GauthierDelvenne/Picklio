@@ -564,4 +564,29 @@ return [
             ],
         ],
     ],
+    'slot' => [
+        'little_word' => [
+            'from' => 'Du',
+            'to' => 'au',
+        ],
+        'button' => 'Valider et continuer',
+        'empty-slot' => 'Veuillez choisir un jour mon afficher les plages horaires',
+        'weekContainer' => [
+            'title' => 'Choisir une semaine',
+        ],
+        'dayContainer' => [
+            'title' => 'Choisir un jour',
+        ],
+        'slotContainer' => [
+            'title' => 'Choisir une heure',
+        ],
+        'form' => [
+            'pickup_date' => [
+                'attribute' => 'choisir un jour',
+            ],
+            'time' => [
+                'attribute' => 'choisir une heure',
+            ],
+        ],
+    ],
 ];

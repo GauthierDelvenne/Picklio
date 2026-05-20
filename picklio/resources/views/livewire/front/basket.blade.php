@@ -72,7 +72,7 @@
                         <p class="basket__container__basketContainer__priceContainer__valueContainer__title">{{__('front.order.price-total')}}</p>
                         <p class="basket__container__basketContainer__priceContainer__valueContainer__value">{{$orderItem->order->priceFormatted}}</p>
                     </div>
-                    <a href="{{ route('front.slot') }}" class="button button--icon basket__container__basketContainer__priceContainer__button">
+                    <a href="{{ route('front.slot', $this->cart) }}"  class="button button--icon basket__container__basketContainer__priceContainer__button">
                         {{__('front.order.button')}}
                         <x-svg.svg class="basket__container__basketContainer__priceContainer__button__svg"
                                    name="arrow"/>
@@ -81,6 +81,6 @@
                 </aside>
             @endif
         </div>
-
+{{--TODO PANIER RESET APRES 6H CRON + MESSAGE PREVENIR --}}
     </section>
 </div>

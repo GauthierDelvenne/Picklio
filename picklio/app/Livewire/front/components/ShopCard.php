@@ -9,6 +9,7 @@ use App\Models\PickupSlot;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class ShopCard extends PicklioComponent
 {
@@ -38,10 +39,14 @@ class ShopCard extends PicklioComponent
         $this->product = Product::with(['productCategory', 'stock'])
             ->findOrFail($this->productId);
         $this->capacity = $this->product->productCategory->capacity;
-        $this->stockAvailable = $this->product->stock->quantity;
+        $this->stockAvailable = $this->product->stock->availableQuantity;
         if (! empty($this->userConnected)) {
             $this->account = $this->userConnected->account;
-
+            $item = $this->isAccountCart();
+            if ($item) {
+                $this->quantity = $item->quantity;
+                $this->stockAvailable += $item->quantity;
+            }
         }
     }
 
@@ -56,7 +61,7 @@ class ShopCard extends PicklioComponent
         DB::transaction(function () {
             $cart = Order::firstOrCreate(
                 ['account_id' => $this->account->id, 'status' => Order::INITCART],
-                ['total_price' => 0, 'pickup_slot_id' => PickupSlot::TIMECREATEDCART]
+                ['total_price' => 0, 'uuid' => Str::uuid(), 'pickup_date' => now(), 'pickup_slot_id' => PickupSlot::TIMECREATEDCART]
             );
             $item = OrderItem::thisProductItem($cart->id, $this->productId)->first();
             if ($item) {
@@ -66,6 +71,7 @@ class ShopCard extends PicklioComponent
                     $item->save();
                     $this->dispatch('max-product');
                 }
+                $this->product->stock->increment('quantity_reserved', $this->quantity);
             } else {
                 OrderItem::create([
                     'order_id' => $cart->id,
@@ -75,6 +81,7 @@ class ShopCard extends PicklioComponent
                     'quantity' => $this->quantity,
                     'price' => $this->product->price * $this->quantity,
                 ]);
+                $this->product->stock->increment('quantity_reserved', $this->quantity);
             }
             $cart->total_price = $cart->orderItems()->sum(DB::raw('price'));
             $cart->save();
@@ -96,6 +103,7 @@ class ShopCard extends PicklioComponent
                 }
                 $result->price = $result->priceQuantity;
                 $this->price = $result->priceformatted;
+                $this->product->stock->increment('quantity_reserved', 1);
                 $result->save();
             }
             $this->recalculateCartTotal();
@@ -118,6 +126,18 @@ class ShopCard extends PicklioComponent
         }
     }
 
+    public function recalculateCartTotal(): void
+    {
+        if (! empty($this->account)) {
+            $cart = Order::orderCart($this->account->id)->first();
+            if ($cart) {
+                $cart->total_price = $cart->orderItems()
+                    ->sum(DB::raw('price'));
+                $cart->save();
+            }
+        }
+    }
+
     public function updatedQuantity()
     {
         if ($this->quantity > $this->stockAvailable) {
@@ -125,10 +145,20 @@ class ShopCard extends PicklioComponent
         }
         $result = $this->isAccountCart();
         if ($result) {
+            $diff = (int) $this->quantity - (int) $result->quantity;
             $result->quantity = $this->quantity;
             $result->price = $result->priceQuantity;
             $this->price = $result->priceformatted;
+            if (empty($this->quantity)) {
+                $result->price = 0;
+            }
             $result->save();
+
+            if ($diff > 0) {
+                $this->product->stock->increment('quantity_reserved', $diff);
+            } elseif ($diff < 0) {
+                $this->product->stock->increment('quantity_reserved', $diff);
+            }
         }
         $this->recalculateCartTotal();
         $this->dispatch('edit-product');
@@ -144,22 +174,14 @@ class ShopCard extends PicklioComponent
                 $result->quantity--;
                 $result->price = $result->priceQuantity;
                 $this->price = $result->priceformatted;
+                if ($this->quantity == 0) {
+                    $result->price = 0;
+                }
+                $this->product->stock->decrement('quantity_reserved', 1);
                 $result->save();
             }
             $this->recalculateCartTotal();
             $this->dispatch('edit-product');
-        }
-    }
-
-    public function recalculateCartTotal(): void
-    {
-        if (! empty($this->account)) {
-            $cart = Order::orderCart($this->account->id)->first();
-            if ($cart) {
-                $cart->total_price = $cart->orderItems()
-                    ->sum(DB::raw('price'));
-                $cart->save();
-            }
         }
     }
 
