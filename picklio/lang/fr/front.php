@@ -590,4 +590,12 @@ return [
             ],
         ],
     ],
+    'order-confirmation' => [
+        'thanks' => 'Merci pour votre achat !',
+        'product' => 'Vos produits',
+        'information' => 'Information de commande',
+        'slot' => 'Créneaux',
+        'email' => 'Email',
+        'total' => 'Total à payer',
+    ],
 ];

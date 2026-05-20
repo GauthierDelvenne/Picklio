@@ -125,7 +125,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get(__('route.front.merchant'), FrontMerchant::class)->name('front.merchant');
         Route::get(__('route.front.basket'), Basket::class)->name('front.basket');
         Route::get(__('route.front.slot').'/{order}', Slot::class)->name('front.slot');
-        Route::get(__('route.front.order-confirmation'), OrderConfirmation::class)->name('front.order-confirmation');
+        Route::get(__('route.front.order-confirmation').'/{order}', OrderConfirmation::class)->name('front.order-confirmation');
         Route::get(__('route.front.profil'), Profil::class)->name('front.profil');
         Route::get(__('route.front.legal-notice'), LegalNotice::class)->name('front.legal-notice');
         Route::get(__('route.front.privacy-policy'), PrivacyPolicy::class)->name('front.privacy-policy');

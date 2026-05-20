@@ -4,11 +4,14 @@ namespace App\Livewire\front;
 
 use App\Livewire\form\front\ChooseSlotForm;
 use App\Livewire\PicklioComponent;
+use App\Mail\PreventCartDeleteMail;
+use App\Mail\SuccessOrderMail;
 use App\Models\Order;
 use App\Models\PickupSlot;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Livewire\Attributes\Computed;
+use Mail;
 
 class Slot extends PicklioComponent
 {
@@ -41,11 +44,11 @@ class Slot extends PicklioComponent
 
         return [
             'current' => [
-                'label' => __('front.slot.little_word.from') . ' ' . $start->format('d/m') . ' ' . __('front.slot.little_word.to') . ' ' . $end->format('d/m'),
+                'label' => __('front.slot.little_word.from').' '.$start->format('d/m').' '.__('front.slot.little_word.to').' '.$end->format('d/m'),
                 'days' => CarbonPeriod::create($start, $end),
             ],
             'next' => [
-                'label' => __('front.slot.little_word.from') . ' ' . $nextStart->format('d/m') . ' ' . __('front.slot.little_word.to') . ' ' . $nextEnd->format('d/m'),
+                'label' => __('front.slot.little_word.from').' '.$nextStart->format('d/m').' '.__('front.slot.little_word.to').' '.$nextEnd->format('d/m'),
                 'days' => CarbonPeriod::create($nextStart, $nextEnd),
             ],
         ];
@@ -54,7 +57,7 @@ class Slot extends PicklioComponent
     #[Computed]
     public function slots()
     {
-        if (!$this->form->pickup_date) {
+        if (! $this->form->pickup_date) {
             return [];
         }
 
@@ -72,7 +75,8 @@ class Slot extends PicklioComponent
     public function createOrder()
     {
         if ($this->form->createOrder()) {
-            $this->redirectRoute('front.order-confirmation');
+            Mail::to($this->order->account->email)->send(new SuccessOrderMail);
+            $this->redirectRoute('front.order-confirmation', ['order' => $this->order]);
         }
     }
 
@@ -83,7 +87,7 @@ class Slot extends PicklioComponent
 
     public function isSlotPast($slot)
     {
-        return !empty($this->form->pickup_date)
+        return ! empty($this->form->pickup_date)
             && $this->form->pickup_date === now()->format('Y-m-d')
             && $slot->time->format('H:i') <= now()->format('H:i');
     }
@@ -107,6 +111,6 @@ class Slot extends PicklioComponent
     {
         return view('livewire.front.slot')
             ->layout('layouts.front')
-            ->title(__('commons.pageName.front.slot') . ' | Picklio');
+            ->title(__('commons.pageName.front.slot').' | Picklio');
     }
 }

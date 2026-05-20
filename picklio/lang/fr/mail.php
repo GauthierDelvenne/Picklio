@@ -36,5 +36,11 @@ return [
             'description' => 'Votre panier vous attend ! Pensez à finaliser votre commande dans les 15 prochaines minutes, passé ce délai votre panier sera automatiquement supprimé.',
             'button' => 'Aller au panier',
         ],
+        'success-order' => [
+            'subject' => 'Votre commande a bien été enregistrée',
+            'title' => 'Commande confirmée, merci !',
+            'description' => 'Nous avons bien reçu votre commande et elle est en cours de traitement. Vous recevrez prochainement un email de confirmation avec tous les détails.',
+            'button' => 'Retourner sur le siteF',
+        ],
     ],
 ];
