@@ -65,5 +65,6 @@
             {{__('front.slot.button')}}
             <x-svg.svg class="slot__container__button__svg" name="arrow"/>
         </button>
+    <x-front.warningCart/>
     </section>
 </div>

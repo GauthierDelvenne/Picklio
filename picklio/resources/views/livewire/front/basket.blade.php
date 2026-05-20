@@ -84,9 +84,6 @@
                 </aside>
             @endif
         </div>
-        <div class="basket__container__danger">
-            <x-svg.svg class="basket__container__danger__svg" name="circle-danger"/>
-            <p class="basket__container__danger__title">{{__('front.order.danger')}}</p>
-        </div>
+        <x-front.warningCart/>
     </section>
 </div>

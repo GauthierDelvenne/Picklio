@@ -162,27 +162,5 @@
                 }
             }
         }
-
-        &__danger {
-            display: flex;
-            gap: $space-4;
-            margin-top: $space-20;
-            align-items: center;
-
-            &__svg {
-                width: 25px;
-                height: 25px;
-                fill: $error;
-            }
-
-            &__title {
-                font-size: $text-xsm;
-                font-weight: 600;
-                color: $error;
-                @include laptop {
-                    font-size: $text-sm;
-                }
-            }
-        }
     }
 }
