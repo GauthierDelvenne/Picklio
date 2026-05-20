@@ -540,7 +540,7 @@ return [
     ],
     'order' => [
         'title' => 'Votre panier',
-        'danger' => 'Votre panier à une durée limiter, si après 5h, il n’a pas été finaliser, il sera alors reinitialisé',
+        'danger' => 'Votre panier à une durée limiter, si après 2h, il n’a pas été finaliser, il sera alors reinitialisé',
         'empty' => 'Vous n’avez rien dans votre panier',
         'login' => 'Connectez-vous',
         'basket-total' => 'Total de votre panier',

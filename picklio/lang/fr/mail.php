@@ -30,5 +30,11 @@ return [
             'description' => 'Vous nous avez envoyé des suggestions d’articles et/ou de commerçants. Celle-ci sera traitée sous peu et Picklio essaiera de pallier ce manque.',
             'button' => 'Retourner sur le site',
         ],
+        'order' => [
+            'subject' => 'Votre panier expire bientôt',
+            'title' => 'Votre panier est sur le point d’être supprimé',
+            'description' => 'Votre panier vous attend ! Pensez à finaliser votre commande dans les 15 prochaines minutes, passé ce délai votre panier sera automatiquement supprimé.',
+            'button' => 'Aller au panier',
+        ],
     ],
 ];
