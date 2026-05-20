@@ -1,0 +1,222 @@
+.slot {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: $space-12;
+        @include wide {
+            max-width: 1700px;
+            margin: auto;
+        }
+
+        &__title {
+            @include laptop-l {
+                font-size: $text-3xl;
+            }
+            @include desktop-l {
+                font-size: $text-4xl;
+            }
+        }
+
+        &__pickupContainer {
+            display: flex;
+            flex-direction: column;
+            gap: $space-8;
+
+
+            &__weekContainer {
+                display: flex;
+                align-items: flex-end;
+                gap: $space-4;
+
+                .inputContainer {
+                    margin-bottom: 0;
+                }
+
+                &__inputContainer {
+                    label {
+                        font-weight: 500;
+                        @include laptop-l {
+                            font-size: $text-2xl;
+                        }
+                        @include desktop-l {
+                            font-size: $text-3xl;
+                        }
+                    }
+
+                    .inputContainer__wrapper__input {
+                        background-color: $tangerine-100;
+
+                    }
+
+                    &__input {
+
+                        &__error {
+
+                        }
+                    }
+                }
+
+
+                &__button {
+                    display: inline-flex;
+
+                    &--left {
+                        margin-left: auto
+                    }
+
+                    &__svg {
+                        &--left {
+                            rotate: 180deg;
+
+                        }
+                    }
+                }
+            }
+
+            &__dayContainer {
+
+                &__title {
+                    font-weight: 500;
+                    @include laptop-l {
+                        font-size: $text-2xl;
+                    }
+                    @include desktop-l {
+                        font-size: $text-3xl;
+                    }
+                }
+
+                &__dayCardContainer {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: $space-3;
+                    @include laptop {
+                        justify-content: space-between;
+                        flex-wrap: nowrap;
+                    }
+
+                    .active {
+                        background-color: $tangerine-200;
+                    }
+
+                    .disabled {
+                        cursor: not-allowed;
+                        pointer-events: none;
+                    }
+
+                    &__card {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: $space-2;
+                        padding: $space-8;
+                        border-radius: $radius-lg;
+                        background-color: $tangerine-100;
+                        font-weight: bold;
+                        width: 100%;
+                        transition: background-color ease-in 0.3s;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: $tangerine-200;
+
+                        }
+
+                        &__day {
+                            &::first-letter {
+                                text-transform: uppercase;
+                            }
+
+                            @include laptop-l {
+                                font-size: $text-2xl;
+                            }
+                            @include desktop-l {
+                                font-size: $text-3xl;
+                            }
+                        }
+
+                        &__date {
+                            font-size: $text-4xl;
+                            @include laptop-l {
+                                font-size: $text-5xl;
+                            }
+                            @include desktop-l {
+                                font-size: $text-6xl;
+                            }
+                        }
+
+                        &__month {
+                            &::first-letter {
+                                text-transform: uppercase;
+                            }
+
+                            @include laptop-l {
+                                font-size: $text-2xl;
+                            }
+                            @include desktop-l {
+                                font-size: $text-3xl;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__slotContainer {
+                &__title {
+                    font-weight: 500;
+                    @include laptop-l {
+                        font-size: $text-2xl;
+                    }
+                    @include desktop-l {
+                        font-size: $text-3xl;
+                    }
+                }
+
+                &__slotCardContainer {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: $space-4;
+
+                    .active {
+                        background-color: $tangerine-200;
+                    }
+
+                    .disabled {
+                        cursor: not-allowed;
+                        pointer-events: none;
+                    }
+
+                    &__card {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        padding: $space-2 $space-4;
+                        border-radius: $radius-md;
+                        background-color: $tangerine-100;
+                        font-weight: bold;
+                        transition: background-color ease-in 0.3s;
+
+
+                        &:hover {
+                            background-color: $tangerine-200;
+
+                        }
+
+                        &__time {
+
+                        }
+                    }
+
+                    &__empty {
+                        color: $tangerine-600;
+                    }
+                }
+            }
+        }
+
+        &__button {
+            &__svg {
+
+            }
+        }
+    }
+}
