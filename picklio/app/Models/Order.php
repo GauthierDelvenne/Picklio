@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['account_id', 'pickup_slot_id', 'status', 'total_price'])]
+#[Fillable(['account_id', 'pickup_slot_id', 'status', 'total_price', 'pickup_date', 'uuid', 'id'])]
 class Order extends Model
 {
     use HasFactory;
@@ -42,6 +42,11 @@ class Order extends Model
     public function getPriceFormattedAttribute(): string
     {
         return number_format($this->total_price / 100, 2, ',', ' ').' €';
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'uuid';
     }
 
     /**

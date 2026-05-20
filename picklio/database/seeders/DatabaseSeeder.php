@@ -90,6 +90,20 @@ class DatabaseSeeder extends Seeder
                     'email' => $user->email,
                 ]);
             });
+
+        // CLIENT
+        $userD = User::factory()->create([
+            'name' => 'Gauthier Delvenne',
+            'email' => 'gauthierdelvenne@gmail.com',
+        ]);
+        Account::factory()->create([
+            'user_id' => $userD->id,
+            'role_id' => Role::CLIENT,
+            'firstname' => 'Gauthier',
+            'lastname' => 'Delvenne',
+            'email' => 'gauthierdelvenne@gmail.com',
+            'phone' => '0497324444',
+        ]);
         $this->call(ProductSeeder::class);
         $this->call(PickupSlotSeeder::class);
     }
