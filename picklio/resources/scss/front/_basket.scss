@@ -18,7 +18,11 @@
 
         &__basketContainer {
             display: flex;
+            flex-direction: column;
             gap: $space-12;
+            @include laptop{
+            flex-direction: row;
+            }
 
             &__itemContainer {
                 display: flex;
@@ -34,6 +38,7 @@
                     display: flex;
                     align-items: center;
                     gap: $space-4;
+                    flex-wrap: wrap;
 
                     &__imgContainer {
                         width: 75px;
