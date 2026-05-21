@@ -9,6 +9,7 @@ use App\Models\MessageStatus;
 use App\Models\NewMerchantMessage;
 use App\Models\SuggestMessage;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 
 class Sidebar extends PicklioComponent
 {
@@ -16,12 +17,20 @@ class Sidebar extends PicklioComponent
 
     public function mount(): void
     {
-        $message = Message::where('message_status_id', MessageStatus::UNREAD)->where('messages.recipient_id', $this->userConnected->account->id)->count();
-        $suggestMessage = SuggestMessage::where('message_status_id', MessageStatus::UNREAD)->count();
-        $newMerchantMessage = NewMerchantMessage::where('message_status_id', MessageStatus::UNREAD)->count();
-        $contactMessage = ContactMessage::where('message_status_id', MessageStatus::UNREAD)->where('contact_messages.recipient_id', $this->userConnected->account->id)->count();
+        $this->messageCount = Cache::remember("unread_messages_{$this->userConnected->id}", 60,
+            function () {
+                return Message::where('message_status_id', MessageStatus::UNREAD)
+                    ->where('recipient_id', $this->userConnected->account->id)
+                    ->count()
+                    + SuggestMessage::where('message_status_id', MessageStatus::UNREAD)
+                        ->count()
+                    + NewMerchantMessage::where('message_status_id', MessageStatus::UNREAD)
+                        ->count()
+                    + ContactMessage::where('message_status_id', MessageStatus::UNREAD)
+                        ->where('recipient_id', $this->userConnected->account->id)
+                        ->count();
+            });
 
-        $this->messageCount = $message + $suggestMessage + $newMerchantMessage + $contactMessage;
     }
 
     public function render(): View
