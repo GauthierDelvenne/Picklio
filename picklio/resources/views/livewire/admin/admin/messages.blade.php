@@ -73,7 +73,7 @@
                                                     class="hover:text-(--color-accent-content)"
                                                     wire:confirm="{{__('admin.messages.delete-confirm', ['name' => $message->name])}}">{{__('admin.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
-                            </flux:popover>
+                            </flux:dropdown>
                         </flux:table.cell>
                     </flux:table.row>
                 @empty
@@ -152,7 +152,7 @@
                                                     class="hover:text-(--color-accent-content)"
                                                     wire:confirm="{{__('admin.messages.delete-confirm', ['name' => $message->name])}}">{{__('admin.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
-                            </flux:popover>
+                            </flux:dropdown>
                         </flux:table.cell>
                     </flux:table.row>
                 @empty
@@ -231,7 +231,7 @@
                                                     class="hover:text-(--color-accent-content)"
                                                     wire:confirm="{{__('admin.messages.delete-confirm', ['name' => $message->name])}}">{{__('admin.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
-                            </flux:popover>
+                            </flux:dropdown>
                         </flux:table.cell>
                     </flux:table.row>
                 @empty
@@ -309,7 +309,7 @@
                                                     class="hover:text-(--color-accent-content)"
                                                     wire:confirm="{{__('admin.messages.delete-confirm', ['name' => $message->name])}}">{{__('admin.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
-                            </flux:popover>
+                            </flux:dropdown>
                         </flux:table.cell>
                     </flux:table.row>
                 @empty
