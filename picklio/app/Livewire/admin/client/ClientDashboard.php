@@ -3,6 +3,7 @@
 namespace App\Livewire\admin\client;
 
 use App\Livewire\PicklioComponent;
+use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Traits\SortingTrait;
@@ -23,10 +24,15 @@ class ClientDashboard extends PicklioComponent
 
     public $category;
 
+    public $orderItems;
+
     public function mount(): void
     {
         $this->account = $this->userConnected->account;
         $this->categories = ProductCategory::all();
+        $this->orderItems = OrderItem::with(['product.stock', 'product.productCategory'])
+            ->where('merchant_id', $this->account->id)
+            ->get();
     }
 
     public function updatedSearch()
@@ -62,6 +68,35 @@ class ClientDashboard extends PicklioComponent
             })
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(15);
+    }
+
+    #[Computed]
+    public function bestSellers()
+    {
+        $orderItems = $this->orderItems;
+
+        return $orderItems
+            ->groupBy('product.id')
+            ->map(function ($orderItems) {
+                return [
+                    'product' => $orderItems->first()->product,
+                    'quantity' => $orderItems->sum('quantity'),
+                ];
+            })
+            ->sortByDesc('quantity')
+            ->take(10);
+    }
+
+    #[Computed]
+    public function orderItem()
+    {
+        return $this->orderItems->count();
+    }
+
+    #[Computed]
+    public function totalSale()
+    {
+        return number_format($this->orderItems->sum('price') / 100, 2, ',', ' ') . ' €';
     }
 
     public function render()
