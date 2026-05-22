@@ -17,7 +17,7 @@ class Basket extends PicklioComponent
     public function orderItems()
     {
         if (! empty($this->userConnected)) {
-            $this->cart = Order::with(['orderItems', 'orderItems.product'])
+            $this->cart = Order::with(['orderItems', 'orderItems.product.stock', 'orderItems.product.productCategory'])
                 ->where('account_id', $this->userConnected->account->id)
                 ->where('status', Order::INITCART)
                 ->first();
@@ -47,13 +47,9 @@ class Basket extends PicklioComponent
         $orderItem = OrderItem::findOrFail($orderItemId);
         $orderItem->product->stock->decrement('quantity_reserved', $orderItem->quantity);
         if ($orderItem->delete()) {
-            $cart = Order::where('account_id', $this->userConnected->account->id)
-                ->where('status', Order::INITCART)
-                ->first();
-
-            if ($cart) {
-                $cart->total_price = $cart->orderItems()->sum(DB::raw('price'));
-                $cart->save();
+            if ($this->cart) {
+                $this->cart->total_price = $this->cart->orderItems()->sum(DB::raw('price'));
+                $this->cart->save();
             }
             unset($this->orderItems);
             $this->dispatch('delete-order');
@@ -74,6 +70,7 @@ class Basket extends PicklioComponent
         }
         $tvaAmounts['htva'] = number_format($tvaAmounts['htva'] / 100, 2, ',', ' ').' €';
         $tvaAmounts['tva'] = number_format($tvaAmounts['tva'] / 100, 2, ',', ' ').' €';
+
         return $tvaAmounts;
     }
 

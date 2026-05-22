@@ -36,7 +36,7 @@
             <hr class="product__informationContainer__contentContainer__hr">
             <livewire:front.components.shop-card
                 :price="$product->priceFormatted"
-                :productId="$product->id"
+                :product="$product"
                 :card="false"
             />
         </div>

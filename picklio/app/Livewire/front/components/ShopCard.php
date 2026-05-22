@@ -19,7 +19,7 @@ class ShopCard extends PicklioComponent
 
     public $productId;
 
-    public $product;
+    public Product $product;
 
     public $card;
 
@@ -31,15 +31,14 @@ class ShopCard extends PicklioComponent
 
     public $stockAvailable;
 
-    public function mount($price, $productId, $card): void
+    public function mount($price, Product $product, $card): void
     {
         $this->price = $price;
-        $this->productId = $productId;
+        $this->productId = $product->id;
         $this->card = $card;
-        $this->product = Product::with(['productCategory', 'stock'])
-            ->findOrFail($this->productId);
-        $this->capacity = $this->product->productCategory->capacity;
-        $this->stockAvailable = $this->product->stock->availableQuantity;
+        $this->product = $product;
+        $this->capacity = $product->productCategory->capacity;
+        $this->stockAvailable = $product->stock->availableQuantity;
         if (! empty($this->userConnected)) {
             $this->account = $this->userConnected->account;
             $item = $this->isAccountCart();
@@ -93,8 +92,9 @@ class ShopCard extends PicklioComponent
     {
         if ($this->quantity < $this->stockAvailable) {
             $this->quantity++;
+            $cart = Order::orderCart($this->account->id)->first();
 
-            $result = $this->isAccountCart();
+            $result = $this->isAccountCart($cart);
             if ($result) {
                 $result->quantity++;
                 if ($result->quantity > $this->stockAvailable) {
@@ -106,16 +106,16 @@ class ShopCard extends PicklioComponent
                 $this->product->stock->increment('quantity_reserved', 1);
                 $result->save();
             }
-            $this->recalculateCartTotal();
+            $this->recalculateCartTotal($cart);
             $this->dispatch('edit-product');
 
         }
     }
 
-    public function isAccountCart()
+    public function isAccountCart($cart = null)
     {
         if (! empty($this->account)) {
-            $cart = Order::orderCart($this->account->id)->first();
+            $cart ??= $this->getCartByAccount($this->account->id);
             if (! empty($cart)) {
                 return OrderItem::thisProductItem($cart->id, $this->productId)->first();
             } else {
@@ -126,14 +126,14 @@ class ShopCard extends PicklioComponent
         }
     }
 
-    public function recalculateCartTotal(): void
+    public function recalculateCartTotal($cart): void
     {
         if (! empty($this->account)) {
-            $cart = Order::orderCart($this->account->id)->first();
             if ($cart) {
                 $cart->total_price = $cart->orderItems()
                     ->sum(DB::raw('price'));
                 $cart->save();
+                $this->clearCartCache($this->account->id);
             }
         }
     }
@@ -143,7 +143,8 @@ class ShopCard extends PicklioComponent
         if ($this->quantity > $this->stockAvailable) {
             $this->quantity = $this->stockAvailable;
         }
-        $result = $this->isAccountCart();
+        $cart = $this->getCartByAccount($this->account->id);
+        $result = $this->isAccountCart($cart);
         if ($result) {
             $diff = (int) $this->quantity - (int) $result->quantity;
             $result->quantity = $this->quantity;
@@ -160,7 +161,7 @@ class ShopCard extends PicklioComponent
                 $this->product->stock->increment('quantity_reserved', $diff);
             }
         }
-        $this->recalculateCartTotal();
+        $this->recalculateCartTotal($cart);
         $this->dispatch('edit-product');
 
     }
@@ -169,7 +170,9 @@ class ShopCard extends PicklioComponent
     {
         if ($this->quantity > 0) {
             $this->quantity--;
-            $result = $this->isAccountCart();
+
+            $cart = $this->getCartByAccount($this->account->id);
+            $result = $this->isAccountCart($cart);
             if ($result) {
                 $result->quantity--;
                 $result->price = $result->priceQuantity;
@@ -180,7 +183,7 @@ class ShopCard extends PicklioComponent
                 $this->product->stock->decrement('quantity_reserved', 1);
                 $result->save();
             }
-            $this->recalculateCartTotal();
+            $this->recalculateCartTotal($cart);
             $this->dispatch('edit-product');
         }
     }

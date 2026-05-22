@@ -31,7 +31,7 @@
         </div>
         <livewire:front.components.shop-card
             :price="$price"
-            :productId="$productId"
+            :product="$product"
             :card="true"
         />
     </div>

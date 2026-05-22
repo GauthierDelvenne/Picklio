@@ -33,7 +33,7 @@ class Home extends PicklioComponent
         return Product::with([
             'stock',
             'productCategory',
-            'account',
+            'account.user',
         ])->alimentaryProduct()->limit(6)->get();
     }
 
@@ -43,7 +43,7 @@ class Home extends PicklioComponent
         return Product::with([
             'stock',
             'productCategory',
-            'account',
+            'account.user',
         ])->noAlimentaryProduct()->limit(6)->get();
     }
     public function goToCategory($categoryId): void

@@ -158,6 +158,7 @@ return [
         'very-low-stock' => 'Stock urgent (sous 10%)',
         'low-stock' => 'Stock critique (entre 10% et 25%)',
         'choose-merchant' => 'Choisir un commerçant',
+        'name-merchant' => 'Nom du commerçant',
         'sell-by' => 'Vendu par',
         'product-detail' => 'Détails du produit',
         'name' => 'Nom du produit',
