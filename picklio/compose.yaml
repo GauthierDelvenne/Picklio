@@ -23,6 +23,23 @@ services:
             - sail
         depends_on:
             - mysql
+    scheduler:
+        build:
+            context: ./vendor/laravel/sail/runtimes/8.5
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+        image: sail-8.5/app
+        command: php artisan schedule:work
+        volumes:
+            - '.:/var/www/html'
+        environment:
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+        networks:
+            - sail
+        depends_on:
+            - mysql
     mysql:
         image: 'mysql:8.4'
         ports:

@@ -1,4 +1,86 @@
-<flux:main>
-    <flux:heading size="xl" level="1">{{__('commons.pageName.admin.admin.order')}}</flux:heading>
+<flux:main class="space-y-6">
+    <flux:breadcrumbs>
+        <flux:breadcrumbs.item
+            href="{{route('admin.order.index')}}">{{__('commons.pageName.admin.admin.order')}}</flux:breadcrumbs.item>
+        <flux:breadcrumbs.item>{{$this->order->account->firstname}}</flux:breadcrumbs.item>
+    </flux:breadcrumbs>
+    <div class="flex justify-between content-center items-center">
+        <flux:heading size="xl">{{__('admin.orders.order-by')}} {{$this->order->account->user->name}}</flux:heading>
+        <div>
+            <flux:button wire:click="endOrder"
+                         variant="primary">{{__('admin.orders.end-order')}}
+            </flux:button>
+            <flux:modal.trigger name="delete-order">
+                <flux:button variant="danger">{{__('admin.orders.delete-order')}}</flux:button>
+            </flux:modal.trigger>
+        </div>
+    </div>
     <flux:separator variant="subtle"/>
+    <div class="flex gap-10">
+        <flux:card class="grow">
+            <flux:heading size="xl">{{__('admin.orders.info-client')}}</flux:heading>
+            <div class="mt-2 flex gap-10">
+                <div class="flex flex-col gap-5">
+                    <flux:text> {{$this->order->account->firstname}} {{$this->order->account->lastname}}</flux:text>
+                    <flux:text>{{$this->order->account->phone}}</flux:text>
+                    <flux:text>{{$this->order->account->email}}</flux:text>
+                </div>
+            </div>
+        </flux:card>
+        <flux:card class="grow">
+            <flux:heading size="xl">{{__('admin.orders.info-order')}}</flux:heading>
+            <div class="mt-2 flex gap-10">
+                <div class="flex flex-col gap-5">
+                    <flux:text><span
+                            class="font-bold">{{__('admin.orders.date')}} :</span> {{\Carbon\Carbon::parse($order->pickup_date)->translatedFormat('d M Y')}}
+                    </flux:text>
+                    <flux:text><span
+                            class="font-bold">{{__('admin.orders.slot')}} :</span> {{\Carbon\Carbon::parse($order->pickupSlot->time)->format('H\hi')}}
+                    </flux:text>
+                    <flux:text><span
+                            class="font-bold">{{__('admin.orders.total')}} :</span> {{$order->priceFormatted}}
+                    </flux:text>
+                </div>
+            </div>
+        </flux:card>
+    </div>
+    <div
+        class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
+        <div class="mb-4 flex justify-between ">
+            <flux:heading size="l">{{__('admin.orders.product')}}</flux:heading>
+        </div>
+        <flux:table>
+            <flux:table.columns>
+                <flux:table.column>{{__('admin.orders.product-name')}}</flux:table.column>
+                <flux:table.column>{{__('admin.orders.product-quantity')}}</flux:table.column>
+                <flux:table.column>{{__('admin.orders.product-price')}}</flux:table.column>
+
+            </flux:table.columns>
+            <flux:table.rows>
+                @forelse($this->order->orderItems as $orderItem)
+                    <flux:table.row>
+                        <flux:table.cell>
+                            {{$orderItem->product->name}}
+                        </flux:table.cell>
+                        <flux:table.cell>
+                            {{$orderItem->quantity}}
+                        </flux:table.cell>
+                        <flux:table.cell>
+                            {{$orderItem->priceFormatted}}
+                        </flux:table.cell>
+                    </flux:table.row>
+                @empty
+                    <flux:table.row>
+                        <flux:table.cell>
+                            {{__('client.commons.empty')}}
+                        </flux:table.cell>
+                    </flux:table.row>
+                @endforelse
+
+            </flux:table.rows>
+        </flux:table>
+    </div>
+    <flux:modal name="delete-order" class="md:w-96">
+        <x-admin.modals.message.delete-message/>
+    </flux:modal>
 </flux:main>

@@ -28,11 +28,8 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withSchedule(function (Schedule $schedule) {
+    ->withSchedule(function ($schedule) {
         $schedule->command('cart:delete-old')->everyFifteenMinutes();
-    })
-    ->withMiddleware(function (Middleware $middleware): void {
-        //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

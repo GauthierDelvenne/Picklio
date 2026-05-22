@@ -100,7 +100,7 @@
                                     <flux:menu.item wire:click="delete({{$product}})" class="hover:text-(--color-accent-content)"
                                                     wire:confirm="{{__('client.products.delete-confirm', ['name' => $product->user_name])}}">{{__('client.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
-                            </flux:popover>
+                            </flux:dropdown>
                         </flux:table.cell>
                     </flux:table.row>
                 @empty

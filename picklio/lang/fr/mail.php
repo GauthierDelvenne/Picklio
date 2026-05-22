@@ -42,5 +42,17 @@ return [
             'description' => 'Nous avons bien reçu votre commande et elle est en cours de traitement. Vous recevrez prochainement un email de confirmation avec tous les détails.',
             'button' => 'Retourner sur le siteF',
         ],
+        'cancel-order' => [
+            'subject' => 'Votre commande a été annulée',
+            'title' => 'Commande annulée',
+            'description' => 'Votre commande a été annulée par notre équipe. Si vous pensez qu\'il s\'agit d\'une erreur ou si vous avez des questions, n\'hésitez pas à nous contacter.',
+            'button' => 'Retourner sur le site',
+        ],
+        'prepared-order' => [
+            'subject' => 'Votre commande est prête à être récupérée !',
+            'title' => 'Commande prête, à vous de jouer !',
+            'description' => 'Bonne nouvelle ! Votre commande est prête et vous attend. Rendez-vous dès maintenant à notre point de retrait pour la récupérer.',
+            'button' => 'Retourner sur le site',
+        ],
     ],
 ];
