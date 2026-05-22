@@ -93,6 +93,24 @@
                     background-color: $tangerine-200-50;
                 }
 
+                &__reset {
+                    font-size: $text-sm;
+                    margin-bottom: $space-2;
+                    @include laptop-l {
+                        font-size: $text-base;
+                    }
+
+                    &__link {
+                        color: $tangerine-600;
+                        font-weight: 600;
+                        transition: color ease-in 0.3s;
+
+                        &:hover {
+                            color: $tangerine-500;
+                        }
+                    }
+                }
+
                 &__button {
                     width: 100%;
 

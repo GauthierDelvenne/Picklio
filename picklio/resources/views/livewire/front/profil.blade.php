@@ -55,7 +55,7 @@
             @endif
 
         </div>
-        <dialog x-show="open" x-cloak
+        <div x-show="open" x-cloak
              class="modal--overlay profil__informationContainer__modalContainer">
             <x-form wire-submit="update"
                     class="modal profil__informationContainer__modalContainer__form">
@@ -104,8 +104,8 @@
                                name="arrow"/>
                 </button>
             </x-form>
-        </dialog>
-        <dialog x-show="openPassword" x-cloak
+        </div>
+        <div x-show="openPassword" x-cloak
              class="modal--overlay profil__informationContainer__modalContainer">
             <x-form wire-submit="updatePassword"
                     class="modal profil__informationContainer__modalContainer__form">
@@ -129,7 +129,7 @@
                     placeholder="{{__('front.profil.informationContainer.form.password.label')}}"
                     input-class="profil__informationContainer__modalContainer__form__inputContainer__input"
                     input-error-class="profil__informationContainer__modalContainer__form__inputContainer__input__error"/>
-
+                <p class="profil__informationContainer__modalContainer__form__reset"><a class="profil__informationContainer__modalContainer__form__reset__link" href="{{ route('auth.password.forget-password') }}">{{__('front.profil.informationContainer.forget-password')}} </a></p>
                 <button type="submit"
                         class="button button--icon profil__informationContainer__modalContainer__form__button">
                     {{__('front.profil.informationContainer.edit-password')}}
@@ -137,15 +137,15 @@
                                name="arrow"/>
                 </button>
             </x-form>
-        </dialog>
-        <dialog
+        </div>
+        <div
             x-show="showSuccess"
             x-transition
             class="toast"
             x-cloak
         >
             {{__('front.profil.informationContainer.toast-profil')}}
-        </dialog>
+        </div>
     </section>
     <section class="profil__order paddingMedia">
         <h2 class="profil__order__title">{{__('front.profil.order.title')}}</h2>
@@ -174,14 +174,14 @@
                             class="button button--danger profil__account__button">{{__('front.profil.account.delete')}}</button>
                 </div>
             </div>
+            <div
+                x-show="deleteAccount"
+                x-transition
+                class="toast"
+                x-cloak
+            >
+                {{__('front.profil.informationContainer.toast-delete')}}
+            </div>
         </section>
     @endif
-    <dialog
-        x-show="deleteAccount"
-        x-transition
-        class="toast"
-        x-cloak
-    >
-        {{__('front.profil.informationContainer.toast-delete')}}
-    </dialog>
 </div>

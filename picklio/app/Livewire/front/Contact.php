@@ -22,7 +22,7 @@ class Contact extends PicklioComponent
     public function mount(): void
     {
         $this->warehouse = Warehouse::first();
-        $this->merchants = Account::where('role_id', Role::MERCHANT)->get();
+        $this->merchants = Account::with('user')->where('role_id', Role::MERCHANT)->get();
     }
 
     public function sendForm()

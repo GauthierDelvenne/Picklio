@@ -71,7 +71,7 @@ class Catalogues extends PicklioComponent
         return Product::with([
             'stock',
             'productCategory',
-            'account',
+            'account.user',
         ])
             ->where('is_active', 1)
             ->when($this->search, function ($query) {

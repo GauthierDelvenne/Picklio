@@ -455,6 +455,7 @@ return [
             'toast-profil' => 'Vous avez bien modifier vos informations',
             'toast-delete' => 'Vous avez bien supprimer le compte',
             'edit-password' => 'Modifier votre mot de passe',
+            'forget-password' => 'Mot de passe oublié ?',
             'form' => [
                 'email' => [
                     'label' => 'Email',

@@ -15,7 +15,7 @@
                                      title="{{$product->name}}"
                                      sale-by="{{$product->account->user->name}}"
                                      price="{{$product->priceFormatted}}"
-                                     product-id="{{$product->id}}"
+                                     :product="$product"
                 />
             </a>
         @endforeach

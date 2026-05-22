@@ -51,7 +51,7 @@
                 <flux:table.column sortable :sorted="$sortBy === 'products.name'" :direction="$sortDirection"
                                    wire:click="sort('products.name')">{{__('admin.stocks.name')}}
                 </flux:table.column>
-                <flux:table.column>Nom du commerçant</flux:table.column>
+                <flux:table.column>{{__('admin.stocks.name-merchant')}}</flux:table.column>
                 <flux:table.column>{{__('client.products.forms.category.label')}}</flux:table.column>
                 <flux:table.column>{{__('client.products.status')}}</flux:table.column>
                 <flux:table.column>{{__('admin.stocks.forms.quantity.label')}}</flux:table.column>

@@ -27,7 +27,7 @@
                         </p>
                         <livewire:front.components.shop-card
                             :price="$orderItem->priceFormatted"
-                            :productId="$orderItem->product->id"
+                            :product="$orderItem->product"
                             :card="true"
                             :basket="true"
                             :quantity="$orderItem->quantity"

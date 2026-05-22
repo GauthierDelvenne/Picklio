@@ -133,6 +133,11 @@
                             rotate: -90deg;
                             width: 20px;
                             height: 20px;
+                            transition: fill ease-in 0.3s, transform ease-in 0.3s;
+                            &:hover{
+                                fill: $tangerine-600;
+                                transform: rotateY(180deg);
+                            }
                         }
                     }
                 }
