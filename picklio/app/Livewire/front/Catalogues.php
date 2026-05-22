@@ -90,7 +90,8 @@ class Catalogues extends PicklioComponent
     #[Computed]
     public function merchants()
     {
-        return Account::with('user')
+        return Account::join('users', 'users.id', 'accounts.user_id')
+            ->with('user')
             ->when($this->searchMerchant, function ($query) {
                 $query->where('users.name', 'like', '%'.$this->searchMerchant.'%');
             })

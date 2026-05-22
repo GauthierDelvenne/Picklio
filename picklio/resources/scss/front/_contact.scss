@@ -48,12 +48,19 @@
             }
 
             &__liste {
-
+                display: flex;
+                flex-direction: column;
+                gap: $space-2;
 
                 &__item {
                     display: flex;
                     gap: $space-2;
-
+                    @include laptop-l {
+                        font-size: $text-lg;
+                    }
+                    @include desktop-l {
+                        font-size: $text-xl;
+                    }
                     &__link {
                         display: flex;
                         gap: $space-2;
