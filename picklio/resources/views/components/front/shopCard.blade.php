@@ -1,8 +1,11 @@
-<div class="shopCard" x-data="{ show: false, max: false }"
+<div class="shopCard" x-data="{ show: false, max: false, register: false }"
      x-on:add-product.window="show = true; setTimeout(() => show = false, 3000)"
-     x-on:max-product.window="max = true; setTimeout(() => max = false, 3000)">
+     x-on:max-product.window="max = true; setTimeout(() => max = false, 3000)"
+     x-on:register.window="if ($event.detail.productId === {{ $this->productId }}) register = true">
     <div class="shopCard__priceContainer">
-        <p class="shopCard__priceContainer__price @if($this->card) shopCard__priceContainer__price--card  @endif">{{$this->price}} @if($this->basket) <span class="shopCard__priceContainer__price__span">{{$this->product->priceFormatted}}/u</span> @endif
+        <p class="shopCard__priceContainer__price @if($this->card) shopCard__priceContainer__price--card  @endif">{{$this->price}} @if($this->basket)
+                <span class="shopCard__priceContainer__price__span">{{$this->product->priceFormatted}}/u</span>
+            @endif
         </p>
         <div x-on:click.prevent.stop
              class="shopCard__priceContainer__selectContainer @if($this->card) shopCard__priceContainer__selectContainer--card no-card-hover  @endif">
@@ -29,7 +32,7 @@
     @if(!$this->card)
         <div class="shopCard__buttonContainer">
             <button wire:click="addToCart"
-                class="button button--icon shopCard__buttonContainer__button">
+                    class="button button--icon shopCard__buttonContainer__button">
                 {{__('front.product.button')}}
                 <x-svg.svg class="shopCard__buttonContainer__button__svg"
                            name="arrow"/>
@@ -51,5 +54,30 @@
         x-cloak
     >
         {{__('front.order.toast.max.success')}}
+    </div>
+    <div
+        x-show="register"
+        x-transition
+        class="modal--overlay shopCard__modalContainer"
+        x-cloak>
+        <div class="modal shopCard__modalContainer__modal">
+            <button type="button" x-on:click="register = false">
+            <x-svg.svg  class="shopCard__modalContainer__modal__svg" name="plus"/>
+            </button>
+            <div class="shopCard__modalContainer__modal__titleContainer">
+            <x-svg.svg name="circle-danger" class="shopCard__modalContainer__modal__titleContainer__svg"/>
+            <p class="shopCard__modalContainer__modal__titleContainer__title">{{__('front.order.toast.register.success')}}</p>
+            </div>
+            <div class="shopCard__modalContainer__modal__buttonContainer">
+                <a href="{{route('auth.login')}}" class="button button--icon  shopCard__modalContainer__modal__buttonContainer__button">
+                    {{__('auth.form.button.login')}}
+                    <x-svg.svg class=" shopCard__modalContainer__modal__buttonContainer__button__svg" name="arrow"/>
+                </a>
+                <a href="{{route('auth.register')}}" class="button button--icon  shopCard__modalContainer__modal__buttonContainer__button">
+                    {{__('auth.form.button.register')}}
+                    <x-svg.svg class=" shopCard__modalContainer__modal__buttonContainer__button__svg" name="arrow"/>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
