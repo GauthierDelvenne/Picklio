@@ -26,11 +26,13 @@
                 <h2 class="product__informationContainer__contentContainer__titleContainer__title">{{$product->name}}</h2>
                 <p class="product__informationContainer__contentContainer__titleContainer__saleBy">
                     <span
-                        class="product__informationContainer__contentContainer__titleContainer__saleBy__span">{{__('front.commons.sale-by')}}</span> {{$product->account->user->name}}
+                        class="product__informationContainer__contentContainer__titleContainer__saleBy__span"
+                        wire:click="goToMerchant({{$product->account->id}})">{{__('front.commons.sale-by')}}</span> {{$product->account->user->name}}
                 </p>
             </div>
             <div class="product__informationContainer__contentContainer__descriptionContainer">
-                <p class="product__informationContainer__contentContainer__descriptionContainer__category">{!!  __('client.products.categories.'.$product->product_category_id)!!}</p>
+                <p class="product__informationContainer__contentContainer__descriptionContainer__category"
+                   wire:click="goToCategory({{$product->productCategory->id}})">{!!  __('client.products.categories.'.$product->product_category_id)!!}</p>
                 <p class="product__informationContainer__contentContainer__descriptionContainer__description">{{$product->description}}</p>
             </div>
             <hr class="product__informationContainer__contentContainer__hr">

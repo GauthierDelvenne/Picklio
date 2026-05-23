@@ -46,6 +46,19 @@
                 width: fit-content;
                 padding: $space-1;
                 border-radius: $radius-sm;
+                transition: color ease-in 0.3s, background-color ease-in 0.3s;
+
+                &--new {
+                    background-color: $succes;
+                    color: $tangerine-50;
+                }
+
+                &:not(.productCard__imgContainer__tagContainer__tagItem--new) {
+                    &:hover {
+                        background-color: $tangerine-400;
+                        color: $tangerine-50;
+                    }
+                }
 
                 &__tag {
 
@@ -70,6 +83,16 @@
 
             &__saleBy {
                 font-size: $text-sm;
+                transition: color ease-in 0.3s;
+
+                &:hover {
+                    color: $tangerine-600;
+
+                    .productCard__contentContainer__informationContainer__saleBy__span {
+                        color: $tangerine-600;
+
+                    }
+                }
 
                 &__span {
                     color: $tangerine-700;

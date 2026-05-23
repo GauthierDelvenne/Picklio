@@ -48,7 +48,14 @@ class Home extends PicklioComponent
     }
     public function goToCategory($categoryId): void
     {
-        $this->redirect(route('front.catalogue.index', ['category' => [$categoryId]]));
+        session(['category' => [$categoryId]]);
+        $this->redirect(route('front.catalogue.index'));
+    }
+
+    public function goToMerchant($merchantId)
+    {
+        session(['merchant' => [$merchantId]]);
+        $this->redirect(route('front.catalogue.index'));
     }
     public function render()
     {

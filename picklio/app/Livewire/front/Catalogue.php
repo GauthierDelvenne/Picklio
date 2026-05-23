@@ -25,6 +25,17 @@ class Catalogue extends PicklioComponent
         ])->where('is_active', 1)
             ->limit(6)->get();
     }
+    public function goToCategory($categoryId): void
+    {
+        session(['category' => [$categoryId]]);
+        $this->redirect(route('front.catalogue.index'));
+    }
+
+    public function goToMerchant($merchantId)
+    {
+        session(['merchant' => [$merchantId]]);
+        $this->redirect(route('front.catalogue.index'));
+    }
 
     public function render()
     {
