@@ -18,6 +18,7 @@ return new class extends Migration {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->uuid()->unique();
+            $table->string('code', 6)->unique();
             $table->foreignId('account_id')->constrained();
             $table->foreignId('pickup_slot_id')->constrained();
             $table->date('pickup_date');

@@ -30,8 +30,10 @@
 
         <flux:table :paginate="$this->orders">
             <flux:table.columns>
-                <flux:table.column sortable :sorted="$sortBy === 'accounts.firstname'" :direction="$sortDirection"
-                                   wire:click="sort('accounts.firstname')">{{__('admin.orders.client-name')}}
+                <flux:table.column sortable :sorted="$sortBy === 'code'" :direction="$sortDirection"
+                                   wire:click="sort('code')">{{__('admin.orders.code')}}
+                </flux:table.column>
+                <flux:table.column>{{__('admin.orders.client-name')}}
                 </flux:table.column>
                 <flux:table.column sortable :sorted="$sortBy === 'pickup_date'" :direction="$sortDirection"
                                    wire:click="sort('pickup_date')">{{__('admin.orders.date')}}</flux:table.column>
@@ -43,6 +45,12 @@
             <flux:table.rows>
                 @forelse($this->orders as $order)
                     <flux:table.row>
+                        <flux:table.cell>
+                            <a href="{{ route('admin.order.show', $order->uuid) }}"
+                               class="hover:text-(--color-accent-content)">
+                                #{{$order->code}}
+                            </a>
+                        </flux:table.cell>
                         <flux:table.cell>
                             <a href="{{ route('admin.order.show', $order->uuid) }}"
                                class="hover:text-(--color-accent-content)">
@@ -102,9 +110,10 @@
 
         <flux:table :paginate="$this->historyOrders">
             <flux:table.columns>
-                <flux:table.column sortable :sorted="$sortBy === 'accounts.firstname'" :direction="$sortDirection"
-                                   wire:click="sort('accounts.firstname')">                                {{__('admin.orders.client-name')}}
-
+                <flux:table.column sortable :sorted="$sortBy === 'code'" :direction="$sortDirection"
+                                   wire:click="sort('code')">{{__('admin.orders.code')}}
+                </flux:table.column>
+                <flux:table.column>{{__('admin.orders.client-name')}}
                 </flux:table.column>
                 <flux:table.column>{{__('admin.orders.date')}}
                 </flux:table.column>
@@ -118,6 +127,12 @@
             <flux:table.rows>
                 @forelse($this->historyOrders as $order)
                     <flux:table.row>
+                        <flux:table.cell>
+                            <a href="{{ route('admin.order.show', $order->uuid) }}"
+                               class="hover:text-(--color-accent-content)">
+                                #{{$order->code}}
+                            </a>
+                        </flux:table.cell>
                         <flux:table.cell>
                             <a href="{{ route('admin.order.show', $order->uuid) }}"
                                class="hover:text-(--color-accent-content)">
