@@ -2,10 +2,10 @@
     <flux:breadcrumbs>
         <flux:breadcrumbs.item
             href="{{route('admin.order.index')}}">{{__('commons.pageName.admin.admin.order')}}</flux:breadcrumbs.item>
-        <flux:breadcrumbs.item>{{$this->order->account->firstname}}</flux:breadcrumbs.item>
+        <flux:breadcrumbs.item>#{{$this->order->code}}</flux:breadcrumbs.item>
     </flux:breadcrumbs>
     <div class="flex justify-between content-center items-center">
-        <flux:heading size="xl">{{__('admin.orders.order-by')}} {{$this->order->account->user->name}}</flux:heading>
+        <flux:heading size="xl">{{__('admin.orders.order-by')}} #{{$this->order->code}}</flux:heading>
         <div>
             <flux:button wire:click="endOrder"
                          variant="primary">{{__('admin.orders.end-order')}}
@@ -21,9 +21,12 @@
             <flux:heading size="xl">{{__('admin.orders.info-client')}}</flux:heading>
             <div class="mt-2 flex gap-10">
                 <div class="flex flex-col gap-5">
-                    <flux:text> {{$this->order->account->firstname}} {{$this->order->account->lastname}}</flux:text>
-                    <flux:text>{{$this->order->account->phone}}</flux:text>
-                    <flux:text>{{$this->order->account->email}}</flux:text>
+                    <flux:text> <span
+                            class="font-bold">{{__('admin.orders.name')}} :</span> {{$this->order->account->firstname}} {{$this->order->account->lastname}}</flux:text>
+                    <flux:text><span
+                            class="font-bold">{{__('admin.orders.phone')}} :</span> {{$this->order->account->phone}}</flux:text>
+                    <flux:text><span
+                            class="font-bold">{{__('admin.orders.email')}} :</span> {{$this->order->account->email}}</flux:text>
                 </div>
             </div>
         </flux:card>

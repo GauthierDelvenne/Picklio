@@ -39,13 +39,27 @@ class ShopCard extends PicklioComponent
         $this->product = $product;
         $this->capacity = $product->productCategory->capacity;
         $this->stockAvailable = $product->stock->availableQuantity;
-        if (! empty($this->userConnected)) {
+        if (!empty($this->userConnected)) {
             $this->account = $this->userConnected->account;
             $item = $this->isAccountCart();
             if ($item) {
                 $this->quantity = $item->quantity;
                 $this->stockAvailable += $item->quantity;
             }
+        }
+    }
+
+    public function isAccountCart($cart = null)
+    {
+        if (!empty($this->account)) {
+            $cart ??= $this->getCartByAccount($this->account->id);
+            if (!empty($cart)) {
+                return OrderItem::thisProductItem($cart->id, $this->productId)->first();
+            } else {
+                return false;
+            }
+        } else {
+            return false;
         }
     }
 
@@ -60,7 +74,7 @@ class ShopCard extends PicklioComponent
         DB::transaction(function () {
             $cart = Order::firstOrCreate(
                 ['account_id' => $this->account->id, 'status' => Order::INITCART],
-                ['total_price' => 0, 'uuid' => Str::uuid(), 'pickup_date' => now(), 'pickup_slot_id' => PickupSlot::TIMECREATEDCART]
+                ['total_price' => 0, 'code' => Order::getGenerateCode(), 'uuid' => Str::uuid(), 'pickup_date' => now(), 'pickup_slot_id' => PickupSlot::TIMECREATEDCART]
             );
             $item = OrderItem::thisProductItem($cart->id, $this->productId)->first();
             if ($item) {
@@ -112,23 +126,9 @@ class ShopCard extends PicklioComponent
         }
     }
 
-    public function isAccountCart($cart = null)
-    {
-        if (! empty($this->account)) {
-            $cart ??= $this->getCartByAccount($this->account->id);
-            if (! empty($cart)) {
-                return OrderItem::thisProductItem($cart->id, $this->productId)->first();
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-
     public function recalculateCartTotal($cart): void
     {
-        if (! empty($this->account)) {
+        if (!empty($this->account)) {
             if ($cart) {
                 $cart->total_price = $cart->orderItems()
                     ->sum(DB::raw('price'));
@@ -146,7 +146,7 @@ class ShopCard extends PicklioComponent
         $cart = $this->getCartByAccount($this->account->id);
         $result = $this->isAccountCart($cart);
         if ($result) {
-            $diff = (int) $this->quantity - (int) $result->quantity;
+            $diff = (int)$this->quantity - (int)$result->quantity;
             $result->quantity = $this->quantity;
             $result->price = $result->priceQuantity;
             $this->price = $result->priceformatted;

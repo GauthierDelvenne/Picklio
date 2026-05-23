@@ -34,12 +34,11 @@ class Orders extends PicklioComponent
     public function orders()
     {
         return Order::with(['account', 'pickupSlot'])
-            ->join('accounts', 'accounts.id', '=', 'orders.account_id')
             ->join('pickup_slots', 'pickup_slots.id', '=', 'orders.pickup_slot_id')
             ->select('orders.*')
             ->where('status', Order::INWAITCART)
             ->when($this->search, function ($query) {
-                $query->where('accounts.firstname', 'like', '%'.$this->search.'%');
+                $query->where('code', 'like', '%'.$this->search.'%');
             })
             ->orderBy($this->sortBy, $this->sortDirection)
             ->orderBy('pickup_slots.time', $this->sortDirection)
