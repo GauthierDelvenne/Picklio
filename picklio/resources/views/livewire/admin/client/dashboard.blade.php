@@ -13,7 +13,7 @@
         </flux:card>
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">{{__('client.products.bestsellers')}}</flux:heading>
-            <flux:text class="mt-2">{{$this->bestSellers->first()['product']->name}}</flux:text>
+            <flux:text class="mt-2">{{!empty($this->bestSellers) ? $this->bestSellers->first()['product']->name : __('client.commons.empty')}}</flux:text>
         </flux:card>
 
     </div>

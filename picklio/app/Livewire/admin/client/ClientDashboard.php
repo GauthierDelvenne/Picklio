@@ -74,6 +74,9 @@ class ClientDashboard extends PicklioComponent
     public function bestSellers()
     {
         $orderItems = $this->orderItems;
+        if ($orderItems->isEmpty()) {
+            return [];
+        }
 
         return $orderItems
             ->groupBy('product.id')
@@ -96,7 +99,7 @@ class ClientDashboard extends PicklioComponent
     #[Computed]
     public function totalSale()
     {
-        return number_format($this->orderItems->sum('price') / 100, 2, ',', ' ') . ' €';
+        return number_format($this->orderItems->sum('price') / 100, 2, ',', ' ').' €';
     }
 
     public function render()
