@@ -8,4 +8,5 @@ return [
     'at' => 'au',
     'add' => 'a ajouté',
     'update' => 'a modifié',
+    'new' => 'Nouveauté',
 ];
