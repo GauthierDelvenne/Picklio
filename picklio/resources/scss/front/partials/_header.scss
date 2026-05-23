@@ -134,11 +134,14 @@
                         transition: fill ease 0.3s, transform ease 0.3s;
                         width: 25px;
                         height: 25px;
+                        stroke: $tangerine-600;
                         @include desktop {
                             width: 35px;
                             height: 35px;
                         }
-
+                        &--stroke{
+                            stroke-width: 10px;
+                        }
                         &:hover {
                             fill: $tangerine-500;
                             transform: scale(1.1);

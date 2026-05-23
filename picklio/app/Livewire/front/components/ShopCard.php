@@ -39,7 +39,7 @@ class ShopCard extends PicklioComponent
         $this->product = $product;
         $this->capacity = $product->productCategory->capacity;
         $this->stockAvailable = $product->stock->availableQuantity;
-        if (!empty($this->userConnected)) {
+        if (! empty($this->userConnected)) {
             $this->account = $this->userConnected->account;
             $item = $this->isAccountCart();
             if ($item) {
@@ -51,9 +51,9 @@ class ShopCard extends PicklioComponent
 
     public function isAccountCart($cart = null)
     {
-        if (!empty($this->account)) {
+        if (! empty($this->account)) {
             $cart ??= $this->getCartByAccount($this->account->id);
-            if (!empty($cart)) {
+            if (! empty($cart)) {
                 return OrderItem::thisProductItem($cart->id, $this->productId)->first();
             } else {
                 return false;
@@ -65,8 +65,8 @@ class ShopCard extends PicklioComponent
 
     public function addToCart()
     {
-        if (empty($this->userConnected)) {
-            return redirect()->route('auth.login');
+        if (empty($this->account)) {
+            return $this->dispatch('register', productId: $this->productId);
         }
         if ($this->quantity <= 0) {
             return false;
@@ -104,6 +104,9 @@ class ShopCard extends PicklioComponent
 
     public function increment()
     {
+        if (empty($this->account)) {
+            return $this->dispatch('register', productId: $this->productId);
+        }
         if ($this->quantity < $this->stockAvailable) {
             $this->quantity++;
             $cart = Order::orderCart($this->account->id)->first();
@@ -128,7 +131,7 @@ class ShopCard extends PicklioComponent
 
     public function recalculateCartTotal($cart): void
     {
-        if (!empty($this->account)) {
+        if (! empty($this->account)) {
             if ($cart) {
                 $cart->total_price = $cart->orderItems()
                     ->sum(DB::raw('price'));
@@ -140,13 +143,16 @@ class ShopCard extends PicklioComponent
 
     public function updatedQuantity()
     {
+        if (empty($this->account)) {
+            return $this->dispatch('register', productId: $this->productId);
+        }
         if ($this->quantity > $this->stockAvailable) {
             $this->quantity = $this->stockAvailable;
         }
         $cart = $this->getCartByAccount($this->account->id);
         $result = $this->isAccountCart($cart);
         if ($result) {
-            $diff = (int)$this->quantity - (int)$result->quantity;
+            $diff = (int) $this->quantity - (int) $result->quantity;
             $result->quantity = $this->quantity;
             $result->price = $result->priceQuantity;
             $this->price = $result->priceformatted;
@@ -168,6 +174,9 @@ class ShopCard extends PicklioComponent
 
     public function decrement()
     {
+        if (empty($this->account)) {
+            return $this->dispatch('register', productId: $this->productId);
+        }
         if ($this->quantity > 0) {
             $this->quantity--;
 

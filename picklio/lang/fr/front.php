@@ -9,15 +9,14 @@ return [
             'button' => 'Commencer maintenant',
             'stepOne' => [
                 'title' => 'Première étape',
-                'subTitle' => 'Parcourez et ajoutez',
-                'content' => 'Tous vos commerces locaux réunis
-                dans <strong>un seul panier</strong>',
+                'subTitle' => 'Inscrivez-vous',
+                'content' => '<strong><a href="'.route('auth.register').'">Inscrivez-vous</a></strong>, afin de pouvoir commander sur Picklio',
             ],
             'stepTwo' => [
                 'title' => 'Deuxième étape',
-                'subTitle' => 'Choisissez votre créneau',
-                'content' => '<strong>Planifiez </strong>votre
-                passage selon votre emploi du temps',
+                'subTitle' => 'Faites votre panier',
+                'content' => '<strong><a href="'.route('front.catalogue.index').'">Chercher, ajouter </a></strong>vos envies et <strong>planifiez</strong> votre
+                panier selon votre emploi du temps',
             ],
             'stepThree' => [
                 'title' => 'Troisième étape',
@@ -358,7 +357,7 @@ return [
             'title' => 'Rejoignez-nous dès maintenant',
             'informationContainer' => [
                 'title' => 'Contactez-nous',
-                'content' => 'Intégrez une plateforme pensée pour les commerçants et développez votre activité simplement.',
+                'content' => 'Intégrez une plateforme pensée pour les commerçants et développez votre activité simplement. <br/> À la suite de ce formulaire, vous serez recontacter pour un entretien',
                 'address' => '4160 Anthisnes, Cour d’Omalius, 1',
                 'phone' => '+32 477  45 56 67',
                 'email' => 'picklio@gmail.com',
@@ -415,7 +414,7 @@ return [
                 'content' => 'Un seul pourcentage retenu sur chaque vente réalisée via Picklio. Cette commission couvre le stockage à l’entrepôt, la gestion logistique et la mise en relation avec les clients.',
             ],
             'exampleContainer' => [
-                'title' => 'Exemple concret : pot de miel à 8 €',
+                'title' => 'Exemple concret : pot de miel à 8€',
                 'example' => [
                     '1' => [
                         'text' => 'Prix de vente',
@@ -563,6 +562,9 @@ return [
             'max' => [
                 'success' => 'Vous avez atteint la quantité maximale',
                 'error' => 'Une erreur est survenu lors de l’ajout',
+            ],
+            'register' => [
+                'success' => 'Vous devez avoir un compte pour créer un panier',
             ],
         ],
     ],

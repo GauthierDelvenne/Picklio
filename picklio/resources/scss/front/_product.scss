@@ -85,9 +85,19 @@
                     @include desktop-l {
                         font-size: $text-2xl;
                     }
+                    transition: color ease-in 0.3s;
+
+                    &:hover {
+                        color: $tangerine-500;
+                        cursor: pointer;
+
+                        .product__informationContainer__contentContainer__titleContainer__saleBy__span {
+                            color: $tangerine-500;
+                        }
+                    }
 
                     &__span {
-                        color: $tangerine-500;
+                        color: $tangerine-600;
                         font-weight: bold;
                     }
                 }
@@ -96,11 +106,18 @@
             &__descriptionContainer {
                 &__category {
                     font-weight: bold;
+                    color: $tangerine-600;
+                    transition: color ease-in 0.3s;
                     @include laptop-l {
                         font-size: $text-xl;
                     }
                     @include desktop-l {
                         font-size: $text-2xl;
+                    }
+
+                    &:hover {
+                        color: $tangerine-500;
+                        cursor: pointer;
                     }
                 }
 

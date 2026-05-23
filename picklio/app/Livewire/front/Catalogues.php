@@ -11,7 +11,6 @@ use App\Models\ProductCategory;
 use App\Models\Role;
 use App\Traits\SortingTrait;
 use Livewire\Attributes\Computed;
-use Livewire\Attributes\Url;
 use Livewire\WithPagination;
 use Mail;
 
@@ -25,7 +24,7 @@ class Catalogues extends PicklioComponent
     public $searchMerchant;
 
     public $merchant = [];
-    #[Url]
+
     public $category = [];
 
     public $categories;
@@ -35,6 +34,8 @@ class Catalogues extends PicklioComponent
     public function mount(): void
     {
         $this->categories = ProductCategory::all();
+        $this->merchant = session()->pull('merchant', []);
+        $this->category = session()->pull('category', []);
     }
 
     public function sendMessage()

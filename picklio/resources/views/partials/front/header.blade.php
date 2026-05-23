@@ -70,6 +70,14 @@
                     </a>
                 </li>
             @endif
+            @if(empty($this->userConnected))
+                <li class="header__navbar__liste__item">
+                    <a href="{{route('auth.login')}}"
+                       class="header__navbar__liste__item__link">
+                        <x-svg.svg class="header__navbar__liste__item__link__svg header__navbar__liste__item__link__svg--stroke" name="login"/>
+                    </a>
+                </li>
+            @endif
         </ul>
     </nav>
 </header>
