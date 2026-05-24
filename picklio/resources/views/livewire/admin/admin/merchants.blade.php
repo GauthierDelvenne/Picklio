@@ -1,6 +1,6 @@
 <flux:main>
-    <div class="flex justify-between gap-10 mb-12">
-        <flux:heading size="xl" level="1">{{__('commons.pageName.admin.admin.merchants')}}</flux:heading>
+    <section class="flex justify-between gap-10 mb-12">
+        <flux:heading size="xl" level="2">{{__('commons.pageName.admin.admin.merchants')}}</flux:heading>
         <flux:modal.trigger name="add-merchant">
             <flux:button variant="primary">
                 <flux:icon.plus/>
@@ -8,7 +8,7 @@
             </flux:button>
         </flux:modal.trigger>
 
-    </div>
+    </section>
     <div class="flex justify-between gap-10 mb-12">
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">                {{__('admin.merchants.total-merchants')}}

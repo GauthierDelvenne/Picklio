@@ -1,5 +1,5 @@
 <flux:main>
-    <flux:heading size="xl" level="1">{{__('commons.pageName.admin.admin.settings')}}</flux:heading>
+    <flux:heading size="xl">{{__('commons.pageName.admin.admin.settings')}}</flux:heading>
     <flux:separator variant="subtle"/>
     <div class="grid grid-cols-3 gap-10 mt-20">
         <div>

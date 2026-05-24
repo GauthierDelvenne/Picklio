@@ -12,6 +12,7 @@
             <flux:sidebar.collapse class="lg:hidden"/>
         </flux:sidebar.header>
         <flux:sidebar.nav>
+            <flux:heading class="sr-only" level="2">{{__('commons.sidebar.main-nav')}}</flux:heading>
             <flux:sidebar.item icon="home" href="{{route('client.dashboard')}}"
                                :current="request()->routeIs('client.dashboard')"
             >{{__('commons.pageName.admin.client.dashboard')}}</flux:sidebar.item>
@@ -34,6 +35,7 @@
             <livewire:admin.client.client-product/>
         </flux:modal>
         <flux:sidebar.nav>
+            <flux:heading class="sr-only" level="2">{{__('commons.sidebar.sec-nav')}}</flux:heading>
             <flux:sidebar.item icon="cog-6-tooth" href="{{route('client.settings')}}"
                                :current="request()->routeIs('client.settings')">{{__('commons.pageName.admin.client.settings')}}</flux:sidebar.item>
         </flux:sidebar.nav>

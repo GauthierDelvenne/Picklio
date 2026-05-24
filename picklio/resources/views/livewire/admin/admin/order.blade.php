@@ -4,8 +4,8 @@
             href="{{route('admin.order.index')}}">{{__('commons.pageName.admin.admin.order')}}</flux:breadcrumbs.item>
         <flux:breadcrumbs.item>#{{$this->order->code}}</flux:breadcrumbs.item>
     </flux:breadcrumbs>
-    <div class="flex justify-between content-center items-center">
-        <flux:heading size="xl">{{__('admin.orders.order-by')}} #{{$this->order->code}}</flux:heading>
+    <section class="flex justify-between content-center items-center">
+        <flux:heading size="xl" level="2">{{__('admin.orders.order-by')}} #{{$this->order->code}}</flux:heading>
         <div>
             <flux:button wire:click="endOrder"
                          variant="primary">{{__('admin.orders.end-order')}}
@@ -14,7 +14,7 @@
                 <flux:button variant="danger">{{__('admin.orders.delete-order')}}</flux:button>
             </flux:modal.trigger>
         </div>
-    </div>
+    </section>
     <flux:separator variant="subtle"/>
     <div class="flex gap-10">
         <flux:card class="grow">

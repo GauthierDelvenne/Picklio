@@ -56,5 +56,7 @@ return [
     'sidebar' => [
         'change-site' => 'Changer de site',
         'mini-site' => 'Mini-site',
+        'main-nav' => 'Navigation principale',
+        'sec-nav' => 'Navigation secondaire',
     ],
 ];
