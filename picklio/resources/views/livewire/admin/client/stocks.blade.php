@@ -1,6 +1,6 @@
 <flux:main>
-    <div class="flex justify-between gap-10 mb-12">
-        <flux:heading size="xl" level="1">{{__('commons.pageName.admin.client.stocks')}}</flux:heading>
+    <section class="flex justify-between gap-10 mb-12">
+        <flux:heading size="xl" level="2">{{__('commons.pageName.admin.client.stocks')}}</flux:heading>
         <flux:modal.trigger name="add-product">
             <flux:button>
                 <flux:icon.plus/>
@@ -8,7 +8,7 @@
             </flux:button>
         </flux:modal.trigger>
 
-    </div>
+    </section>
     <div class="flex justify-between gap-10 mb-12">
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">{{__('client.products.total-product')}}</flux:heading>

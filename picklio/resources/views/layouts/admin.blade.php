@@ -13,8 +13,10 @@
 
 </head>
 <body class="bg-white text-black dark:bg-zinc-800 dark:text-white">
+<flux:heading class="sr-only" level="1">{{$title}}</flux:heading>
 
 @livewire('admin.admin.partials.sidebar')
+
 {{ $slot }}
 
 <flux:toast />

@@ -1,13 +1,13 @@
 <flux:main>
-    <div class="flex justify-between gap-10 mb-12">
-        <flux:heading size="xl" level="1">{{__('commons.pageName.admin.client.messages')}}</flux:heading>
+    <section class="flex justify-between gap-10 mb-12">
+        <flux:heading size="xl" level="2">{{__('commons.pageName.admin.client.messages')}}</flux:heading>
         <flux:modal.trigger name="send-message">
             <flux:button variant="primary">
                 <flux:icon.plus/>
                 {{__('admin.messages.send')}}
             </flux:button>
         </flux:modal.trigger>
-    </div>
+    </section>
     <div
         class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
         <div class="mb-4 flex justify-between ">

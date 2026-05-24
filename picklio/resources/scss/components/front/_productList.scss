@@ -42,6 +42,7 @@
         justify-items: center;
         gap: $space-4;
         grid-template-columns: repeat(6, 1fr);
+        grid-auto-flow: column;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;

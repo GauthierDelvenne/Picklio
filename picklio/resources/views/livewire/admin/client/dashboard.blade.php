@@ -1,7 +1,7 @@
 <flux:main>
-    <div class="flex justify-between gap-10 mb-12">
-        <flux:heading size="xl" level="1">{{__('commons.pageName.admin.client.dashboard')}}</flux:heading>
-    </div>
+    <section class="flex justify-between gap-10 mb-12">
+        <flux:heading size="xl" level="2">{{__('commons.pageName.admin.client.dashboard')}}</flux:heading>
+    </section>
     <div class="flex justify-between gap-10 mb-12">
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">{{__('client.products.total-sale')}}</flux:heading>

@@ -4,8 +4,8 @@
             href="{{route('admin.stock.index')}}">{{__('commons.pageName.admin.admin.stocks')}}</flux:breadcrumbs.item>
         <flux:breadcrumbs.item>{{$this->product->name}}</flux:breadcrumbs.item>
     </flux:breadcrumbs>
-    <div class="flex justify-between content-center items-center">
-        <flux:heading size="xl">{{__('admin.stocks.sell-by')}} {{$this->product->account->user->name}}</flux:heading>
+    <section class="flex justify-between content-center items-center">
+        <flux:heading size="xl" level="2">{{__('admin.stocks.sell-by')}} {{$this->product->account->user->name}}</flux:heading>
         <div class="flex gap-10">
             <flux:modal.trigger name="update-stock">
                 <flux:button variant="primary">{{__('admin.commons.buttons.update')}}</flux:button>
@@ -14,7 +14,7 @@
                 <flux:button variant="primary">{{__('admin.commons.buttons.edit')}}</flux:button>
             </flux:modal.trigger>
         </div>
-    </div>
+    </section>
     <flux:separator variant="subtle"/>
     <div class="flex gap-10">
         <flux:card class="grow">
