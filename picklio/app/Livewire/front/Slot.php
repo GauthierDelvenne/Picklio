@@ -37,10 +37,10 @@ class Slot extends PicklioComponent
     #[Computed]
     public function weeks(): array
     {
-        $start = Carbon::now()->startOfWeek(Carbon::TUESDAY);
-        $end = Carbon::now()->endOfWeek(Carbon::SATURDAY);
-        $nextStart = Carbon::now()->addWeek()->startOfWeek(Carbon::TUESDAY);
-        $nextEnd = Carbon::now()->addWeek()->endOfWeek(Carbon::SATURDAY);
+        $start = Carbon::now()->startOfWeek(Carbon::MONDAY)->addDay();
+        $end = $start->copy()->addDay(5);
+        $nextStart = $start->copy()->addWeek();
+        $nextEnd = $end->copy()->addWeek();
 
         return [
             'current' => [
