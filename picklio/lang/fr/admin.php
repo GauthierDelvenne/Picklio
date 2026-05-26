@@ -157,6 +157,7 @@ return [
         'totals' => 'Stock total',
         'very-low-stock' => 'Stock urgent (sous 10%)',
         'low-stock' => 'Stock critique (entre 10% et 25%)',
+        'status-stock' => 'États du stock (sous 25%)',
         'choose-merchant' => 'Choisir un commerçant',
         'name-merchant' => 'Nom du commerçant',
         'sell-by' => 'Vendu par',
@@ -217,6 +218,12 @@ return [
             '23' => 'Mobilier & Décoration intérieure',
             '24' => 'Soins naturels & Bio',
             '25' => 'Parfums & Senteurs',
+        ],
+        'status' => [
+            'title' => 'Choisir un status',
+            '1' => 'Bon',
+            '2' => 'Bas',
+            '3' => 'Critique',
         ],
     ],
     'messages' => [
