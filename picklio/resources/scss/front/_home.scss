@@ -10,6 +10,8 @@
         display: flex;
         justify-content: center;
         gap: $space-8;
+        align-items: center;
+
         @include laptop {
         }
         @include laptop-l {

@@ -61,7 +61,6 @@
             cursor: pointer;
             z-index: 5;
             display: block;
-            background-color: $tangerine-600;
 
             @include laptop {
                 display: none;
