@@ -9,6 +9,7 @@ use App\Models\Account;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Role;
+use App\Models\Status;
 use App\Traits\SortingTrait;
 use Livewire\Attributes\Computed;
 use Livewire\WithPagination;
@@ -75,6 +76,12 @@ class Catalogues extends PicklioComponent
             'account.user',
         ])
             ->where('is_active', 1)
+            ->whereHas('account', function ($query) {
+                $query->where('status_id', Status::ACTIVE);
+            })
+            ->whereHas('stock', function ($query) {
+                $query->where('quantity', '>', 0);
+            })
             ->when($this->search, function ($query) {
                 $query->where('name', 'like', '%'.$this->search.'%');
             })
@@ -93,6 +100,7 @@ class Catalogues extends PicklioComponent
     {
         return Account::join('users', 'users.id', 'accounts.user_id')
             ->with('user')
+            ->where('status_id', Status::ACTIVE)
             ->when($this->searchMerchant, function ($query) {
                 $query->where('users.name', 'like', '%'.$this->searchMerchant.'%');
             })

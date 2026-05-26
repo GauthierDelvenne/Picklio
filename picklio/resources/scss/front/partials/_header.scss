@@ -67,14 +67,14 @@
             }
 
             &:hover &__line {
-                background-color: $tangerine-300;
+                background-color: $tangerine-400;
             }
 
             &__line {
                 position: absolute;
                 width: 80%;
                 height: 3px;
-                background-color: $tangerine-500;
+                background-color: $tangerine-600;
                 left: 10%;
                 transition: all ease 0.3s;
 

@@ -6,15 +6,15 @@
     <div class="flex justify-between gap-10 mb-12">
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">{{__('admin.orders.today-order')}}</flux:heading>
-            <flux:text class="mt-2">{{$this->todayOrder}}</flux:text>
+            <flux:text class="mt-2">{{$this->todayOrder}} {{__('words.order')}}</flux:text>
         </flux:card>
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">{{__('admin.orders.inWait-order')}}</flux:heading>
-            <flux:text class="mt-2">{{$this->inWaitOrder}}</flux:text>
+            <flux:text class="mt-2">{{$this->inWaitOrder}} {{__('words.order')}}</flux:text>
         </flux:card>
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">{{__('admin.orders.complete-order')}}</flux:heading>
-            <flux:text class="mt-2">{{$this->finishOrder}}</flux:text>
+            <flux:text class="mt-2">{{$this->finishOrder}} {{__('words.order')}}</flux:text>
         </flux:card>
 
     </div>
@@ -162,6 +162,7 @@
                                         <flux:menu.item
                                             class="hover:text-(--color-accent-content)">{{__('client.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
+                                    {{--                                    TODO CHANGER LE EDIT POUR SHOW QUAND CELA EST NECESSAIRES--}}
                                 </flux:menu>
                             </flux:dropdown>
                         </flux:table.cell>

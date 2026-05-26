@@ -13,15 +13,15 @@
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">                {{__('admin.merchants.total-merchants')}}
             </flux:heading>
-            <flux:text class="mt-2">{{$this->merchants->total()}}</flux:text>
+            <flux:text class="mt-2">{{$this->merchants->total()}} {{__('words.merchant')}}</flux:text>
         </flux:card>
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">{{__('admin.merchants.new-merchants')}}</flux:heading>
-            <flux:text class="mt-2">{{$this->newMerchantsCount()}}</flux:text>
+            <flux:text class="mt-2">{{$this->newMerchantsCount()}} {{__('words.merchant')}}</flux:text>
         </flux:card>
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">{{__('admin.merchants.actif-merchants')}}</flux:heading>
-            <flux:text class="mt-2">{{$this->actifMerchantsCount()}}</flux:text>
+            <flux:text class="mt-2">{{$this->actifMerchantsCount()}} {{__('words.merchant')}}</flux:text>
         </flux:card>
 
     </div>

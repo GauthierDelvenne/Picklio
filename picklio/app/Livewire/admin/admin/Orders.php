@@ -33,10 +33,7 @@ class Orders extends PicklioComponent
     #[Computed]
     public function orders()
     {
-        return Order::with(['account', 'pickupSlot'])
-            ->join('pickup_slots', 'pickup_slots.id', '=', 'orders.pickup_slot_id')
-            ->select('orders.*')
-            ->where('status', Order::INWAITCART)
+        return Order::OrderInWait()
             ->when($this->search, function ($query) {
                 $query->where('code', 'like', '%'.$this->search.'%');
             })

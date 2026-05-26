@@ -15,7 +15,9 @@ class Order extends Model
     use HasFactory;
 
     const INITCART = 0;
+
     const INWAITCART = 1;
+
     const FINISHCART = 2;
 
     /**
@@ -41,7 +43,7 @@ class Order extends Model
      */
     public function getPriceFormattedAttribute(): string
     {
-        return number_format($this->total_price / 100, 2, ',', ' ') . ' €';
+        return number_format($this->total_price / 100, 2, ',', ' ').' €';
     }
 
     public function getRouteKeyName(): string
@@ -63,6 +65,14 @@ class Order extends Model
      */
     public function scopeOrderCart(Builder $query, $accountId): Builder
     {
-        return $query->where('account_id', $accountId)->where('status', 0);
+        return $query->where('account_id', $accountId)->where('status', self::INITCART);
+    }
+
+    public function scopeOrderInWait(Builder $query): Builder
+    {
+        return $query->with(['account', 'pickupSlot'])
+            ->join('pickup_slots', 'pickup_slots.id', '=', 'orders.pickup_slot_id')
+            ->select('orders.*')
+            ->where('status', Order::INWAITCART);
     }
 }

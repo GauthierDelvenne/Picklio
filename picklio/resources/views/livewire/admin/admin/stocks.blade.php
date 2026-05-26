@@ -6,17 +6,17 @@
     <div class="flex justify-between gap-10 mb-12">
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">{{__('admin.stocks.totals')}}</flux:heading>
-            <flux:text class="mt-2">{{$this->products->total()}}</flux:text>
+            <flux:text class="mt-2">{{$this->products->total()}} {{__('words.product')}}</flux:text>
         </flux:card>
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">{{__('admin.stocks.very-low-stock')}}
             </flux:heading>
-            <flux:text class="mt-2">{{$this->veryLowStockCount()}}</flux:text>
+            <flux:text class="mt-2">{{$this->veryLowStockCount()}} {{__('words.product')}}</flux:text>
         </flux:card>
         <flux:card class="w-md">
             <flux:heading class="flex items-center gap-2">{{__('admin.stocks.low-stock')}}
             </flux:heading>
-            <flux:text class="mt-2">{{$this->lowStockCount()}}</flux:text>
+            <flux:text class="mt-2">{{$this->lowStockCount()}} {{__('words.product')}}</flux:text>
         </flux:card>
 
     </div>
@@ -41,6 +41,14 @@
                             value="{{$categories->id}}">{{__('admin.stocks.categories.'.$categories->id)}}</flux:select.option>
                     @endforeach
                 </flux:select>
+                <flux:select wire:model.live="statu">
+                    <flux:select.option
+                        value="">{{__('admin.stocks.status.title')}}</flux:select.option>
+                    @foreach($this->status as $key => $statu)
+                        <flux:select.option
+                            value="{{$statu}}">{{__('admin.stocks.status.'.$statu)}}</flux:select.option>
+                    @endforeach
+                </flux:select>
                 <flux:input wire:model.live.debounce.500ms="search" icon="magnifying-glass"
                             placeholder="{{__('client.commons.search')}}"/>
             </div>
@@ -55,7 +63,6 @@
                 <flux:table.column>{{__('client.products.forms.category.label')}}</flux:table.column>
                 <flux:table.column>{{__('client.products.status')}}</flux:table.column>
                 <flux:table.column>{{__('admin.stocks.forms.quantity.label')}}</flux:table.column>
-                <flux:table.column>{{__('admin.merchants.form.address.label')}}</flux:table.column>
                 <flux:table.column></flux:table.column>
 
             </flux:table.columns>
@@ -81,9 +88,6 @@
                         </flux:table.cell>
                         <flux:table.cell>
                             {{$product->stock->quantity}}/{{$product->productCategory->capacity}}
-                        </flux:table.cell>
-                        <flux:table.cell>
-                            {{$product->account->address}}
                         </flux:table.cell>
                         <flux:table.cell>
                             <flux:dropdown position="left" align="center">

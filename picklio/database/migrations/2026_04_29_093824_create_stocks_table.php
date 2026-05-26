@@ -13,6 +13,7 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained();
             $table->integer('quantity')->default(0);
             $table->integer('quantity_reserved')->default(0);
+            $table->boolean('status');
             $table->timestamps();
         });
 

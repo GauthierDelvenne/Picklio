@@ -87,7 +87,10 @@
         display: flex;
         flex-direction: column;
         gap: $space-8;
-
+        @include wide {
+            min-width: 1700px;
+            margin: auto;
+        }
         &__title {
             @include laptop-l {
                 font-size: $text-3xl;
@@ -197,9 +200,8 @@
             }
 
             &__informationContainer {
-                background-color: $tangerine-300;
+                background-color: $tangerine-200;
                 border-radius: $radius-lg;
-                max-width: 200px;
                 padding: $space-4;
                 display: flex;
                 flex-direction: column;

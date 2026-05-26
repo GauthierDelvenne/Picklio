@@ -50,13 +50,13 @@
 
                 &--new {
                     background-color: $succes;
-                    color: $tangerine-50;
+                    color: $tangerine-950;
                 }
 
                 &:not(.productCard__imgContainer__tagContainer__tagItem--new) {
                     &:hover {
                         background-color: $tangerine-400;
-                        color: $tangerine-50;
+                        color: $tangerine-950;
                     }
                 }
 

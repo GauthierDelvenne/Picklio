@@ -8,11 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['product_id', 'quantity', 'quantity_reserved'])]
+#[Fillable(['product_id', 'quantity', 'quantity_reserved', 'status'])]
 class Stock extends Model
 {
     use HasFactory;
+    const GOOD = 1;
 
+    const LOW = 2;
+
+    const VERYLOW = 3;
     /**
      * RELATIONS
      */
