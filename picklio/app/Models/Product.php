@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use function Termwind\render;
 
 #[Fillable(['account_id', 'product_category_id', 'name', 'description', 'price', 'percentage', 'start_at', 'end_at', 'picture_path', 'is_active', 'id'])]
 class Product extends Model
@@ -75,19 +74,19 @@ class Product extends Model
 
     public function scopeVeryLowStock(Builder $query): Builder
     {
-        return $query->join('stocks', 'stocks.product_id', '=', 'products.id')
-            ->join('product_categories', 'products.product_category_id', '=', 'product_categories.id')
-            ->where('stocks.quantity', '<=', 'product_categories.capacity * 0.10');
+        return $query->whereRelation('stock', 'status', Stock::VERYLOW);
     }
 
     public function scopeLowStock(Builder $query): Builder
     {
-        return $query->join('stocks', 'stocks.product_id', '=', 'products.id')
-            ->join('product_categories', 'products.product_category_id', '=', 'product_categories.id')
-            ->where('stocks.quantity', '>', 'product_categories.capacity * 0.10')
-            ->where('stocks.quantity', '<=', 'product_categories.capacity * 0.25');
+        return $query->whereRelation('stock', 'status', Stock::LOW);
     }
-
+    public function scopeLowOrVeryLowStock(Builder $query): Builder
+    {
+        return $query->whereRelation('stock', function (Builder $query) {
+            $query->whereIn('status', [Stock::LOW, Stock::VERYLOW]);
+        });
+    }
     public function scopeAlimentaryProduct(Builder $query): Builder
     {
         return $query->whereIn('product_category_id', [
@@ -103,6 +102,7 @@ class Product extends Model
             ProductCategory::LOCAL_ORGANIC_PRODUCERS,
         ]);
     }
+
     public function scopeNoAlimentaryProduct(Builder $query): Builder
     {
         return $query->whereIn('product_category_id', [
