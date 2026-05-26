@@ -15,7 +15,7 @@
             <flux:sidebar.item icon="home" href="{{route('admin.dashboard')}}"
                                :current="request()->routeIs('admin.dashboard')"
             >{{__('commons.pageName.admin.admin.dashboard')}}</flux:sidebar.item>
-            <flux:sidebar.item icon="truck" href="{{route('admin.order.index')}}"
+            <flux:sidebar.item icon="truck" badge="{{$orderCount}}" href="{{route('admin.order.index')}}"
                                :current="request()->routeIs('admin.order.index')">{{__('commons.pageName.admin.admin.orders')}}</flux:sidebar.item>
             <flux:sidebar.item icon="users" href="{{route('admin.merchant.index')}}"
                                :current="request()->routeIs('admin.merchant.index')">{{__('commons.pageName.admin.admin.merchants')}}</flux:sidebar.item>
