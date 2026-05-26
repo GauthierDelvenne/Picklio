@@ -8,7 +8,6 @@ use App\Models\Role;
 use App\Models\Stock;
 use App\Models\StockMovement;
 use Illuminate\Database\Seeder;
-use Intervention\Image\Colors\Oklab\Channels\A;
 
 class ProductSeeder extends Seeder
 {
@@ -27,9 +26,12 @@ class ProductSeeder extends Seeder
             foreach ($products as $product) {
                 $capacity = $product->productCategory->capacity;
                 $quantity = rand(1, $capacity);
+                $status = $quantity <= $capacity * 0.10 ? Stock::VERYLOW : ($quantity <= $capacity * 0.25 ? Stock::LOW : Stock::GOOD);
+
                 Stock::factory()->create([
                     'product_id' => $product->id,
                     'quantity' => $quantity,
+                    'status' => $status,
                 ]);
                 StockMovement::factory()->create([
                     'product_id' => $product->id,

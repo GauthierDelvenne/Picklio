@@ -7,6 +7,7 @@ use App\Models\Account;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Role;
+use App\Models\Stock;
 use App\Traits\SortingTrait;
 use Livewire\Attributes\Computed;
 use Livewire\WithPagination;
@@ -21,6 +22,8 @@ class Stocks extends PicklioComponent
     public $account;
 
     public $category;
+
+    public $statu;
 
     public $merchant;
 
@@ -40,6 +43,16 @@ class Stocks extends PicklioComponent
         return ProductCategory::all();
     }
 
+    #[Computed]
+    public function status()
+    {
+        return [
+            Stock::GOOD,
+            Stock::LOW,
+            Stock::VERYLOW,
+        ];
+    }
+
     #[Computed(persist: true)]
     public function merchants()
     {
@@ -50,6 +63,11 @@ class Stocks extends PicklioComponent
     public function products()
     {
         return Product::with(['stock', 'productCategory', 'account.user'])
+            ->whereHas('stock', function ($query) {
+                $query->when($this->statu, function ($query) {
+                    $query->where('status', $this->statu);
+                });
+            })
             ->when($this->search, function ($query) {
                 $query->where('name', 'like', '%'.$this->search.'%');
             })
