@@ -5,8 +5,10 @@ namespace App\Livewire\front;
 use App\Livewire\form\front\UpdatePasswordForm;
 use App\Livewire\form\front\UpdateProfilForm;
 use App\Livewire\PicklioComponent;
+use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Livewire\Attributes\Computed;
 
 class Profil extends PicklioComponent
 {
@@ -46,6 +48,16 @@ class Profil extends PicklioComponent
             'email' => $this->form->email.now(), ]);
         $this->form->user->delete();
         $this->dispatch('deleteAccount');
+    }
+
+    #[Computed]
+    public function orders()
+    {
+        return Order::with(['orderItems', 'orderItems.product.stock', 'orderItems.product.productCategory'])
+            ->where('account_id', $this->form->account->id)
+            ->orderBy('pickup_date', 'desc')
+            ->limit(5)
+            ->get();
     }
 
     public function render()

@@ -44,6 +44,7 @@ return [
         'legal-notice' => 'mentions-legales',
         'privacy-policy' => 'politique-de-confidentialite',
         'contact' => 'contact',
+        'order' => 'commande',
     ],
     'auth' => [
         'login' => 'connexion',
