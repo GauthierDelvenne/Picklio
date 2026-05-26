@@ -7,7 +7,7 @@
                         class="product__informationContainer__imgContainer__breadCrumb__item__link">{{__('commons.pageName.front.catalogue')}}</a>
                 </li>
                 <li class="product__informationContainer__imgContainer__breadCrumb__item">
-                    <x-svg.svg class="product__informationContainer__imgContainer__breadCrumb__item__svg" name="arrow"/>
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}" class="product__informationContainer__imgContainer__breadCrumb__item__svg" name="arrow"/>
                 </li>
                 <li class="product__informationContainer__imgContainer__breadCrumb__item">{{$this->product->name}}</li>
             </ul>

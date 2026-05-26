@@ -33,7 +33,7 @@
                             :quantity="$orderItem->quantity"
                         />
 
-                        <x-svg.svg wire:click="delete({{$orderItem->id}})"
+                        <x-svg.svg title="{{__('svgTitle.trash')}}" wire:click="delete({{$orderItem->id}})"
                                    class="basket__container__basketContainer__itemContainer__card__delete__svg"
                                    name="trash"/>
                     </div>
@@ -77,7 +77,7 @@
                     <a href="{{ route('front.slot', $this->cart) }}"
                        class="button button--icon basket__container__basketContainer__priceContainer__button">
                         {{__('front.order.button')}}
-                        <x-svg.svg class="basket__container__basketContainer__priceContainer__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}" class="basket__container__basketContainer__priceContainer__button__svg"
                                    name="arrow"/>
                     </a>
                     <p class="basket__container__basketContainer__priceContainer__condition">{{__('front.order.condition')}}</p>

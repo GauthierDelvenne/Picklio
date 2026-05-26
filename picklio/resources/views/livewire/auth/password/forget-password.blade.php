@@ -10,7 +10,7 @@
 
 
         <button type="submit" class="button button--icon forgetPassword__formContainer__button">{{__('auth.form.button.forget')}}
-            <x-svg.svg class="forgetPassword__formContainer__button__svg" name="arrow"/>
+            <x-svg.svg title="{{__('svgTitle.arrow')}}" class="forgetPassword__formContainer__button__svg" name="arrow"/>
         </button>
         <p class="forgetPassword__formContainer__returnLogin">
             <a href="{{route('auth.login')}}" class="forgetPassword__formContainer__returnLogin__link">

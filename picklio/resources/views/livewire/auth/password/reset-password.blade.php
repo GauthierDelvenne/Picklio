@@ -8,11 +8,11 @@
                           placeholder="{{__('auth.form.password.label')}}"
                           input-class="resetPassword__formContainer__inputContainer__input"
                           input-error-class="resetPassword__formContainer__inputContainer__input__error">
-                <x-svg.svg class="resetPassword__formContainer__inputContainer__svg"
+                <x-svg.svg title="{{__('svgTitle.eye')}}" class="resetPassword__formContainer__inputContainer__svg"
                            name="eye"
                            x-show="!show"
                            x-on:click="show = !show"/>
-                <x-svg.svg class="resetPassword__formContainer__inputContainer__svg"
+                <x-svg.svg title="{{__('svgTitle.eye-slash')}}" class="resetPassword__formContainer__inputContainer__svg"
                            name="eye-slash"
                            x-show="show"
                            x-on:click="show = !show"/>
@@ -22,7 +22,7 @@
         <button type="submit"
                 class="button button--icon resetPassword__formContainer__button">
             {{__('auth.form.button.reset')}}
-            <x-svg.svg class="resetPassword__formContainer__button__svg" name="arrow"/>
+            <x-svg.svg title="{{__('svgTitle.arrow')}}" class="resetPassword__formContainer__button__svg" name="arrow"/>
         </button>
         <p class="resetPassword__formContainer__returnLogin">
             <a href="{{route('auth.login')}}" class="resetPassword__formContainer__returnLogin__link">
