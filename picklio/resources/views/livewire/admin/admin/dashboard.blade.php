@@ -2,16 +2,16 @@
     <section class="flex justify-between gap-10 mb-12">
         <flux:heading size="xl" level="2">{{__('commons.pageName.admin.admin.dashboard')}}</flux:heading>
     </section>
-    <div class="flex justify-between gap-10 mb-12">
-        <flux:card class="w-md">
+    <div class="flex flex-col justify-between gap-10 mb-12 md:flex-row">
+        <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">{{__('admin.merchants.total-merchants')}}</flux:heading>
             <flux:text class="mt-2">{{$this->merchantCount}} {{__('words.merchant')}}</flux:text>
         </flux:card>
-        <flux:card class="w-md">
+        <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">{{__('admin.orders.inWait-order')}}</flux:heading>
             <flux:text class="mt-2">{{$this->inWaitOrder}} {{__('words.order')}}</flux:text>
         </flux:card>
-        <flux:card class="w-md">
+        <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">{{__('admin.stocks.status-stock')}}</flux:heading>
             <flux:text class="mt-2">{{$this->stockCount}} {{__('words.product')}}</flux:text>
         </flux:card>
@@ -19,7 +19,7 @@
     </div>
     <div
         class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
-        <div class="mb-4 flex justify-between ">
+        <div class="mb-4 flex flex-col gap-4 justify-between sm:flex-row">
             <flux:heading size="l">{{__('admin.orders.progress-order')}}</flux:heading>
             <div class="mb-4 flex gap-10">
                 <flux:input wire:model.live.debounce.500ms="search" icon="magnifying-glass"
@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <flux:table :paginate="$this->orders">
+        <flux:table>
             <flux:table.columns>
                 <flux:table.column sortable :sorted="$sortBy === 'code'" :direction="$sortDirection"
                                    wire:click="sort('code')">{{__('admin.orders.code')}}
@@ -46,13 +46,13 @@
                     <flux:table.row>
                         <flux:table.cell>
                             <a href="{{ route('admin.order.show', $order->uuid) }}"
-                               class="hover:text-(--color-accent-content)">
+                               class="text-accent hover:text-accent-content">
                                 #{{$order->code}}
                             </a>
                         </flux:table.cell>
                         <flux:table.cell>
                             <a href="{{ route('admin.order.show', $order->uuid) }}"
-                               class="hover:text-(--color-accent-content)">
+                               class="text-accent hover:text-accent-content">
                                 {{$order->account->firstname}}
                             </a>
                         </flux:table.cell>
@@ -71,15 +71,15 @@
                         <flux:table.cell>
                             <flux:dropdown position="left" align="center">
                                 <flux:button variant="ghost">
-                                    <flux:icon.ellipsis-horizontal/>
+                                    <flux:icon.ellipsis-horizontal class="text-accent hover:text-accent-content"/>
                                 </flux:button>
                                 <flux:menu>
                                     <a href="{{route('admin.order.show', $order->uuid)}}">
                                         <flux:menu.item
-                                            class="hover:text-(--color-accent-content)">{{__('client.commons.buttons.edit')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('client.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="delete('{{$order->uuid}}')"
-                                                    class="hover:text-(--color-accent-content)"
+                                                    class="text-accent hover:text-accent-content"
                                                     wire:confirm="{{__('admin.orders.delete-confirm', ['name' => $order->account->firstname.' '.$order->account->lastname])}}">{{__('client.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:dropdown>
@@ -95,13 +95,15 @@
 
             </flux:table.rows>
         </flux:table>
+        <flux:pagination :paginator="$this->orders" class="flex-wrap"/>
+
     </div>
     <div
         class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl mt-8">
-        <div class="mb-4 flex justify-between ">
+        <div class="mb-4 flex flex-col gap-4 justify-between lg:flex-row">
             <flux:heading size="l">{{__('commons.pageName.admin.admin.stocks')}}</flux:heading>
-            <div class="mb-4 flex gap-10">
-                <flux:select wire:model.live="merchant">
+            <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap md:flex-nowrap">
+                <flux:select wire:model.live="merchant" class="sm:w-5/12">
                     <flux:select.option value="">{{__('admin.stocks.choose-merchant')}}</flux:select.option>
                     @foreach($this->merchants as $key => $merchant)
                         <flux:select.option
@@ -109,7 +111,7 @@
                         </flux:select.option>
                     @endforeach
                 </flux:select>
-                <flux:select wire:model.live="category">
+                <flux:select wire:model.live="category" class="sm:w-5/12">
                     <flux:select.option
                         value="">{{__('client.products.forms.category.placeholder')}}</flux:select.option>
                     @foreach($this->categories as $key => $categories)
@@ -117,7 +119,7 @@
                             value="{{$categories->id}}">{{__('admin.stocks.categories.'.$categories->id)}}</flux:select.option>
                     @endforeach
                 </flux:select>
-                <flux:select wire:model.live="statu">
+                <flux:select wire:model.live="statu" class="sm:w-5/12">
                     <flux:select.option
                         value="">{{__('admin.stocks.status.title')}}</flux:select.option>
                     @foreach($this->status as $key => $statu)
@@ -125,12 +127,12 @@
                             value="{{$statu}}">{{__('admin.stocks.status.'.$statu)}}</flux:select.option>
                     @endforeach
                 </flux:select>
-                <flux:input wire:model.live.debounce.500ms="productSearch" icon="magnifying-glass"
+                <flux:input wire:model.live.debounce.500ms="productSearch" icon="magnifying-glass" class="sm:w-5/12"
                             placeholder="{{__('client.commons.search')}}"/>
             </div>
         </div>
 
-        <flux:table :paginate="$this->products">
+        <flux:table>
             <flux:table.columns>
                 <flux:table.column sortable :sorted="$sortBy === 'products.name'" :direction="$sortDirection"
                                    wire:click="sort('products.name')">{{__('admin.stocks.name')}}
@@ -147,7 +149,7 @@
                     <flux:table.row>
                         <flux:table.cell>
                             <a href="{{ route('admin.stock.show', $product->id) }}"
-                               class="hover:text-(--color-accent-content)">
+                               class="text-accent hover:text-accent-content">
                                 {{$product->name}}
                             </a>
                         </flux:table.cell>
@@ -166,17 +168,17 @@
                             {{$product->stock->quantity}}/{{$product->productCategory->capacity}}
                         </flux:table.cell>
                         <flux:table.cell>
-                            <flux:dropdown position="left" align="center">
+                            <flux:dropdown position="left" align="center" >
                                 <flux:button variant="ghost">
-                                    <flux:icon.ellipsis-horizontal/>
+                                    <flux:icon.ellipsis-horizontal class="text-accent hover:text-accent-content"/>
                                 </flux:button>
                                 <flux:menu>
                                     <a href="{{route('admin.stock.show', $product->id)}}">
                                         <flux:menu.item
-                                            class="hover:text-(--color-accent-content)">{{__('client.commons.buttons.edit')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('client.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="delete({{$product}})"
-                                                    class="hover:text-(--color-accent-content)"
+                                                    class="text-accent hover:text-accent-content"
                                                     wire:confirm="{{__('client.products.delete-confirm', ['name' => $product->user_name])}}">{{__('client.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:dropdown>
@@ -192,6 +194,7 @@
 
             </flux:table.rows>
         </flux:table>
+        <flux:pagination :paginator="$this->products" class="flex-wrap"/>
     </div>
 </flux:main>
 

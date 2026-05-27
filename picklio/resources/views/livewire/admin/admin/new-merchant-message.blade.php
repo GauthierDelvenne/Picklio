@@ -19,6 +19,9 @@
                         class="font-bold">{{__('admin.messages.user-name')}} :</span> {{$this->newMerchantMessage->firstname}} {{$this->newMerchantMessage->lastname}}
                 </flux:text>
                 <flux:text><span
+                        class="font-bold">{{__('admin.messages.shop-name')}} :</span> {{$this->newMerchantMessage->name}}
+                </flux:text>
+                <flux:text><span
                         class="font-bold">{{__('admin.messages.user-email')}} :</span> {{$this->newMerchantMessage->email}}
                 </flux:text>
                 <flux:text><span
@@ -30,7 +33,7 @@
             </div>
         </flux:card>
     </div>
-    <div class="flex gap-10">
+    <div class="flex flex-col gap-10 sm:flex-row">
         <flux:button wire:click="validateMessage"
                      variant="primary">{{__('client.commons.buttons.validate')}}</flux:button>
         <flux:button wire:click="refuseMessage" variant="danger">{{__('client.commons.buttons.refuse')}}</flux:button>

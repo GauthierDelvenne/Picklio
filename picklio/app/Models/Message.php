@@ -35,11 +35,19 @@ class Message extends Model
     /**
      * SCOPE
      */
-    public function scopeMessage(Builder $query, $accountId):Builder
+    public function scopeMessage(Builder $query, $accountId): Builder
     {
         return $query->join('accounts', 'messages.sender_id', '=', 'accounts.id')
             ->join('users', 'accounts.user_id', '=', 'users.id')
             ->where('recipient_id', $accountId)
+            ->select('messages.*', 'users.name as name');
+    }
+
+    public function scopeOwnMessage(Builder $query, $accountId): Builder
+    {
+        return $query->join('accounts', 'messages.sender_id', '=', 'accounts.id')
+            ->join('users', 'accounts.user_id', '=', 'users.id')
+            ->where('sender_id', $accountId)
             ->select('messages.*', 'users.name as name');
     }
 }

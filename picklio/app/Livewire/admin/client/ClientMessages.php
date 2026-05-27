@@ -81,7 +81,19 @@ class ClientMessages extends PicklioComponent
             })
             ->paginate(15);
     }
-
+    #[Computed]
+    public function sendMessages()
+    {
+        return Message::ownMessage($this->account->id)
+            ->when($this->search, function ($query) {
+                $query->where('users.name', 'like', '%'.$this->search.'%');
+            })
+            ->when($this->messageStatus, function ($query) {
+                $query->where('messages.message_status_id', $this->messageStatus);
+            })
+            ->orderBy($this->sortBy, $this->sortDirection)
+            ->paginate(15);
+    }
     public function render()
     {
         return view('livewire.admin.client.messages')

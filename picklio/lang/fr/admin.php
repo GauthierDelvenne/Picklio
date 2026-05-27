@@ -229,7 +229,11 @@ return [
     'messages' => [
         'suggestMessage' => 'Les suggestion client',
         'newMerchantMessage' => 'Les inscriptions de nouveau commerçants',
+        'contactMessage' => 'Les messages de contact',
+        'sendMessage' => 'Les messages de envoyés',
+        'receiveMessage' => 'Les messages reçus',
         'information' => 'Les informations client',
+        'merchant' => 'Le message du commerçant',
         'information-merchant' => 'Les informations du nouveau commerçant',
         'user-message' => 'Le message du client',
         'send' => 'Envoyez un message',

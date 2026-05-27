@@ -2,33 +2,34 @@
 
 namespace App\Livewire\admin\client;
 
+use App\Livewire\form\admin\client\UpdateMessageForm;
+use App\Livewire\PicklioComponent;
 use App\Models\Message;
-use App\Models\MessageStatus;
 use Flux\Flux;
-use Livewire\Component;
 
-class ClientMessage extends Component
+class ClientMessage extends PicklioComponent
 {
     public Message $message;
+    public UpdateMessageForm $form;
 
-    public function validateMessage()
+    public function update()
     {
-        Message::updateOrCreate([
-            'id' => $this->message->id,
-        ], [
-            'message_status_id' => MessageStatus::VALID,
-        ]);
-        Flux::toast(__('admin.messages.toast.update.success'), variant: 'success');
+        if ($this->form->update()) {
+            Flux::toast(__('admin.messages.toast.update.success'), variant: 'success');
+        } else {
+            Flux::toast(__('admin.messages.toast.update.error'), variant: 'danger');
+        }
     }
 
-    public function refuseMessage()
+    public function delete()
     {
-        Message::updateOrCreate([
-            'id' => $this->message->id,
-        ], [
-            'message_status_id' => MessageStatus::UNVALID,
-        ]);
-        Flux::toast(__('admin.messages.toast.update.success'), variant: 'success');
+        if ($this->message->delete()) {
+            Flux::toast(__('admin.messages.toast.delete.success'), variant: 'success');
+            Flux::modal('delete-message')->close();
+            $this->redirectRoute('client.message.index');
+        } else {
+            Flux::toast(__('admin.messages.toast.delete.error'), variant: 'danger');
+        }
     }
 
     public function mount(Message $message)

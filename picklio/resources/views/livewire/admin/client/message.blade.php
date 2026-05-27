@@ -1,27 +1,18 @@
-<flux:main class="space-y-6">
+<flux:main>
     <flux:breadcrumbs>
         <flux:breadcrumbs.item
-            href="{{route('client.message.index')}}">{{__('commons.pageName.admin.client.message')}}</flux:breadcrumbs.item>
+            href="{{route('client.message.index')}}">{{__('commons.pageName.admin.admin.message')}}</flux:breadcrumbs.item>
         <flux:breadcrumbs.item>{{$this->message->title}}</flux:breadcrumbs.item>
     </flux:breadcrumbs>
+    <section class="flex justify-between content-center items-center">
+        <flux:heading size="xl" level="2">{{__('admin.messages.edit')}}</flux:heading>
+        <flux:modal.trigger name="delete-message">
+            <flux:button variant="danger">{{__('admin.commons.buttons.delete')}}</flux:button>
+        </flux:modal.trigger>
+    </section>
     <flux:separator variant="subtle"/>
-    <flux:card class="grow">
-        <flux:heading size="xl">{{__('admin.messages.title')}}</flux:heading>
-        <div class="flex flex-col gap-5 mt-2">
-            <flux:text>
-                <span
-                    class="font-bold">{{__('admin.messages.form.title.placeholder')}} :</span> {{$this->message->title}}
-            </flux:text>
-            <flux:text>
-                <span
-                    class="font-bold">{{__('admin.messages.form.description.placeholder')}} :</span> {{$this->message->description}}
-            </flux:text>
-
-        </div>
-    </flux:card>
-    <div class="flex gap-10">
-        <flux:button wire:click="validateMessage"
-                     variant="primary">{{__('client.commons.buttons.validate')}}</flux:button>
-        <flux:button wire:click="refuseMessage" variant="danger">{{__('client.commons.buttons.refuse')}}</flux:button>
-    </div>
+    <x-client.modals.message.form submit="update" button="{{__('client.commons.buttons.edit')}}"/>
+    <flux:modal name="delete-message" class="md:w-96">
+        <x-admin.modals.message.delete-message/>
+    </flux:modal>
 </flux:main>

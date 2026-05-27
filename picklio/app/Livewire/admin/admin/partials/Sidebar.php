@@ -11,16 +11,23 @@ use App\Models\Order;
 use App\Models\SuggestMessage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
+use Livewire\Attributes\Computed;
 
 class Sidebar extends PicklioComponent
 {
-    public $messageCount;
-
-    public $orderCount;
-
-    public function mount(): void
+    #[Computed]
+    public function orderCount()
     {
-        $this->messageCount = Cache::remember("unread_messages_{$this->userConnected->id}", 3600,
+        return Cache::remember("new_order_{$this->userConnected->id}", 60,
+            function () {
+                return Order::where('status', Order::INWAITCART)->count();
+            });
+    }
+
+    #[Computed]
+    public function messageCount()
+    {
+        return Cache::remember("unread_messages_{$this->userConnected->id}", 60,
             function () {
                 return Message::where('message_status_id', MessageStatus::UNREAD)
                     ->where('recipient_id', $this->userConnected->account->id)
@@ -32,10 +39,6 @@ class Sidebar extends PicklioComponent
                     + ContactMessage::where('message_status_id', MessageStatus::UNREAD)
                         ->where('recipient_id', $this->userConnected->account->id)
                         ->count();
-            });
-        $this->orderCount = Cache::remember("new_order_{$this->userConnected->id}", 3600,
-            function () {
-                return Order::where('status', Order::INWAITCART)->count();
             });
     }
 
