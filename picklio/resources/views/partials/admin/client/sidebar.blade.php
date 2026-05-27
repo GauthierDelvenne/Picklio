@@ -26,7 +26,7 @@
         </flux:sidebar.nav>
         <flux:sidebar.spacer/>
         <flux:modal.trigger name="add-product">
-            <flux:button variant="primary" color="teal">
+            <flux:button variant="primary">
                 <flux:icon.plus/>
                 {{__('client.products.add')}}
             </flux:button>

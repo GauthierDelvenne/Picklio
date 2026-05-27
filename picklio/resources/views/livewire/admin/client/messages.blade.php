@@ -41,7 +41,7 @@
                     <flux:table.row>
                         <flux:table.cell>
                             <a href="{{ route('client.message.show', $message->id) }}"
-                               class="hover:text-(--color-accent-content)">
+                               class="text-accent hover:text-accent-content">
                                 {{$message->name}}
                             </a>
                         </flux:table.cell>
@@ -61,11 +61,11 @@
                         <flux:table.cell>
                             <flux:dropdown position="left" align="center">
                                 <flux:button variant="ghost">
-                                    <flux:icon.ellipsis-horizontal/>
+                                    <flux:icon.ellipsis-horizontal class="text-accent hover:text-accent-content"/>
                                 </flux:button>
                                 <flux:menu>
                                     <flux:menu.item wire:click="delete({{$message}})"
-                                                    class="hover:text-(--color-accent-content)"
+                                                    class="text-accent hover:text-accent-content"
                                                     wire:confirm="{{__('admin.messages.delete-confirm', ['name' => $message->name])}}">{{__('admin.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:dropdown>
@@ -112,7 +112,7 @@
                     <flux:table.row>
                         <flux:table.cell>
                             <a href="{{ route('client.message.contact.show', $message->id) }}"
-                               class="hover:text-(--color-accent-content)">
+                               class="text-accent hover:text-accent-content">
                                 {{$message->name}}
                             </a>
                         </flux:table.cell>
@@ -134,15 +134,15 @@
                         <flux:table.cell>
                             <flux:dropdown position="left" align="center">
                                 <flux:button variant="ghost">
-                                    <flux:icon.ellipsis-horizontal/>
+                                    <flux:icon.ellipsis-horizontal class="text-accent hover:text-accent-content"/>
                                 </flux:button>
                                 <flux:menu>
                                     <a href="{{route('client.message.contact.show', $message->id)}}">
                                         <flux:menu.item
-                                            class="hover:text-(--color-accent-content)">{{__('admin.commons.buttons.edit')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="deleteContact({{$message}})"
-                                                    class="hover:text-(--color-accent-content)"
+                                                    class="text-accent hover:text-accent-content"
                                                     wire:confirm="{{__('admin.messages.delete-confirm', ['name' => $message->name])}}">{{__('admin.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:dropdown>
