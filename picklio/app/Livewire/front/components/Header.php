@@ -3,8 +3,11 @@
 namespace App\Livewire\front\components;
 
 use App\Livewire\PicklioComponent;
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\Role;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\Computed;
 
 class Header extends PicklioComponent
 {
@@ -22,6 +25,21 @@ class Header extends PicklioComponent
                 $this->is_merchant = true;
             }
         }
+    }
+
+    #[Computed]
+    public function cartProductNumber()
+    {
+        if (! empty($this->userConnected)) {
+            $order = Order::where('account_id', $this->userConnected->account->id)
+                ->where('status', Order::INITCART)
+                ->first();
+
+            return OrderItem::where('order_id', $order->id)
+                ->count();
+        }
+
+        return null;
     }
 
     public function render(): View

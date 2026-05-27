@@ -45,6 +45,7 @@
                 <a href="{{route('front.basket')}}"
                    class="header__navbar__liste__item__link @if(Route::currentRouteName() === 'front.basket') active @endif">
                     <x-svg.svg title="{{__('svgTitle.basket')}}" class="header__navbar__liste__item__link__svg" name="basket"/>
+                    <p class="header__navbar__liste__item__link__count">{{$this->cartProductNumber}}</p>
                 </a>
             </li>
             <li class="header__navbar__liste__item">

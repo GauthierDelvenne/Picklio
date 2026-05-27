@@ -122,6 +122,7 @@
             &__item {
                 transition: color ease 0.3s;
                 border-bottom: solid 0 transparent;
+                position: relative;
 
                 &__link {
                     font-weight: 600;
@@ -139,13 +140,22 @@
                             width: 35px;
                             height: 35px;
                         }
-                        &--stroke{
+
+                        &--stroke {
                             stroke-width: 10px;
                         }
+
                         &:hover {
                             fill: $tangerine-500;
                             transform: scale(1.1);
                         }
+                    }
+
+                    &__count {
+                        position: absolute;
+                        bottom: -$space-2;
+                        right: -$space-2;
+                        color: $tangerine-700;
                     }
                 }
 
