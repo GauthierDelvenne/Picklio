@@ -6,6 +6,7 @@ use App\Livewire\PicklioComponent;
 use App\Models\MessageStatus;
 use App\Models\NewMerchantMessage as NewMerchantMessageModel;
 use Flux\Flux;
+use Illuminate\Support\Facades\Cache;
 
 class NewMerchantMessage extends PicklioComponent
 {
@@ -18,6 +19,7 @@ class NewMerchantMessage extends PicklioComponent
             'message_status_id' => MessageStatus::VALID,
         ]);
         Flux::toast(__('admin.messages.toast.update.success'), variant: 'success');
+        Cache::forget("unread_messages_{$this->userConnected->id}");
     }
 
     public function refuseMessage()
@@ -28,6 +30,7 @@ class NewMerchantMessage extends PicklioComponent
             'message_status_id' => MessageStatus::UNVALID,
         ]);
         Flux::toast(__('admin.messages.toast.update.success'), variant: 'success');
+        Cache::forget("unread_messages_{$this->userConnected->id}");
     }
     public function delete()
     {

@@ -9,6 +9,7 @@ use App\Livewire\admin\admin\Messages;
 use App\Livewire\admin\admin\NewMerchantMessage;
 use App\Livewire\admin\admin\Order;
 use App\Livewire\admin\admin\Orders;
+use App\Livewire\admin\admin\ReceiveMessage;
 use App\Livewire\admin\admin\Settings;
 use App\Livewire\admin\admin\Statistics;
 use App\Livewire\admin\admin\Stock;
@@ -88,6 +89,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             function () {
                 Route::get('/', Messages::class)->name('admin.message.index');
                 Route::get(__('route.admin.admin.suggestMessage') . '/{suggestMessage}', SuggestMessage::class)->name('admin.message.suggest.show');
+                Route::get(__('route.admin.admin.receiveMessage') . '/{receiveMessage}', ReceiveMessage::class)->name('admin.message.receive.show');
                 Route::get(__('route.admin.admin.newMerchantMessage') . '/{newMerchantMessage}', NewMerchantMessage::class)->name('admin.message.new-merchant.show');
                 Route::get(__('route.admin.admin.contactMessage') . '/{contactMessage}', ContactMessage::class)->name('admin.message.contact.show');
                 Route::get('{message}', Message::class)->name('admin.message.show');

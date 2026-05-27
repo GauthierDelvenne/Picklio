@@ -7,6 +7,7 @@ use App\Models\ContactMessage as ContactMessageModel;
 use App\Models\MessageStatus;
 use App\Models\Role;
 use Flux\Flux;
+use Illuminate\Support\Facades\Cache;
 
 class ContactMessage extends PicklioComponent
 {
@@ -20,6 +21,7 @@ class ContactMessage extends PicklioComponent
             'message_status_id' => MessageStatus::VALID,
         ]);
         Flux::toast(__('admin.messages.toast.update.success'), variant: 'success');
+        Cache::forget("unread_messages_{$this->userConnected->id}");
     }
 
     public function refuseMessage()
@@ -30,6 +32,7 @@ class ContactMessage extends PicklioComponent
             'message_status_id' => MessageStatus::UNVALID,
         ]);
         Flux::toast(__('admin.messages.toast.update.success'), variant: 'success');
+        Cache::forget("unread_messages_{$this->userConnected->id}");
     }
 
     public function delete()

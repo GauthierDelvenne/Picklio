@@ -1,7 +1,7 @@
 <div class="productCard">
     <div class="productCard__imgContainer">
         @if($img->picture_path == 'images/missing-product.webp')
-            <img src="{{asset($img->picture_path)}}" alt="" class="productCard__imgContainer__img">
+            <img src="{{asset($img->picture_path)}}" alt="{{$img->name}}" class="productCard__imgContainer__img">
         @else
             <img
                 src="{{ $img->pictureUrl(600) }}"

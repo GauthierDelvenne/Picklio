@@ -3,17 +3,17 @@
         <flux:heading size="xl" level="2">{{__('commons.pageName.admin.admin.stocks')}}</flux:heading>
 
     </section>
-    <div class="flex justify-between gap-10 mb-12">
-        <flux:card class="w-md">
+    <div class="flex flex-col justify-between gap-10 mb-12 md:flex-row">
+                <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">{{__('admin.stocks.totals')}}</flux:heading>
             <flux:text class="mt-2">{{$this->products->total()}} {{__('words.product')}}</flux:text>
         </flux:card>
-        <flux:card class="w-md">
+                <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">{{__('admin.stocks.very-low-stock')}}
             </flux:heading>
             <flux:text class="mt-2">{{$this->veryLowStockCount()}} {{__('words.product')}}</flux:text>
         </flux:card>
-        <flux:card class="w-md">
+                <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">{{__('admin.stocks.low-stock')}}
             </flux:heading>
             <flux:text class="mt-2">{{$this->lowStockCount()}} {{__('words.product')}}</flux:text>
@@ -22,10 +22,10 @@
     </div>
     <div
         class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
-        <div class="mb-4 flex justify-between ">
+        <div class="mb-4 flex flex-col gap-4 justify-between lg:flex-row">
             <flux:heading size="l">{{__('commons.pageName.admin.admin.stocks')}}</flux:heading>
-            <div class="mb-4 flex gap-10">
-                <flux:select wire:model.live="merchant">
+            <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap md:flex-nowrap">
+                <flux:select wire:model.live="merchant" class="sm:w-5/12">
                     <flux:select.option value="">{{__('admin.stocks.choose-merchant')}}</flux:select.option>
                     @foreach($this->merchants as $key => $merchant)
                         <flux:select.option
@@ -33,7 +33,7 @@
                         </flux:select.option>
                     @endforeach
                 </flux:select>
-                <flux:select wire:model.live="category">
+                <flux:select wire:model.live="category" class="sm:w-5/12">
                     <flux:select.option
                         value="">{{__('client.products.forms.category.placeholder')}}</flux:select.option>
                     @foreach($this->categories as $key => $categories)
@@ -41,7 +41,7 @@
                             value="{{$categories->id}}">{{__('admin.stocks.categories.'.$categories->id)}}</flux:select.option>
                     @endforeach
                 </flux:select>
-                <flux:select wire:model.live="statu">
+                <flux:select wire:model.live="statu" class="sm:w-5/12">
                     <flux:select.option
                         value="">{{__('admin.stocks.status.title')}}</flux:select.option>
                     @foreach($this->status as $key => $statu)
@@ -49,12 +49,12 @@
                             value="{{$statu}}">{{__('admin.stocks.status.'.$statu)}}</flux:select.option>
                     @endforeach
                 </flux:select>
-                <flux:input wire:model.live.debounce.500ms="search" icon="magnifying-glass"
+                <flux:input wire:model.live.debounce.500ms="search" icon="magnifying-glass" class="sm:w-5/12"
                             placeholder="{{__('client.commons.search')}}"/>
             </div>
         </div>
 
-        <flux:table :paginate="$this->products">
+        <flux:table>
             <flux:table.columns>
                 <flux:table.column sortable :sorted="$sortBy === 'products.name'" :direction="$sortDirection"
                                    wire:click="sort('products.name')">{{__('admin.stocks.name')}}
@@ -116,6 +116,7 @@
 
             </flux:table.rows>
         </flux:table>
+        <flux:pagination :paginator="$this->products" class="flex-wrap"/>
     </div>
     <div class="flex justify-between gap-10 mt-12">
         <flux:card class="w-md">

@@ -18,6 +18,7 @@ return [
             'statistics' => 'statistique',
             'settings' => 'parametre',
             'suggestMessage' => 'suggestion',
+            'receiveMessage' => 'recu',
             'newMerchantMessage' => 'nouveau-client',
             'contactMessage' => 'contact',
         ],

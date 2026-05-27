@@ -1,15 +1,17 @@
 <flux:main>
     <flux:heading size="xl">{{__('commons.pageName.admin.admin.settings')}}</flux:heading>
     <flux:separator variant="subtle"/>
-    <div class="grid grid-cols-3 gap-10 mt-20">
+    <div class="grid grid-cols-1 gap-10 mt-20 md:grid-cols-3">
         <div>
             <flux:heading size="l">{{__('admin.settings.theme.title')}}</flux:heading>
         </div>
         <flux:card class="col-span-2">
-            <flux:radio.group x-data variant="segmented" x-model="$flux.appearance">
-                <flux:radio value="light" icon="sun">{{__('admin.settings.theme.light')}}</flux:radio>
-                <flux:radio value="dark" icon="moon">{{__('admin.settings.theme.dark')}}</flux:radio>
-                <flux:radio value="system" icon="computer-desktop">{{__('admin.settings.theme.system')}}</flux:radio>
+            <flux:radio.group         variant="cards"
+                                      x-data x-model="$flux.appearance" class=" flex flex-col gap-4">
+                <flux:radio value="light" icon="sun" label="{{__('admin.settings.theme.light')}}"/>
+                <flux:radio value="dark" icon="moon" label="{{__('admin.settings.theme.dark')}}"/>
+                <flux:radio value="system"
+                            icon="computer-desktop" label="{{__('admin.settings.theme.system')}}"/>
             </flux:radio.group>
         </flux:card>
         <div>

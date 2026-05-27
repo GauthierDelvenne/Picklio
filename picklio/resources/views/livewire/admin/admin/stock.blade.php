@@ -4,9 +4,10 @@
             href="{{route('admin.stock.index')}}">{{__('commons.pageName.admin.admin.stocks')}}</flux:breadcrumbs.item>
         <flux:breadcrumbs.item>{{$this->product->name}}</flux:breadcrumbs.item>
     </flux:breadcrumbs>
-    <section class="flex justify-between content-center items-center">
-        <flux:heading size="xl" level="2">{{__('admin.stocks.sell-by')}} {{$this->product->account->user->name}}</flux:heading>
-        <div class="flex gap-10">
+    <section class="flex flex-col gap-4 justify-between content-center items-start sm:flex-row">
+        <flux:heading size="xl"
+                      level="2">{{__('admin.stocks.sell-by')}} {{$this->product->account->user->name}}</flux:heading>
+        <div class="flex flex-col gap-4 md:flex-row">
             <flux:modal.trigger name="update-stock">
                 <flux:button variant="primary">{{__('admin.commons.buttons.update')}}</flux:button>
             </flux:modal.trigger>
@@ -16,18 +17,22 @@
         </div>
     </section>
     <flux:separator variant="subtle"/>
-    <div class="flex gap-10">
+    <div class="flex flex-col gap-10 xl:flex-row">
         <flux:card class="grow">
             <flux:heading size="xl">{{__('admin.stocks.product-detail')}}</flux:heading>
-            <div class="mt-2 flex gap-10">
-                <div class="w-50 h-50 rounded">
-                    <img
-                        src="{{ $product->pictureUrl(600) }}"
-                        srcset="{{ $product->pictureUrl(300) }} 300w, {{ $product->pictureUrl(600) }} 600w,{{ $product->pictureUrl(900) }} 900w"
-                        sizes="(max-width: 400px) 300px, (max-width: 700px) 600px, 900px"
-                        alt="{{$product->name}}" class="w-full h-full object-cover rounded">
+            <div class="mt-2 flex flex-col gap-10 sm:flex-row">
+                <div class="max-w-50 min-w-50 h-50 rounded">
+                    @if($product->picture_path == 'images/missing-product.webp')
+                        <img src="{{asset($product->picture_path)}}" alt="{{$product->name}}" class="w-full h-full object-cover rounded">
+                    @else
+                        <img
+                            src="{{ $product->pictureUrl(600) }}"
+                            srcset="{{ $product->pictureUrl(300) }} 300w, {{ $product->pictureUrl(600) }} 600w,{{ $product->pictureUrl(900) }} 900w"
+                            sizes="(max-width: 400px) 300px, (max-width: 700px) 600px, 900px"
+                            alt="{{$product->name}}" class="w-full h-full object-cover rounded">
+                    @endif
                 </div>
-                <div class="flex flex-col gap-5">
+                <div class="flex flex-col gap-5 max-w-md">
 
                     <flux:text><span class="font-bold">{{__('admin.stocks.name')}} :</span> {{$this->product->name}}
                     </flux:text>

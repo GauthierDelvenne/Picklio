@@ -17,15 +17,15 @@
     </flux:modal>
     <div
         class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
-        <div class="mb-4 flex justify-between ">
+        <div class="mb-4 gap-4 flex flex-col justify-between  sm:flex-row">
             <flux:heading size="l">{{__('commons.pageName.admin.admin.stocks')}}</flux:heading>
-            <div class="mb-4 flex gap-10">
+            <div class="mb-4 flex gap-4">
                 <flux:input wire:model.live.debounce.500ms="search" icon="magnifying-glass"
                             placeholder="{{__('client.commons.search')}}"/>
             </div>
         </div>
 
-        <flux:table :paginate="$this->products">
+        <flux:table>
             <flux:table.columns>
                 <flux:table.column sortable :sorted="$sortBy === 'products.name'" :direction="$sortDirection"
                                    wire:click="sort('products.name')">{{__('admin.stocks.name')}}
@@ -87,5 +87,6 @@
 
             </flux:table.rows>
         </flux:table>
+        <flux:pagination :paginator="$this->products" class="flex-wrap"/>
     </div>
 </flux:main>

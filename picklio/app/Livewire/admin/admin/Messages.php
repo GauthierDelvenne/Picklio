@@ -19,6 +19,7 @@ class Messages extends PicklioComponent
     use WithPagination;
 
     public $account;
+
     public $search;
 
     public $messageStatus;
@@ -141,6 +142,20 @@ class Messages extends PicklioComponent
             ->when($this->contactStatus, function ($query) {
                 $query->where('contact_messages.message_status_id', $this->contactStatus);
             })
+            ->paginate(15);
+    }
+
+    #[Computed]
+    public function sendMessages()
+    {
+        return Message::ownMessage($this->account->id)
+            ->when($this->search, function ($query) {
+                $query->where('users.name', 'like', '%'.$this->search.'%');
+            })
+            ->when($this->messageStatus, function ($query) {
+                $query->where('messages.message_status_id', $this->messageStatus);
+            })
+            ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(15);
     }
 
