@@ -13,8 +13,8 @@ class Home extends PicklioComponent
 
     public $noAlimentaryCategories;
 
-    #[Url]
-    public $activeTab = 'tab1';
+    #[Url(as: 'categorie')]
+    public $activeTab = 'alimentaire';
 
     public function mount()
     {

@@ -38,17 +38,17 @@
     <div class="home__categoriesSelectContainer">
         <div class="home__categoriesSelectContainer__buttonContainer">
             <button
-                class="button button--tabs home__categoriesSelectContainer__buttonContainer__button @if($activeTab == 'tab1') active @endif"
-                wire:click="changeTab('tab1')">{{__('front.home.alimentaryList.tabs')}}</button>
+                class="button button--tabs home__categoriesSelectContainer__buttonContainer__button @if($activeTab == 'alimentaire') active @endif"
+                wire:click="changeTab('alimentaire')">{{__('front.home.alimentaryList.tabs')}}</button>
             <button
                 class="button button--tabs home__categoriesSelectContainer__buttonContainer__button @if($activeTab == 'tab2') active @endif"
-                wire:click="changeTab('tab2')">{{__('front.home.noAlimentaryList.tabs')}}</button>
+                wire:click="changeTab('non-alimentaire')">{{__('front.home.noAlimentaryList.tabs')}}</button>
         </div>
 
-        @if($activeTab == 'tab1')
+        @if($activeTab == 'alimentaire')
             <x-front.productList :products="$this->alimentaryProducts" title="{{__('front.home.alimentaryList.title')}}"
                                  button="{{__('front.home.alimentaryList.button')}}"/>
-        @elseif($activeTab == 'tab2')
+        @elseif($activeTab == 'non-alimentaire')
             <x-front.productList :products="$this->noAlimentaryProducts"
                                  title="{{__('front.home.noAlimentaryList.title')}}"
                                  button="{{__('front.home.noAlimentaryList.button')}}"/>
@@ -58,14 +58,14 @@
                 <h2 class="home__categoriesSelectContainer__productCategories__titleContainer__title">{{__('front.home.productCategories.title')}}</h2>
 
             </div>
-            @if($activeTab == 'tab1')
+            @if($activeTab == 'alimentaire')
                 <div class="home__categoriesSelectContainer__productCategories__categoryContainer">
                     @foreach($this->alimentaryCategories as $id => $category)
                         <x-front.productCategoryCard name="{{$category}}" wire-click="goToCategory({{ $id }})"
                                                      title="{!!__('client.products.categories.'.$id)!!}"/>
                     @endforeach
                 </div>
-            @elseif($activeTab == 'tab2')
+            @elseif($activeTab == 'non-alimentaire')
                 {{--                TODO REVOIR HOMOGÉNÉITÉ PICTOS--}}
                 <div class="home__categoriesSelectContainer__productCategories__categoryContainer">
                     @foreach($this->noAlimentaryCategories as $id => $category)
