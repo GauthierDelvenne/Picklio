@@ -47,13 +47,13 @@
                     <flux:table.row>
                         <flux:table.cell>
                             <a href="{{ route('admin.order.show', $order->uuid) }}"
-                               class="hover:text-(--color-accent-content)">
+                               class="text-accent hover:text-accent-content">
                                 #{{$order->code}}
                             </a>
                         </flux:table.cell>
                         <flux:table.cell>
                             <a href="{{ route('admin.order.show', $order->uuid) }}"
-                               class="hover:text-(--color-accent-content)">
+                               class="text-accent hover:text-accent-content">
                                 {{$order->account->firstname}}
                             </a>
                         </flux:table.cell>
@@ -72,15 +72,15 @@
                         <flux:table.cell>
                             <flux:dropdown position="left" align="center">
                                 <flux:button variant="ghost">
-                                    <flux:icon.ellipsis-horizontal/>
+                                    <flux:icon.ellipsis-horizontal class="text-accent hover:text-accent-content"/>
                                 </flux:button>
                                 <flux:menu>
                                     <a href="{{route('admin.order.show', $order->uuid)}}">
                                         <flux:menu.item
-                                            class="hover:text-(--color-accent-content)">{{__('client.commons.buttons.edit')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('client.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="delete('{{$order->uuid}}')"
-                                                    class="hover:text-(--color-accent-content)"
+                                                    class="text-accent hover:text-accent-content"
                                                     wire:confirm="{{__('admin.orders.delete-confirm', ['name' => $order->account->firstname.' '.$order->account->lastname])}}">{{__('client.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:dropdown>
@@ -131,13 +131,13 @@
                     <flux:table.row>
                         <flux:table.cell>
                             <a href="{{ route('admin.order.show', $order->uuid) }}"
-                               class="hover:text-(--color-accent-content)">
+                               class="text-accent hover:text-accent-content">
                                 #{{$order->code}}
                             </a>
                         </flux:table.cell>
                         <flux:table.cell>
                             <a href="{{ route('admin.order.show', $order->uuid) }}"
-                               class="hover:text-(--color-accent-content)">
+                               class="text-accent hover:text-accent-content">
                                 {{$order->account->firstname}}
                             </a>
                         </flux:table.cell>
@@ -157,12 +157,12 @@
                         <flux:table.cell>
                             <flux:dropdown position="left" align="center">
                                 <flux:button variant="ghost">
-                                    <flux:icon.ellipsis-horizontal/>
+                                    <flux:icon.ellipsis-horizontal class="text-accent hover:text-accent-content"/>
                                 </flux:button>
                                 <flux:menu>
                                     <a href="{{route('admin.order.show', $order->uuid)}}">
                                         <flux:menu.item
-                                            class="hover:text-(--color-accent-content)">{{__('client.commons.buttons.edit')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('client.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
                                     {{--                                    TODO CHANGER LE EDIT POUR SHOW QUAND CELA EST NECESSAIRES--}}
                                 </flux:menu>

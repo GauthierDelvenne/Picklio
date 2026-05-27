@@ -71,7 +71,7 @@
                     <flux:table.row>
                         <flux:table.cell>
                             <a href="{{ route('admin.stock.show', $product->id) }}"
-                               class="hover:text-(--color-accent-content)">
+                               class="text-accent hover:text-accent-content">
                                 {{$product->name}}
                             </a>
                         </flux:table.cell>
@@ -92,15 +92,15 @@
                         <flux:table.cell>
                             <flux:dropdown position="left" align="center">
                                 <flux:button variant="ghost">
-                                    <flux:icon.ellipsis-horizontal/>
+                                    <flux:icon.ellipsis-horizontal class="text-accent hover:text-accent-content"/>
                                 </flux:button>
                                 <flux:menu>
                                     <a href="{{route('admin.stock.show', $product->id)}}">
                                         <flux:menu.item
-                                            class="hover:text-(--color-accent-content)">{{__('client.commons.buttons.edit')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('client.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="delete({{$product}})"
-                                                    class="hover:text-(--color-accent-content)"
+                                                    class="text-accent hover:text-accent-content"
                                                     wire:confirm="{{__('client.products.delete-confirm', ['name' => $product->user_name])}}">{{__('client.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:dropdown>

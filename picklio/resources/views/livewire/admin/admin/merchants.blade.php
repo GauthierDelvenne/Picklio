@@ -55,7 +55,7 @@
                 @forelse($this->merchants as $merchant)
                     <flux:table.row>
                         <flux:table.cell>
-                            <a href="{{ route('admin.merchant.show', $merchant->id) }}" class="hover:text-(--color-accent-content)">
+                            <a href="{{ route('admin.merchant.show', $merchant->id) }}" class="text-accent hover:text-accent-content">
                                 {{$merchant->user_name}}
                             </a>
                         </flux:table.cell>
@@ -72,13 +72,13 @@
                         <flux:table.cell>
                             <flux:dropdown position="left" align="center">
                                 <flux:button variant="ghost">
-                                    <flux:icon.ellipsis-horizontal/>
+                                    <flux:icon.ellipsis-horizontal class="text-accent hover:text-accent-content"/>
                                 </flux:button>
                                 <flux:menu>
                                     <a href="{{route('admin.merchant.show', $merchant->id)}}">
-                                        <flux:menu.item class="hover:text-(--color-accent-content)">{{__('admin.commons.buttons.edit')}}</flux:menu.item>
+                                        <flux:menu.item class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
-                                    <flux:menu.item wire:click="delete({{$merchant}})" class="hover:text-(--color-accent-content)"
+                                    <flux:menu.item wire:click="delete({{$merchant}})" class="text-accent hover:text-accent-content"
                                                     wire:confirm="{{__('admin.merchants.delete-confirm', ['name' => $merchant->user_name])}}">{{__('admin.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:dropdown>
