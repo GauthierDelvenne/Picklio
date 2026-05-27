@@ -31,6 +31,7 @@ return [
             'message' => 'message',
             'statistics' => 'statistique',
             'settings' => 'parametre',
+            'receiveMessage' => 'recu',
         ],
     ],
     'front' => [
