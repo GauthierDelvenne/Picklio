@@ -14,11 +14,11 @@
                           input-class="register__formContainer__inputContainer__input"
                           input-error-class="register__formContainer__inputContainer__input__error"
                           forgetPassword="login__formContainer__inputContainer__forgetPassword">
-                <x-svg.svg class="register__formContainer__inputContainer__svg"
+                <x-svg.svg title="{{__('svgTitle.eye')}}" class="register__formContainer__inputContainer__svg"
                            name="eye"
                            x-show="!show"
                            x-on:click="show = !show"/>
-                <x-svg.svg class="register__formContainer__inputContainer__svg"
+                <x-svg.svg title="{{__('svgTitle.eye-slash')}}" class="register__formContainer__inputContainer__svg"
                            name="eye-slash"
                            x-show="show"
                            x-on:click="show = !show"/>
@@ -32,7 +32,7 @@
 
         <button type="submit" class="button button--icon login__formContainer__button">
             {{__('auth.form.button.login')}}
-            <x-svg.svg class="login__formContainer__button__svg" name="arrow"/>
+            <x-svg.svg title="{{__('svgTitle.arrow')}}" class="login__formContainer__button__svg" name="arrow"/>
         </button>
         <p class="login__formContainer__noAccount">{{__('front.login.no-account')}}
             <a href="{{route('auth.register')}}"

@@ -5,20 +5,20 @@
             <p class="contact__informationContainer__card__text">{{__('front.contact.informationContainer.text')}}</p>
             <ul class="contact__informationContainer__card__liste">
                 <li class="contact__informationContainer__card__liste__item">
-                    <x-svg.svg class="contact__informationContainer__card__liste__item__link__svg" name="address"/>
+                    <x-svg.svg title="{{__('svgTitle.address')}}" class="contact__informationContainer__card__liste__item__link__svg" name="address"/>
                     {{$warehouse->address}}
                     {{$warehouse->postal_code}}
                 </li>
                 <li class="contact__informationContainer__card__liste__item"><a
                         class="contact__informationContainer__card__liste__item__link"
                         href="tel:{{$warehouse->phone}}">
-                        <x-svg.svg class="contact__informationContainer__card__liste__item__link__svg" name="phone"/>
+                        <x-svg.svg  title="{{__('svgTitle.phone')}}"class="contact__informationContainer__card__liste__item__link__svg" name="phone"/>
                         {{$warehouse->phone}}</a>
                 </li>
                 <li class="contact__informationContainer__card__liste__item"><a
                         class="contact__informationContainer__card__liste__item__link"
                         href="mailto:{{$warehouse->email}}">
-                        <x-svg.svg class="contact__informationContainer__card__liste__item__link__svg" name="mail"/>
+                        <x-svg.svg title="{{__('svgTitle.mail')}}" class="contact__informationContainer__card__liste__item__link__svg" name="mail"/>
                         {{$warehouse->email}}</a>
                 </li>
             </ul>
@@ -96,7 +96,7 @@
                 <button type="submit"
                         class="button button--icon contact__formContainer__card__form__button">
                     {{__('front.catalogue.contactSection.form.button')}}
-                    <x-svg.svg class="contact__formContainer__card__form__button__svg"
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}" class="contact__formContainer__card__form__button__svg"
                                name="arrow"/>
                 </button>
             </x-form.form>

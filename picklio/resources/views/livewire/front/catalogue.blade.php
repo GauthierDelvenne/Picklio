@@ -13,11 +13,11 @@
                         class="button button--icon button--filter catalogue__productSection__filterContainer__buttonContainer__button">
                     @if($this->sortBy === 'price' && $this->sortDirection === 'asc')
                         {{__('front.catalogue.productSection.priceFilter.ascending')}}
-                        <x-svg.svg class="catalogue__productSection__filterContainer__buttonContainer__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}" class="catalogue__productSection__filterContainer__buttonContainer__button__svg"
                                    name="arrow"/>
                     @elseif($this->sortBy === 'price' && $this->sortDirection === 'desc')
                         {{__('front.catalogue.productSection.priceFilter.descending')}}
-                        <x-svg.svg
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
                             class="catalogue__productSection__filterContainer__buttonContainer__button__svg icon--desc"
                             name="arrow"/>
                     @else
@@ -28,11 +28,11 @@
                         class="button button--icon button--filter catalogue__productSection__filterContainer__buttonContainer__button">
                     @if($this->sortBy === 'name' && $this->sortDirection === 'asc')
                         {{__('front.catalogue.productSection.nameFilter.nameAscending')}}
-                        <x-svg.svg class="catalogue__productSection__filterContainer__buttonContainer__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}" class="catalogue__productSection__filterContainer__buttonContainer__button__svg"
                                    name="arrow"/>
                     @elseif($this->sortBy === 'name' && $this->sortDirection === 'desc')
                         {{__('front.catalogue.productSection.nameFilter.nameAscending')}}
-                        <x-svg.svg
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
                             class="catalogue__productSection__filterContainer__buttonContainer__button__svg icon--desc"
                             name="arrow"/>
                     @else
@@ -193,7 +193,7 @@
                     <button type="submit"
                             class="button button--icon catalogue__contactSection__blockContainer__formContainer__form__button">
                         {{__('front.catalogue.contactSection.form.button')}}
-                        <x-svg.svg class="catalogue__contactSection__blockContainer__formContainer__form__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}" class="catalogue__contactSection__blockContainer__formContainer__form__button__svg"
                                    name="arrow"/>
                     </button>
                 </x-form.form>

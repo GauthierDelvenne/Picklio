@@ -18,12 +18,12 @@
                 </x-form.select>
                 <button wire:click="switchWeek"
                         class="button button--left slot__container__pickupContainer__weekContainer__button slot__container__pickupContainer__weekContainer__button--left">
-                    <x-svg.svg
+                    <x-svg.svg  title="{{__('svgTitle.arrow')}}" title=""
                         class="slot__container__pickupContainer__weekContainer__button__svg slot__container__pickupContainer__weekContainer__button__svg--left"
                         name="arrow"/>
                 </button>
                 <button wire:click="switchWeek" class="button slot__container__pickupContainer__weekContainer__button">
-                    <x-svg.svg class="slot__container__pickupContainer__weekContainer__button__svg" name="arrow"/>
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}" class="slot__container__pickupContainer__weekContainer__button__svg" name="arrow"/>
                 </button>
             </div>
             <div class="slot__container__pickupContainer__dayContainer">
@@ -63,7 +63,7 @@
         </div>
         <button wire:click="createOrder" class="button button--icon slot__container__button">
             {{__('front.slot.button')}}
-            <x-svg.svg class="slot__container__button__svg" name="arrow"/>
+            <x-svg.svg title="{{__('svgTitle.arrow')}}" class="slot__container__button__svg" name="arrow"/>
         </button>
     <x-front.warningCart/>
     </section>

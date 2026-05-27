@@ -44,13 +44,13 @@
             <li class="header__navbar__liste__item header__navbar__liste__item--push">
                 <a href="{{route('front.basket')}}"
                    class="header__navbar__liste__item__link @if(Route::currentRouteName() === 'front.basket') active @endif">
-                    <x-svg.svg class="header__navbar__liste__item__link__svg" name="basket"/>
+                    <x-svg.svg title="{{__('svgTitle.basket')}}" class="header__navbar__liste__item__link__svg" name="basket"/>
                 </a>
             </li>
             <li class="header__navbar__liste__item">
                 <a href="{{route('front.profil')}}"
                    class="header__navbar__liste__item__link @if(Route::currentRouteName() === 'front.profil') active @endif">
-                    <x-svg.svg class="header__navbar__liste__item__link__svg" name="profil"/>
+                    <x-svg.svg title="{{__('svgTitle.profil')}}" class="header__navbar__liste__item__link__svg" name="profil"/>
                 </a>
             </li>
 
@@ -58,7 +58,7 @@
                 <li class="header__navbar__liste__item">
                     <a href="{{route('admin.dashboard')}}"
                        class="header__navbar__liste__item__link">
-                        <x-svg.svg class="header__navbar__liste__item__link__svg" name="admin"/>
+                        <x-svg.svg title="{{__('svgTitle.admin')}}" class="header__navbar__liste__item__link__svg" name="admin"/>
                     </a>
                 </li>
             @endif
@@ -66,7 +66,7 @@
                 <li class="header__navbar__liste__item">
                     <a href="{{route('client.dashboard')}}"
                        class="header__navbar__liste__item__link">
-                        <x-svg.svg class="header__navbar__liste__item__link__svg" name="admin"/>
+                        <x-svg.svg title="{{__('svgTitle.admin')}}" class="header__navbar__liste__item__link__svg" name="admin"/>
                     </a>
                 </li>
             @endif
@@ -74,7 +74,7 @@
                 <li class="header__navbar__liste__item">
                     <a href="{{route('auth.login')}}"
                        class="header__navbar__liste__item__link">
-                        <x-svg.svg class="header__navbar__liste__item__link__svg header__navbar__liste__item__link__svg--stroke" name="login"/>
+                        <x-svg.svg title="{{__('svgTitle.login')}}" class="header__navbar__liste__item__link__svg header__navbar__liste__item__link__svg--stroke" name="login"/>
                     </a>
                 </li>
             @endif

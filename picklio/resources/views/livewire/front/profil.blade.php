@@ -27,13 +27,15 @@
                     <button x-on:click="open = true"
                             class="button button--icon profil__informationContainer__cardContainer__buttonContainer__button">
                         {{__('front.profil.informationContainer.edit-profil')}}
-                        <x-svg.svg class="profil__informationContainer__cardContainer__buttonContainer__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                                   class="profil__informationContainer__cardContainer__buttonContainer__button__svg"
                                    name="arrow"/>
                     </button>
                     <button x-on:click="openPassword = true"
                             class="button button--icon profil__informationContainer__cardContainer__buttonContainer__button">
                         {{__('front.profil.informationContainer.edit-password')}}
-                        <x-svg.svg class="profil__informationContainer__cardContainer__buttonContainer__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                                   class="profil__informationContainer__cardContainer__buttonContainer__button__svg"
                                    name="arrow"/>
                     </button>
                 </div>
@@ -42,13 +44,15 @@
                     <a href="{{ route('auth.login') }}"
                        class="button button--icon profil__informationContainer__cardContainer__buttonContainer__button">
                         {{__('auth.form.button.login')}}
-                        <x-svg.svg class="profil__informationContainer__cardContainer__buttonContainer__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                                   class="profil__informationContainer__cardContainer__buttonContainer__button__svg"
                                    name="arrow"/>
                     </a>
                     <a href="{{ route('auth.register') }}"
                        class="button button--icon profil__informationContainer__cardContainer__buttonContainer__button">
                         {{__('auth.form.button.register')}}
-                        <x-svg.svg class="profil__informationContainer__cardContainer__buttonContainer__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                                   class="profil__informationContainer__cardContainer__buttonContainer__button__svg"
                                    name="arrow"/>
                     </a>
                 </div>
@@ -60,7 +64,8 @@
             <x-form wire-submit="update"
                     class="modal profil__informationContainer__modalContainer__form">
                 <button type="button" x-on:click="open = false">
-                    <x-svg.svg class="profil__informationContainer__modalContainer__form__svg"
+                    <x-svg.svg title="{{__('svgTitle.close')}}"
+                               class="profil__informationContainer__modalContainer__form__svg"
                                name="plus"/>
                 </button>
                 <x-form.input
@@ -100,7 +105,8 @@
                 <button type="submit"
                         class="button button--icon profil__informationContainer__modalContainer__form__button">
                     {{__('front.profil.informationContainer.edit-profil')}}
-                    <x-svg.svg class="profil__informationContainer__modalContainer__form__button__svg"
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                               class="profil__informationContainer__modalContainer__form__button__svg"
                                name="arrow"/>
                 </button>
             </x-form>
@@ -110,7 +116,8 @@
             <x-form wire-submit="updatePassword"
                     class="modal profil__informationContainer__modalContainer__form">
                 <button type="button" x-on:click="openPassword = false">
-                    <x-svg.svg class="profil__informationContainer__modalContainer__form__svg"
+                    <x-svg.svg title="{{__('svgTitle.close')}}"
+                               class="profil__informationContainer__modalContainer__form__svg"
                                name="plus"/>
                 </button>
                 <x-form.input
@@ -129,11 +136,15 @@
                     placeholder="{{__('front.profil.informationContainer.form.password.label')}}"
                     input-class="profil__informationContainer__modalContainer__form__inputContainer__input"
                     input-error-class="profil__informationContainer__modalContainer__form__inputContainer__input__error"/>
-                <p class="profil__informationContainer__modalContainer__form__reset"><a class="profil__informationContainer__modalContainer__form__reset__link" href="{{ route('auth.password.forget-password') }}">{{__('front.profil.informationContainer.forget-password')}} </a></p>
+                <p class="profil__informationContainer__modalContainer__form__reset"><a
+                        class="profil__informationContainer__modalContainer__form__reset__link"
+                        href="{{ route('auth.password.forget-password') }}">{{__('front.profil.informationContainer.forget-password')}} </a>
+                </p>
                 <button type="submit"
                         class="button button--icon profil__informationContainer__modalContainer__form__button">
                     {{__('front.profil.informationContainer.edit-password')}}
-                    <x-svg.svg class="profil__informationContainer__modalContainer__form__button__svg"
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                               class="profil__informationContainer__modalContainer__form__button__svg"
                                name="arrow"/>
                 </button>
             </x-form>
@@ -147,9 +158,34 @@
             {{__('front.profil.informationContainer.toast-profil')}}
         </div>
     </section>
-    <section class="profil__order paddingMedia">
-        <h2 class="profil__order__title">{{__('front.profil.order.title')}}</h2>
-    </section>
+    @if(!empty($userConnected))
+        <section class="profil__order paddingMedia">
+            <h2 class="profil__order__title">{{__('front.profil.order.title')}}</h2>
+            @forelse($this->orders() as $order)
+                <div class="profil__order__cardContainer">
+                    <p class="profil__order__cardContainer__text">#{{$order->code}}</p>
+                    <p class="profil__order__cardContainer__text">
+                        {{\Carbon\Carbon::parse($order->pickup_date)->translatedFormat('l d M,')}} {{\Carbon\Carbon::parse($order->pickupSlot->time)->format('H\hi')}}
+                    </p>
+                    <p class="profil__order__cardContainer__text">{{$order->priceFormatted}}</p>
+                    <a href="{{ route('front.order.show', $order->uuid) }}" class="button button--icon profil__order__cardContainer__button">
+                        {{__('front.profil.order.details')}}
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}" class="profil__order__cardContainer__button__svg" name="arrow"/>
+                    </a>
+                </div>
+                @if($loop->last)
+                    <a href="{{ route('front.order.index') }}" class="button button--icon profil__order__button">
+                        {{__('front.profil.order.see-more')}}
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}" class="profil__order__button__svg" name="arrow"/>
+                    </a>
+                @endif
+            @empty
+                <p class="profil__order__empty">
+                    {{__('admin.commons.empty')}}
+                </p>
+            @endforelse
+        </section>
+    @endif
     @if(!empty($userConnected))
         <section x-data="{ open: false, deleteAccount: false }"
                  x-on:deleteAccount.window="open = false; deleteAccount = true; setTimeout(() => deleteAccount = false, 3000)"
@@ -166,7 +202,8 @@
                 <div class="modal profil__account__modalContainer__modal">
                     <button type="button" x-on:click="open = false"
                             class="profil__account__modalContainer__modal__button">
-                        <x-svg.svg class="profil__account__modalContainer__modal__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.close')}}"
+                                   class="profil__account__modalContainer__modal__button__svg"
                                    name="plus"/>
                     </button>
                     <p class="profil__account__modalContainer__modal__text">{!!__('front.profil.account.delete-message')!!}</p>

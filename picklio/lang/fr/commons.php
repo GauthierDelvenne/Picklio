@@ -42,6 +42,7 @@ return [
             'legal-notice' => 'Mentions légales',
             'privacy-policy' => 'Politique de confidentialité',
             'contact' => 'Contact',
+            'order' => 'Commandes',
         ],
         'auth' => [
             'login' => 'Connexion',

@@ -14,7 +14,7 @@
             </p>
             <a href="#form"
                class="button button--icon merchant__merchantContainer__contentContainer__button"> {{__('front.merchant.button')}}
-                <x-svg.svg class="merchant__merchantContainer__contentContainer__button__svg" name="arrow"/>
+                <x-svg.svg title="{{__('svgTitle.arrow')}}" class="merchant__merchantContainer__contentContainer__button__svg" name="arrow"/>
             </a></div>
     </section>
     <section class="merchant__cardContainer paddingMedia">
@@ -25,7 +25,7 @@
                     <h3 class="merchant__cardContainer__container__itemContainer__titleContainer__title">{{__('front.merchant.cardContainer.1.title')}}</h3>
                     <div :class="{ 'active': active === 1 }"
                          class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
-                        <x-svg.svg x-on:click="active = active === 1 ? null : 1"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}" x-on:click="active = active === 1 ? null : 1"
                                    class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
                                    name="arrow"/>
                     </div>
@@ -47,7 +47,7 @@
                     <div :class="{ 'active': active === 2 }"
                          class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
 
-                        <x-svg.svg x-on:click="active = active === 2 ? null : 2"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}" x-on:click="active = active === 2 ? null : 2"
                                    class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
                                    name="arrow"/>
                     </div>
@@ -70,7 +70,7 @@
                     <div :class="{ 'active': active === 3 }"
                          class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
 
-                        <x-svg.svg x-on:click="active = active === 3 ? null : 3"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}" x-on:click="active = active === 3 ? null : 3"
                                    class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
                                    name="arrow"/>
                     </div>
@@ -92,7 +92,7 @@
                     <div :class="{ 'active': active === 4 }"
                          class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
 
-                        <x-svg.svg x-on:click="active = active === 4 ? null : 4"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}" x-on:click="active = active === 4 ? null : 4"
                                    class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
                                    name="arrow"/>
                     </div>
@@ -212,7 +212,7 @@
                     <button type="submit"
                             class="button button--icon merchant__contactSection__blockContainer__formContainer__form__button">
                         {{__('front.merchant.contactSection.contactContainer.form.button')}}
-                        <x-svg.svg class="merchant__contactSection__blockContainer__formContainer__form__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}" class="merchant__contactSection__blockContainer__formContainer__form__button__svg"
                                    name="arrow"/>
                     </button>
                 </x-form.form>

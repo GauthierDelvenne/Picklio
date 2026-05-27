@@ -2,6 +2,7 @@
     &__container {
         display: flex;
         flex-direction: column;
+        position: relative;
         gap: $space-8;
         @include wide {
             max-width: 1700px;
@@ -14,6 +15,24 @@
             }
             @include desktop-l {
                 font-size: $text-4xl;
+            }
+        }
+
+        &__svgContainer {
+            display: flex;
+            gap: $space-4;
+            align-items: center;
+            position: absolute;
+            top: -$space-6;
+
+            &__text {
+
+            }
+
+            &__svg {
+                rotate: 180deg;
+                width: 15px;
+                height: 15px;
             }
         }
 

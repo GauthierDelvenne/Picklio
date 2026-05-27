@@ -3,7 +3,7 @@
         <h2 class="productList__titleContainer__title">{{$title}}</h2>
         <a href="{{route('front.catalogue.index')}}"
            class="button button--icon productList__titleContainer__button">{{$button}}
-            <x-svg.svg class="productList__titleContainer__button__svg" name="arrow"/>
+            <x-svg.svg title="{{__('svgTitle.arrow')}}" class="productList__titleContainer__button__svg" name="arrow"/>
         </a>
     </div>
     <div class="productList__productContainer">

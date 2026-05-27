@@ -5,6 +5,11 @@
     @include laptop-l {
         gap: $space-48;
     }
+    @include wide {
+        max-width: 1700px;
+        margin: auto;
+
+    }
 
     &__informationContainer {
 
@@ -123,7 +128,73 @@
     }
 
     &__order {
+        display: flex;
+        flex-direction: column;
+        gap: $space-4;
 
+        &__title {
+            @include laptop-l {
+                font-size: $text-3xl;
+            }
+            @include desktop-l {
+                font-size: $text-4xl;
+            }
+        }
+
+        &__button {
+            display: flex;
+            width: fit-content;
+            gap: $space-2;
+            align-self: end;
+
+            &__svg {
+
+            }
+        }
+
+        &__cardContainer {
+            display: flex;
+            flex-direction: column;
+            background-color: $tangerine-100;
+            border-radius: $radius-lg;
+            gap: $space-4;
+            padding: $space-8;
+            @include laptop {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            &__text {
+
+            }
+
+            .button {
+                display: flex;
+                gap: $space-2;
+                background-color: $tangerine-300;
+                color: $tangerine-50;
+
+                .icon {
+                    fill: $tangerine-50;
+                }
+
+                &:hover {
+                    color: $tangerine-100;
+
+                    .icon {
+                        fill: $tangerine-100;
+
+                    }
+                }
+            }
+
+            &__button {
+                &__svg {
+
+                }
+            }
+        }
     }
 
     &__account {

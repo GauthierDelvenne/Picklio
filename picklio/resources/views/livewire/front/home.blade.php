@@ -6,26 +6,26 @@
             <div class="home__introContainer__contentContainer__buttonContainer">
                 <a href="{{route('front.catalogue.index')}}"
                    class="button button--icon home__introContainer__contentContainer__buttonContainer__button">{{__('front.home.intro.buttonDiscover')}}
-                    <x-svg.svg class="home__introContainer__contentContainer__buttonContainer__button__svg"
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}" class="home__introContainer__contentContainer__buttonContainer__button__svg"
                                name="arrow"/>
                 </a>
                 <a href="#merchant"
                    class="button button--icon home__introContainer__contentContainer__buttonContainer__button">{{__('front.home.intro.buttonJoin')}}
-                    <x-svg.svg class="home__introContainer__contentContainer__buttonContainer__button__svg"
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}" class="home__introContainer__contentContainer__buttonContainer__button__svg"
                                name="arrow"/>
                 </a>
             </div>
             <ul class="home__introContainer__contentContainer__liste">
                 <li class="home__introContainer__contentContainer__liste__item">
-                    <x-svg.svg class="home__introContainer__contentContainer__liste__item__svg" name="underline"/>
+                    <x-svg.svg title="{{__('svgTitle.underline')}}" class="home__introContainer__contentContainer__liste__item__svg" name="underline"/>
                     {{__('front.home.intro.quality.1')}}
                 </li>
                 <li class="home__introContainer__contentContainer__liste__item">
-                    <x-svg.svg class="home__introContainer__contentContainer__liste__item__svg" name="underline"/>
+                    <x-svg.svg title="{{__('svgTitle.underline')}}" class="home__introContainer__contentContainer__liste__item__svg" name="underline"/>
                     {{__('front.home.intro.quality.2')}}
                 </li>
                 <li class="home__introContainer__contentContainer__liste__item">
-                    <x-svg.svg class="home__introContainer__contentContainer__liste__item__svg" name="underline"/>
+                    <x-svg.svg title="{{__('svgTitle.underline')}}" class="home__introContainer__contentContainer__liste__item__svg" name="underline"/>
                     {{__('front.home.intro.quality.3')}}
                 </li>
             </ul>
@@ -93,7 +93,7 @@
             </p>
             <a href="{{route('front.merchant')}}"
                class="button button--icon home__merchantContainer__contentContainer__button"> {{__('front.home.inviteMerchant.button')}}
-                <x-svg.svg class="home__merchantContainer__contentContainer__button__svg" name="arrow"/>
+                <x-svg.svg title="{{__('svgTitle.arrow')}}" class="home__merchantContainer__contentContainer__button__svg" name="arrow"/>
             </a></div>
     </section>
 </div>

@@ -485,6 +485,10 @@ return [
         ],
         'order' => [
             'title' => 'Vos commandes',
+            'details' => 'Voir les détails',
+            'see-more' => 'Voir plus',
+            'title-detail' => 'Votre commande',
+            'return-detail' => 'Revenir précédemment',
         ],
         'account' => [
             'title' => 'Session et sécurité',
