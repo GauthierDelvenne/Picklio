@@ -15,13 +15,13 @@
             <flux:sidebar.item icon="home" href="{{route('admin.dashboard')}}"
                                :current="request()->routeIs('admin.dashboard')"
             >{{__('commons.pageName.admin.admin.dashboard')}}</flux:sidebar.item>
-            <flux:sidebar.item icon="truck" badge="{{$orderCount}}" href="{{route('admin.order.index')}}"
+            <flux:sidebar.item icon="truck" badge="{{$this->orderCount}}" href="{{route('admin.order.index')}}"
                                :current="request()->routeIs('admin.order.index')">{{__('commons.pageName.admin.admin.orders')}}</flux:sidebar.item>
             <flux:sidebar.item icon="users" href="{{route('admin.merchant.index')}}"
                                :current="request()->routeIs('admin.merchant.index')">{{__('commons.pageName.admin.admin.merchants')}}</flux:sidebar.item>
             <flux:sidebar.item icon="clipboard-document-check" href="{{route('admin.stock.index')}}"
                                :current="request()->routeIs('admin.stock.index')">{{__('commons.pageName.admin.admin.stocks')}}</flux:sidebar.item>
-            <flux:sidebar.item icon="chat-bubble-bottom-center" badge="{{$messageCount}}"
+            <flux:sidebar.item icon="chat-bubble-bottom-center" badge="{{$this->messageCount}}"
                                href="{{route('admin.message.index')}}"
                                :current="request()->routeIs('admin.message.index')">{{__('commons.pageName.admin.admin.messages')}}</flux:sidebar.item>
             <flux:sidebar.item icon="chart-bar" href="{{route('admin.statistics')}}"
