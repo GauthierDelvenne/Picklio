@@ -37,10 +37,9 @@
                                     <h1 style="box-sizing: border-box;  position: relative; color: #18181b; font-size: 18px; font-weight: bold; margin-top: 0; text-align: center;">
                                         @yield('title')
                                     </h1>
-                                    <p style="box-sizing: border-box;  position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">
+                                    <div style="box-sizing: border-box;  position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">
                                         @yield('description')
-
-                                    </p>
+                                    </div>
                                     <table class="action" align="center" width="100%" cellpadding="0"
                                            cellspacing="0" role="presentation"
                                            style="box-sizing: border-box;  position: relative;  margin: 30px auto; padding: 0; text-align: center; width: 100%; float: unset;">

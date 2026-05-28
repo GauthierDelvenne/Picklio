@@ -40,7 +40,8 @@ return [
             'subject' => 'Votre commande a bien été enregistrée',
             'title' => 'Commande confirmée, merci !',
             'description' => 'Nous avons bien reçu votre commande et elle est en cours de traitement. Vous recevrez prochainement un email de confirmation avec tous les détails.',
-            'button' => 'Retourner sur le siteF',
+            'button' => 'Voir votre commande',
+            'pay' => 'Le montant est à payez sur place',
         ],
         'cancel-order' => [
             'subject' => 'Votre commande a été annulée',

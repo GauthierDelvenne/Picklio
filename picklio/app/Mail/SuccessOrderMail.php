@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
@@ -12,8 +13,13 @@ class SuccessOrderMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public function __construct()
+    public Order $order;
+    public $orderItems;
+
+    public function __construct(Order $order)
     {
+        $this->order = $order;
+        $this->orderItems = $this->order->orderItems;
     }
 
     public function envelope(): Envelope
