@@ -12,9 +12,7 @@ class ForgetPassword extends PicklioComponent
     public function forgetPassword()
     {
         if ($this->form->forgetPassword()) {
-
-        } else {
-
+            $this->dispatch('success');
         }
     }
 

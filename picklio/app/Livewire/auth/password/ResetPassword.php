@@ -12,16 +12,15 @@ use Livewire\Attributes\Locked;
 
 class ResetPassword extends PicklioComponent
 {
-    #[Locked]
     public string $token = '';
 
     public string $email = '';
 
     public string $password = '';
 
-    public function mount(): void
+    public function mount($token): void
     {
-        $this->token = request()->string('token');
+        $this->token = $token;
         $this->email = request()->string('email');
     }
 
@@ -29,11 +28,7 @@ class ResetPassword extends PicklioComponent
     {
         $valid = $this->validate([
             'token' => ['required'],
-            'email' => ['required',
-                'string',
-                'regex:/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i',
-                'email:rfc,dns',
-            ],
+            'email' => ['required', 'string', 'email:rfc'],
             'password' => ['required', 'string', 'min:8', 'regex:/[a-z]/', 'regex:/[A-Z]/'],
         ], [
             'password.regex' => __('auth.form.password.regex'),
@@ -59,8 +54,7 @@ class ResetPassword extends PicklioComponent
         }
 
         Session::flash('status', __($status));
-
-        $this->redirectRoute('auth.login', navigate: true);
+        $this->dispatch('success');
     }
 
     public function render()

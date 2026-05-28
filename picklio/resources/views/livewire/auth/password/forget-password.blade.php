@@ -1,5 +1,5 @@
 <x-auth.pageContainer wire="forgetPassword">
-    <div class="forgetPassword">
+    <div class="forgetPassword" x-data="{ show: false }" x-on:success.window="show = true; setTimeout(() => show = false, 3000)">
         <h1 class="forgetPassword__title">{{__('front.forget-password.title')}}</h1>
         <p class="forgetPassword__subtitle">{{__('front.forget-password.subtitle')}}</p>
         <x-form.input div-class="forgetPassword__inputContainer" name="email"
@@ -19,7 +19,14 @@
                 {{__('front.forget-password.return-login')}}
             </a>
         </p>
+        <div
+            x-show="show"
+            x-transition
+            class="toast"
+            x-cloak
+        >
+            {{__('auth.success')}}
+        </div>
     </div>
-
 </x-auth.pageContainer>
 
