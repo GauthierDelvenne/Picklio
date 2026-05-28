@@ -19,7 +19,7 @@
             }
 
             &--card {
-                font-size: $text-base;
+                font-size: $text-lg;
             }
 
             &__span {
@@ -30,7 +30,7 @@
 
         &__selectContainer {
             background-color: $tangerine-100;
-            padding: $space-1;
+            padding: $space-1 $space-3;
             border-radius: $radius-sm;
             display: flex;
             margin-left: auto;
@@ -49,11 +49,6 @@
                     transform: scale(1.2);
                     fill: $tangerine-600;
                     cursor: pointer;
-                }
-
-                @include laptop-l {
-                    width: 20px;
-                    height: 20px;
                 }
             }
 
@@ -99,8 +94,8 @@
         }
 
         &__svg {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             transition: transform ease-in 0.3s, fill ease-in 0.3s;
 
             &:hover {
@@ -141,7 +136,8 @@
                 height: 20px;
                 rotate: 45deg;
                 fill: $tangerine-600;
-                &:hover{
+
+                &:hover {
                     fill: $tangerine-500;
                 }
             }
@@ -174,8 +170,10 @@
                 display: flex;
                 justify-content: space-between;
                 gap: $space-2;
+
                 &__button {
                     flex-grow: 1;
+
                     &__svg {
 
                     }
