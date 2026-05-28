@@ -13,13 +13,14 @@
                         class="button button--icon button--filter catalogue__productSection__filterContainer__buttonContainer__button">
                     @if($this->sortBy === 'price' && $this->sortDirection === 'asc')
                         {{__('front.catalogue.productSection.priceFilter.ascending')}}
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}" class="catalogue__productSection__filterContainer__buttonContainer__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                                   class="catalogue__productSection__filterContainer__buttonContainer__button__svg"
                                    name="arrow"/>
                     @elseif($this->sortBy === 'price' && $this->sortDirection === 'desc')
                         {{__('front.catalogue.productSection.priceFilter.descending')}}
                         <x-svg.svg title="{{__('svgTitle.arrow')}}"
-                            class="catalogue__productSection__filterContainer__buttonContainer__button__svg icon--desc"
-                            name="arrow"/>
+                                   class="catalogue__productSection__filterContainer__buttonContainer__button__svg icon--desc"
+                                   name="arrow"/>
                     @else
                         {{__('front.catalogue.productSection.priceFilter.title')}}
                     @endif
@@ -28,13 +29,14 @@
                         class="button button--icon button--filter catalogue__productSection__filterContainer__buttonContainer__button">
                     @if($this->sortBy === 'name' && $this->sortDirection === 'asc')
                         {{__('front.catalogue.productSection.nameFilter.nameAscending')}}
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}" class="catalogue__productSection__filterContainer__buttonContainer__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                                   class="catalogue__productSection__filterContainer__buttonContainer__button__svg"
                                    name="arrow"/>
                     @elseif($this->sortBy === 'name' && $this->sortDirection === 'desc')
                         {{__('front.catalogue.productSection.nameFilter.nameAscending')}}
                         <x-svg.svg title="{{__('svgTitle.arrow')}}"
-                            class="catalogue__productSection__filterContainer__buttonContainer__button__svg icon--desc"
-                            name="arrow"/>
+                                   class="catalogue__productSection__filterContainer__buttonContainer__button__svg icon--desc"
+                                   name="arrow"/>
                     @else
                         {{__('front.catalogue.productSection.nameFilter.title')}}
                     @endif
@@ -113,16 +115,20 @@
                     </div>
 
                 </div>
-                <input wire:model.live.debounce.500ms="search" type="search" name="search" id="search"
-                       placeholder="{{__('front.catalogue.productSection.searchFilter')}}"
-                       class="button button--filter catalogue__productSection__filterContainer__otherFilterContainer__search">
+                <div class="catalogue__productSection__filterContainer__otherFilterContainer__searchContainer">
+                    <x-svg.svg title="search" class="catalogue__productSection__filterContainer__otherFilterContainer__searchContainer__svg" name="search"/>
+                    <input wire:model.live.debounce.500ms="search" type="search" name="search" id="search"
+                           placeholder="{{__('front.catalogue.productSection.searchFilter')}}…"
+                           class="catalogue__productSection__filterContainer__otherFilterContainer__searchContainer__search">
+                </div>
             </div>
         </div>
         <div class="catalogue__productSection__productContainer">
             <div class="catalogue__productSection__productContainer__product">
                 @forelse($this->products as $product)
-                    <a wire:key="product-{{ $product->id }}"  class="catalogue__productSection__productContainer__product__link"
-                       href="{{ route('front.catalogue.show', $product->id) }}" >
+                    <a wire:key="product-{{ $product->id }}"
+                       class="catalogue__productSection__productContainer__product__link"
+                       href="{{ route('front.catalogue.show', $product->id) }}">
                         <x-front.productCard :img="$product"
                                              category="{!!  __('client.products.categories.'.$product->product_category_id)!!}"
                                              is-new="{{$product->created_at > now()->subDays(7) ? __('words.new') : ''}}"
@@ -150,7 +156,8 @@
                 <p class="catalogue__contactSection__blockContainer__informationContainer__title">{{__('front.catalogue.contactSection.informationContainer.title')}}</p>
                 <p class="catalogue__contactSection__blockContainer__informationContainer__content">{!!__('front.catalogue.contactSection.informationContainer.content')!!}</p>
             </div>
-            <div x-data="{ show: false }" x-on:form-sent.window="show = true; setTimeout(() => show = false, 3000)" class="catalogue__contactSection__blockContainer__formContainer">
+            <div x-data="{ show: false }" x-on:form-sent.window="show = true; setTimeout(() => show = false, 3000)"
+                 class="catalogue__contactSection__blockContainer__formContainer">
                 <x-form.form wire-submit="sendMessage"
                              class="catalogue__contactSection__blockContainer__formContainer__form">
                     <div class="catalogue__contactSection__blockContainer__formContainer__form__container">
@@ -193,7 +200,8 @@
                     <button type="submit"
                             class="button button--icon catalogue__contactSection__blockContainer__formContainer__form__button">
                         {{__('front.catalogue.contactSection.form.button')}}
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}" class="catalogue__contactSection__blockContainer__formContainer__form__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                                   class="catalogue__contactSection__blockContainer__formContainer__form__button__svg"
                                    name="arrow"/>
                     </button>
                 </x-form.form>
