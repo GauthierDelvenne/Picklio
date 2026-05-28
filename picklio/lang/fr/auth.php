@@ -32,7 +32,9 @@ return [
         ],
         'password' => [
             'label' => 'Mot de passe',
+            'hint' => '8 caractères minimum, avec 1 majuscule et 1 minuscule',
             'attribute' => 'mot de passe',
+            'placeholder' => 'Mot de passe',
             'regex' => 'Le mot de passe doit contenir au moins une lettre minuscule et une lettre majuscule.',
         ],
         'remember' => [
