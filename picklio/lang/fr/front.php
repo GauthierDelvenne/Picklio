@@ -300,6 +300,7 @@ return [
     ],
     'merchant' => [
         'title' => 'Développez votre commerce',
+        'img' => 'un commerçant',
         'content' => 'Vous êtes commerçant et souhaitez vendre vos produits en ligne facilement sans complexité technique ?<br/>Notre plateforme de click & collect vous permet de toucher de nouveaux clients tout en simplifiant votre organisation. Grâce à un système centralisé avec retrait en entrepôt, vous n’avez plus à gérer la logistique côté client. Vous vous concentrez sur l’essentiel : vos produits et vos ventes.',
         'button' => 'Nous rejoindre',
         'cardContainer' => [

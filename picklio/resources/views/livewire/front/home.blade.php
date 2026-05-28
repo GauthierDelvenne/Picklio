@@ -31,8 +31,11 @@
             </ul>
         </div>
         <div class="home__introContainer__imgContainer">
-            <img src="{{asset('images/landing.webp')}}" alt="Picklio" class="home__introContainer__imgContainer__img">
-        </div>
+            <img
+                src="{{asset('images/landing.webp')}}"
+                srcset="{{asset('images/landing-300.webp')}} 300w, {{asset('images/landing-600.webp')}} 600w,{{asset('images/landing-900.webp')}} 900w"
+                sizes="(max-width: 400px) 300px, (max-width: 700px) 600px, 900px"
+                alt="Picklio" class="imgContainer__img">        </div>
     </section>
     <x-front.howItWork/>
     <div class="home__categoriesSelectContainer">
@@ -80,8 +83,11 @@
     <hr class="home__hr">
     <section id="merchant" class="home__merchantContainer paddingMedia">
         <div class="home__merchantContainer__imgContainer">
-            <img class="home__merchantContainer__imgContainer__img" src="{{asset('images/merchant.webp')}}"
-                 alt="Un vendeur">
+            <img
+                src="{{asset('images/merchant.webp')}}"
+                srcset="{{asset('images/merchant-300.webp')}} 300w, {{asset('images/merchant-600.webp')}} 600w,{{asset('images/merchant-900.webp')}} 900w"
+                sizes="(max-width: 400px) 300px, (max-width: 700px) 600px, 900px"
+                alt="{{__('front.merchant.img')}}" class="merchant__merchantContainer__imgContainer__img">
         </div>
         <div class="home__merchantContainer__contentContainer">
 

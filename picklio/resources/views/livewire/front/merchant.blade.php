@@ -1,8 +1,11 @@
 <div class="merchant paddingMedia">
     <section class="merchant__merchantContainer paddingMedia">
         <div class="merchant__merchantContainer__imgContainer">
-            <img class="merchant__merchantContainer__imgContainer__img" src="{{asset('images/merchant.webp')}}"
-                 alt="Un vendeur">
+            <img
+                src="{{asset('images/merchant.webp')}}"
+                srcset="{{asset('images/merchant-300.webp')}} 300w, {{asset('images/merchant-600.webp')}} 600w,{{asset('images/merchant-900.webp')}} 900w"
+                sizes="(max-width: 400px) 300px, (max-width: 700px) 600px, 900px"
+                alt="{{__('front.merchant.img')}}" class="merchant__merchantContainer__imgContainer__img">
         </div>
         <div class="merchant__merchantContainer__contentContainer">
 
