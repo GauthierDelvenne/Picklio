@@ -23,9 +23,9 @@
             <article :class="{ 'active': active === 1 }" class="merchant__cardContainer__container__itemContainer">
                 <div class="merchant__cardContainer__container__itemContainer__titleContainer">
                     <h3 class="merchant__cardContainer__container__itemContainer__titleContainer__title">{{__('front.merchant.cardContainer.1.title')}}</h3>
-                    <div :class="{ 'active': active === 1 }"
+                    <div :class="{ 'active': active === 1 }"  x-on:click="active = active === 1 ? null : 1"
                          class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}" x-on:click="active = active === 1 ? null : 1"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
                                    class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
                                    name="arrow"/>
                     </div>
@@ -44,10 +44,10 @@
             <article :class="{ 'active': active === 2 }" class="merchant__cardContainer__container__itemContainer">
                 <div class="merchant__cardContainer__container__itemContainer__titleContainer">
                     <h3 class="merchant__cardContainer__container__itemContainer__titleContainer__title">{{__('front.merchant.cardContainer.2.title')}}</h3>
-                    <div :class="{ 'active': active === 2 }"
+                    <div :class="{ 'active': active === 2 }" x-on:click="active = active === 2 ? null : 2"
                          class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
 
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}" x-on:click="active = active === 2 ? null : 2"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
                                    class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
                                    name="arrow"/>
                     </div>
@@ -67,10 +67,10 @@
             <article :class="{ 'active': active === 3 }" class="merchant__cardContainer__container__itemContainer">
                 <div class="merchant__cardContainer__container__itemContainer__titleContainer">
                     <h3 class="merchant__cardContainer__container__itemContainer__titleContainer__title">{{__('front.merchant.cardContainer.3.title')}}</h3>
-                    <div :class="{ 'active': active === 3 }"
+                    <div :class="{ 'active': active === 3 }" x-on:click="active = active === 3 ? null : 3"
                          class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
 
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}" x-on:click="active = active === 3 ? null : 3"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
                                    class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
                                    name="arrow"/>
                     </div>
@@ -89,10 +89,10 @@
             <article :class="{ 'active': active === 4 }" class="merchant__cardContainer__container__itemContainer">
                 <div class="merchant__cardContainer__container__itemContainer__titleContainer">
                     <h3 class="merchant__cardContainer__container__itemContainer__titleContainer__title">{{__('front.merchant.cardContainer.4.title')}}</h3>
-                    <div :class="{ 'active': active === 4 }"
+                    <div :class="{ 'active': active === 4 }" x-on:click="active = active === 4 ? null : 4"
                          class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
 
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}" x-on:click="active = active === 4 ? null : 4"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
                                    class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
                                    name="arrow"/>
                     </div>

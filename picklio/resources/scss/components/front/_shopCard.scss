@@ -94,8 +94,9 @@
         }
 
         &__svg {
-            width: 25px;
-            height: 25px;
+            width: 29px;
+            height: 29px;
+            padding: $space-1;
             transition: transform ease-in 0.3s, fill ease-in 0.3s;
 
             &:hover {
