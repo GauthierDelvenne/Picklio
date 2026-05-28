@@ -1,5 +1,5 @@
 <div class="catalogue">
-    @if(!empty($userConnected) && $userConnected->created_at > now()->subDays(7))
+    @if($this->isUserAlreadyOrder)
         <x-front.howItWork/>
     @endif
     <section class="catalogue__productSection paddingMedia">

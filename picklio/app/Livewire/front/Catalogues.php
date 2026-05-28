@@ -6,6 +6,7 @@ use App\Livewire\form\front\SendMessageForm;
 use App\Livewire\PicklioComponent;
 use App\Mail\SuggestMessageMail;
 use App\Models\Account;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Role;
@@ -106,6 +107,20 @@ class Catalogues extends PicklioComponent
             })
             ->where('role_id', Role::MERCHANT)
             ->get();
+    }
+
+    #[Computed]
+    public function isUserAlreadyOrder()
+    {
+        if (! empty($this->userConnected)) {
+            $orderCount = Order::where('account_id', $this->userConnected->account->id)->count();
+            if ($orderCount > 2) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return true;
     }
 
     public function render()
