@@ -84,7 +84,7 @@ class Catalogues extends PicklioComponent
                 $query->where('quantity', '>', 0);
             })
             ->when($this->search, function ($query) {
-                $query->where('name', 'like', '%'.$this->search.'%');
+                $query->where('name', 'like', '%' . $this->search . '%');
             })
             ->when($this->category, function ($query) {
                 $query->whereIn('product_category_id', $this->category);
@@ -103,7 +103,7 @@ class Catalogues extends PicklioComponent
             ->with('user')
             ->where('status_id', Status::ACTIVE)
             ->when($this->searchMerchant, function ($query) {
-                $query->where('users.name', 'like', '%'.$this->searchMerchant.'%');
+                $query->where('users.name', 'like', '%' . $this->searchMerchant . '%');
             })
             ->where('role_id', Role::MERCHANT)
             ->get();
@@ -112,7 +112,7 @@ class Catalogues extends PicklioComponent
     #[Computed]
     public function isUserAlreadyOrder()
     {
-        if (! empty($this->userConnected)) {
+        if (!empty($this->userConnected)) {
             $orderCount = Order::where('account_id', $this->userConnected->account->id)->count();
             if ($orderCount > 2) {
                 return false;
@@ -122,11 +122,26 @@ class Catalogues extends PicklioComponent
         }
         return true;
     }
+    public function goToCategory($categoryId): void
+    {
+        session(['category' => [$categoryId]]);
+        $this->redirect(route('front.catalogue.index'));
+    }
+
+    public function goToMerchant($merchantId)
+    {
+        session(['merchant' => [$merchantId]]);
+        $this->redirect(route('front.catalogue.index'));
+    }
+    public function goToProduct($id)
+    {
+        return redirect()->route('front.catalogue.show', $id);
+    }
 
     public function render()
     {
         return view('livewire.front.catalogue')
             ->layout('layouts.front')
-            ->title(__('commons.pageName.front.catalogue').' | Picklio');
+            ->title(__('commons.pageName.front.catalogue') . ' | Picklio');
     }
 }

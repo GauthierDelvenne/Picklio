@@ -116,7 +116,9 @@
 
                 </div>
                 <div class="catalogue__productSection__filterContainer__otherFilterContainer__searchContainer">
-                    <x-svg.svg title="search" class="catalogue__productSection__filterContainer__otherFilterContainer__searchContainer__svg" name="search"/>
+                    <x-svg.svg title="search"
+                               class="catalogue__productSection__filterContainer__otherFilterContainer__searchContainer__svg"
+                               name="search"/>
                     <input wire:model.live.debounce.500ms="search" type="search" name="search" id="search"
                            placeholder="{{__('front.catalogue.productSection.searchFilter')}}…"
                            class="catalogue__productSection__filterContainer__otherFilterContainer__searchContainer__search">
@@ -126,9 +128,7 @@
         <div class="catalogue__productSection__productContainer">
             <div class="catalogue__productSection__productContainer__product">
                 @forelse($this->products as $product)
-                    <a wire:key="product-{{ $product->id }}"
-                       class="catalogue__productSection__productContainer__product__link"
-                       href="{{ route('front.catalogue.show', $product->id) }}">
+                    <div wire:click="goToProduct({{ $product->id }})">
                         <x-front.productCard :img="$product"
                                              category="{!!  __('client.products.categories.'.$product->product_category_id)!!}"
                                              is-new="{{$product->created_at > now()->subDays(7) ? __('words.new') : ''}}"
@@ -139,7 +139,7 @@
                                              wire-click="goToMerchant({{ $product->account->id }})"
                                              wire-click-category="goToCategory({{ $product->productCategory->id }})"
                         />
-                    </a>
+                    </div>
                 @empty
                     <p class="catalogue__productSection__productContainer__product__empty">{{__('front.catalogue.productSection.empty')}}</p>
                 @endforelse

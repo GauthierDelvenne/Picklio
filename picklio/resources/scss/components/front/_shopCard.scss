@@ -37,8 +37,6 @@
             align-items: center;
             z-index: 5;
             transition: background-color ease-in 0.2s;
-            gap: $space-4;
-
 
             &__svg {
                 width: 15px;
@@ -84,7 +82,6 @@
 
             &--card {
                 background-color: $tangerine-200-50;
-                gap: $space-2;
 
                 .shopCard__selectContainer__value {
                     font-size: $text-base;
