@@ -36,7 +36,10 @@ class Catalogue extends PicklioComponent
         session(['merchant' => [$merchantId]]);
         $this->redirect(route('front.catalogue.index'));
     }
-
+    public function goToProduct($id)
+    {
+        return redirect()->route('front.catalogue.show', $id);
+    }
     public function render()
     {
         return view('livewire.front.product')

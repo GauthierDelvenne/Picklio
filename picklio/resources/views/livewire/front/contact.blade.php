@@ -12,7 +12,7 @@
                 <li class="contact__informationContainer__card__liste__item"><a
                         class="contact__informationContainer__card__liste__item__link"
                         href="tel:{{$warehouse->phone}}">
-                        <x-svg.svg  title="{{__('svgTitle.phone')}}"class="contact__informationContainer__card__liste__item__link__svg" name="phone"/>
+                        <x-svg.svg  title="{{__('svgTitle.phone')}}" class="contact__informationContainer__card__liste__item__link__svg" name="phone"/>
                         {{$warehouse->phone}}</a>
                 </li>
                 <li class="contact__informationContainer__card__liste__item"><a

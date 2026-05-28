@@ -91,6 +91,7 @@
             min-width: 1700px;
             margin: auto;
         }
+
         &__title {
             @include laptop-l {
                 font-size: $text-3xl;
@@ -132,12 +133,15 @@
                     }
 
                     &__svgContainer {
+                        padding: $space-2;
+
                         &__svg {
                             rotate: -90deg;
                             width: 20px;
                             height: 20px;
                             transition: fill ease-in 0.3s, transform ease-in 0.3s;
-                            &:hover{
+
+                            &:hover {
                                 fill: $tangerine-600;
                                 transform: rotateY(180deg);
                             }

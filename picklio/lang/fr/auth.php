@@ -18,6 +18,7 @@ return [
     'failed' => 'Ces identifiants ne correspondent pas à nos enregistrements.',
     'password' => 'Le mot de passe fourni est incorrect.',
     'throttle' => 'Trop de tentatives de connexion. Veuillez réessayer dans :seconds secondes.',
+    'success' => 'Votre demande a bien été envoyé',
     'form' => [
         'button' => [
 
@@ -32,7 +33,9 @@ return [
         ],
         'password' => [
             'label' => 'Mot de passe',
+            'hint' => '8 caractères minimum, avec 1 majuscule et 1 minuscule',
             'attribute' => 'mot de passe',
+            'placeholder' => 'Mot de passe',
             'regex' => 'Le mot de passe doit contenir au moins une lettre minuscule et une lettre majuscule.',
         ],
         'remember' => [

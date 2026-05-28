@@ -14,7 +14,9 @@ class ForgetPasswordForm extends Form
         $validatedData = $this->validate();
         if ($validatedData) {
             Password::sendResetLink(['email' => $validatedData['email']]);
+            return true;
         }
+        return false;
     }
 
 

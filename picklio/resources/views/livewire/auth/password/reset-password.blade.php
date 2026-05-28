@@ -1,18 +1,19 @@
-<div class="resetPassword">
-    <x-form.form wire-submit="resetPassword" class="resetPassword__formContainer">
-        <h1 class="resetPassword__formContainer__title">{{__('front.reset-password.title')}}</h1>
+<x-auth.pageContainer wire="resetPassword">
+    <div class="resetPassword" x-data="{ show: false}" x-on:success.window="show = true; setTimeout(() => show = false, 3000)">
+        <h1 class="resetPassword__title">{{__('front.reset-password.title')}}</h1>
         <div x-data="{ show: false }">
-            <x-form.input div-class="resetPassword__formContainer__inputContainer" name="password"
-                          label="{{__('auth.form.password.label')}}" required="true" eye-icon="true"
-                          x-bind:type="show ? 'text' : 'password'" model="form.password"
-                          placeholder="{{__('auth.form.password.label')}}"
-                          input-class="resetPassword__formContainer__inputContainer__input"
-                          input-error-class="resetPassword__formContainer__inputContainer__input__error">
-                <x-svg.svg title="{{__('svgTitle.eye')}}" class="resetPassword__formContainer__inputContainer__svg"
+            <x-form.input div-class="resetPassword__inputContainer" name="password"
+                          label="{!!__('auth.form.password.label')!!}" required="true" eye-icon="true"
+                          x-bind:type="show ? 'text' : 'password'" model="password"
+                          placeholder="{{__('auth.form.password.placeholder')}}"
+                          input-class="resetPassword__inputContainer__input"
+                          input-error-class="resetPassword__inputContainer__input__error">
+                <x-svg.svg title="{{__('svgTitle.eye')}}" class="resetPassword__inputContainer__svg"
                            name="eye"
                            x-show="!show"
                            x-on:click="show = !show"/>
-                <x-svg.svg title="{{__('svgTitle.eye-slash')}}" class="resetPassword__formContainer__inputContainer__svg"
+                <x-svg.svg title="{{__('svgTitle.eye-slash')}}"
+                           class="resetPassword__inputContainer__svg"
                            name="eye-slash"
                            x-show="show"
                            x-on:click="show = !show"/>
@@ -20,16 +21,22 @@
         </div>
 
         <button type="submit"
-                class="button button--icon resetPassword__formContainer__button">
+                class="button button--icon resetPassword__button">
             {{__('auth.form.button.reset')}}
-            <x-svg.svg title="{{__('svgTitle.arrow')}}" class="resetPassword__formContainer__button__svg" name="arrow"/>
+            <x-svg.svg title="{{__('svgTitle.arrow')}}" class="resetPassword__button__svg" name="arrow"/>
         </button>
-        <p class="resetPassword__formContainer__returnLogin">
-            <a href="{{route('auth.login')}}" class="resetPassword__formContainer__returnLogin__link">
+        <p class="resetPassword__returnLogin">
+            <a href="{{route('auth.login')}}" class="resetPassword__returnLogin__link">
                 {{__('front.reset-password.return-login')}}
             </a>
         </p>
-
-    </x-form.form>
-    <x-auth.imgContainer/>
-</div>
+        <div
+            x-show="show"
+            x-transition
+            class="toast"
+            x-cloak
+        >
+            {{__('auth.success')}}
+        </div>
+    </div>
+</x-auth.pageContainer>

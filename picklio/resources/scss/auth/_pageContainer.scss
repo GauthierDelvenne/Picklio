@@ -1,0 +1,54 @@
+.auth {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(1, 1fr);
+    gap: $space-4;
+    margin-top: $space-12;
+    @include laptop {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-8;
+    }
+    @include desktop {
+        gap: $space-12;
+    }
+    @include wide {
+        gap: $space-20;
+    }
+
+    &__form {
+    }
+
+    .imgContainer {
+        display: none;
+        @include laptop {
+            display: block;
+        }
+    }
+
+    &__addInformation {
+        display: flex;
+        flex-direction: column;
+        gap: $space-2;
+        text-align: center;
+
+        &__text {
+            font-size: $text-xsm;
+            margin-bottom: $space-3;
+            font-weight: 300;
+            @include laptop {
+                width: 300px;
+            }
+            @include laptop-l {
+                width: 350px;
+            }
+            @include desktop {
+                font-size: $text-xl;
+                width: 450px;
+            }
+            @include wide {
+                font-size: $text-2xl;
+                width: 500px;
+            }
+        }
+    }
+}

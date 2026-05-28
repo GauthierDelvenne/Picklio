@@ -13,8 +13,8 @@ class Home extends PicklioComponent
 
     public $noAlimentaryCategories;
 
-    #[Url]
-    public $activeTab = 'tab1';
+    #[Url(as: 'categorie')]
+    public $activeTab = 'alimentaire';
 
     public function mount()
     {
@@ -56,6 +56,10 @@ class Home extends PicklioComponent
     {
         session(['merchant' => [$merchantId]]);
         $this->redirect(route('front.catalogue.index'));
+    }
+    public function goToProduct($id)
+    {
+        return redirect()->route('front.catalogue.show', $id);
     }
     public function render()
     {

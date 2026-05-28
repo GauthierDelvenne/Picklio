@@ -38,7 +38,7 @@ class Slot extends PicklioComponent
     public function weeks(): array
     {
         $start = Carbon::now()->startOfWeek(Carbon::MONDAY)->addDay();
-        $end = $start->copy()->addDay(5);
+        $end = $start->copy()->addDay(4);
         $nextStart = $start->copy()->addWeek();
         $nextEnd = $end->copy()->addWeek();
 
@@ -75,7 +75,7 @@ class Slot extends PicklioComponent
     public function createOrder()
     {
         if ($this->form->createOrder()) {
-            Mail::to($this->order->account->email)->send(new SuccessOrderMail);
+            Mail::to($this->order->account->email)->send(new SuccessOrderMail($this->order));
             $this->redirectRoute('front.order-confirmation', ['order' => $this->order]);
         }
     }
