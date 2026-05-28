@@ -17,7 +17,7 @@ class Header extends PicklioComponent
 
     public function mount()
     {
-        if (! empty($this->userConnected)) {
+        if (!empty($this->userConnected)) {
             if ($this->userConnected->account->role_id == Role::ADMIN || $this->userConnected->account->role_id == Role::WAREHOUSE) {
                 $this->is_admin = true;
             }
@@ -30,13 +30,16 @@ class Header extends PicklioComponent
     #[Computed]
     public function cartProductNumber()
     {
-        if (! empty($this->userConnected)) {
+        if (!empty($this->userConnected)) {
             $order = Order::where('account_id', $this->userConnected->account->id)
                 ->where('status', Order::INITCART)
                 ->first();
-
-            return OrderItem::where('order_id', $order->id)
-                ->count();
+            if (!empty($order)) {
+                return OrderItem::where('order_id', $order->id)
+                    ->count();
+            } else {
+                return null;
+            }
         }
 
         return null;
