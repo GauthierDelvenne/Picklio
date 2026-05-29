@@ -1,12 +1,12 @@
 @extends('layouts.mail')
 
 @section('title')
-    {{__('mail.front.success-order.title')}}
+    {{__('mail.front.success-order.title', ['name' => '#'.$order->code])}}
 @endsection
 
 @section('description')
     {{__('mail.front.success-order.description')}}
-    {{__('front.profil.order.title-detail')}}
+    <p style="font-weight: bold">{{__('front.profil.order.title-detail')}}</p>
     <ul>
         @foreach($orderItems as $orderItem)
             <li>{{__('admin.stocks.forms.quantity.attribute')}}
