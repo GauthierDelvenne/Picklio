@@ -553,7 +553,7 @@ return [
         'price-tva' => 'TVA',
         'price-total' => 'Total',
         'button' => 'Continuer',
-        'condition' => '*21% par défaut et 6% produit alimentaire',
+        'condition' => '*21% par défaut et 6% pour les biens essentiels',
         'max' => 'Max',
         'toast' => [
             'add' => [
