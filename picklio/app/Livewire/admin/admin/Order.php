@@ -23,7 +23,7 @@ class Order extends PicklioComponent
         $this->order->update([
             'status' => OrderModel::FINISHCART,
         ]);
-        Mail::to($this->order->account->email)->send(new PreparedOrderMail);
+        Mail::to($this->order->account->email)->send(new PreparedOrderMail($this->order));
         $this->redirectRoute('admin.order.index');
     }
 
@@ -32,10 +32,11 @@ class Order extends PicklioComponent
 
         if ($this->order) {
             $email = $this->order->account->email;
+            $code = $this->order->code;
             $this->order->orderItems()->delete();
             $this->order->delete();
             Flux::toast(__('admin.orders.toast.delete.success'), variant: 'success');
-            Mail::to($email)->send(new CancelOrderMail);
+            Mail::to($email)->send(new CancelOrderMail($code));
             $this->redirectRoute('admin.order.index');
         } else {
             Flux::toast(__('admin.orders.toast.delete.error'), variant: 'danger');

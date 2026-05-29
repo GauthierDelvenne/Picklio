@@ -1,6 +1,10 @@
 <div class="slot">
     <section class="slot__container paddingMedia">
-        <h2 class="slot__container__title">{{__('commons.pageName.front.slot')}}</h2>
+        <div class="slot__container__titleContainer">
+            <h2 class="slot__container__titleContainer__title">{{__('commons.pageName.front.slot')}}</h2>
+            <x-front.warningCart/>
+        </div>
+
         <div class="slot__container__pickupContainer">
 
             <div class="slot__container__pickupContainer__weekContainer">
@@ -18,12 +22,13 @@
                 </x-form.select>
                 <button wire:click="switchWeek"
                         class="button button--left slot__container__pickupContainer__weekContainer__button slot__container__pickupContainer__weekContainer__button--left">
-                    <x-svg.svg  title="{{__('svgTitle.arrow')}}" title=""
-                        class="slot__container__pickupContainer__weekContainer__button__svg slot__container__pickupContainer__weekContainer__button__svg--left"
-                        name="arrow"/>
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}" title=""
+                               class="slot__container__pickupContainer__weekContainer__button__svg slot__container__pickupContainer__weekContainer__button__svg--left"
+                               name="arrow"/>
                 </button>
                 <button wire:click="switchWeek" class="button slot__container__pickupContainer__weekContainer__button">
-                    <x-svg.svg title="{{__('svgTitle.arrow')}}" class="slot__container__pickupContainer__weekContainer__button__svg" name="arrow"/>
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                               class="slot__container__pickupContainer__weekContainer__button__svg" name="arrow"/>
                 </button>
             </div>
             <div class="slot__container__pickupContainer__dayContainer">
@@ -65,6 +70,5 @@
             {{__('front.slot.button')}}
             <x-svg.svg title="{{__('svgTitle.arrow')}}" class="slot__container__button__svg" name="arrow"/>
         </button>
-    <x-front.warningCart/>
     </section>
 </div>

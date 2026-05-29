@@ -3,6 +3,7 @@
              x-on:delete-order.window="deleteOrder = true; setTimeout(() => deleteOrder = false, 3000)"
              class="basket__container paddingMedia">
         <h2 class="basket__container__title">{{__('front.order.title')}}</h2>
+        <x-front.warningCart/>
         <div class="basket__container__basketContainer">
             <div class="basket__container__basketContainer__itemContainer">
                 @forelse($this->orderItems as $orderItem)
@@ -84,6 +85,5 @@
                 </aside>
             @endif
         </div>
-        <x-front.warningCart/>
     </section>
 </div>

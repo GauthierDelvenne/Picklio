@@ -1,7 +1,7 @@
 @extends('layouts.mail')
 
 @section('title')
-    {{__('mail.front.cancel-order.title')}}
+    {{__('mail.front.cancel-order.title', ['name' => $code])}}
 @endsection
 
 @section('description')

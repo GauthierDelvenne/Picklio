@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
@@ -12,8 +13,11 @@ class CancelOrderMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public function __construct()
+    public  $code;
+
+    public function __construct($code)
     {
+        $this->code = $code;
     }
 
     public function envelope(): Envelope
