@@ -18,14 +18,14 @@ class AccountFactory extends Factory
     public function definition(): array
     {
         return [
-            'firstname' => fake()->firstName(),
-            'lastname' => fake()->lastName(),
-            'description' => fake()->sentence(),
-            'email' => fake()->unique()->safeEmail(),
-            'phone' => fake()->phoneNumber(),
-            'postal_code' => fake()->postcode(),
-            'address' => fake()->streetAddress(),
-            'country' => fake()->country(),
+            'firstname' => $this->faker->firstName(),
+            'lastname' => $this->faker->lastName(),
+            'description' => $this->faker->sentence(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'phone' => $this->faker->phoneNumber(),
+            'postal_code' => $this->faker->postcode(),
+            'address' => $this->faker->streetAddress(),
+            'country' => $this->faker->country(),
         ];
     }
 }

@@ -14,10 +14,10 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'product_category_id' => fake()->numberBetween(1, 24),
-            'name' => fake()->words(3, true),
-            'description' => fake()->sentence(12),
-            'price' => fake()->numberBetween(100, 2000),
+            'product_category_id' => $this->faker->numberBetween(1, 24),
+            'name' => $this->faker->words(3, true),
+            'description' => $this->faker->sentence(12),
+            'price' => $this->faker->numberBetween(100, 2000),
             'percentage' => null,
             'is_active' => true,
             'picture_path' => 'images/missing-product.webp',
