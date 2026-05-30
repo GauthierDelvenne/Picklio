@@ -106,8 +106,8 @@ class AddProductForm extends Form
             'percentage' => 'nullable|integer|max:100|min:0',
             'start_at' => 'nullable|date|before_or_equal:end_at',
             'end_at' => 'nullable|date|after_or_equal:start_at',
-            'is_active' => 'nullable|boolean',
-            'picture_path' => 'nullable|file',
+            'is_active' => 'required|boolean',
+            'picture_path' => 'required|file',
         ];
 
     }
