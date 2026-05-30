@@ -56,7 +56,7 @@ class AddProductForm extends Form
             $fileName = 'picklio'.Str::uuid().'.'.$imageType;
             $folder = sprintf(trim($originalPath, '/'), $this->account_id);
 
-            Storage::disk('public')->putFileAs(
+            Storage::disk('s3')->putFileAs(
                 $folder,
                 $this->picture_path,
                 $fileName

@@ -34,7 +34,7 @@ class ProcessImage implements ShouldQueue
      */
     public function handle(): void
     {
-        $absolutePath = Storage::disk('public')->path($this->fullPath);
+        $absolutePath = Storage::disk('s3')->path($this->fullPath);
 
         $manager = ImageManager::usingDriver(GdDriver::class);
 
@@ -52,7 +52,7 @@ class ProcessImage implements ShouldQueue
 
             $encoded = $resizedImage->encodeUsingFormat(Format::JPEG, quality: $compression ?? 80);
 
-            Storage::disk('public')->put($fullVariantPath, (string) $encoded);
+            Storage::disk('s3')->put($fullVariantPath, (string) $encoded);
         }
     }
 }
