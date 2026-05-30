@@ -84,6 +84,7 @@ class AddProductForm extends Form
         Stock::create([
             'product_id' => $product->id,
             'quantity' => 0,
+            'status' => Stock::VERYLOW,
         ]);
         StockMovement::create([
             'product_id' => $product->id,
