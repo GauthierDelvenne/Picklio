@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Auth\Password;
 
-use App\Livewire\form\Auth\Password\ForgetPasswordForm;
+use App\Livewire\Form\Auth\Password\ForgetPasswordForm;
 use App\Livewire\PicklioComponent;
 
 class ForgetPassword extends PicklioComponent

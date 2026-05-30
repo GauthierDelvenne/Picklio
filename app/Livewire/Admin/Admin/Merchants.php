@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Admin\Admin;
 
-use App\Livewire\form\admin\Admin\UpdateOrCreateMerchantForm;
+use App\Livewire\Form\Admin\Admin\UpdateOrCreateMerchantForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Account;
 use App\Models\Status;

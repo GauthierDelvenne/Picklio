@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Auth;
 
-use App\Livewire\form\Auth\RegisterForm;
+use App\Livewire\Form\Auth\RegisterForm;
 use App\Livewire\PicklioComponent;
 use App\Mail\RegisterMail;
 use Auth;
