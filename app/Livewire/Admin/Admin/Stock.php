@@ -2,8 +2,8 @@
 
 namespace App\Livewire\Admin\Admin;
 
-use App\Livewire\form\admin\Client\UpdateProductForm;
-use App\Livewire\form\admin\Client\UpdateStockForm;
+use App\Livewire\Form\Admin\Client\UpdateProductForm;
+use App\Livewire\Form\Admin\Client\UpdateStockForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Product;
 use Flux\Flux;

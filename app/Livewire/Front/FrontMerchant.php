@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Front;
 
-use App\Livewire\form\Front\SendMerchantMessageForm;
+use App\Livewire\Form\Front\SendMerchantMessageForm;
 use App\Livewire\PicklioComponent;
 use App\Mail\NewMerchantMessageMail;
 use App\Models\Warehouse;

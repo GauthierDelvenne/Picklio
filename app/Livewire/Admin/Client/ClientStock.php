@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Admin\Client;
 
-use App\Livewire\form\admin\Client\UpdateProductForm;
+use App\Livewire\Form\Admin\Client\UpdateProductForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Product;
 use Flux\Flux;

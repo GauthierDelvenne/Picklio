@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Front;
 
-use App\Livewire\form\Front\SendMessageForm;
+use App\Livewire\Form\Front\SendMessageForm;
 use App\Livewire\PicklioComponent;
 use App\Mail\SuggestMessageMail;
 use App\Models\Account;
