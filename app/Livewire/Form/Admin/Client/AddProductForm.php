@@ -107,7 +107,7 @@ class AddProductForm extends Form
             'start_at' => 'nullable|date|before_or_equal:end_at',
             'end_at' => 'nullable|date|after_or_equal:start_at',
             'is_active' => 'required|boolean',
-            'picture_path' => 'required|file',
+            'picture_path' => 'required|image|max:10240',
         ];
 
     }
