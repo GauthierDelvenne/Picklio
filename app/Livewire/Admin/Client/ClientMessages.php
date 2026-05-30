@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Admin\Client;
 
-use App\Livewire\form\admin\Client\CreateMessageForm;
+use App\Livewire\Form\Admin\Client\CreateMessageForm;
 use App\Livewire\PicklioComponent;
 use App\Models\ContactMessage;
 use App\Models\Message;

@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Front;
 
-use App\Livewire\form\Front\SendContactForm;
+use App\Livewire\Form\Front\SendContactForm;
 use App\Livewire\PicklioComponent;
 use App\Mail\ContactMail;
 use App\Models\Account;

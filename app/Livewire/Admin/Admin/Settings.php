@@ -2,8 +2,8 @@
 
 namespace App\Livewire\Admin\Admin;
 
-use App\Livewire\form\admin\Admin\Setting\UpdateAccountForm;
-use App\Livewire\form\admin\Admin\Setting\UpdateWarehouseForm;
+use App\Livewire\Form\Admin\Admin\Setting\UpdateAccountForm;
+use App\Livewire\Form\Admin\Admin\Setting\UpdateWarehouseForm;
 use App\Livewire\PicklioComponent;
 use Flux\Flux;
 

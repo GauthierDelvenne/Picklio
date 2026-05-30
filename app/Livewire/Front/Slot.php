@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Front;
 
-use App\Livewire\form\Front\ChooseSlotForm;
+use App\Livewire\Form\Front\ChooseSlotForm;
 use App\Livewire\PicklioComponent;
 use App\Mail\PreventCartDeleteMail;
 use App\Mail\SuccessOrderMail;

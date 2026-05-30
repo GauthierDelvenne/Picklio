@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Admin\Admin;
 
-use App\Livewire\form\admin\Admin\UpdateMessageForm;
+use App\Livewire\Form\Admin\Admin\UpdateMessageForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Message as MessageModel;
 use App\Models\Role;

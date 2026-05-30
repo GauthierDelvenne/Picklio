@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Admin\Client;
 
-use App\Livewire\form\admin\Client\Setting\UpdateAccountForm;
+use App\Livewire\Form\Admin\Client\Setting\UpdateAccountForm;
 use App\Livewire\PicklioComponent;
 use Flux\Flux;
 

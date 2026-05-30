@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Auth;
 
-use App\Livewire\form\Auth\LoginForm;
+use App\Livewire\Form\Auth\LoginForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Role;
 
