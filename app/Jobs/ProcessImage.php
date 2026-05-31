@@ -34,11 +34,11 @@ class ProcessImage implements ShouldQueue
      */
     public function handle(): void
     {
-        $absolutePath = Storage::disk('public')->path($this->fullPath);
+        $absolutePath = Storage::disk('s3')->get($this->fullPath);
 
         $manager = ImageManager::usingDriver(GdDriver::class);
 
-        $image = $manager->decodePath($absolutePath);
+        $image = $manager->decodeBinary($absolutePath);
 
         $sizes = config('pickliopicture.sizes');
         $compression = config('pickliopicture.compression');
@@ -52,7 +52,7 @@ class ProcessImage implements ShouldQueue
 
             $encoded = $resizedImage->encodeUsingFormat(Format::JPEG, quality: $compression ?? 80);
 
-            Storage::disk('public')->put($fullVariantPath, (string) $encoded);
+            Storage::disk('s3')->put($fullVariantPath, (string) $encoded);
         }
     }
 }

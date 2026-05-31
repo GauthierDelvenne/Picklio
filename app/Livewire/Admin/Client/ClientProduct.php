@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Admin\Client;
 
-use App\Livewire\form\admin\Client\AddProductForm;
+use App\Livewire\Form\Admin\Client\AddProductForm;
 use App\Livewire\PicklioComponent;
 use Flux\Flux;
 use Livewire\WithFileUploads;
