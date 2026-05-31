@@ -18,11 +18,8 @@ class ProductFactory extends Factory
             'name' => $this->faker->words(3, true),
             'description' => $this->faker->sentence(12),
             'price' => $this->faker->numberBetween(100, 2000),
-            'percentage' => null,
             'is_active' => true,
             'picture_path' => 'images/missing-product.webp',
-            'start_at' => null,
-            'end_at' => null,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

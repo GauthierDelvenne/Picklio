@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('slug');
             $table->integer('capacity');
-            $table->integer('tax');
+            $table->unsignedInteger('tax');
             $table->timestamps();
         });
 
@@ -22,10 +22,7 @@ return new class extends Migration {
             $table->foreignId('product_category_id')->constrained();
             $table->string('name');
             $table->string('description');
-            $table->integer('price');
-            $table->integer('percentage')->nullable();
-            $table->timestamp('start_at')->nullable();
-            $table->timestamp('end_at')->nullable();
+            $table->unsignedInteger('price');
             $table->string('picture_path');
             $table->boolean('is_active');
             $table->timestamps();
