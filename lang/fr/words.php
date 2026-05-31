@@ -11,4 +11,9 @@ return [
     'add' => 'a ajouté',
     'update' => 'a modifié',
     'new' => 'Nouveauté',
+    'menu' => 'Ouvrir le menu',
+    'basket' => 'Ouvrir le panier',
+    'profil' => 'Ouvrir le profile',
+    'toAdmin' => 'Aller vers l’admin',
+    'connect' => 'Se connecter',
 ];

@@ -12,7 +12,7 @@
             <x-svg.svg title="{{__('svgTitle.minus')}}" wire:click="decrement"
                        class="shopCard__priceContainer__selectContainer__svg"
                        name="minus"/>
-            <input wire:model.live="quantity" type="number" name="itemNumber" id="itemNumber-{{ $this->productId }}"
+            <input aria-label="{{__('admin.stocks.forms.quantity.attribute')}}" wire:model.live="quantity" type="number" name="itemNumber" id="itemNumber-{{ $this->productId }}"
                    placeholder="00"
                    class="shopCard__priceContainer__selectContainer__value">
             @if($quantity !== $stockAvailable)
@@ -61,7 +61,7 @@
         class="modal--overlay shopCard__modalContainer"
         x-cloak>
         <div class="modal shopCard__modalContainer__modal">
-            <button type="button" x-on:click="register = false">
+            <button aria-label="{{__('svgTitle.close')}}" type="button" x-on:click="register = false">
             <x-svg.svg title="{{__('svgTitle.close')}}"  class="shopCard__modalContainer__modal__svg" name="plus"/>
             </button>
             <div class="shopCard__modalContainer__modal__titleContainer">

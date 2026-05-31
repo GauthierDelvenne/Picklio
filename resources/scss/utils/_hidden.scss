@@ -9,3 +9,16 @@
     white-space: nowrap;
     border: 0;
 }
+.sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    background-color: $tangerine-50;
+    color: $tangerine-950;
+    z-index: 20;
+}
