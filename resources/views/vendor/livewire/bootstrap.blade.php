@@ -13,6 +13,7 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
 <div>
     @if ($paginator->hasPages())
         <nav class="d-flex justify-items-center justify-content-between">
+            <h3 class="sr-only">{{__('front.header.menu')}}</h3>
             <div class="d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-between">
                 <div>
                     <p class="small text-muted">

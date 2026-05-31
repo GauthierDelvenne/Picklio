@@ -60,6 +60,7 @@ return [
     ],
     'header' => [
         'heading' => 'Navigation principale',
+        'menu' => 'Navigation pagination',
     ],
     'footer' => [
         'schedule' => [

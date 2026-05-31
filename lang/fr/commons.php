@@ -61,4 +61,7 @@ return [
         'main-nav' => 'Navigation principale',
         'sec-nav' => 'Navigation secondaire',
     ],
+    'head' => [
+        'description' => 'Site de vente de produit de client locaux',
+    ]
 ];
