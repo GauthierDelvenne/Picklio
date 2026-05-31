@@ -140,3 +140,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get(__('route.front.contact'), Contact::class)->name('front.contact');
 
     });
+Route::get('/', function () {
+    return redirect()->to(LaravelLocalization::localizeUrl('/accueil'));
+});
