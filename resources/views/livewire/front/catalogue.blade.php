@@ -33,7 +33,7 @@
                                    class="catalogue__productSection__filterContainer__buttonContainer__button__svg"
                                    name="arrow"/>
                     @elseif($this->sortBy === 'name' && $this->sortDirection === 'desc')
-                        {{__('front.catalogue.productSection.nameFilter.nameAscending')}}
+                        {{__('front.catalogue.productSection.nameFilter.nameDescending')}}
                         <x-svg.svg title="{{__('svgTitle.arrow')}}"
                                    class="catalogue__productSection__filterContainer__buttonContainer__button__svg icon--desc"
                                    name="arrow"/>
@@ -121,7 +121,7 @@
         <div class="catalogue__productSection__productContainer">
             <div class="catalogue__productSection__productContainer__product">
                 @forelse($this->products as $product)
-                    <div wire:click="goToProduct({{ $product->id }})">
+                    <div wire:click="goToProduct({{ $product->id }})" wire:key="product-{{ $product->id }}">
                         <x-front.productCard :img="$product"
                                              category="{!!  __('client.products.categories.'.$product->product_category_id)!!}"
                                              is-new="{{$product->created_at > now()->subDays(7) ? __('words.new') : ''}}"
