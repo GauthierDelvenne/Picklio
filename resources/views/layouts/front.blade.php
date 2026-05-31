@@ -17,9 +17,12 @@
 
 </head>
 <body class="body body--front">
+<a href="#main-content" class="sr-only sr-only-focusable">Passer au contenu principal</a>
 <h1 class="sr-only">{{ $title ?? config('app.name') }}</h1>
 @livewire('front.components.header')
-{{ $slot }}
+<main id="main-content">
+    {{ $slot }}
+</main>
 @cookieconsentview
 @livewire('front.components.footer')
 @livewireScripts

@@ -22,13 +22,15 @@
                 </x-form.select>
                 <button wire:click="switchWeek"
                         class="button button--left slot__container__pickupContainer__weekContainer__button slot__container__pickupContainer__weekContainer__button--left">
-                    <x-svg.svg title="{{__('svgTitle.arrow')}}" title=""
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}"
                                class="slot__container__pickupContainer__weekContainer__button__svg slot__container__pickupContainer__weekContainer__button__svg--left"
                                name="arrow"/>
+                    <span class="sr-only">{{__('Previous')}}</span>
                 </button>
                 <button wire:click="switchWeek" class="button slot__container__pickupContainer__weekContainer__button">
                     <x-svg.svg title="{{__('svgTitle.arrow')}}"
                                class="slot__container__pickupContainer__weekContainer__button__svg" name="arrow"/>
+                    <span class="sr-only">{{__('Next')}}</span>
                 </button>
             </div>
             <div class="slot__container__pickupContainer__dayContainer">
@@ -38,9 +40,9 @@
                         <button
                             @disabled($this->isDayPast($day)) wire:click="$set('form.pickup_date', '{{ $day->toDateString() }}')"
                             class="slot__container__pickupContainer__dayContainer__dayCardContainer__card {{$this->isDayPast($day) ? 'disabled' : ''}} {{ $this->form->pickup_date === $day->toDateString() ? 'active' : '' }}">
-                            <p class="slot__container__pickupContainer__dayContainer__dayCardContainer__card__day">{{ \Carbon\Carbon::parse($day)->translatedFormat('l') }}</p>
-                            <p class="slot__container__pickupContainer__dayContainer__dayCardContainer__card__date">{{ \Carbon\Carbon::parse($day)->format('d') }}</p>
-                            <p class="slot__container__pickupContainer__dayContainer__dayCardContainer__card__month">{{ \Carbon\Carbon::parse($day)->translatedFormat('F') }}</p>
+                            <span class="slot__container__pickupContainer__dayContainer__dayCardContainer__card__day">{{ \Carbon\Carbon::parse($day)->translatedFormat('l') }}</span>
+                            <span class="slot__container__pickupContainer__dayContainer__dayCardContainer__card__date">{{ \Carbon\Carbon::parse($day)->format('d') }}</span>
+                            <span class="slot__container__pickupContainer__dayContainer__dayCardContainer__card__month">{{ \Carbon\Carbon::parse($day)->translatedFormat('F') }}</span>
                         </button>
                     @endforeach
                 </div>
@@ -55,7 +57,7 @@
                         <button
                             @disabled($this->isSlotPast($slot) || $this->isSlotFull($slot)) wire:click="$set('form.pickup_slot_id', {{ $slot->id }})"
                             class="slot__container__pickupContainer__slotContainer__slotCardContainer__card {{ $this->isSlotPast($slot) || $this->isSlotFull($slot) ? 'disabled' : '' }} {{ $this->form->pickup_slot_id === $slot->id ? 'active' : '' }}">
-                            <p class="slot__container__pickupContainer__slotContainer__slotCardContainer__card__time">{{  $slot->time->format('H:i')  }}</p>
+                            <span class="slot__container__pickupContainer__slotContainer__slotCardContainer__card__time">{{  $slot->time->format('H:i')  }}</span>
                         </button>
                     @empty
                         <p class="slot__container__pickupContainer__slotContainer__slotCardContainer__empty"> {{__('front.slot.empty-slot')}}</p>

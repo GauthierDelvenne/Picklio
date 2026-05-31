@@ -60,7 +60,7 @@
                         <div
                             class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__searchContainer">
                             <input wire:model.live.debounce.500ms="searchMerchant" type="search" name="searchMerchant"
-                                   id="searchMerchant"
+                                   id="searchMerchant" aria-label="{{__('front.catalogue.productSection.searchFilter')}}"
                                    placeholder="{{__('front.catalogue.productSection.searchFilter')}}"
                                    class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__searchContainer__search">
                         </div>
@@ -68,11 +68,11 @@
                             <div
                                 class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__item">
 
-                                <input type="checkbox" id="{{ $mer->user->name }}" name="{{ $mer->user->name }}"
+                                <input type="checkbox" id="merchant-{{ $mer->id }}" name="merchant-{{ $mer->id }}"
                                        wire:model.live="merchant"
                                        value="{{ $mer->id }}"
                                        class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__item__input">
-                                <label for="{{ $mer->user->name }}"
+                                <label for="merchant-{{ $mer->id }}"
                                        class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__item__label">
                                     {{$mer->user->name}}
                                 </label>
@@ -101,11 +101,11 @@
                             <div
                                 class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__item">
 
-                                <input type="checkbox" id="{{ $cat->name }}" name="{{ $cat->name }}"
+                                <input type="checkbox" id="category-{{ $cat->id }}" name="category-{{ $cat->id }}"
                                        wire:model.live="category"
                                        value="{{ $cat->id }}"
                                        class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__item__input">
-                                <label for="{{ $cat->name }}"
+                                <label for="category-{{ $cat->id }}"
                                        class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__item__label">
                                     {{ __('client.products.categories.' . $cat->id) }}
                                 </label>
