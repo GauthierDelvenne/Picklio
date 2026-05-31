@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'firstname' => 'Ad',
             'lastname' => 'Min',
             'email' => 'admin@gmail.com',
-            'phone' => '0497444444',
+            'phone' => '+32497444444',
         ]);
 
         // MERCHANT
@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             'firstname' => 'Mer',
             'lastname' => 'Chant',
             'email' => 'merchant@gmail.com',
-            'phone' => '0497444445',
+            'phone' => '+32497444445',
             'address' => 'Rue de liège 2,',
             'postal_code' => '4000',
             'country' => 'BE',
@@ -68,11 +68,11 @@ class DatabaseSeeder extends Seeder
             'firstname' => 'Ware',
             'lastname' => 'House',
             'email' => 'warehouse@gmail.com',
-            'phone' => '0497444444',
+            'phone' => '+32497444444',
         ]);
         Warehouse::factory()->create([
             'name' => 'Picklio',
-            'phone' => '04 97 54 69 43',
+            'phone' => '+32497546943',
             'email' => 'picklio@gmail.com',
             'address' => 'Rue de liège 2,',
             'postal_code' => '4000',
@@ -102,7 +102,7 @@ class DatabaseSeeder extends Seeder
             'firstname' => 'Gauthier',
             'lastname' => 'Delvenne',
             'email' => 'gauthierdelvenne@gmail.com',
-            'phone' => '0497324444',
+            'phone' => '+32497324444',
         ]);
         $this->call(ProductSeeder::class);
         $this->call(PickupSlotSeeder::class);
