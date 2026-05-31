@@ -82,6 +82,7 @@
                                    name="arrow"/>
                     </a>
                     <p class="basket__container__basketContainer__priceContainer__condition">{{__('front.order.condition')}}</p>
+                    <p class="basket__container__basketContainer__priceContainer__condition">{{__('front.order.paid')}}</p>
                 </aside>
             @endif
         </div>

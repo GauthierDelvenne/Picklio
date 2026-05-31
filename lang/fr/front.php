@@ -554,6 +554,7 @@ return [
         'price-total' => 'Total',
         'button' => 'Continuer',
         'condition' => '*21% par défaut et 6% pour les biens essentiels',
+        'paid' => 'Le paiement se fait sur place',
         'max' => 'Max',
         'toast' => [
             'add' => [
