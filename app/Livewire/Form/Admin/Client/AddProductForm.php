@@ -56,11 +56,9 @@ class AddProductForm extends Form
             $fileName = 'picklio'.Str::uuid().'.'.$imageType;
             $folder = sprintf(trim($originalPath, '/'), $this->account_id);
 
-            Storage::disk('public')->putFileAs(
-                $folder,
-                $this->picture_path,
-                $fileName
-            );
+            $stream = $this->picture_path->readStream();
+            $fullPath = $folder.'/'.$fileName;
+            Storage::disk('s3')->put($fullPath, $stream);
 
             $fullPath = $folder.'/'.$fileName;
 
@@ -81,6 +79,7 @@ class AddProductForm extends Form
         Stock::create([
             'product_id' => $product->id,
             'quantity' => 0,
+            'status' => Stock::VERYLOW,
         ]);
         StockMovement::create([
             'product_id' => $product->id,

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\Storage;
 
 #[Fillable(['account_id', 'product_category_id', 'name', 'description', 'price', 'picture_path', 'is_active', 'id'])]
 class Product extends Model
@@ -61,7 +62,7 @@ class Product extends Model
 
         $fileName = basename($this->picture_path);
 
-        return asset('storage/' . $variantPath . '/' . $fileName);
+        return Storage::disk('s3')->url($variantPath . '/' . $fileName);
     }
 
     /**

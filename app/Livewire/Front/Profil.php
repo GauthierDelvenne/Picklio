@@ -2,8 +2,8 @@
 
 namespace App\Livewire\Front;
 
-use App\Livewire\form\Front\UpdatePasswordForm;
-use App\Livewire\form\Front\UpdateProfilForm;
+use App\Livewire\Form\Front\UpdatePasswordForm;
+use App\Livewire\Form\Front\UpdateProfilForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
