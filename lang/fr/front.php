@@ -267,7 +267,7 @@ return [
             'form' => [
                 'button' => 'Envoyer le formulaire',
                 'name' => [
-                    'label' => 'Nom Prénom',
+                    'label' => 'Nom - Prénom',
                     'attribute' => 'nom prénom',
                 ],
                 'email' => [
