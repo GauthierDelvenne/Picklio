@@ -44,5 +44,12 @@
             grid-template-columns: repeat(3, 1fr);
         }
 
+        a {
+            color: $tangerine-600;
+            transition: color ease-in 0.3s;
+            &:hover{
+                color: $tangerine-500;
+            }
+        }
     }
 }

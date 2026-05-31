@@ -8,7 +8,7 @@
     </div>
     <div class="productList__productContainer">
         @foreach($products as $product)
-            <div wire:click="goToProduct({{ $product->id }})">
+            <div wire:click="goToProduct({{ $product->id }})" wire:key="product-{{ $product->id }}">
                 <x-front.productCard :img="$product"
                                      category="{!!  __('client.products.categories.'.$product->product_category_id)!!}"
                                      is-new="{{$product->created_at > now()->subDays(7) ? __('words.new') : ''}}"

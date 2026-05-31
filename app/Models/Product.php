@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Storage;
 
-#[Fillable(['account_id', 'product_category_id', 'name', 'description', 'price', 'percentage', 'start_at', 'end_at', 'picture_path', 'is_active', 'id'])]
+#[Fillable(['account_id', 'product_category_id', 'name', 'description', 'price', 'picture_path', 'is_active', 'id'])]
 class Product extends Model
 {
     use HasFactory;

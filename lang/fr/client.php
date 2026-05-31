@@ -60,18 +60,6 @@ return [
                 'label' => 'Prix',
                 'attribute' => 'prix',
             ],
-            'percentage' => [
-                'label' => 'Pourcentage de la promotion',
-                'attribute' => 'pourcentage de la promotion',
-            ],
-            'start_at' => [
-                'label' => 'Début de la promotion',
-                'attribute' => 'début de la promotion',
-            ],
-            'end_at' => [
-                'label' => 'Fin de la promotion',
-                'attribute' => 'fin de la promotion',
-            ],
             'is_active' => [
                 'label' => 'Le produit est-il actif ?',
                 'attribute' => 'actif',

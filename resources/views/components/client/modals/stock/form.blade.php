@@ -11,11 +11,6 @@
         @endforeach
     </flux:select>
     <flux:input wire:model="form.price" label="{{__('client.products.forms.price.label')}}"/>
-    <flux:input wire:model="form.percentage" label="{{__('client.products.forms.percentage.label')}}"/>
-    <div class="flex gap-5">
-        <flux:input type="date" wire:model="form.start_at" label="{{__('client.products.forms.start_at.label')}}"/>
-        <flux:input type="date" wire:model="form.end_at" label="{{__('client.products.forms.end_at.label')}}"/>
-    </div>
     <flux:input type="file" wire:model="form.picture_path" label="{{__('client.products.forms.picture_path.label')}}"/>
     @if($this->form->picture_path instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)
         <div class="w-32 h-32 mt-2">

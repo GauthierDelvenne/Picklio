@@ -1,9 +1,9 @@
 .profil {
     display: flex;
     flex-direction: column;
-    gap: $space-32;
+    gap: $space-20;
     @include laptop-l {
-        gap: $space-48;
+        gap: $space-40;
     }
     @include wide {
         max-width: 1700px;

@@ -1,7 +1,7 @@
 <section class="howItWorkContainer paddingMedia">
     <div class="howItWorkContainer__titleContainer">
         <h2 class="howItWorkContainer__titleContainer__title">{{__('front.commons.howItWork.title')}}</h2>
-        <a href="{{route('auth.register')}}"
+        <a href="{{!empty($this->userConnected) ? route('front.catalogue.index') : route('auth.register')}}"
            class="button button--icon howItWorkContainer__titleContainer__button">{{__('front.commons.howItWork.button')}}
             <x-svg.svg title="{{__('svgTitle.arrow')}}" class="howItWorkContainer__titleContainer__button__svg" name="arrow"/>
         </a>

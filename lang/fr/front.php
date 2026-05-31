@@ -267,7 +267,7 @@ return [
             'form' => [
                 'button' => 'Envoyer le formulaire',
                 'name' => [
-                    'label' => 'Nom Prénom',
+                    'label' => 'Nom - Prénom',
                     'attribute' => 'nom prénom',
                 ],
                 'email' => [
@@ -554,6 +554,7 @@ return [
         'price-total' => 'Total',
         'button' => 'Continuer',
         'condition' => '*21% par défaut et 6% pour les biens essentiels',
+        'paid' => 'Le paiement se fait sur place',
         'max' => 'Max',
         'toast' => [
             'add' => [

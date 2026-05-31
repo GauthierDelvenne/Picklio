@@ -1,15 +1,21 @@
 .product {
     display: flex;
     flex-direction: column;
-    gap: $space-32;
+    gap: $space-20;
     @include laptop-l {
-        gap: $space-48;
+        gap: $space-40;
     }
+
     &__informationContainer {
         @include laptop {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             justify-content: center;
             gap: $space-8;
+        }
+        @include wide {
+            min-width: 1700px;
+            margin: auto;
         }
 
         &__imgContainer {
@@ -46,6 +52,7 @@
                     @include desktop-l {
                         font-size: $text-xl;
                     }
+
                     &__link {
                         font-weight: 600;
                         font-size: $text-xl;

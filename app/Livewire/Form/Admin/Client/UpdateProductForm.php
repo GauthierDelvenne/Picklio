@@ -94,9 +94,6 @@ class UpdateProductForm extends Form
                 'name' => $validatedData['name'],
                 'description' => $validatedData['description'],
                 'price' => $validatedData['price'],
-                'percentage' => $validatedData['percentage'],
-                'start_at' => $validatedData['start_at'],
-                'end_at' => $validatedData['end_at'],
                 'is_active' => $validatedData['is_active'],
                 'picture_path' => $validatedData['picture_path'],
             ]);
@@ -112,9 +109,6 @@ class UpdateProductForm extends Form
             'description' => 'required|string',
             'category_id' => 'required|exists:product_categories,id',
             'price' => 'required|decimal:0,2',
-            'percentage' => 'nullable|integer|max:100|min:0',
-            'start_at' => 'nullable|date|before_or_equal:end_at',
-            'end_at' => 'nullable|date|after_or_equal:start_at',
             'is_active' => 'nullable|boolean',
             'picture_path' => 'nullable|file',
         ];
@@ -128,9 +122,6 @@ class UpdateProductForm extends Form
             'description' => strtolower(__('client.products.forms.description.attribute')),
             'category' => strtolower(__('client.products.forms.category.attribute')),
             'price' => strtolower(__('client.products.forms.price.attribute')),
-            'percentage' => strtolower(__('client.products.forms.percentage.attribute')),
-            'start_at' => strtolower(__('client.products.forms.start_at.attribute')),
-            'end_at' => strtolower(__('client.products.forms.end_at.attribute')),
             'is_active' => strtolower(__('client.products.forms.is_active.attribute')),
             'picture_path' => strtolower(__('client.products.forms.picture_path.attribute')),
         ];

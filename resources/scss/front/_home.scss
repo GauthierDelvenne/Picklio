@@ -1,9 +1,9 @@
 .home {
     display: flex;
     flex-direction: column;
-    gap: $space-32;
+    gap: $space-20;
     @include laptop-l {
-        gap: $space-48;
+        gap: $space-40;
     }
 
     &__introContainer {
@@ -74,8 +74,18 @@
                     @include laptop-l {
                         font-size: $text-3xl;
                     }
+                    @keyframes wave {
+                        0%, 100% {
+                            transform: scaleX(1) rotate(0);
+                        }
+
+                        50% {
+                            transform: scaleX(1.1) rotate(3deg) ;
+                        }
+                    }
 
                     &__svg {
+                        animation: wave 4s ease-in-out infinite;
                         position: absolute;
                         width: auto;
                         aspect-ratio: 5 / 1;
@@ -166,6 +176,7 @@
 
     &__hr {
         width: 80vw;
+        border-color: $tangerine-500;
         margin: -$space-12 auto;
     }
 
