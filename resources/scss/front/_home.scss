@@ -1,9 +1,9 @@
 .home {
     display: flex;
     flex-direction: column;
-    gap: $space-32;
+    gap: $space-20;
     @include laptop-l {
-        gap: $space-48;
+        gap: $space-40;
     }
 
     &__introContainer {
@@ -166,6 +166,7 @@
 
     &__hr {
         width: 80vw;
+        border-color: $tangerine-500;
         margin: -$space-12 auto;
     }
 
