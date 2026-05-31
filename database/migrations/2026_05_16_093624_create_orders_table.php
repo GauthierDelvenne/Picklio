@@ -22,8 +22,8 @@ return new class extends Migration {
             $table->foreignId('account_id')->constrained();
             $table->foreignId('pickup_slot_id')->constrained();
             $table->date('pickup_date');
-            $table->string('status');
-            $table->string('total_price');
+            $table->unsignedInteger('status');
+            $table->unsignedInteger('total_price');
             $table->timestamps();
         });
         Schema::create('order_items', function (Blueprint $table) {
@@ -32,8 +32,8 @@ return new class extends Migration {
             $table->foreignId('product_id')->constrained();
             $table->foreignId('account_id')->constrained();
             $table->foreignId('merchant_id')->constrained('accounts');
-            $table->string('quantity');
-            $table->string('price');
+            $table->unsignedInteger('quantity');
+            $table->unsignedInteger('price');
             $table->timestamps();
         });
     }

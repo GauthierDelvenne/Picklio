@@ -115,14 +115,7 @@
                     </div>
 
                 </div>
-                <div class="catalogue__productSection__filterContainer__otherFilterContainer__searchContainer">
-                    <x-svg.svg title="search"
-                               class="catalogue__productSection__filterContainer__otherFilterContainer__searchContainer__svg"
-                               name="search"/>
-                    <input wire:model.live.debounce.500ms="search" type="search" name="search" id="search"
-                           placeholder="{{__('front.catalogue.productSection.searchFilter')}}…"
-                           class="catalogue__productSection__filterContainer__otherFilterContainer__searchContainer__search">
-                </div>
+                <x-front.search/>
             </div>
         </div>
         <div class="catalogue__productSection__productContainer">
