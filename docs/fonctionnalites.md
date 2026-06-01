@@ -6,16 +6,21 @@
     - Liste de produits (tous commerces confondus)
     - Fiche produit
     - Filtre / Recherche
+    - Devenir commerçant
 - Création de commande
     - Panier unique global
-    - Choix créneaux de retrait (entrepôt)
-    - Ajout de message
+    - Choix créneaux de retrait
     - Détails commande
     - Confirmation email
+    - Historique des commandes
 - Paiement
-    - Paiement par carte uniquement sur place (borne)
-    - Pas de paiement en ligne
-
+    - Paiement uniquement sur place (Pas de paiement en ligne)
+- Devenir Commerçant
+  - Formulaire
+  - Information sur le système
+- Des formulaires de contact 
+  - Pour des suggestions
+  - Prise de contact avec admin/commerçant
 ---
 
 ## La plateforme offre aux commerces partenaires :
@@ -23,19 +28,20 @@
 - Dashboard partenaire
     - Nombre de commandes
     - Revenus
-    - Top ventes
     - Produits actifs
     - Messages
 - Gestion des produits
     - Prix
-    - Quantité
-    - Promotion
-    - CRUD complet
-- Suivi des commandes
-    - Liste des commandes contenant leurs produits
-    - États des commandes
-    - Détails
-
+    - Nom
+    - Image
+    - États
+    - ...
+- Statistique
+  - Nombre de produits commandés
+  - Meilleurs ventes
+- Messagerie
+  - Administrateur
+  - Client
 ---
 
 ## La plateforme offre à l’administrateur :
@@ -43,7 +49,6 @@
 - Dashboard global
     - Nombre total de commandes
     - Revenus globaux
-    - Top produits
     - Activité des commerces
 - Gestion de l’entrepôt
     - Stock global
@@ -51,14 +56,14 @@
     - Gestion des ruptures
 - Gestion des commandes
     - Vue complète
-    - États (en attente, prête, retirée)
-    - Impression ticket / facture
+    - États (en attente, prête)
 - Gestion des commerces partenaires
     - Création / validation
     - Activation / désactivation
-    - Suivi performance
+    - Suivi de leus produits
 - Gestion des créneaux
     - Création horaires de retrait
     - Limitation nombre commandes par créneau
-    - Fermeture exceptionnelle
-
+- Messagerie
+    - Commerçants
+    - Client
