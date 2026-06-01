@@ -39,7 +39,8 @@ class AddProductForm extends Form
     public function __construct(Component $component, $propertyName)
     {
         parent::__construct($component, $propertyName);
-        $this->categories = ProductCategory::all();
+        $this->categories = ProductCategory::orderby('name', 'asc')->get();
+
         $this->account_id = $component->userConnected->id;
     }
 

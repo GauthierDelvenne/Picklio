@@ -35,7 +35,7 @@ class Catalogues extends PicklioComponent
 
     public function mount(): void
     {
-        $this->categories = ProductCategory::all();
+        $this->categories = ProductCategory::orderby('name', 'asc')->get();
         $this->merchant = session()->pull('merchant', []);
         $this->category = session()->pull('category', []);
     }

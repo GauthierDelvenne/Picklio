@@ -29,7 +29,7 @@ class ClientDashboard extends PicklioComponent
     public function mount(): void
     {
         $this->account = $this->userConnected->account;
-        $this->categories = ProductCategory::all();
+        $this->categories = ProductCategory::orderby('name', 'asc')->get();
         $this->orderItems = OrderItem::with(['product.stock', 'product.productCategory'])
             ->where('merchant_id', $this->account->id)
             ->get();

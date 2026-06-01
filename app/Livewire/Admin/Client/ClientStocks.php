@@ -26,7 +26,8 @@ class ClientStocks extends PicklioComponent
     public function mount(): void
     {
         $this->account = $this->userConnected->account;
-        $this->categories = ProductCategory::all();
+        $this->categories = ProductCategory::orderby('name', 'asc')->get();
+
     }
 
     public function updatedSearch()
