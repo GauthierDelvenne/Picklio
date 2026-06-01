@@ -47,7 +47,11 @@ class Profil extends PicklioComponent
         $this->form->user->update([
             'email' => $this->form->email.now(), ]);
         $this->form->user->delete();
+        Auth::logout();
+        Session::invalidate();
+        Session::regenerateToken();
         $this->dispatch('deleteAccount');
+        $this->redirectRoute('front.home');
     }
 
     #[Computed]
