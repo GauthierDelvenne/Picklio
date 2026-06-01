@@ -24,7 +24,7 @@ return new class extends Migration {
             $table->string('description');
             $table->unsignedInteger('price');
             $table->string('picture_path');
-            $table->boolean('is_active');
+            $table->boolean('is_active')->nullable();
             $table->timestamps();
         });
     }
