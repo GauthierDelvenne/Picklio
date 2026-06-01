@@ -242,6 +242,7 @@ return [
         ],
     ],
     'catalogue' => [
+        'toBasket' => 'Aller au panier',
         'productSection' => [
             'title' => 'Les produits',
             'priceFilter' => [

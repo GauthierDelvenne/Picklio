@@ -60,7 +60,8 @@
                         <div
                             class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__searchContainer">
                             <input wire:model.live.debounce.500ms="searchMerchant" type="search" name="searchMerchant"
-                                   id="searchMerchant" aria-label="{{__('front.catalogue.productSection.searchFilter')}}"
+                                   id="searchMerchant"
+                                   aria-label="{{__('front.catalogue.productSection.searchFilter')}}"
                                    placeholder="{{__('front.catalogue.productSection.searchFilter')}}"
                                    class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__searchContainer__search">
                         </div>
@@ -209,4 +210,12 @@
             </div>
         </div>
     </section>
+    <div class="catalogue__cart">
+        <a class="catalogue__cart__link" href="{{ route('front.basket') }}">
+            <p class="sr-only">{{__('front.catalogue.toBasket')}}</p>
+            <x-svg.svg title="{{__('svgTitle.basket')}}"
+                       class="catalogue__cart__link__svg"
+                       name="basket"/>
+        </a>
+    </div>
 </div>
