@@ -40,7 +40,7 @@ class Stocks extends PicklioComponent
     #[Computed(persist: true)]
     public function categories()
     {
-        return ProductCategory::all();
+        return ProductCategory::orderby('name', 'asc')->get();
     }
 
     #[Computed]
