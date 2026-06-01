@@ -34,7 +34,7 @@ class AddProductForm extends Form
 
     public $end_at;
 
-    public $is_active;
+    public $is_active = false;
 
     public function __construct(Component $component, $propertyName)
     {
