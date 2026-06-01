@@ -24,9 +24,11 @@
             @endif
         </div>
         @if($this->card && !$this->basket)
+            @if($this->quantity != 0)
             <x-svg.svg title="{{__('svgTitle.basket')}}" wire:click="addToCart" x-on:click.prevent.stop
                        class="shopCard__priceContainer__svg no-card-hover"
                        name="basket"/>
+            @endif
         @endif
     </div>
     @if(!$this->card)
