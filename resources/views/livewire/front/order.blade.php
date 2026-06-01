@@ -19,13 +19,13 @@
             <p class="orderConfirmation__container__cardContainer__card__title">{{__('front.order-confirmation.information')}}</p>
             <div class="orderConfirmation__container__cardContainer__card__informationContainer">
                 <p class="orderConfirmation__container__cardContainer__card__informationContainer__item"><span
-                        class="orderConfirmation__container__cardContainer__card__informationContainer__item__span">{{__('front.order-confirmation.slot')}}: </span>{{\Carbon\Carbon::parse($order->pickup_date)->translatedFormat('l d M,')}} {{\Carbon\Carbon::parse($order->pickupSlot->time)->format('H\hi')}}
+                        class="orderConfirmation__container__cardContainer__card__informationContainer__item__span">{{__('front.order-confirmation.slot')}} : </span>{{\Carbon\Carbon::parse($order->pickup_date)->translatedFormat('l d M,')}} {{\Carbon\Carbon::parse($order->pickupSlot->time)->format('H\hi')}}
                 </p>
                 <p class="orderConfirmation__container__cardContainer__card__informationContainer__item"><span
-                        class="orderConfirmation__container__cardContainer__card__informationContainer__item__span">{{__('front.order-confirmation.email')}}: </span>{{$order->account->email}}
+                        class="orderConfirmation__container__cardContainer__card__informationContainer__item__span">{{__('front.order-confirmation.email')}} : </span>{{$order->account->email}}
                 </p>
                 <p class="orderConfirmation__container__cardContainer__card__informationContainer__item"><span
-                        class="orderConfirmation__container__cardContainer__card__informationContainer__item__span">{{__('front.order-confirmation.total')}}: </span>{{$order->priceFormatted}}
+                        class="orderConfirmation__container__cardContainer__card__informationContainer__item__span">{{__('front.order-confirmation.total')}} : </span>{{$order->priceFormatted}}
                 </p>
             </div>
         </div>

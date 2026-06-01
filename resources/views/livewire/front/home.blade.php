@@ -9,7 +9,7 @@
                     <x-svg.svg title="{{__('svgTitle.arrow')}}" class="home__introContainer__contentContainer__buttonContainer__button__svg"
                                name="arrow"/>
                 </a>
-                <a href="#merchant"
+                <a href="{{ route('auth.login') }}"
                    class="button button--icon home__introContainer__contentContainer__buttonContainer__button">{{__('front.home.intro.buttonJoin')}}
                     <x-svg.svg title="{{__('svgTitle.arrow')}}" class="home__introContainer__contentContainer__buttonContainer__button__svg"
                                name="arrow"/>
