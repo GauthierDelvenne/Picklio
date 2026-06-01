@@ -236,12 +236,13 @@ return [
             'title' => 'Les catégories',
         ],
         'inviteMerchant' => [
-            'title' => 'Vous êtes marchands, producteur, vendeur ?',
+            'title' => 'Vous êtes marchand, producteur, vendeur ?',
             'content' => 'Entrez dans notre réseau de commerçants connectés. Faites partie d’une plateforme qui réinvente le shopping local : vos produits sont centralisés dans un entrepôt unique, vos ventes sont suivies en temps réel, et vos clients bénéficient d’un retrait simple et rapide. Rejoignez-nous pour développer votre commerce sans complexité.',
             'button' => 'Nous rejoindre maintenant',
         ],
     ],
     'catalogue' => [
+        'toBasket' => 'Aller au panier',
         'productSection' => [
             'title' => 'Les produits',
             'priceFilter' => [

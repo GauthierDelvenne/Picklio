@@ -69,7 +69,7 @@ class ShopCard extends PicklioComponent
             return $this->dispatch('register', productId: $this->productId);
         }
         if ($this->quantity <= 0) {
-            return false;
+            $this->quantity = 1;
         }
         DB::transaction(function () {
             $cart = Order::firstOrCreate(

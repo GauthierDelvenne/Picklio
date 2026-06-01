@@ -242,4 +242,30 @@
             }
         }
     }
+
+    &__cart {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: $tangerine-100;
+        border-radius: 50%;
+        z-index: 10;
+        transition: transform ease-in 0.3s, background-color ease-in 0.3s;
+        padding: $space-4;
+
+        &:hover {
+            transform: scale(1.1);
+            background-color: $tangerine-200-50;
+        }
+
+        &__link {
+            display: flex;
+
+            &__svg {
+                fill: $tangerine-600;
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
 }
