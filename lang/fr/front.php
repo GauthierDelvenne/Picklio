@@ -10,12 +10,12 @@ return [
             'stepOne' => [
                 'title' => 'Première étape',
                 'subTitle' => 'Inscrivez-vous',
-                'content' => '<strong><a href="'.route('auth.register').'">Inscrivez-vous</a></strong>, afin de pouvoir commander sur Picklio',
+                'content' => '<strong><a href="'.route('auth.register').'">Inscrivez-vous</a></strong> afin de pouvoir commander sur Picklio',
             ],
             'stepTwo' => [
                 'title' => 'Deuxième étape',
                 'subTitle' => 'Faites votre panier',
-                'content' => '<strong><a href="'.route('front.catalogue.index').'">Chercher, ajouter </a></strong>vos envies et <strong>planifiez</strong> votre
+                'content' => '<strong><a href="'.route('front.catalogue.index').'">Cherchez, ajoutez </a></strong>vos envies et <strong>planifiez</strong> votre
                 panier selon votre emploi du temps',
             ],
             'stepThree' => [
@@ -64,7 +64,7 @@ return [
     ],
     'footer' => [
         'schedule' => [
-            'title' => 'Heure d’ouverture des retrait',
+            'title' => 'Heures d’ouverture de retrait',
             'open' => 'Mardi → Samedi : de :open à :close',
             'close' => 'Dimanche → Lundi : Fermé',
         ],
@@ -206,7 +206,7 @@ return [
     ],
     'home' => [
         'intro' => [
-            'title' => 'Le meilleur de vos commerces réunis en un seul lieu',
+            'title' => 'Le meilleur de vos commerces réuni en un seul lieu',
             'content' => 'Avec notre plateforme de click & collect,
                 profitez de vos
                 commerces
@@ -254,19 +254,19 @@ return [
                 'nameAscending' => 'Nom A/Z',
                 'nameDescending' => 'Nom Z/A',
             ],
-            'merchantFilter' => 'Commerçants',
-            'categoryFilter' => 'Catégories',
+            'merchantFilter' => 'Commerçant(s)',
+            'categoryFilter' => 'Catégorie(s)',
             'searchFilter' => 'Rechercher',
             'empty' => 'Il n’y a aucun article qui correspond à la recherche',
         ],
         'contactSection' => [
-            'title' => 'Vous n’avez pas trouvé ce vous chercher ?',
+            'title' => 'Vous n’avez pas trouvé ce que vous cherchiez ?',
             'informationContainer' => [
                 'title' => 'Une suggestion ?',
-                'content' => 'Vous n’avez pas trouvé ce que vous vouliez.<br/> N’hésitez pas à nous envoyer vos suggestions de <strong>produits</strong> ou bien de <strong>commerçant</strong>. ',
+                'content' => 'N’hésitez pas à nous envoyer vos suggestions de <strong>produits</strong> ou bien de <strong>commerçants</strong>. ',
             ],
             'form' => [
-                'button' => 'Envoyer le formulaire',
+                'button' => 'Envoyez le formulaire',
                 'name' => [
                     'label' => 'Nom - Prénom',
                     'attribute' => 'nom prénom',
@@ -303,7 +303,7 @@ return [
         'title' => 'Développez votre commerce',
         'img' => 'un commerçant',
         'content' => 'Vous êtes commerçant et souhaitez vendre vos produits en ligne facilement sans complexité technique ?<br/>Notre plateforme de click & collect vous permet de toucher de nouveaux clients tout en simplifiant votre organisation. Grâce à un système centralisé avec retrait en entrepôt, vous n’avez plus à gérer la logistique côté client. Vous vous concentrez sur l’essentiel : vos produits et vos ventes.',
-        'button' => 'Nous rejoindre',
+        'button' => 'Rejoignez nous',
         'cardContainer' => [
             'title' => 'Les avantages',
             '1' => [
@@ -340,7 +340,7 @@ return [
                         '2' => 'Nous préparons les commandes',
                         '3' => 'Les clients viennent les récupérer sur place',
                     ],
-                    'endText' => 'Vous n’avez pas à gérer le retrait client et vous gagnez du temps au quotidien',
+                    'endText' => 'Vous n’avez pas à gérer le retrait client, juste a vous assurer que l’état du stock et vous gagnez du temps au quotidien',
                 ],
             ],
             '4' => [
@@ -359,8 +359,8 @@ return [
             'title' => 'Rejoignez-nous dès maintenant',
             'informationContainer' => [
                 'title' => 'Contactez-nous',
-                'content' => 'Intégrez une plateforme pensée pour les commerçants et développez votre activité simplement. <br/> À la suite de ce formulaire, vous serez recontacter pour un entretien',
-                'address' => '4160 Anthisnes, Cour d’Omalius, 1',
+                'content' => 'Intégrez une plateforme pensée pour les commerçants et développez votre activité simplement. <br/> À la suite de ce formulaire, vous serez recontacté pour un entretien.',
+                'address' => 'Cour d’Omalius 1, 4160 Anthisnes',
                 'phone' => '+32 477  45 56 67',
                 'email' => 'picklio@gmail.com',
             ],
@@ -410,7 +410,7 @@ return [
         ],
         'partContainer' => [
             'title' => 'Rejoindre Picklio, ça coûte combien ?',
-            'content' => 'Aucun abonnement, aucun frais d’entrée . Vous ne payez que lorsque vous vendez .',
+            'content' => 'Aucun abonnement, aucun frais d’entrée . Vous ne payerez que lorsque vous vendrez.',
             'commissionContainer' => [
                 'title' => 'Commission par vente',
                 'content' => 'Un seul pourcentage retenu sur chaque vente réalisée via Picklio. Cette commission couvre le stockage à l’entrepôt, la gestion logistique et la mise en relation avec les clients.',
@@ -443,7 +443,7 @@ return [
                 ],
                 '3' => [
                     'title' => 'Y a-t-il des frais cachés ?',
-                    'text' => 'Non. La commission de 10% est le seul coût lié à votre présence sur Picklio. Aucun frais d’inscription, de stockage ou de visibilité.',
+                    'text' => 'Non. La commission de 10% est le seul coût lié à votre présence sur Picklio. Pas d’autre frais (frais d’inscription, de stockage ou de visibilité).',
                 ],
             ],
         ],
@@ -504,7 +504,7 @@ return [
             'title' => 'Nous contacter ?',
             'text' => 'Nos canaux de communication',
             'card' => [
-                'title' => 'Comment nous contacter',
+                'title' => 'Comment nous contacter ?',
                 'contact-us' => 'Pour nous contacter, vous pouvez remplir le formulaire
                 ci-dessous, nous joindre par téléphone ou par
                 e-mail.',
@@ -533,8 +533,8 @@ return [
                     'attribute' => 'choisir un commerçant',
                 ],
                 'title' => [
-                    'label' => 'Titre',
-                    'attribute' => 'titre',
+                    'label' => 'Sujet',
+                    'attribute' => 'sujet',
                 ],
                 'description' => [
                     'label' => 'Description',
@@ -546,7 +546,7 @@ return [
     ],
     'order' => [
         'title' => 'Votre panier',
-        'danger' => 'Votre panier à une durée limiter, si après 2h, il n’a pas été finaliser, il sera alors reinitialisé',
+        'danger' => 'Votre panier a une durée limitée. Si après 2h, il n’a pas été finalisé, il sera alors réinitialisé',
         'empty' => 'Vous n’avez rien dans votre panier',
         'login' => 'Connectez-vous',
         'basket-total' => 'Total de votre panier',
@@ -559,11 +559,11 @@ return [
         'max' => 'Max',
         'toast' => [
             'add' => [
-                'success' => 'Le produit a été ajouté',
+                'success' => 'Produit(s) ajouté(s)',
                 'error' => 'Une erreur est survenu lors de l’ajout',
             ],
             'remove' => [
-                'success' => 'Le produit a été supprimé',
+                'success' => 'Produit(s) supprimé(s)',
                 'error' => 'Une erreur est survenu lors de la suppression',
             ],
             'max' => [
@@ -603,7 +603,7 @@ return [
     'order-confirmation' => [
         'thanks' => 'Merci pour votre achat !',
         'product' => 'Vos produits',
-        'information' => 'Information de commande',
+        'information' => 'Informations de la commande',
         'slot' => 'Créneaux',
         'email' => 'Email',
         'total' => 'Total à payer',

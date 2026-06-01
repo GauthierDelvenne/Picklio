@@ -41,7 +41,7 @@ return [
             'title' => 'Commande :name confirmée, merci !',
             'description' => 'Nous avons bien reçu votre commande et elle est en cours de traitement. Vous recevrez prochainement un email de confirmation avec tous les détails.',
             'button' => 'Voir votre commande',
-            'pay' => 'Le montant est à payez sur place',
+            'pay' => 'Le montant est à payer sur place',
         ],
         'cancel-order' => [
             'subject' => 'Votre commande a été annulée',
