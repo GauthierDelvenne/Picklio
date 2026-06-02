@@ -11,7 +11,7 @@
         flex-direction: column;
         gap: $space-12;
         @include wide {
-            min-width: 1700px;
+            max-width: 1700px;
             margin: auto;
         }
 
@@ -116,12 +116,16 @@
         }
 
         &__productContainer {
+
             &__product {
                 display: flex;
                 flex-wrap: wrap;
                 gap: $space-6;
                 justify-content: center;
+                @include desktop {
+                    justify-content: space-between;
 
+                }
                 &__link {
 
                 }

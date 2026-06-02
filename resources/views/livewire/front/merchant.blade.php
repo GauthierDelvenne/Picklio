@@ -154,17 +154,17 @@
             <p class="merchant__partContainer__textContainer__text">{{__('front.merchant.partContainer.textContainer.3.text')}}</p>
         </div>
     </section>
-    <section class="merchant__contactSection paddingMedia">
+    <section class="merchant__contactSection paddingMedia" itemscope itemtype="https://schema.org/LocalBusiness">
         <h2 class="merchant__contactSection__title">{{__('front.merchant.contactSection.title')}}</h2>
         <div class="merchant__contactSection__blockContainer">
             <div class="merchant__contactSection__blockContainer__informationContainer">
                 <p class="merchant__contactSection__blockContainer__informationContainer__title">{{__('front.merchant.contactSection.informationContainer.title')}}</p>
                 <p class="merchant__contactSection__blockContainer__informationContainer__content">{!!__('front.merchant.contactSection.informationContainer.content')!!}</p>
-                <p class="merchant__contactSection__blockContainer__informationContainer__info">{!!__('front.merchant.contactSection.informationContainer.address')!!}</p>
+                <p class="merchant__contactSection__blockContainer__informationContainer__info" itemprop="address">{!!__('front.merchant.contactSection.informationContainer.address')!!}</p>
                 <p class="merchant__contactSection__blockContainer__informationContainer__info"><a
-                        href="tel:{{$warehouse->phone}}">{{$warehouse->phone}}</a></p>
+                        href="tel:{{$warehouse->phone}}" itemprop="telephone">{{$warehouse->phone}}</a></p>
                 <p class="merchant__contactSection__blockContainer__informationContainer__info"><a
-                        href="mailto:{{$warehouse->email}}">{{$warehouse->email}}</a></p>
+                        href="mailto:{{$warehouse->email}}" itemprop="email">{{$warehouse->email}}</a></p>
             </div>
             <div id="form" x-data="{ show: false }"
                  x-on:form-sent.window="show = true; setTimeout(() => show = false, 3000)"

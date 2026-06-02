@@ -79,13 +79,13 @@
                 <p class="shopCard__modalContainer__modal__titleContainer__title">{{__('front.order.toast.register.success')}}</p>
             </div>
             <div class="shopCard__modalContainer__modal__buttonContainer">
-                <a href="{{route('auth.login')}}"
+                <a href="{{route('auth.login')}}" x-on:click.stop
                    class="button button--icon  shopCard__modalContainer__modal__buttonContainer__button">
                     {{__('auth.form.button.login')}}
                     <x-svg.svg title="{{__('svgTitle.arrow')}}"
                                class=" shopCard__modalContainer__modal__buttonContainer__button__svg" name="arrow"/>
                 </a>
-                <a href="{{route('auth.register')}}"
+                <a href="{{route('auth.register')}}" x-on:click.stop
                    class="button button--icon  shopCard__modalContainer__modal__buttonContainer__button">
                     {{__('auth.form.button.register')}}
                     <x-svg.svg title="{{__('svgTitle.arrow')}}"
