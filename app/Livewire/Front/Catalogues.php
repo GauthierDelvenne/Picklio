@@ -122,6 +122,7 @@ class Catalogues extends PicklioComponent
         }
         return true;
     }
+
     public function goToCategory($categoryId): void
     {
         session(['category' => [$categoryId]]);
@@ -133,9 +134,28 @@ class Catalogues extends PicklioComponent
         session(['merchant' => [$merchantId]]);
         $this->redirect(route('front.catalogue.index'));
     }
+
     public function goToProduct($id)
     {
         return redirect()->route('front.catalogue.show', $id);
+    }
+
+
+    #[Computed]
+    public function cartItems()
+    {
+        if (!empty($this->userConnected->account)) {
+            $cart = $this->getCartByAccount(
+                $this->userConnected->account->id
+            );
+            if (!empty($cart)) {
+                return $cart->orderItems()
+                    ->select('product_id', 'quantity')
+                    ->get()
+                    ->keyBy('product_id');
+            }
+            return null;
+        }
     }
 
     public function render()

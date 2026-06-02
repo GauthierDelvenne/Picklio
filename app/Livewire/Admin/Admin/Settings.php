@@ -27,6 +27,7 @@ class Settings extends PicklioComponent
     public function updateWarehouse() {
         if ($this->warehouseForm->update()) {
             Flux::toast(__('admin.settings.warehouse.toast.update.success'), variant: 'success');
+            cache()->forget('warehouse');
         } else {
             Flux::toast(__('admin.settings.warehouse.toast.update.error'), variant: 'danger');
         }

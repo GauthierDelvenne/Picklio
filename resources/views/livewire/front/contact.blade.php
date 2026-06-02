@@ -87,7 +87,7 @@
                     <x-form.textarea
                         div-class="contact__formContainer__card__form__container__inputContainer"
                         name="description"
-                        label="{{__('front.contact.formContainer.form.description.label')}}"
+                        label="{{__('front.contact.formContainer.form.description.label')}}" required="true"
                         type="textarea" model="form.description"
                         placeholder="{{__('front.contact.formContainer.form.description.label')}}"
                         input-class="contact__formContainer__card__form__container__inputContainer__input"

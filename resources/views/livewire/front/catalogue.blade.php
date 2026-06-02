@@ -133,6 +133,7 @@
                                              :product="$product"
                                              wire-click="goToMerchant({{ $product->account->id }})"
                                              wire-click-category="goToCategory({{ $product->productCategory->id }})"
+                                             :cartItem="$this->cartItems == null ? null : $this->cartItems->get($product->id)"
                         />
                     </div>
                 @empty
