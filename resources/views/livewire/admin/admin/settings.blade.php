@@ -20,17 +20,44 @@
         <flux:card class="col-span-2">
             <form wire:submit.prevent="updateAccount">
                 <div class="flex flex-col gap-2">
-                    <flux:input wire:model="accountForm.firstname"
-                                label="{{__('admin.merchants.form.firstname.label')}}"
-                                placeholder="John"/>
-                    <flux:input wire:model="accountForm.lastname" label="{{__('admin.merchants.form.lastname.label')}}"
-                                placeholder="Doe"/>
-                    <flux:input type="email" wire:model="accountForm.email"
-                                label="{{__('admin.merchants.form.email.label')}}"
-                                placeholder="johndoe@example.com"/>
-                    <flux:input wire:model="accountForm.phone" label="{{__('admin.merchants.form.phone.label')}}"
-                                placeholder="04 97 45 45 45"/>
+
+                    <flux:field>
+                        <flux:label>
+                            {{__('admin.merchants.form.firstname.label')}}
+                            <abbr title="{{ __('validation.abbr-required') }}" class="text-accent ml-1">*</abbr>
+                        </flux:label>
+                        <flux:input wire:model="accountForm.firstname" placeholder="John"/>
+                        <flux:error name="accountForm.firstname"/>
+                    </flux:field>
+
+                    <flux:field>
+                        <flux:label>
+                            {{__('admin.merchants.form.lastname.label')}}
+                            <abbr title="{{ __('validation.abbr-required') }}" class="text-accent ml-1">*</abbr>
+                        </flux:label>
+                        <flux:input wire:model="accountForm.lastname" placeholder="Doe"/>
+                        <flux:error name="accountForm.lastname"/>
+                    </flux:field>
+
+                    <flux:field>
+                        <flux:label>
+                            {{__('admin.merchants.form.email.label')}}
+                            <abbr title="{{ __('validation.abbr-required') }}" class="text-accent ml-1">*</abbr>
+                        </flux:label>
+                        <flux:input type="email" wire:model="accountForm.email" placeholder="johndoe@example.com"/>
+                        <flux:error name="accountForm.email"/>
+                    </flux:field>
+
+                    <flux:field>
+                        <flux:label>
+                            {{__('admin.merchants.form.phone.label')}}
+                        </flux:label>
+                        <flux:input wire:model="accountForm.phone" placeholder="04 97 45 45 45"/>
+                        <flux:error name="accountForm.phone"/>
+                    </flux:field>
+
                 </div>
+
                 <div class="flex mt-2">
                     <flux:spacer/>
                     <flux:button type="submit" variant="primary">{{__('admin.commons.buttons.edit')}}</flux:button>
@@ -45,44 +72,91 @@
                 <form wire:submit.prevent="updateWarehouse">
                     <div class="flex gap-5">
                         <div class="flex flex-col gap-2 grow">
-                            <flux:input wire:model="warehouseForm.name"
-                                        label="{{__('admin.settings.warehouse.forms.name.label')}}"
-                                        placeholder="Picklio Alpha"/>
-                            <flux:input wire:model="warehouseForm.phone"
-                                        label="{{__('admin.settings.warehouse.forms.phone.label')}}"
-                                        placeholder="04 77 54 54 34"/>
-                            <flux:input wire:model="warehouseForm.email"
-                                        label="{{__('admin.settings.warehouse.forms.email.label')}}"
-                                        placeholder="picklio@exemple.com"/>
+
+                            <flux:field>
+                                <flux:label>
+                                    {{__('admin.settings.warehouse.forms.name.label')}}
+                                    <abbr title="{{ __('validation.abbr-required') }}" class="text-accent ml-1">*</abbr>
+                                </flux:label>
+                                <flux:input wire:model="warehouseForm.name" placeholder="Picklio Alpha"/>
+                                <flux:error name="warehouseForm.name"/>
+                            </flux:field>
+
+                            <flux:field>
+                                <flux:label>
+                                    {{__('admin.settings.warehouse.forms.phone.label')}}
+                                </flux:label>
+                                <flux:input wire:model="warehouseForm.phone" placeholder="04 77 54 54 34"/>
+                                <flux:error name="warehouseForm.phone"/>
+                            </flux:field>
+
+                            <flux:field>
+                                <flux:label>
+                                    {{__('admin.settings.warehouse.forms.email.label')}}
+                                </flux:label>
+                                <flux:input wire:model="warehouseForm.email" placeholder="picklio@exemple.com"/>
+                                <flux:error name="warehouseForm.email"/>
+                            </flux:field>
+
                         </div>
+
                         <div class="flex flex-col gap-2 grow">
-                            <flux:input wire:model="warehouseForm.address"
-                                        label="{{__('admin.settings.warehouse.forms.address.label')}}"
-                                        placeholder="Rue de liège, 2"/>
-                            <flux:input wire:model="warehouseForm.postal_code"
-                                        label="{{__('admin.settings.warehouse.forms.postal_code.label')}}"
-                                        placeholder="4000"/>
-                            <flux:select wire:model="warehouseForm.country"
-                                         placeholder="{{__('admin.merchants.form.country.placeholder')}}"
-                                         label="{{__('admin.merchants.form.country.label')}}">
-                                @foreach($this->countries as $code => $name)
-                                    <flux:select.option value="{{$code}}">{{$name}}</flux:select.option>
-                                @endforeach
-                            </flux:select>
+
+                            <flux:field>
+                                <flux:label>
+                                    {{__('admin.settings.warehouse.forms.address.label')}}
+                                    <abbr title="{{ __('validation.abbr-required') }}" class="text-accent ml-1">*</abbr>
+                                </flux:label>
+                                <flux:input wire:model="warehouseForm.address" placeholder="Rue de liège, 2"/>
+                                <flux:error name="warehouseForm.address"/>
+                            </flux:field>
+
+                            <flux:field>
+                                <flux:label>
+                                    {{__('admin.settings.warehouse.forms.postal_code.label')}}
+                                    <abbr title="{{ __('validation.abbr-required') }}" class="text-accent ml-1">*</abbr>
+                                </flux:label>
+                                <flux:input wire:model="warehouseForm.postal_code" placeholder="4000"/>
+                                <flux:error name="warehouseForm.postal_code"/>
+                            </flux:field>
+
+                            <flux:field>
+                                <flux:label>
+                                    {{__('admin.merchants.form.country.label')}}
+                                    <abbr title="{{ __('validation.abbr-required') }}" class="text-accent ml-1">*</abbr>
+                                </flux:label>
+                                <flux:select wire:model="warehouseForm.country" placeholder="{{__('admin.merchants.form.country.placeholder')}}">
+                                    @foreach($this->countries as $code => $name)
+                                        <flux:select.option value="{{$code}}">{{$name}}</flux:select.option>
+                                    @endforeach
+                                </flux:select>
+                                <flux:error name="warehouseForm.country"/>
+                            </flux:field>
+
                         </div>
                     </div>
+
                     <div class="flex gap-5 justify-between mt-2">
                         <div class="grow">
-                            <flux:input type="time" wire:model="warehouseForm.opening_time"
-                                        label="{{__('admin.settings.warehouse.forms.opening_time.label')}}"
-                            />
+                            <flux:field>
+                                <flux:label>
+                                    {{__('admin.settings.warehouse.forms.opening_time.label')}}
+                                </flux:label>
+                                <flux:input type="time" wire:model="warehouseForm.opening_time"/>
+                                <flux:error name="warehouseForm.opening_time"/>
+                            </flux:field>
                         </div>
                         <div class="grow">
-                            <flux:input type="time" wire:model="warehouseForm.closing_time"
-                                        label="{{__('admin.settings.warehouse.forms.closing_time.label')}}"
-                            />
+                            <flux:field>
+                                <flux:label>
+                                    {{__('admin.settings.warehouse.forms.closing_time.label')}}
+                                </flux:label>
+                                <flux:input type="time" wire:model="warehouseForm.closing_time"/>
+                                <flux:error name="warehouseForm.closing_time"/>
+                            </flux:field>
                         </div>
                     </div>
+
                     <div class="flex mt-2">
                         <flux:spacer/>
                         <flux:button type="submit" variant="primary">{{__('admin.commons.buttons.edit')}}</flux:button>
