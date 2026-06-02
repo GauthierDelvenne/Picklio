@@ -66,15 +66,6 @@ class ClientStocks extends PicklioComponent
     }
 
     #[Computed]
-    public function discountCount()
-    {
-        return Product::whereAccount($this->account->id)
-            ->where('start_at', '<=', now())
-            ->where('end_at', '>=', now())
-            ->count();
-    }
-
-    #[Computed]
     public function veryLowStockCount()
     {
         return Product::where('products.account_id', $this->account->id)

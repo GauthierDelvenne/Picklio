@@ -10,30 +10,28 @@
 
     </section>
     <div class="flex flex-col justify-between gap-10 mb-12 md:flex-row">
-                <flux:card class="w-full">
+        <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">{{__('client.products.total-product')}}</flux:heading>
             <flux:text class="mt-2">{{$this->products->total()}}</flux:text>
         </flux:card>
-                <flux:card class="w-full">
-            <flux:heading class="flex items-center gap-2">{{__('client.products.discount-product')}}</flux:heading>
-            <flux:text class="mt-2">{{$this->discountCount()}}</flux:text>
-        </flux:card>
-                <flux:card class="w-full">
+        <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">{{__('client.products.bestseller-product')}}</flux:heading>
             {{--        TODO meilleurs ventes                <flux:text class="mt-2">{{}}</flux:text>--}}
         </flux:card>
-                <flux:card class="w-full">
+        <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">{{__('client.products.lowStock-product')}}</flux:heading>
             <flux:text class="mt-2">{{$this->veryLowStockCount()}}</flux:text>
         </flux:card>
 
     </div>
-    <div class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
+    <div
+        class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
         <div class="mb-4 flex flex-col gap-4 justify-between sm:flex-row">
             <flux:heading size="l">{{__('commons.pageName.admin.admin.stocks')}}</flux:heading>
             <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap md:flex-nowrap">
                 <flux:select wire:model.live="category" class="sm:w-5/12">
-                    <flux:select.option value="">{{__('client.products.forms.category.placeholder')}}</flux:select.option>
+                    <flux:select.option
+                        value="">{{__('client.products.forms.category.placeholder')}}</flux:select.option>
                     @foreach($this->categories as $key => $categories)
                         <flux:select.option
                             value="{{$categories->id}}">{{__('client.products.categories.'.$categories->id)}}</flux:select.option>
@@ -63,7 +61,8 @@
                         <flux:table.cell>
                             <div class="w-9 h-9 rounded">
                                 @if($product->picture_path == 'images/missing-product.webp')
-                                    <img src="{{asset($product->picture_path)}}" alt="{{$product->name}}" class="w-full h-full object-cover rounded">
+                                    <img src="{{asset($product->picture_path)}}" alt="{{$product->name}}"
+                                         class="w-full h-full object-cover rounded">
                                 @else
                                     <img
                                         src="{{ $product->pictureUrl(600) }}"
@@ -74,7 +73,8 @@
                             </div>
                         </flux:table.cell>
                         <flux:table.cell>
-                            <a href="{{ route('client.stock.show', $product->id) }}" class="text-accent hover:text-accent-content">
+                            <a href="{{ route('client.stock.show', $product->id) }}"
+                               class="text-accent hover:text-accent-content">
                                 {{$product->name}}
                             </a>
                         </flux:table.cell>
@@ -98,10 +98,12 @@
                                     <flux:icon.ellipsis-horizontal class="text-accent hover:text-accent-content"/>
                                 </flux:button>
                                 <flux:menu>
-                                    <a href="{{route('client.stock.show', $product->id)}}" class="text-accent hover:text-accent-content">
+                                    <a href="{{route('client.stock.show', $product->id)}}"
+                                       class="text-accent hover:text-accent-content">
                                         <flux:menu.item>{{__('client.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
-                                    <flux:menu.item wire:click="delete({{$product}})" class="text-accent hover:text-accent-content"
+                                    <flux:menu.item wire:click="delete({{$product}})"
+                                                    class="text-accent hover:text-accent-content"
                                                     wire:confirm="{{__('client.products.delete-confirm', ['name' => $product->user_name])}}">{{__('client.commons.buttons.delete')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:dropdown>
