@@ -144,13 +144,18 @@ class Catalogues extends PicklioComponent
     #[Computed]
     public function cartItems()
     {
-        $cart = $this->getCartByAccount(
-            $this->userConnected->account->id
-        );
-        return $cart->orderItems()
-            ->select('product_id', 'quantity')
-            ->get()
-            ->keyBy('product_id');
+        if (!empty($this->userConnected->account)) {
+            $cart = $this->getCartByAccount(
+                $this->userConnected->account->id
+            );
+            if (!empty($cart)) {
+                return $cart->orderItems()
+                    ->select('product_id', 'quantity')
+                    ->get()
+                    ->keyBy('product_id');
+            }
+            return null;
+        }
     }
 
     public function render()
