@@ -28,10 +28,10 @@ class ShopCard extends PicklioComponent
     public $quantity = 0;
 
     public $capacity;
-
+    public $cartItem;
     public $stockAvailable;
 
-    public function mount($price, Product $product, $card): void
+    public function mount($price, Product $product, $card, $cartItem = null): void
     {
         $this->price = $price;
         $this->productId = $product->id;
@@ -40,11 +40,9 @@ class ShopCard extends PicklioComponent
         $this->capacity = $product->productCategory->capacity;
         $this->stockAvailable = $product->stock->availableQuantity;
         if (! empty($this->userConnected)) {
-            $this->account = $this->userConnected->account;
-            $item = $this->isAccountCart();
-            if ($item) {
-                $this->quantity = $item->quantity;
-                $this->stockAvailable += $item->quantity;
+            if ($cartItem) {
+                $this->quantity = $cartItem->quantity;
+                $this->stockAvailable += $cartItem->quantity;
             }
         }
     }

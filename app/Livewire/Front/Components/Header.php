@@ -31,9 +31,7 @@ class Header extends PicklioComponent
     public function cartProductNumber()
     {
         if (!empty($this->userConnected)) {
-            $order = Order::where('account_id', $this->userConnected->account->id)
-                ->where('status', Order::INITCART)
-                ->first();
+            $order = $this->getCartByAccount($this->userConnected->account->id);
             if (!empty($order)) {
                 return OrderItem::where('order_id', $order->id)
                     ->count();

@@ -33,6 +33,8 @@
             :price="$price"
             :product="$product"
             :card="true"
+            :cart-item="$cartItem ?? null"
+
         />
     </div>
 </div>

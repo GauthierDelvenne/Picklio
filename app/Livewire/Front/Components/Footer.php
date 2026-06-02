@@ -16,7 +16,7 @@ class Footer extends PicklioComponent
 
     public function mount(): void
     {
-        $this->warehouse = Warehouse::first();
+        $this->warehouse = cache()->remember('warehouse', 3600, fn() => Warehouse::first());
 
         $this->open = Carbon::parse($this->warehouse->opening_time)->format('H\hi');
         $this->close = Carbon::parse($this->warehouse->closing_time)->format('H\hi');
