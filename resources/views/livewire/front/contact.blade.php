@@ -1,23 +1,23 @@
 <div class="contact">
-    <section class="contact__informationContainer paddingMedia">
+    <section class="contact__informationContainer paddingMedia"  itemscope itemtype="https://schema.org/LocalBusiness">
         <div class="contact__informationContainer__card">
             <h2 class="contact__informationContainer__card__title">{{__('front.contact.informationContainer.title')}}</h2>
             <p class="contact__informationContainer__card__text">{{__('front.contact.informationContainer.text')}}</p>
             <ul class="contact__informationContainer__card__liste">
-                <li class="contact__informationContainer__card__liste__item">
+                <li class="contact__informationContainer__card__liste__item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                     <x-svg.svg title="{{__('svgTitle.address')}}" class="contact__informationContainer__card__liste__item__link__svg" name="address"/>
-                    {{$warehouse->address}}
-                    {{$warehouse->postal_code}}
+                    <span itemprop="streetAddress">{{$warehouse->address}}</span>
+                    <span itemprop="postalCode">{{$warehouse->postal_code}}
                 </li>
                 <li class="contact__informationContainer__card__liste__item"><a
                         class="contact__informationContainer__card__liste__item__link"
-                        href="tel:{{$warehouse->phone}}">
+                        href="tel:{{$warehouse->phone}}" itemprop="telephone">
                         <x-svg.svg  title="{{__('svgTitle.phone')}}" class="contact__informationContainer__card__liste__item__link__svg" name="phone"/>
                         {{$warehouse->phone}}</a>
                 </li>
                 <li class="contact__informationContainer__card__liste__item"><a
                         class="contact__informationContainer__card__liste__item__link"
-                        href="mailto:{{$warehouse->email}}">
+                        href="mailto:{{$warehouse->email}}" itemprop="email">
                         <x-svg.svg title="{{__('svgTitle.mail')}}" class="contact__informationContainer__card__liste__item__link__svg" name="mail"/>
                         {{$warehouse->email}}</a>
                 </li>

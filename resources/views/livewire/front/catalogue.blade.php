@@ -120,9 +120,10 @@
             </div>
         </div>
         <div class="catalogue__productSection__productContainer">
-            <div class="catalogue__productSection__productContainer__product">
+            <div class="catalogue__productSection__productContainer__product" itemscope itemtype="https://schema.org/ItemList">
+                <meta itemprop="name" content="{{__('front.catalogue.productSection.title')}}" />
                 @forelse($this->products as $product)
-                    <div wire:click="goToProduct({{ $product->id }})" wire:key="product-{{ $product->id }}">
+                    <div wire:click="goToProduct({{ $product->id }})" wire:key="product-{{ $product->id }}" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <x-front.productCard :img="$product"
                                              category="{!!  __('client.products.categories.'.$product->product_category_id)!!}"
                                              is-new="{{$product->created_at > now()->subDays(7) ? __('words.new') : ''}}"

@@ -1,9 +1,13 @@
 <div class="shopCard" x-data="{ show: false, max: false, register: false }"
      x-on:add-product.window="show = true; setTimeout(() => show = false, 3000)"
      x-on:max-product.window="max = true; setTimeout(() => max = false, 3000)"
-     x-on:register.window="if ($event.detail.productId === {{ $this->productId }}) register = true">
+     x-on:register.window="if ($event.detail.productId === {{ $this->productId }}) register = true"
+     itemscope itemtype="https://schema.org/Offer">
+    <meta itemprop="priceCurrency" content="EUR"/>
     <div class="shopCard__priceContainer">
-        <p class="shopCard__priceContainer__price @if($this->card) shopCard__priceContainer__price--card  @endif">{{$this->price}} @if($this->basket)
+        <p class="shopCard__priceContainer__price @if($this->card) shopCard__priceContainer__price--card  @endif"
+           itemprop="price">{{$this->price}}
+            @if($this->basket)
                 <span class="shopCard__priceContainer__price__span">{{$this->product->priceFormatted}}/u</span>
             @endif
         </p>
@@ -12,7 +16,8 @@
             <x-svg.svg title="{{__('svgTitle.minus')}}" wire:click="decrement"
                        class="shopCard__priceContainer__selectContainer__svg"
                        name="minus"/>
-            <input aria-label="{{__('admin.stocks.forms.quantity.attribute')}}" wire:model.live="quantity" type="number" name="itemNumber" id="itemNumber-{{ $this->productId }}"
+            <input aria-label="{{__('admin.stocks.forms.quantity.attribute')}}" wire:model.live="quantity" type="number"
+                   name="itemNumber" id="itemNumber-{{ $this->productId }}"
                    placeholder="00"
                    class="shopCard__priceContainer__selectContainer__value">
             @if($quantity !== $stockAvailable)
@@ -25,9 +30,9 @@
         </div>
         @if($this->card && !$this->basket)
             @if($this->quantity != 0)
-            <x-svg.svg title="{{__('svgTitle.basket')}}" wire:click="addToCart" x-on:click.prevent.stop
-                       class="shopCard__priceContainer__svg no-card-hover"
-                       name="basket"/>
+                <x-svg.svg title="{{__('svgTitle.basket')}}" wire:click="addToCart" x-on:click.prevent.stop
+                           class="shopCard__priceContainer__svg no-card-hover"
+                           name="basket"/>
             @endif
         @endif
     </div>
@@ -64,20 +69,25 @@
         x-cloak>
         <div class="modal shopCard__modalContainer__modal">
             <button aria-label="{{__('svgTitle.close')}}" type="button" x-on:click="register = false">
-            <x-svg.svg title="{{__('svgTitle.close')}}"  class="shopCard__modalContainer__modal__svg" name="plus"/>
+                <x-svg.svg title="{{__('svgTitle.close')}}" class="shopCard__modalContainer__modal__svg" name="plus"/>
             </button>
             <div class="shopCard__modalContainer__modal__titleContainer">
-            <x-svg.svg title="{{__('svgTitle.circle-danger')}}" name="circle-danger" class="shopCard__modalContainer__modal__titleContainer__svg"/>
-            <p class="shopCard__modalContainer__modal__titleContainer__title">{{__('front.order.toast.register.success')}}</p>
+                <x-svg.svg title="{{__('svgTitle.circle-danger')}}" name="circle-danger"
+                           class="shopCard__modalContainer__modal__titleContainer__svg"/>
+                <p class="shopCard__modalContainer__modal__titleContainer__title">{{__('front.order.toast.register.success')}}</p>
             </div>
             <div class="shopCard__modalContainer__modal__buttonContainer">
-                <a href="{{route('auth.login')}}" class="button button--icon  shopCard__modalContainer__modal__buttonContainer__button">
+                <a href="{{route('auth.login')}}"
+                   class="button button--icon  shopCard__modalContainer__modal__buttonContainer__button">
                     {{__('auth.form.button.login')}}
-                    <x-svg.svg title="{{__('svgTitle.arrow')}}" class=" shopCard__modalContainer__modal__buttonContainer__button__svg" name="arrow"/>
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                               class=" shopCard__modalContainer__modal__buttonContainer__button__svg" name="arrow"/>
                 </a>
-                <a href="{{route('auth.register')}}" class="button button--icon  shopCard__modalContainer__modal__buttonContainer__button">
+                <a href="{{route('auth.register')}}"
+                   class="button button--icon  shopCard__modalContainer__modal__buttonContainer__button">
                     {{__('auth.form.button.register')}}
-                    <x-svg.svg title="{{__('svgTitle.arrow')}}" class=" shopCard__modalContainer__modal__buttonContainer__button__svg" name="arrow"/>
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                               class=" shopCard__modalContainer__modal__buttonContainer__button__svg" name="arrow"/>
                 </a>
             </div>
         </div>

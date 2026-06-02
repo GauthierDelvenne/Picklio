@@ -1,4 +1,4 @@
-<section class="productList paddingMedia">
+<section class="productList paddingMedia" itemscope itemtype="https://schema.org/ItemList">
     <div class="productList__titleContainer">
         <h2 class="productList__titleContainer__title">{{$title}}</h2>
         <a href="{{route('front.catalogue.index')}}"
@@ -8,7 +8,7 @@
     </div>
     <div class="productList__productContainer">
         @foreach($products as $product)
-            <div wire:click="goToProduct({{ $product->id }})" wire:key="product-{{ $product->id }}">
+            <div wire:click="goToProduct({{ $product->id }})" wire:key="product-{{ $product->id }}" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <x-front.productCard :img="$product"
                                      category="{!!  __('client.products.categories.'.$product->product_category_id)!!}"
                                      is-new="{{$product->created_at > now()->subDays(7) ? __('words.new') : ''}}"
