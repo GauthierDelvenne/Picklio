@@ -1,9 +1,13 @@
 <div class="shopCard" x-data="{ show: false, max: false, register: false }"
      x-on:add-product.window="show = true; setTimeout(() => show = false, 3000)"
      x-on:max-product.window="max = true; setTimeout(() => max = false, 3000)"
-     x-on:register.window="if ($event.detail.productId === {{ $this->productId }}) register = true">
+     x-on:register.window="if ($event.detail.productId === {{ $this->productId }}) register = true"
+     itemscope itemtype="https://schema.org/Offer">
+    <meta itemprop="priceCurrency" content="EUR"/>
     <div class="shopCard__priceContainer">
-        <p class="shopCard__priceContainer__price @if($this->card) shopCard__priceContainer__price--card  @endif">{{$this->price}} @if($this->basket)
+        <p class="shopCard__priceContainer__price @if($this->card) shopCard__priceContainer__price--card  @endif"
+           itemprop="price">{{$this->price}}
+            @if($this->basket)
                 <span class="shopCard__priceContainer__price__span">{{$this->product->priceFormatted}}/u</span>
             @endif
         </p>
@@ -25,8 +29,7 @@
             @endif
         </div>
         @if($this->card && !$this->basket)
-            <div
-                class="shopCard__priceContainer__svgContainer @if($this->quantity != 0) shopCard__priceContainer__svgContainer--active @endif no-card-hover">
+            <div class="shopCard__priceContainer__svgContainer @if($this->quantity != 0) shopCard__priceContainer__svgContainer--active @endif no-card-hover">
                 <x-svg.svg title="{{__('svgTitle.basket')}}" wire:click="addToCart" x-on:click.prevent.stop
                            class="shopCard__priceContainer__svgContainer__svg no-card-hover"
                            name="basket"/>
@@ -65,6 +68,7 @@
         class="modal--overlay shopCard__modalContainer"
         x-cloak>
         <div class="modal shopCard__modalContainer__modal">
+
             <button aria-label="{{__('svgTitle.close')}}" type="button" x-on:click="register = false"
                     x-on:click.prevent.stop>
                 <x-svg.svg title="{{__('svgTitle.close')}}" class="shopCard__modalContainer__modal__svg" name="plus"/>
