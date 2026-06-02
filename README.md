@@ -4,6 +4,8 @@ Picklio est une application web qui centralise les produits de commerçants loca
 
 > Projet de fin d'études — Bachelier en Techniques Infographiques, option Web.
 
+> Lien vers le site en ligne -> https://picklio.gauthier-delvenne.be/fr/accueil
+
 ---
 
 ## 📚 Documentation

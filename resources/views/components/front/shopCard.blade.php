@@ -29,11 +29,11 @@
             @endif
         </div>
         @if($this->card && !$this->basket)
-            @if($this->quantity != 0)
+            <div class="shopCard__priceContainer__svgContainer @if($this->quantity != 0) shopCard__priceContainer__svgContainer--active @endif no-card-hover">
                 <x-svg.svg title="{{__('svgTitle.basket')}}" wire:click="addToCart" x-on:click.prevent.stop
-                           class="shopCard__priceContainer__svg no-card-hover"
+                           class="shopCard__priceContainer__svgContainer__svg no-card-hover"
                            name="basket"/>
-            @endif
+            </div>
         @endif
     </div>
     @if(!$this->card)
@@ -68,7 +68,9 @@
         class="modal--overlay shopCard__modalContainer"
         x-cloak>
         <div class="modal shopCard__modalContainer__modal">
-            <button aria-label="{{__('svgTitle.close')}}" type="button" x-on:click="register = false">
+
+            <button aria-label="{{__('svgTitle.close')}}" type="button" x-on:click="register = false"
+                    x-on:click.prevent.stop>
                 <x-svg.svg title="{{__('svgTitle.close')}}" class="shopCard__modalContainer__modal__svg" name="plus"/>
             </button>
             <div class="shopCard__modalContainer__modal__titleContainer">

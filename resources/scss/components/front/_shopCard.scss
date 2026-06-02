@@ -36,7 +36,7 @@
             margin-left: auto;
             align-items: center;
             z-index: 5;
-            transition: background-color ease-in 0.2s;
+            transition: background-color ease-in 0.2s, margin-right 0.3s ease;
 
             &__svg {
                 width: 15px;
@@ -90,17 +90,33 @@
             }
         }
 
-        &__svg {
-            width: 29px;
-            height: 29px;
-            padding: $space-1;
-            transition: transform ease-in 0.3s, fill ease-in 0.3s;
+        &__svgContainer {
+            display: flex;
+            padding: $space-2;
+            margin: -$space-2;
+            overflow: hidden;
+            max-width: 0;
+            opacity: 0;
+            transition: opacity ease-in 0.3s, max-width ease-in 0.3s;
 
-            &:hover {
-                transform: scale(1.2);
-                fill: $tangerine-600;
-                cursor: pointer;
+            &--active {
+                max-width: 50px;
+                opacity: 1;
+                transition: opacity ease-in 0.3s, max-width ease-in 0.3s;
+            }
 
+            &__svg {
+                width: 29px;
+                height: 29px;
+                padding: $space-1;
+                transition: transform ease-in 0.3s, fill ease-in 0.3s;
+
+                &:hover {
+                    transform: scale(1.2);
+                    fill: $tangerine-600;
+                    cursor: pointer;
+
+                }
             }
         }
     }

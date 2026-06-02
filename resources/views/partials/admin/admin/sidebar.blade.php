@@ -3,7 +3,7 @@
                   class="bg-zinc-50 h-screen dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
         <flux:sidebar.header>
             <flux:sidebar.brand
-                href="{{route('admin.dashboard')}}"
+                href="{{route('client.dashboard')}}"
                 logo="https://fluxui.dev/img/demo/logo.png"
                 logo:dark="https://fluxui.dev/img/demo/dark-mode-logo.png"
                 name="Picklio"

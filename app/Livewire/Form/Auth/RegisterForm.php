@@ -49,7 +49,7 @@ class RegisterForm extends Form
         return [
             'firstname' => 'required|string',
             'lastname' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|string|min:8|regex:/[a-z]/|regex:/[A-Z]/',
             'role' => 'required|integer',
         ];

@@ -11,11 +11,11 @@
     }
 
     &__title {
-        font-size: $text-xsm;
-        font-weight: 600;
+        font-size: $text-sm;
+        font-weight: 800;
         color: $error;
         @include laptop {
-            font-size: $text-sm;
+            font-size: $text-base;
         }
     }
 }
