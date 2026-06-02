@@ -40,6 +40,7 @@ class ShopCard extends PicklioComponent
         $this->capacity = $product->productCategory->capacity;
         $this->stockAvailable = $product->stock->availableQuantity;
         if (! empty($this->userConnected)) {
+        $this->account = $this->userConnected->account;
             if ($cartItem) {
                 $this->quantity = $cartItem->quantity;
                 $this->stockAvailable += $cartItem->quantity;
