@@ -75,6 +75,7 @@ class Slot extends PicklioComponent
     public function createOrder()
     {
         if ($this->form->createOrder()) {
+            $this->order->refresh();
             Mail::to($this->order->account->email)->send(new SuccessOrderMail($this->order));
             $this->redirectRoute('front.order-confirmation', ['order' => $this->order]);
         }
