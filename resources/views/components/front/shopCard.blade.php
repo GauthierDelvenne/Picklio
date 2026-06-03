@@ -38,30 +38,12 @@
     </div>
     @if(!$this->card)
         <div class="shopCard__buttonContainer">
-            <button wire:click="addToCart"
-                    class="button button--icon shopCard__buttonContainer__button">
-                {{__('front.product.button')}}
-                <x-svg.svg title="{{__('svgTitle.arrow')}}" class="shopCard__buttonContainer__button__svg"
-                           name="arrow"/>
-            </button>
+            <x-front.button-cta wire-click="addToCart" class="shopCard__buttonContainer__button" :title="__('front.product.button')"/>
         </div>
     @endif
-    <div
-        x-show="show"
-        x-transition
-        class="toast"
-        x-cloak
-    >
-        {{__('front.order.toast.add.success')}}
-    </div>
-    <div
-        x-show="max"
-        x-transition
-        class="toast"
-        x-cloak
-    >
-        {{__('front.order.toast.max.success')}}
-    </div>
+    <x-front.toast show="show" :title="__('front.order.toast.add.success')"/>
+    <x-front.toast show="max" :title="__('front.order.toast.max.success')"/>
+
     <div
         x-show="register"
         x-transition

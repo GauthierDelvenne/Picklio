@@ -15,53 +15,53 @@ class ProductCategory extends Model
     /**
      * CONSTANTS
      */
-    const ARTISAN_BAKERY = 1;
+    const BELGIAN_CRAFT_BEERS = 1;
 
-    const LOCAL_BUTCHER_CHARCUTERIE = 2;
+    const HANDMADE_JEWELRY = 2;
 
-    const BELGIAN_CHEESE_DAIRY = 3;
+    const LOCAL_BUTCHER_CHARCUTERIE = 3;
 
-    const SEASONAL_FRUITS_VEGETABLES = 4;
+    const ARTISAN_CANDLES_SCENTS = 4;
 
-    const FINE_GROCERY_TERROIR = 5;
+    const ARTISAN_BAKERY = 5;
 
-    const BELGIAN_CRAFT_BEERS = 6;
+    const ARTISAN_SHOES = 6;
 
-    const LOCAL_WINES_SPIRITS = 7;
+    const BELGIAN_CHOCOLATES = 7;
 
-    const BELGIAN_CHOCOLATES = 8;
+    const ARTISAN_CREATIONS = 8;
 
-    const CATERING_TERROIR_CUISINE = 9;
+    const LOCAL_ART_DECORATION = 9;
 
-    const LOCAL_ORGANIC_PRODUCERS = 10;
+    const FINE_GROCERY_TERROIR = 10;
 
-    const ARTISAN_CREATIONS = 11;
+    const BELGIAN_CHEESE_DAIRY = 11;
 
-    const POTTERY_CERAMICS = 12;
+    const SEASONAL_FRUITS_VEGETABLES = 12;
 
-    const HANDMADE_JEWELRY = 13;
+    const LOCAL_HOME_LINEN = 13;
 
-    const ARTISAN_SOAPS_COSMETICS = 14;
+    const LOCAL_LEATHER_GOODS = 14;
 
-    const ARTISAN_CANDLES_SCENTS = 15;
+    const FURNITURE_INTERIOR_DECO = 15;
 
-    const LOCAL_ART_DECORATION = 16;
+    const POTTERY_CERAMICS = 16;
 
-    const LOCAL_TEXTILE_SEWING = 17;
+    const LOCAL_ORGANIC_PRODUCERS = 17;
 
-    const LOCAL_FASHION_CLOTHING = 18;
+    const ARTISAN_SOAPS_COSMETICS = 18;
 
-    const ARTISAN_SHOES = 19;
+    const NATURAL_ORGANIC_CARE = 19;
 
-    const LOCAL_LEATHER_GOODS = 20;
+    const LOCAL_TEXTILE_SEWING = 20;
 
-    const LOCAL_HOME_LINEN = 21;
+    const CATERING_TERROIR_CUISINE = 21;
 
     const KITCHEN_UTENSILS = 22;
 
-    const FURNITURE_INTERIOR_DECO = 23;
+    const LOCAL_FASHION_CLOTHING = 23;
 
-    const NATURAL_ORGANIC_CARE = 24;
+    const LOCAL_WINES_SPIRITS = 24;
 
     /**
      * RELATIONS

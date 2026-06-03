@@ -1,0 +1,20 @@
+.faq {
+    &__title {
+        font-weight: 600;
+        @include laptop-l {
+            font-size: $text-2xl;
+        }
+        @include desktop-l {
+            font-size: $text-3xl;
+        }
+    }
+
+    &__text {
+        @include laptop-l {
+            font-size: $text-xl;
+        }
+        @include desktop-l {
+            font-size: $text-2xl;
+        }
+    }
+}

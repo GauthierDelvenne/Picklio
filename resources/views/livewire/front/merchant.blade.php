@@ -17,99 +17,17 @@
             </p>
             <a href="#form"
                class="button button--icon merchant__merchantContainer__contentContainer__button"> {{__('front.merchant.button')}}
-                <x-svg.svg title="{{__('svgTitle.arrow')}}" class="merchant__merchantContainer__contentContainer__button__svg" name="arrow"/>
+                <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                           class="merchant__merchantContainer__contentContainer__button__svg" name="arrow"/>
             </a></div>
     </section>
     <section class="merchant__cardContainer paddingMedia">
         <h2 class="merchant__cardContainer__title">{{__('front.merchant.cardContainer.title')}}</h2>
         <div x-data="{ active: 1 }" class="merchant__cardContainer__container">
-            <article :class="{ 'active': active === 1 }" class="merchant__cardContainer__container__itemContainer">
-                <div class="merchant__cardContainer__container__itemContainer__titleContainer">
-                    <h3 class="merchant__cardContainer__container__itemContainer__titleContainer__title">{{__('front.merchant.cardContainer.1.title')}}</h3>
-                    <div :class="{ 'active': active === 1 }"  x-on:click="active = active === 1 ? null : 1"
-                         class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
-                                   class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
-                                   name="arrow"/>
-                    </div>
-                </div>
-                <div x-cloak x-show="active === 1"
-                     class="merchant__cardContainer__container__itemContainer__contentContainer">
-                    <p class="merchant__cardContainer__container__itemContainer__contentContainer__title">{!!__('front.merchant.cardContainer.1.content.title')!!}</p>
-                    <ul class="merchant__cardContainer__container__itemContainer__contentContainer__liste">
-                        <li class="merchant__cardContainer__container__itemContainer__contentContainer__liste__item">{{__('front.merchant.cardContainer.1.content.ulItem.1')}}</li>
-                        <li class="merchant__cardContainer__container__itemContainer__contentContainer__liste__item">{{__('front.merchant.cardContainer.1.content.ulItem.2')}}</li>
-                        <li class="merchant__cardContainer__container__itemContainer__contentContainer__liste__item">{{__('front.merchant.cardContainer.1.content.ulItem.3')}}</li>
-                    </ul>
-                    <p class="merchant__cardContainer__container__itemContainer__contentContainer__content">{{__('front.merchant.cardContainer.1.content.endText')}}</p>
-                </div>
-            </article>
-            <article :class="{ 'active': active === 2 }" class="merchant__cardContainer__container__itemContainer">
-                <div class="merchant__cardContainer__container__itemContainer__titleContainer">
-                    <h3 class="merchant__cardContainer__container__itemContainer__titleContainer__title">{{__('front.merchant.cardContainer.2.title')}}</h3>
-                    <div :class="{ 'active': active === 2 }" x-on:click="active = active === 2 ? null : 2"
-                         class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
-
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
-                                   class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
-                                   name="arrow"/>
-                    </div>
-                </div>
-                <div x-cloak x-show="active === 2"
-                     class="merchant__cardContainer__container__itemContainer__contentContainer">
-                    <p class="merchant__cardContainer__container__itemContainer__contentContainer__title">{!!__('front.merchant.cardContainer.2.content.title')!!}</p>
-                    <ul class="merchant__cardContainer__container__itemContainer__contentContainer__liste">
-                        <li class="merchant__cardContainer__container__itemContainer__contentContainer__liste__item">{{__('front.merchant.cardContainer.2.content.ulItem.1')}}</li>
-                        <li class="merchant__cardContainer__container__itemContainer__contentContainer__liste__item">{{__('front.merchant.cardContainer.2.content.ulItem.2')}}</li>
-                        <li class="merchant__cardContainer__container__itemContainer__contentContainer__liste__item">{{__('front.merchant.cardContainer.2.content.ulItem.3')}}</li>
-                        <li class="merchant__cardContainer__container__itemContainer__contentContainer__liste__item">{{__('front.merchant.cardContainer.2.content.ulItem.4')}}</li>
-                    </ul>
-                    <p class="merchant__cardContainer__container__itemContainer__contentContainer__content">{{__('front.merchant.cardContainer.2.content.endText')}}</p>
-                </div>
-            </article>
-            <article :class="{ 'active': active === 3 }" class="merchant__cardContainer__container__itemContainer">
-                <div class="merchant__cardContainer__container__itemContainer__titleContainer">
-                    <h3 class="merchant__cardContainer__container__itemContainer__titleContainer__title">{{__('front.merchant.cardContainer.3.title')}}</h3>
-                    <div :class="{ 'active': active === 3 }" x-on:click="active = active === 3 ? null : 3"
-                         class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
-
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
-                                   class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
-                                   name="arrow"/>
-                    </div>
-                </div>
-                <div x-cloak x-show="active === 3"
-                     class="merchant__cardContainer__container__itemContainer__contentContainer">
-                    <p class="merchant__cardContainer__container__itemContainer__contentContainer__title">{!!__('front.merchant.cardContainer.3.content.title')!!}</p>
-                    <ul class="merchant__cardContainer__container__itemContainer__contentContainer__liste">
-                        <li class="merchant__cardContainer__container__itemContainer__contentContainer__liste__item">{{__('front.merchant.cardContainer.3.content.ulItem.1')}}</li>
-                        <li class="merchant__cardContainer__container__itemContainer__contentContainer__liste__item">{{__('front.merchant.cardContainer.3.content.ulItem.2')}}</li>
-                        <li class="merchant__cardContainer__container__itemContainer__contentContainer__liste__item">{{__('front.merchant.cardContainer.3.content.ulItem.3')}}</li>
-                    </ul>
-                    <p class="merchant__cardContainer__container__itemContainer__contentContainer__content">{{__('front.merchant.cardContainer.3.content.endText')}}</p>
-                </div>
-            </article>
-            <article :class="{ 'active': active === 4 }" class="merchant__cardContainer__container__itemContainer">
-                <div class="merchant__cardContainer__container__itemContainer__titleContainer">
-                    <h3 class="merchant__cardContainer__container__itemContainer__titleContainer__title">{{__('front.merchant.cardContainer.4.title')}}</h3>
-                    <div :class="{ 'active': active === 4 }" x-on:click="active = active === 4 ? null : 4"
-                         class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer">
-
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
-                                   class="merchant__cardContainer__container__itemContainer__titleContainer__svgContainer__svg"
-                                   name="arrow"/>
-                    </div>
-                </div>
-                <div x-cloak x-show="active === 4"
-                     class="merchant__cardContainer__container__itemContainer__contentContainer">
-                    <p class="merchant__cardContainer__container__itemContainer__contentContainer__title">{!!__('front.merchant.cardContainer.4.content.title')!!}</p>
-                    <ul class="merchant__cardContainer__container__itemContainer__contentContainer__liste">
-                        <li class="merchant__cardContainer__container__itemContainer__contentContainer__liste__item">{{__('front.merchant.cardContainer.4.content.ulItem.1')}}</li>
-                        <li class="merchant__cardContainer__container__itemContainer__contentContainer__liste__item">{{__('front.merchant.cardContainer.4.content.ulItem.2')}}</li>
-                        <li class="merchant__cardContainer__container__itemContainer__contentContainer__liste__item">{{__('front.merchant.cardContainer.4.content.ulItem.3')}}</li>
-                    </ul>
-                </div>
-            </article>
+            <x-front.accordionItem position="1"/>
+            <x-front.accordionItem position="2"/>
+            <x-front.accordionItem position="3"/>
+            <x-front.accordionItem position="4"/>
         </div>
     </section>
     <section class="merchant__partContainer paddingMedia">
@@ -125,34 +43,16 @@
             </div>
             <div class="merchant__partContainer__cardContainer__exampleContainer">
                 <p class="merchant__partContainer__cardContainer__exampleContainer__title">{{__('front.merchant.partContainer.exampleContainer.title')}}</p>
-                <div class="merchant__partContainer__cardContainer__exampleContainer__example">
-                    <p class="merchant__partContainer__cardContainer__exampleContainer__example__text">{{__('front.merchant.partContainer.exampleContainer.example.1.text')}}</p>
-                    <p class="merchant__partContainer__cardContainer__exampleContainer__example__price">{{__('front.merchant.partContainer.exampleContainer.example.1.price')}}</p>
-                </div>
-                <div class="merchant__partContainer__cardContainer__exampleContainer__example">
-                    <p class="merchant__partContainer__cardContainer__exampleContainer__example__text">{{__('front.merchant.partContainer.exampleContainer.example.2.text')}}</p>
-                    <p class="merchant__partContainer__cardContainer__exampleContainer__example__price">{{__('front.merchant.partContainer.exampleContainer.example.2.price')}}</p>
-                </div>
-                <div class="merchant__partContainer__cardContainer__exampleContainer__example">
-                    <p class="merchant__partContainer__cardContainer__exampleContainer__example__text">{{__('front.merchant.partContainer.exampleContainer.example.3.text')}}</p>
-                    <p class="merchant__partContainer__cardContainer__exampleContainer__example__price">{{__('front.merchant.partContainer.exampleContainer.example.3.price')}}</p>
-                </div>
+                <x-front.titleTexteContainer number="1" class="example"/>
+                <x-front.titleTexteContainer number="2" class="example"/>
+                <x-front.titleTexteContainer number="3" class="example"/>
             </div>
         </div>
-        <div class="merchant__partContainer__textContainer">
-            <p class="merchant__partContainer__textContainer__title">{{__('front.merchant.partContainer.textContainer.1.title')}}</p>
-            <p class="merchant__partContainer__textContainer__text">{{__('front.merchant.partContainer.textContainer.1.text')}}</p>
-        </div>
+        <x-front.titleTexteContainer number="1" class="faq"/>
         <hr>
-        <div class="merchant__partContainer__textContainer">
-            <p class="merchant__partContainer__textContainer__title">{{__('front.merchant.partContainer.textContainer.2.title')}}</p>
-            <p class="merchant__partContainer__textContainer__text">{{__('front.merchant.partContainer.textContainer.2.text')}}</p>
-        </div>
+        <x-front.titleTexteContainer number="2" class="faq"/>
         <hr>
-        <div class="merchant__partContainer__textContainer">
-            <p class="merchant__partContainer__textContainer__title">{{__('front.merchant.partContainer.textContainer.3.title')}}</p>
-            <p class="merchant__partContainer__textContainer__text">{{__('front.merchant.partContainer.textContainer.3.text')}}</p>
-        </div>
+        <x-front.titleTexteContainer number="3" class="faq"/>
     </section>
     <section class="merchant__contactSection paddingMedia" itemscope itemtype="https://schema.org/LocalBusiness">
         <h2 class="merchant__contactSection__title">{{__('front.merchant.contactSection.title')}}</h2>
@@ -160,7 +60,8 @@
             <div class="merchant__contactSection__blockContainer__informationContainer">
                 <p class="merchant__contactSection__blockContainer__informationContainer__title">{{__('front.merchant.contactSection.informationContainer.title')}}</p>
                 <p class="merchant__contactSection__blockContainer__informationContainer__content">{!!__('front.merchant.contactSection.informationContainer.content')!!}</p>
-                <p class="merchant__contactSection__blockContainer__informationContainer__info" itemprop="address">{!!__('front.merchant.contactSection.informationContainer.address')!!}</p>
+                <p class="merchant__contactSection__blockContainer__informationContainer__info"
+                   itemprop="address">{!!__('front.merchant.contactSection.informationContainer.address')!!}</p>
                 <p class="merchant__contactSection__blockContainer__informationContainer__info"><a
                         href="tel:{{$warehouse->phone}}" itemprop="telephone">{{$warehouse->phone}}</a></p>
                 <p class="merchant__contactSection__blockContainer__informationContainer__info"><a
@@ -253,22 +154,11 @@
                             @endforeach
                         </x-form.select>
                     </div>
-
-                    <button type="submit"
-                            class="button button--icon merchant__contactSection__blockContainer__formContainer__form__button">
-                        {{__('front.merchant.contactSection.contactContainer.form.button')}}
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}" class="merchant__contactSection__blockContainer__formContainer__form__button__svg"
-                                   name="arrow"/>
-                    </button>
+                    <x-form.button type="submit"
+                                   class="merchant__contactSection__blockContainer__formContainer__form__button"/>
                 </x-form.form>
-                <div
-                    x-show="show"
-                    x-transition
-                    class="toast"
-                    x-cloak
-                >
-                    {{__('front.merchant.contactSection.contactContainer.toast.create.success')}}
-                </div>
+                <x-front.toast show="show"
+                               :title="__('front.merchant.contactSection.contactContainer.toast.create.success')"/>
             </div>
         </div>
     </section>

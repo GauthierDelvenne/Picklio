@@ -9,121 +9,22 @@
         </h2>
         <div class="catalogue__productSection__filterContainer">
             <div class="catalogue__productSection__filterContainer__buttonContainer">
-                <button wire:click="sortByPrice"
-                        class="button button--icon button--filter catalogue__productSection__filterContainer__buttonContainer__button">
-                    @if($this->sortBy === 'price' && $this->sortDirection === 'asc')
-                        {{__('front.catalogue.productSection.priceFilter.ascending')}}
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
-                                   class="catalogue__productSection__filterContainer__buttonContainer__button__svg"
-                                   name="arrow"/>
-                    @elseif($this->sortBy === 'price' && $this->sortDirection === 'desc')
-                        {{__('front.catalogue.productSection.priceFilter.descending')}}
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
-                                   class="catalogue__productSection__filterContainer__buttonContainer__button__svg icon--desc"
-                                   name="arrow"/>
-                    @else
-                        {{__('front.catalogue.productSection.priceFilter.title')}}
-                    @endif
-                </button>
-                <button wire:click="sortByName"
-                        class="button button--icon button--filter catalogue__productSection__filterContainer__buttonContainer__button">
-                    @if($this->sortBy === 'name' && $this->sortDirection === 'asc')
-                        {{__('front.catalogue.productSection.nameFilter.nameAscending')}}
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
-                                   class="catalogue__productSection__filterContainer__buttonContainer__button__svg"
-                                   name="arrow"/>
-                    @elseif($this->sortBy === 'name' && $this->sortDirection === 'desc')
-                        {{__('front.catalogue.productSection.nameFilter.nameDescending')}}
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
-                                   class="catalogue__productSection__filterContainer__buttonContainer__button__svg icon--desc"
-                                   name="arrow"/>
-                    @else
-                        {{__('front.catalogue.productSection.nameFilter.title')}}
-                    @endif
-                </button>
+                <x-form.sort wire-click="sortByPrice" sort-by="price"/>
+                <x-form.sort wire-click="sortByName" sort-by="name"/>
             </div>
             <div class="catalogue__productSection__filterContainer__otherFilterContainer">
-                <div class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper"
-                     x-data="{ open: false }">
-                    <button
-                        @click="open = !open"
-                        class="button button--filter catalogue__productSection__filterContainer__otherFilterContainer__wrapper__button">
-                        @if(count($merchant) > 0)
-                            {{ count($merchant)  }} {{ __('front.catalogue.productSection.merchantFilter') }}
-                        @else
-                            {{ __('front.catalogue.productSection.merchantFilter') }}
-                        @endif
-                    </button>
-
-                    <div x-show="open" x-cloak @click.outside="open = false"
-                         class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer">
-                        <div
-                            class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__searchContainer">
-                            <input wire:model.live.debounce.500ms="searchMerchant" type="search" name="searchMerchant"
-                                   id="searchMerchant"
-                                   aria-label="{{__('front.catalogue.productSection.searchFilter')}}"
-                                   placeholder="{{__('front.catalogue.productSection.searchFilter')}}"
-                                   class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__searchContainer__search">
-                        </div>
-                        @foreach($this->merchants as $mer)
-                            <div
-                                class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__item">
-
-                                <input type="checkbox" id="merchant-{{ $mer->id }}" name="merchant-{{ $mer->id }}"
-                                       wire:model.live="merchant"
-                                       value="{{ $mer->id }}"
-                                       class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__item__input">
-                                <label for="merchant-{{ $mer->id }}"
-                                       class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__item__label">
-                                    {{$mer->user->name}}
-                                </label>
-                            </div>
-
-                        @endforeach
-                    </div>
-
-                </div>
-                <div class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper"
-                     x-data="{ open: false }">
-
-                    <button
-                        @click="open = !open"
-                        class="button button--filter catalogue__productSection__filterContainer__otherFilterContainer__wrapper__button">
-                        @if(count($category) > 0)
-                            {{ count($category)  }} {{ __('front.catalogue.productSection.categoryFilter') }}
-                        @else
-                            {{ __('front.catalogue.productSection.categoryFilter') }}
-                        @endif
-                    </button>
-
-                    <div x-show="open" x-cloak @click.outside="open = false"
-                         class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer">
-                        @foreach($this->categories as $cat)
-                            <div
-                                class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__item">
-
-                                <input type="checkbox" id="category-{{ $cat->id }}" name="category-{{ $cat->id }}"
-                                       wire:model.live="category"
-                                       value="{{ $cat->id }}"
-                                       class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__item__input">
-                                <label for="category-{{ $cat->id }}"
-                                       class="catalogue__productSection__filterContainer__otherFilterContainer__wrapper__itemContainer__item__label">
-                                    {{ __('client.products.categories.' . $cat->id) }}
-                                </label>
-                            </div>
-
-                        @endforeach
-                    </div>
-
-                </div>
+                <x-form.filter :count="$merchant" name="merchant" search="searchMerchant" :items="$this->merchants"/>
+                <x-form.filter :count="$category" name="category" :items="$this->categories"/>
                 <x-front.search/>
             </div>
         </div>
         <div class="catalogue__productSection__productContainer">
-            <div class="catalogue__productSection__productContainer__product" itemscope itemtype="https://schema.org/ItemList">
-                <meta itemprop="name" content="{{__('front.catalogue.productSection.title')}}" />
+            <div class="catalogue__productSection__productContainer__product" itemscope
+                 itemtype="https://schema.org/ItemList">
+                <meta itemprop="name" content="{{__('front.catalogue.productSection.title')}}"/>
                 @forelse($this->products as $product)
-                    <div wire:click="goToProduct({{ $product->id }})" wire:key="product-{{ $product->id }}" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <div wire:click="goToProduct({{ $product->id }})" wire:key="product-{{ $product->id }}"
+                         itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                         <x-front.productCard :img="$product"
                                              category="{!!  __('client.products.categories.'.$product->product_category_id)!!}"
                                              is-new="{{$product->created_at > now()->subDays(7) ? __('words.new') : ''}}"
@@ -192,23 +93,10 @@
                             input-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer__input"
                             input-error-class="catalogue__contactSection__blockContainer__formContainer__form__container__inputContainer__input__error"/>
                     </div>
-
-                    <button type="submit"
-                            class="button button--icon catalogue__contactSection__blockContainer__formContainer__form__button">
-                        {{__('front.catalogue.contactSection.form.button')}}
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
-                                   class="catalogue__contactSection__blockContainer__formContainer__form__button__svg"
-                                   name="arrow"/>
-                    </button>
+                    <x-form.button type="submit"
+                                   class="catalogue__contactSection__blockContainer__formContainer__form__button"/>
                 </x-form.form>
-                <div
-                    x-show="show"
-                    x-transition
-                    class="toast"
-                    x-cloak
-                >
-                    {{__('front.catalogue.contactSection.toast.create.success')}}
-                </div>
+                <x-front.toast show="show" :title="__('front.catalogue.contactSection.toast.create.success')"/>
             </div>
         </div>
     </section>

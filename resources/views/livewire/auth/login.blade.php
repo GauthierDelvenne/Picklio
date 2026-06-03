@@ -30,10 +30,7 @@
                          input-class="login__checkboxContainer__checkbox"
                          input-error-class="login__checkboxContainer__checkbox__error"/>
 
-        <button type="submit" class="button button--icon login__button">
-            {{__('auth.form.button.login')}}
-            <x-svg.svg title="{{__('svgTitle.arrow')}}" class="login__button__svg" name="arrow"/>
-        </button>
+        <x-form.button type="submit" class="login__button" :title="__('auth.form.button.login')"/>
         <p class="login__noAccount">{{__('front.login.no-account')}}
             <a href="{{route('auth.register')}}"
                class="login__noAccount__link">{{__('front.login.register')}}</a>

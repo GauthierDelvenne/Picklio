@@ -93,21 +93,9 @@
                         input-class="contact__formContainer__card__form__container__inputContainer__input"
                         input-error-class="contact__formContainer__card__form__container__inputContainer__input__error"/>
                 </div>
-                <button type="submit"
-                        class="button button--icon contact__formContainer__card__form__button">
-                    {{__('front.catalogue.contactSection.form.button')}}
-                    <x-svg.svg title="{{__('svgTitle.arrow')}}" class="contact__formContainer__card__form__button__svg"
-                               name="arrow"/>
-                </button>
+                <x-form.button type="submit" class="contact__formContainer__card__form__button"/>
             </x-form.form>
         </div>
-        <div
-            x-show="show"
-            x-transition
-            class="toast"
-            x-cloak
-        >
-            {{__('front.catalogue.contactSection.toast.create.success')}}
-        </div>
+        <x-front.toast show="show" :title="__('front.catalogue.contactSection.toast.create.success')"/>
     </section>
 </div>

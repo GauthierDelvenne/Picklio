@@ -10,12 +10,12 @@ return [
             'stepOne' => [
                 'title' => 'Première étape',
                 'subTitle' => 'Inscrivez-vous',
-                'content' => '<strong><a href="'.route('auth.register').'">Inscrivez-vous</a></strong> afin de pouvoir commander sur Picklio',
+                'content' => '<strong><a href="' . route('auth.register') . '">Inscrivez-vous</a></strong> afin de pouvoir commander sur Picklio',
             ],
             'stepTwo' => [
                 'title' => 'Deuxième étape',
                 'subTitle' => 'Faites votre panier',
-                'content' => '<strong><a href="'.route('front.catalogue.index').'">Cherchez, ajoutez </a></strong>vos envies et <strong>planifiez</strong> votre
+                'content' => '<strong><a href="' . route('front.catalogue.index') . '">Cherchez, ajoutez </a></strong>vos envies et <strong>planifiez</strong> votre
                 panier selon votre emploi du temps',
             ],
             'stepThree' => [
@@ -247,13 +247,23 @@ return [
             'title' => 'Les produits',
             'priceFilter' => [
                 'title' => 'Trier par prix',
-                'ascending' => 'Prix croissant',
-                'descending' => 'Prix décroissant',
+                'priceAscending' => 'Prix croissant',
+                'priceDescending' => 'Prix décroissant',
+            ],
+            'total_priceFilter' => [
+                'title' => 'Trier par prix',
+                'total_priceAscending' => 'Prix croissant',
+                'total_priceDescending' => 'Prix décroissant',
             ],
             'nameFilter' => [
                 'title' => 'Trier par nom',
                 'nameAscending' => 'Nom A/Z',
                 'nameDescending' => 'Nom Z/A',
+            ],
+            'pickup_dateFilter' => [
+                'title' => 'Trier par date',
+                'pickup_dateAscending' => 'Date croissant',
+                'pickup_dateDescending' => 'Date décroissant',
             ],
             'merchantFilter' => 'Commerçant(s)',
             'categoryFilter' => 'Catégorie(s)',
@@ -420,31 +430,33 @@ return [
                 'title' => 'Exemple concret : pot de miel à 8€',
                 'example' => [
                     '1' => [
-                        'text' => 'Prix de vente',
-                        'price' => '8,00€',
+                        'title' => 'Prix de vente',
+                        'text' => '8,00€',
                     ],
                     '2' => [
-                        'text' => 'Commission Picklio (10%)',
-                        'price' => '-0,80€',
+                        'title' => 'Commission Picklio (10%)',
+                        'text' => '-0,80€',
                     ],
                     '3' => [
-                        'text' => 'Vous recevez',
-                        'price' => '7,20€',
+                        'title' => 'Vous recevez',
+                        'text' => '7,20€',
                     ],
                 ],
             ],
-            'textContainer' => [
-                '1' => [
-                    'title' => 'Quand est-ce que je reçois mon argent ?',
-                    'text' => 'Picklio vous reverse votre part chaque mois, une fois les commandes du mois clôturées et les transactions validées en entrepôt.',
-                ],
-                '2' => [
-                    'title' => 'Qui fixe le prix de mes produits ?',
-                    'text' => 'Vous définissez vous-même le prix de vente depuis votre espace marchand. La commission est calculée automatiquement sur ce montant.',
-                ],
-                '3' => [
-                    'title' => 'Y a-t-il des frais cachés ?',
-                    'text' => 'Non. La commission de 10% est le seul coût lié à votre présence sur Picklio. Pas d’autre frais (frais d’inscription, de stockage ou de visibilité).',
+            'faqContainer' => [
+                'faq' => [
+                    '1' => [
+                        'title' => 'Quand est-ce que je reçois mon argent ?',
+                        'text' => 'Picklio vous reverse votre part chaque mois, une fois les commandes du mois clôturées et les transactions validées en entrepôt.',
+                    ],
+                    '2' => [
+                        'title' => 'Qui fixe le prix de mes produits ?',
+                        'text' => 'Vous définissez vous-même le prix de vente depuis votre espace marchand. La commission est calculée automatiquement sur ce montant.',
+                    ],
+                    '3' => [
+                        'title' => 'Y a-t-il des frais cachés ?',
+                        'text' => 'Non. La commission de 10% est le seul coût lié à votre présence sur Picklio. Pas d’autre frais (frais d’inscription, de stockage ou de visibilité).',
+                    ],
                 ],
             ],
         ],

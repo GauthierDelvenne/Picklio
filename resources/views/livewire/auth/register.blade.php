@@ -40,10 +40,8 @@
             </div>
         </div>
 
-        <button type="submit" class="button button--icon register__button">
-            {{__('auth.form.button.register')}}
-            <x-svg.svg title="{{__('svgTitle.arrow')}}" class="register__button__svg" name="arrow"/>
-        </button>
+        <x-form.button type="submit" class="register__button" :title="__('auth.form.button.register')"/>
+
         <p class="register__alreadyAccount">{{__('front.register.already-account')}}
             <a href="{{route('auth.login')}}"
                class="register__alreadyAccount__link">{{__('front.register.login')}}</a>

@@ -1,0 +1,15 @@
+.sort {
+    display: flex;
+    gap: $space-4;
+
+    &__svg {
+        rotate: -90deg;
+        width: 20px;
+        height: 20px;
+
+        &--desc {
+            rotate: 90deg;
+
+        }
+    }
+}

@@ -1,10 +1,8 @@
 <section class="productList paddingMedia" itemscope itemtype="https://schema.org/ItemList">
     <div class="productList__titleContainer">
         <h2 class="productList__titleContainer__title">{{$title}}</h2>
-        <a href="{{route('front.catalogue.index')}}"
-           class="button button--icon productList__titleContainer__button">{{$button}}
-            <x-svg.svg title="{{__('svgTitle.arrow')}}" class="productList__titleContainer__button__svg" name="arrow"/>
-        </a>
+        <x-front.button-link :link="route('front.catalogue.index')" class="productList__titleContainer__button" :title="$button"/>
+
     </div>
     <div class="productList__productContainer">
         @foreach($products as $product)

@@ -188,6 +188,7 @@
                         pointer-events: none;
                     }
 
+
                     &__card {
                         display: flex;
                         flex-direction: column;
@@ -212,6 +213,9 @@
                     &__empty {
                         color: $tangerine-600;
                     }
+                }
+                &__error{
+                    color: $error;
                 }
             }
         }
