@@ -1,0 +1,49 @@
+.filter {
+    position: relative;
+
+    &__button {
+
+    }
+
+    &__itemContainer {
+        padding: $space-4;
+        position: absolute;
+        background-color: $tangerine-100;
+        z-index: 6;
+        top: $space-16;
+        right: -$space-16;
+        border-radius: $radius-md;
+        display: grid;
+        gap: $space-4;
+        box-shadow: $box-shadow;
+
+        @include laptop-l {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__searchContainer {
+            grid-column: span 2 / span 2;
+
+            &__search {
+                background-color: $tangerine-50;
+                padding: $space-2;
+                border-radius: $radius-md;
+                box-shadow: $box-shadow;
+                font-size: $text-sm;
+            }
+        }
+
+        &__item {
+            width: max-content;
+            display: flex;
+            gap: $space-2;
+
+            &__label {
+            }
+
+            &__input {
+                accent-color: $tangerine-400;
+            }
+        }
+    }
+}

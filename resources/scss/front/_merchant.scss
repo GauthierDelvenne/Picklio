@@ -103,74 +103,6 @@
 
         &__container {
 
-
-            &__itemContainer {
-                background-color: $tangerine-100;
-                border-radius: $radius-lg $radius-lg 0 0;
-                padding: $space-8 $space-8 $space-12;
-                margin-top: -$space-4;
-
-                &.active {
-                    background-color: $tangerine-200;
-                }
-
-                &__titleContainer {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-
-                    &__title {
-                        @include laptop-l {
-                            font-size: $text-2xl;
-                        }
-                        @include desktop-l {
-                            font-size: $text-3xl;
-                        }
-                    }
-
-                    .active {
-                        rotate: 180deg;
-                    }
-
-                    &__svgContainer {
-                        padding: $space-2;
-
-                        &__svg {
-                            rotate: -90deg;
-                            width: 20px;
-                            height: 20px;
-                            transition: fill ease-in 0.3s, transform ease-in 0.3s;
-
-                            &:hover {
-                                fill: $tangerine-600;
-                                transform: rotateY(180deg);
-                            }
-                        }
-                    }
-                }
-
-                &__contentContainer {
-                    &__title {
-                        @include laptop-l {
-                            font-size: $text-lg;
-                        }
-                        @include desktop-l {
-                            font-size: $text-xl;
-                        }
-                    }
-
-                    &__liste {
-                        &__item {
-                            list-style: disc;
-                            list-style-position: inside;
-                        }
-                    }
-
-                    &__content {
-
-                    }
-                }
-            }
         }
     }
 
@@ -276,40 +208,6 @@
                         font-size: $text-2xl;
                     }
                 }
-
-                &__example {
-                    display: flex;
-                    justify-content: space-between;
-
-                    &__text {
-                        font-weight: 500;
-                    }
-
-                    &__price {
-
-                    }
-                }
-            }
-        }
-
-        &__textContainer {
-            &__title {
-                font-weight: 600;
-                @include laptop-l {
-                    font-size: $text-2xl;
-                }
-                @include desktop-l {
-                    font-size: $text-3xl;
-                }
-            }
-
-            &__text {
-                @include laptop-l {
-                    font-size: $text-xl;
-                }
-                @include desktop-l {
-                    font-size: $text-2xl;
-                }
             }
         }
     }
@@ -408,11 +306,9 @@
                         }
                     }
 
-                    .button {
-                        background-color: $tangerine-200;
-                    }
 
                     &__button {
+                        background-color: $tangerine-200;
                         &__svg {
                             width: 20px;
                             height: 20px;

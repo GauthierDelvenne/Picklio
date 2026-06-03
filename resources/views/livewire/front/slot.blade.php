@@ -47,7 +47,7 @@
                     @endforeach
                 </div>
                 @error('form.pickup_date')
-                <p class="error">{{ $message }}</p>
+                <p class="slot__container__pickupContainer__slotContainer__error">{{ $message }}</p>
                 @enderror
             </div>
             <div class="slot__container__pickupContainer__slotContainer">
@@ -64,13 +64,10 @@
                     @endforelse
                 </div>
                 @error('form.pickup_slot_id')
-                <p class="error">{{ $message }}</p>
+                <p class="slot__container__pickupContainer__slotContainer__error">{{ $message }}</p>
                 @enderror
             </div>
         </div>
-        <button wire:click="createOrder" class="button button--icon slot__container__button">
-            {{__('front.slot.button')}}
-            <x-svg.svg title="{{__('svgTitle.arrow')}}" class="slot__container__button__svg" name="arrow"/>
-        </button>
+        <x-front.button-cta wire-click="createOrder" class="slot__container__button" :title="__('front.slot.button')"/>
     </section>
 </div>

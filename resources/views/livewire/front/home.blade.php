@@ -6,28 +6,21 @@
             <div class="home__introContainer__contentContainer__buttonContainer">
                 <a href="{{route('front.catalogue.index')}}"
                    class="button button--icon home__introContainer__contentContainer__buttonContainer__button">{{__('front.home.intro.buttonDiscover')}}
-                    <x-svg.svg title="{{__('svgTitle.arrow')}}" class="home__introContainer__contentContainer__buttonContainer__button__svg"
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                               class="home__introContainer__contentContainer__buttonContainer__button__svg"
                                name="arrow"/>
                 </a>
-                <a href="{{ route('auth.login') }}"
+                <a href="{{ route('front.merchant') }}"
                    class="button button--icon home__introContainer__contentContainer__buttonContainer__button">{{__('front.home.intro.buttonJoin')}}
-                    <x-svg.svg title="{{__('svgTitle.arrow')}}" class="home__introContainer__contentContainer__buttonContainer__button__svg"
+                    <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                               class="home__introContainer__contentContainer__buttonContainer__button__svg"
                                name="arrow"/>
                 </a>
             </div>
             <ul class="home__introContainer__contentContainer__liste">
-                <li class="home__introContainer__contentContainer__liste__item">
-                    <x-svg.svg title="{{__('svgTitle.underline')}}" class="home__introContainer__contentContainer__liste__item__svg" name="underline"/>
-                    {{__('front.home.intro.quality.1')}}
-                </li>
-                <li class="home__introContainer__contentContainer__liste__item">
-                    <x-svg.svg title="{{__('svgTitle.underline')}}" class="home__introContainer__contentContainer__liste__item__svg" name="underline"/>
-                    {{__('front.home.intro.quality.2')}}
-                </li>
-                <li class="home__introContainer__contentContainer__liste__item">
-                    <x-svg.svg title="{{__('svgTitle.underline')}}" class="home__introContainer__contentContainer__liste__item__svg" name="underline"/>
-                    {{__('front.home.intro.quality.3')}}
-                </li>
+                <x-front.introQuality number="1"/>
+                <x-front.introQuality number="2"/>
+                <x-front.introQuality number="3"/>
             </ul>
         </div>
         <div class="home__introContainer__imgContainer">
@@ -45,7 +38,7 @@
                 class="button button--tabs home__categoriesSelectContainer__buttonContainer__button @if($activeTab == 'alimentaire') active @endif"
                 wire:click="changeTab('alimentaire')">{{__('front.home.alimentaryList.tabs')}}</button>
             <button
-                class="button button--tabs home__categoriesSelectContainer__buttonContainer__button @if($activeTab == 'tab2') active @endif"
+                class="button button--tabs home__categoriesSelectContainer__buttonContainer__button @if($activeTab == 'non-alimentaire') active @endif"
                 wire:click="changeTab('non-alimentaire')">{{__('front.home.noAlimentaryList.tabs')}}</button>
         </div>
 
@@ -62,22 +55,16 @@
                 <h2 class="home__categoriesSelectContainer__productCategories__titleContainer__title">{{__('front.home.productCategories.title')}}</h2>
 
             </div>
-            @if($activeTab == 'alimentaire')
-                <div class="home__categoriesSelectContainer__productCategories__categoryContainer">
-                    @foreach($this->alimentaryCategories as $id => $category)
-                        <x-front.productCategoryCard name="{{$category}}" wire-click="goToCategory({{ $id }})"
-                                                     title="{!!__('client.products.categories.'.$id)!!}"/>
-                    @endforeach
-                </div>
-            @elseif($activeTab == 'non-alimentaire')
-                {{--                TODO REVOIR HOMOGÉNÉITÉ PICTOS--}}
-                <div class="home__categoriesSelectContainer__productCategories__categoryContainer">
-                    @foreach($this->noAlimentaryCategories as $id => $category)
-                        <x-front.productCategoryCard name="{{$category}}" wire-click="goToCategory({{ $id }})"
-                                                     title="{!!__('client.products.categories.'.$id)!!}"/>
-                    @endforeach
-                </div>
-            @endif
+            {{--                TODO REVOIR HOMOGÉNÉITÉ PICTOS--}}
+            <div class="home__categoriesSelectContainer__productCategories__categoryContainer">
+                @foreach( $activeTab == 'alimentaire' ?
+                            $this->alimentaryCategories :
+                            $this->noAlimentaryCategories as $id => $category)
+                    <x-front.productCategoryCard name="{{$category}}"
+                                                 wire-click="goToCategory({{ $id }})"
+                                                 title="{!!__('client.products.categories.'.$id)!!}"/>
+                @endforeach
+            </div>
 
         </section>
     </div>
@@ -100,7 +87,9 @@
             </p>
             <a href="{{route('front.merchant')}}"
                class="button button--icon home__merchantContainer__contentContainer__button"> {{__('front.home.inviteMerchant.button')}}
-                <x-svg.svg title="{{__('svgTitle.arrow')}}" class="home__merchantContainer__contentContainer__button__svg" name="arrow"/>
-            </a></div>
+                <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                           class="home__merchantContainer__contentContainer__button__svg" name="arrow"/>
+            </a>
+        </div>
     </section>
 </div>

@@ -171,24 +171,18 @@
                 }
             }
 
-            .button {
-                background-color: $tangerine-300;
-                color: $tangerine-50;
-
-                .icon {
-                    fill: $tangerine-50;
-                }
-            }
-
             &__buttonContainer {
                 display: flex;
                 justify-content: space-between;
                 gap: $space-2;
 
                 &__button {
+                    background-color: $tangerine-300;
+                    color: $tangerine-50;
                     flex-grow: 1;
 
                     &__svg {
+                        fill: $tangerine-50;
 
                     }
                 }

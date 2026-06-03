@@ -18,6 +18,32 @@
 @import "auth/forget-password";
 @import "auth/reset-password";
 
+
+
+// Components
+@import "components/form/input";
+@import "components/form/checkbox";
+@import "components/form/sort";
+@import "components/form/filter";
+
+@import "components/button";
+
+@import "components/auth/imgContainer";
+
+@import "components/front/howItWork";
+@import "components/front/howItWorkCard";
+@import "components/front/productList";
+@import "components/front/productCard";
+@import "components/front/productCategoryCard";
+@import "components/front/toast";
+@import "components/front/shopCard";
+@import "components/front/warningCart";
+@import "components/front/search";
+@import "components/front/accordionItem";
+@import "components/front/exampleMerchant";
+@import "components/front/faqMerchant";
+@import "components/front/introQuality";
+
 // Front
 @import "front/partials/header";
 @import "front/partials/footer";
@@ -34,21 +60,3 @@
 @import "front/slot";
 @import "front/order-confirmation";
 @import "front/orders";
-
-// Components
-@import "components/form/input";
-@import "components/form/checkbox";
-
-@import "components/button";
-
-@import "components/auth/imgContainer";
-
-@import "components/front/howItWork";
-@import "components/front/howItWorkCard";
-@import "components/front/productList";
-@import "components/front/productCard";
-@import "components/front/productCategoryCard";
-@import "components/front/toast";
-@import "components/front/shopCard";
-@import "components/front/warningCart";
-@import "components/front/search";

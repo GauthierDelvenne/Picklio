@@ -97,7 +97,7 @@
 
                     &__empty {
                         &__link {
-
+                            background-color: $tangerine-200;
                         }
                     }
                 }
@@ -142,11 +142,8 @@
                     }
                 }
 
-                .button {
-                    background-color: $tangerine-200;
-                }
-
                 &__button {
+                    background-color: $tangerine-200;
                     &__svg {
 
                     }

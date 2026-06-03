@@ -20,23 +20,13 @@
             </x-form.input>
         </div>
 
-        <button type="submit"
-                class="button button--icon resetPassword__button">
-            {{__('auth.form.button.reset')}}
-            <x-svg.svg title="{{__('svgTitle.arrow')}}" class="resetPassword__button__svg" name="arrow"/>
-        </button>
+        <x-form.button type="submit" class="resetPassword__button" :title="__('auth.form.button.reset')"/>
+
         <p class="resetPassword__returnLogin">
             <a href="{{route('auth.login')}}" class="resetPassword__returnLogin__link">
                 {{__('front.reset-password.return-login')}}
             </a>
         </p>
-        <div
-            x-show="show"
-            x-transition
-            class="toast"
-            x-cloak
-        >
-            {{__('auth.success')}}
-        </div>
+        <x-front.toast show="show" :title="__('auth.success')"/>
     </div>
 </x-auth.pageContainer>

@@ -58,11 +58,8 @@
                 flex-direction: column;
                 gap: $space-4;
 
-                .button {
-                    background-color: $tangerine-200;
-                }
-
                 &__button {
+                    background-color: $tangerine-200;
                     display: flex;
                     gap: $space-2;
 
@@ -94,9 +91,6 @@
                     }
                 }
 
-                .button {
-                    background-color: $tangerine-200-50;
-                }
 
                 &__reset {
                     font-size: $text-sm;
@@ -118,6 +112,7 @@
 
                 &__button {
                     width: 100%;
+                    background-color: $tangerine-200-50;
 
                     &__svg {
 
@@ -169,29 +164,23 @@
 
             }
 
-            .button {
+
+            &__button {
                 display: flex;
                 gap: $space-2;
                 background-color: $tangerine-300;
                 color: $tangerine-50;
-
-                .icon {
-                    fill: $tangerine-50;
-                }
 
                 &:hover {
                     color: $tangerine-100;
 
                     .icon {
                         fill: $tangerine-100;
-
                     }
                 }
-            }
 
-            &__button {
                 &__svg {
-
+                    fill: $tangerine-50;
                 }
             }
         }

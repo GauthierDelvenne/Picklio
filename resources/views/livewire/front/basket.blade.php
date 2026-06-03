@@ -41,19 +41,13 @@
                 @empty
                     <div class="basket__container__basketContainer__itemContainer__card">
                         <p class="basket__container__basketContainer__itemContainer__card__empty">{{__('front.order.empty')}} @if(empty($this->userConnected))
-                                <a href="{{ route('auth.login') }}"
-                                   class="basket__container__basketContainer__itemContainer__card__empty__link">{{__('front.order.login')}}</a>
+                                <x-front.button-link :link="route('auth.login')"
+                                                     class="basket__container__basketContainer__itemContainer__card__empty__link"
+                                                     :title="__('front.order.login')"/>
                             @endif </p>
                     </div>
                 @endforelse
-                <div
-                    x-show="deleteOrder"
-                    x-transition
-                    class="toast"
-                    x-cloak
-                >
-                    {{__('front.order.toast.remove.success')}}
-                </div>
+                <x-front.toast show="deleteOrder" :title="__('front.order.toast.remove.success')"/>
             </div>
             @if(!empty($this->orderItems))
                 <aside class="basket__container__basketContainer__priceContainer">
@@ -78,7 +72,8 @@
                     <a href="{{ route('front.slot', $this->cart) }}"
                        class="button button--icon basket__container__basketContainer__priceContainer__button">
                         {{__('front.order.button')}}
-                        <x-svg.svg title="{{__('svgTitle.arrow')}}" class="basket__container__basketContainer__priceContainer__button__svg"
+                        <x-svg.svg title="{{__('svgTitle.arrow')}}"
+                                   class="basket__container__basketContainer__priceContainer__button__svg"
                                    name="arrow"/>
                     </a>
                     <p class="basket__container__basketContainer__priceContainer__condition">{{__('front.order.condition')}}</p>
