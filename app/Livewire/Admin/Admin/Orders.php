@@ -81,7 +81,7 @@ class Orders extends PicklioComponent
         if ($order->orderItems()->delete()) {
             $order->delete();
             Flux::toast(__('admin.orders.toast.delete.success'), variant: 'success');
-            Mail::to($email)->send(new CancelOrderMail);
+            Mail::to($email)->send(new CancelOrderMail($order->code));
         } else {
             Flux::toast(__('admin.orders.toast.delete.error'), variant: 'danger');
         }

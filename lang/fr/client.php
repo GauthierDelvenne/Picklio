@@ -8,7 +8,9 @@ return [
         'empty' => 'Il ne se passe rien ici',
         'buttons' => [
             'edit' => 'Modifier',
+            'show' => 'Voir',
             'delete' => 'Supprimer',
+            'inactive' => 'Désactiver',
             'add' => 'Ajouter',
             'cancel' => 'Annuler',
             'validate' => 'Valider le message',
@@ -37,9 +39,9 @@ return [
         'total-sale' => 'Revenu Total',
         'orderItem' => 'Produits commandés total',
         'bestsellers' => 'La meilleur vente',
-        'delete-confirm' => 'Voulez vous vraiment supprimer :name ?',
-        'delete-title' => 'Voulez vraiment le supprimer ?',
-        'delete-reversed' => 'Vous êtes sur le point de le supprimer.<br> Cette action est irréversible.',
+        'delete-confirm' => 'Voulez vous vraiment désactiver :name ?',
+        'delete-title' => 'Voulez vraiment le désactiver ?',
+        'delete-reversed' => 'Vous êtes sur le point de le désactiver.<br> Cette action est irréversible.',
         'forms' => [
             'name' => [
                 'label' => 'Nom',
@@ -79,8 +81,8 @@ return [
                 'error' => 'Une erreur est survenu lors de la modification',
             ],
             'delete' => [
-                'success' => 'Le produit a bien été supprimé',
-                'error' => 'Une erreur est survenu lors de la suppression',
+                'success' => 'Le produit a bien été désactivé',
+                'error' => 'Une erreur est survenu lors de la désactivation',
             ],
         ],
         'categories' => [

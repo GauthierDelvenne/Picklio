@@ -84,6 +84,6 @@
         </flux:table>
     </div>
     <flux:modal name="delete-order" class="md:w-96">
-        <x-admin.modals.message.delete-message/>
+        <x-admin.modals.order.delete-order/>
     </flux:modal>
 </flux:main>

@@ -6,6 +6,7 @@ use App\Livewire\PicklioComponent;
 use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Stock;
 use App\Traits\SortingTrait;
 use Flux\Flux;
 use Livewire\Attributes\Computed;
@@ -17,6 +18,7 @@ class ClientDashboard extends PicklioComponent
     use WithPagination;
 
     public $search;
+    public $statu;
 
     public $account;
 
@@ -35,23 +37,31 @@ class ClientDashboard extends PicklioComponent
             ->get();
     }
 
-    public function updatedSearch()
+    public function updated()
     {
         $this->resetPage();
     }
 
     public function delete(Product $product)
     {
-        $product->stock->delete();
-        $product->stockMovements()->delete();
-        if ($product->delete()) {
+        $productUpdated = $product->update([
+            'name' => $product->name . ' (' . __('words.no-dispo') . ')',
+            'is_active' => false,
+        ]);
+        if ($productUpdated) {
             Flux::toast(__('client.products.toast.delete.success'), variant: 'success');
-            Flux::modal('delete-merchant')->close();
         } else {
             Flux::toast(__('client.products.toast.delete.error'), variant: 'danger');
         }
     }
-
+    #[Computed]
+    public function status()
+    {
+        return [
+            Stock::LOW,
+            Stock::VERYLOW,
+        ];
+    }
     #[Computed]
     public function products()
     {
@@ -59,7 +69,14 @@ class ClientDashboard extends PicklioComponent
             'stock',
             'productCategory',
         ])
+            ->whereHas('stock', function ($query) {
+                $query->where('status', '!=', Stock::GOOD)
+                    ->when($this->statu, function ($query) {
+                        $query->where('status', $this->statu);
+                    });
+            })
             ->whereAccount($this->account->id)
+            ->whereNot('products.is_active', 0)
             ->when($this->search, function ($query) {
                 $query->where('name', 'like', '%'.$this->search.'%');
             })
@@ -75,7 +92,7 @@ class ClientDashboard extends PicklioComponent
     {
         $orderItems = $this->orderItems;
         if ($orderItems->isEmpty()) {
-            return [];
+            return;
         }
 
         return $orderItems

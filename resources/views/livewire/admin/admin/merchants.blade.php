@@ -79,7 +79,7 @@
                                         <flux:menu.item class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="delete({{$merchant}})" class="text-accent hover:text-accent-content"
-                                                    wire:confirm="{{__('admin.merchants.delete-confirm', ['name' => $merchant->user_name])}}">{{__('admin.commons.buttons.delete')}}</flux:menu.item>
+                                                    wire:confirm="{{__('admin.merchants.delete-confirm', ['name' => $merchant->user_name])}}">{{__('admin.commons.buttons.inactive')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:dropdown>
                         </flux:table.cell>

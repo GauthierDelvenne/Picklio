@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Admin;
 
 use App\Livewire\PicklioComponent;
+use App\Mail\CancelOrderMail;
 use App\Models\Account;
 use App\Models\Order;
 use App\Models\Product;
@@ -11,6 +12,8 @@ use App\Models\Role;
 use App\Models\Status;
 use App\Models\Stock;
 use App\Traits\SortingTrait;
+use Flux\Flux;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Computed;
 use Livewire\WithPagination;
 
@@ -85,6 +88,7 @@ class Dashboard extends PicklioComponent
                         $query->where('status', $this->statu);
                     });
             })
+            ->whereNot('products.is_active', 0)
             ->when($this->productSearch, function ($query) {
                 $query->where('name', 'like', '%' . $this->productSearch . '%');
             })
@@ -117,6 +121,31 @@ class Dashboard extends PicklioComponent
         return Account::where('role_id', Role::MERCHANT)->count();
     }
 
+    public function deleteOrder(Order $order)
+    {
+        $email = $order->account->email;
+        if ($order->orderItems()->delete()) {
+            $order->delete();
+            Flux::toast(__('admin.orders.toast.delete.success'), variant: 'success');
+            Mail::to($email)->send(new CancelOrderMail($order->code));
+        } else {
+            Flux::toast(__('admin.orders.toast.delete.error'), variant: 'danger');
+        }
+    }
+
+    public function delete(Product $product)
+    {
+        $productUpdated = $product->update([
+            'name' => $product->name . ' (' . __('words.no-dispo') . ')',
+            'is_active' => false,
+        ]);
+        if ($productUpdated) {
+            Flux::toast(__('client.products.toast.delete.success'), variant: 'success');
+            Flux::modal('delete-merchant')->close();
+        } else {
+            Flux::toast(__('client.products.toast.delete.error'), variant: 'danger');
+        }
+    }
     public function render()
     {
         return view('livewire.admin.admin.dashboard')

@@ -97,11 +97,11 @@
                                 <flux:menu>
                                     <a href="{{route('admin.stock.show', $product->id)}}">
                                         <flux:menu.item
-                                            class="text-accent hover:text-accent-content">{{__('client.commons.buttons.edit')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('client.commons.buttons.show')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="delete({{$product}})"
                                                     class="text-accent hover:text-accent-content"
-                                                    wire:confirm="{{__('client.products.delete-confirm', ['name' => $product->user_name])}}">{{__('client.commons.buttons.delete')}}</flux:menu.item>
+                                                    wire:confirm="{{__('client.products.delete-confirm', ['name' => $product->user_name])}}">{{__('admin.commons.buttons.inactive')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:dropdown>
                         </flux:table.cell>

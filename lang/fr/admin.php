@@ -9,6 +9,8 @@ return [
         'buttons' => [
             'edit' => 'Modifier',
             'delete' => 'Supprimer',
+            'show' => 'Voir',
+            'inactive' => 'Désactiver',
             'add' => 'Ajouter',
             'cancel' => 'Annuler',
             'update' => 'Mettre à jour le stock',
@@ -89,9 +91,9 @@ return [
         ],
         'shop-name' => 'Nom du commerce',
         'arrived' => 'Date d’arrivé',
-        'delete-confirm' => 'Voulez vous vraiment supprimer :name ?',
-        'delete-title' => 'Voulez vraiment le supprimer ?',
-        'delete-reversed' => 'Vous êtes sur le point de le supprimer.<br> Cette action est irréversible.',
+        'delete-confirm' => 'Voulez vous vraiment désactiver :name ?',
+        'delete-title' => 'Voulez vraiment le désactiver ?',
+        'delete-reversed' => 'Vous êtes sur le point de le désactiver.<br> Cette action est irréversible.',
         'form' => [
             'name' => [
                 'label' => 'Nom de la boite',
@@ -323,9 +325,9 @@ return [
         'product-name' => 'Nom du produit',
         'product-quantity' => 'Quantité',
         'product-price' => 'Prix',
-        'delete-confirm' => 'Voulez vous vraiment supprimer :name ?',
-        'delete-title' => 'Voulez vraiment le supprimer ?',
-        'delete-reversed' => 'Vous êtes sur le point de le supprimer.<br> Cette action est irréversible.',
+        'delete-confirm' => 'Voulez vous vraiment annuler la commande :name ?',
+        'delete-title' => 'Voulez vraiment annuler la commande ?',
+        'delete-reversed' => 'Vous êtes sur le point d’annuler la commande.<br> Cette action est irréversible.',
         'toast' => [
             'create' => [
                 'success' => 'La commande a bien été crée',

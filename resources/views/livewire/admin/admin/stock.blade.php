@@ -14,6 +14,9 @@
             <flux:modal.trigger name="update-product">
                 <flux:button variant="primary">{{__('admin.commons.buttons.edit')}}</flux:button>
             </flux:modal.trigger>
+            <flux:modal.trigger name="delete-product">
+                <flux:button variant="danger">{{__('admin.commons.buttons.inactive')}}</flux:button>
+            </flux:modal.trigger>
         </div>
     </section>
     <flux:separator variant="subtle"/>
@@ -87,5 +90,8 @@
     </flux:modal>
     <flux:modal name="update-stock" class="md:w-96">
         <x-admin.modals.stock.update-stock/>
+    </flux:modal>
+    <flux:modal name="delete-product" class="md:w-96">
+        <x-admin.modals.stock.delete-product/>
     </flux:modal>
 </flux:main>

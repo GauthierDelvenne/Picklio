@@ -42,7 +42,19 @@ class Stock extends PicklioComponent
             Flux::toast(__('client.products.toast.update.error'), variant: 'danger');
         }
     }
-
+    public function delete()
+    {
+        $productUpdated = $this->product->update([
+            'name' => $this->product->name . ' (' . __('words.no-dispo') . ')',
+            'is_active' => false,
+        ]);
+        if ($productUpdated) {
+            Flux::toast(__('client.products.toast.delete.success'), variant: 'success');
+            Flux::modal('delete-merchant')->close();
+        } else {
+            Flux::toast(__('client.products.toast.delete.error'), variant: 'danger');
+        }
+    }
     public function render()
     {
         return view('livewire.admin.admin.stock')

@@ -64,6 +64,10 @@
                                     <flux:icon.ellipsis-horizontal class="text-accent hover:text-accent-content"/>
                                 </flux:button>
                                 <flux:menu>
+                                    <a href="{{route('client.message.receive.show', $message->id)}}">
+                                        <flux:menu.item
+                                            class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.show')}}</flux:menu.item>
+                                    </a>
                                     <flux:menu.item wire:click="delete({{$message}})"
                                                     class="text-accent hover:text-accent-content"
                                                     wire:confirm="{{__('admin.messages.delete-confirm', ['name' => $message->name])}}">{{__('admin.commons.buttons.delete')}}</flux:menu.item>
@@ -141,7 +145,7 @@
                                 <flux:menu>
                                     <a href="{{route('client.message.contact.show', $message->id)}}">
                                         <flux:menu.item
-                                            class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.edit')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.show')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="deleteContact({{$message}})"
                                                     class="text-accent hover:text-accent-content"
