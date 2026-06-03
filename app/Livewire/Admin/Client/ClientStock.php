@@ -31,9 +31,11 @@ class ClientStock extends PicklioComponent
     }
     public function delete()
     {
-        $this->product->stock->delete();
-        $this->product->stockMovements()->delete();
-        if ($this->product->delete()) {
+        $productUpdated = $this->product->update([
+            'name' => $this->product->name . ' (' . __('words.no-dispo') . ')',
+            'is_active' => false,
+        ]);
+        if ($productUpdated) {
             Flux::toast(__('client.products.toast.delete.success'), variant: 'success');
             Flux::modal('delete-product')->close();
             $this->redirectRoute('client.stock.index');
@@ -41,6 +43,7 @@ class ClientStock extends PicklioComponent
             Flux::toast(__('client.products.toast.delete.error'), variant: 'danger');
         }
     }
+
     public function render()
     {
         return view('livewire.admin.client.stock')

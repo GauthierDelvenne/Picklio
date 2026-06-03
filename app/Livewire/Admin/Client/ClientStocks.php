@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Client;
 
 use App\Livewire\PicklioComponent;
+use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Traits\SortingTrait;
@@ -22,12 +23,15 @@ class ClientStocks extends PicklioComponent
     public $categories;
 
     public $category;
+    public $orderItems;
 
     public function mount(): void
     {
         $this->account = $this->userConnected->account;
         $this->categories = ProductCategory::orderby('name', 'asc')->get();
-
+        $this->orderItems = OrderItem::with(['product.stock', 'product.productCategory'])
+            ->where('merchant_id', $this->account->id)
+            ->get();
     }
 
     public function updatedSearch()
@@ -37,11 +41,12 @@ class ClientStocks extends PicklioComponent
 
     public function delete(Product $product)
     {
-        $product->stock->delete();
-        $product->stockMovements()->delete();
-        if ($product->delete()) {
+        $productUpdated = $product->update([
+            'name' => $product->name . ' (' . __('words.no-dispo') . ')',
+            'is_active' => false,
+        ]);
+        if ($productUpdated) {
             Flux::toast(__('client.products.toast.delete.success'), variant: 'success');
-            Flux::modal('delete-merchant')->close();
         } else {
             Flux::toast(__('client.products.toast.delete.error'), variant: 'danger');
         }
@@ -72,7 +77,24 @@ class ClientStocks extends PicklioComponent
             ->veryLowStock()
             ->count();
     }
+    #[Computed]
+    public function bestSeller()
+    {
+        $orderItems = $this->orderItems;
+        if ($orderItems->isEmpty()) {
+            return [];
+        }
 
+        return $orderItems
+            ->groupBy('product.id')
+            ->map(function ($orderItems) {
+                return [
+                    'product' => $orderItems->first()->product,
+                ];
+            })
+            ->sortByDesc('quantity')
+            ->first();
+    }
     public function render()
     {
         return view('livewire.admin.client.stocks')

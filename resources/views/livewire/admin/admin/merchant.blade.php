@@ -7,7 +7,7 @@
     <section class="flex justify-between content-center items-center">
         <flux:heading size="xl" level="2">{{__('admin.merchants.edit')}}</flux:heading>
         <flux:modal.trigger name="delete-merchant">
-            <flux:button variant="danger">{{__('admin.commons.buttons.delete')}}</flux:button>
+            <flux:button variant="danger">{{__('admin.commons.buttons.inactive')}}</flux:button>
         </flux:modal.trigger>
     </section>
     <flux:separator variant="subtle"/>

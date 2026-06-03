@@ -2,13 +2,16 @@
 
 namespace App\Livewire\Admin\Admin;
 
+use App\Livewire\Form\Admin\Client\UpdateStockForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Account;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Role;
+use App\Models\Status;
 use App\Models\Stock;
 use App\Traits\SortingTrait;
+use Flux\Flux;
 use Livewire\Attributes\Computed;
 use Livewire\WithPagination;
 
@@ -68,8 +71,9 @@ class Stocks extends PicklioComponent
                     $query->where('status', $this->statu);
                 });
             })
+            ->whereNot('products.is_active', 0)
             ->when($this->search, function ($query) {
-                $query->where('name', 'like', '%'.$this->search.'%');
+                $query->where('name', 'like', '%' . $this->search . '%');
             })
             ->when($this->category, function ($query) {
                 $query->where('product_category_id', $this->category);
@@ -105,10 +109,24 @@ class Stocks extends PicklioComponent
             ->get();
     }
 
+    public function delete(Product $product)
+    {
+        $productUpdated = $product->update([
+            'name' => $product->name . ' (' . __('words.no-dispo') . ')',
+            'is_active' => false,
+        ]);
+        if ($productUpdated) {
+            Flux::toast(__('client.products.toast.delete.success'), variant: 'success');
+            Flux::modal('delete-merchant')->close();
+        } else {
+            Flux::toast(__('client.products.toast.delete.error'), variant: 'danger');
+        }
+    }
+
     public function render()
     {
         return view('livewire.admin.admin.stocks')
             ->layout('layouts.admin')
-            ->title(__('commons.pageName.admin.admin.stocks').' | Admin');
+            ->title(__('commons.pageName.admin.admin.stocks') . ' | Admin');
     }
 }

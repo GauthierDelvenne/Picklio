@@ -16,4 +16,5 @@ return [
     'profil' => 'Ouvrir le profile',
     'toAdmin' => 'Aller vers l’admin',
     'connect' => 'Se connecter',
+    'no-dispo' => 'Non disponible',
 ];

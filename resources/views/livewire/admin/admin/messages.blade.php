@@ -67,7 +67,7 @@
                                 <flux:menu>
                                     <a href="{{route('admin.message.receive.show', $message->id)}}">
                                         <flux:menu.item
-                                                class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.edit')}}</flux:menu.item>
+                                                class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.show')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="delete({{$message}})"
                                                     class="text-accent hover:text-accent-content"
@@ -148,7 +148,7 @@
                                 <flux:menu>
                                     <a href="{{route('admin.message.suggest.show', $message->id)}}">
                                         <flux:menu.item
-                                                class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.edit')}}</flux:menu.item>
+                                                class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.show')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="deleteSuggest({{$message}})"
                                                     class="text-accent hover:text-accent-content"
@@ -229,7 +229,7 @@
                                 <flux:menu>
                                     <a href="{{route('admin.message.new-merchant.show', $message->id)}}">
                                         <flux:menu.item
-                                            class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.edit')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.show')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="deleteNewMerchant({{$message}})"
                                                     class="text-accent hover:text-accent-content"
@@ -308,7 +308,7 @@
                                 <flux:menu>
                                     <a href="{{route('admin.message.contact.show', $message->id)}}">
                                         <flux:menu.item
-                                            class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.edit')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.show')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="deleteContact({{$message}})"
                                                     class="text-accent hover:text-accent-content"

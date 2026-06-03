@@ -77,11 +77,11 @@
                                 <flux:menu>
                                     <a href="{{route('admin.order.show', $order->uuid)}}">
                                         <flux:menu.item
-                                            class="text-accent hover:text-accent-content">{{__('client.commons.buttons.edit')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('client.commons.buttons.show')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="delete('{{$order->uuid}}')"
                                                     class="text-accent hover:text-accent-content"
-                                                    wire:confirm="{{__('admin.orders.delete-confirm', ['name' => $order->account->firstname.' '.$order->account->lastname])}}">{{__('client.commons.buttons.delete')}}</flux:menu.item>
+                                                    wire:confirm="{{__('admin.orders.delete-confirm', ['name' => $order->account->firstname.' '.$order->account->lastname])}}">{{__('client.commons.buttons.cancel')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:dropdown>
                         </flux:table.cell>
@@ -162,9 +162,8 @@
                                 <flux:menu>
                                     <a href="{{route('admin.order.show', $order->uuid)}}">
                                         <flux:menu.item
-                                            class="text-accent hover:text-accent-content">{{__('client.commons.buttons.edit')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('client.commons.buttons.show')}}</flux:menu.item>
                                     </a>
-                                    {{--                                    TODO CHANGER LE EDIT POUR SHOW QUAND CELA EST NECESSAIRES--}}
                                 </flux:menu>
                             </flux:dropdown>
                         </flux:table.cell>

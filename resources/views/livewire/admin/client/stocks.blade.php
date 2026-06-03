@@ -16,7 +16,7 @@
         </flux:card>
         <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">{{__('client.products.bestseller-product')}}</flux:heading>
-            {{--        TODO meilleurs ventes                <flux:text class="mt-2">{{}}</flux:text>--}}
+                                   <flux:text class="mt-2">{{!empty($this->bestSeller) ? $this->bestSeller['product']->name : __('admin.commons.empty')}}</flux:text>
         </flux:card>
         <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">{{__('client.products.lowStock-product')}}</flux:heading>
@@ -82,9 +82,13 @@
                             {{__('client.products.categories.'.$product->product_category_id)}}
                         </flux:table.cell>
                         <flux:table.cell>
-                            <flux:badge
-                                :color=" $product->stock->isVeryLowStock($product->productCategory->capacity) ? 'red' : ($product->stock->isLowStock($product->productCategory->capacity) ? 'yellow' : 'green')">
-                                {{$product->stock->isVeryLowStock($product->productCategory->capacity) ? 'Critique' : ($product->stock->isLowStock($product->productCategory->capacity) ? 'Bas' : 'Bon')}}                            </flux:badge>
+                            @if($product->is_active == 0)
+                                <flux:badge color="grey">{{__('admin.merchants.status.3')}}</flux:badge>
+                            @else
+                                <flux:badge
+                                    :color=" $product->stock->isVeryLowStock($product->productCategory->capacity) ? 'red' : ($product->stock->isLowStock($product->productCategory->capacity) ? 'yellow' : 'green')">
+                                    {{$product->stock->isVeryLowStock($product->productCategory->capacity) ? 'Critique' : ($product->stock->isLowStock($product->productCategory->capacity) ? 'Bas' : 'Bon')}}                            </flux:badge>
+                            @endif
                         </flux:table.cell>
                         <flux:table.cell>
                             {{$product->stock->quantity}}/{{$product->productCategory->capacity}}
@@ -104,7 +108,7 @@
                                     </a>
                                     <flux:menu.item wire:click="delete({{$product}})"
                                                     class="text-accent hover:text-accent-content"
-                                                    wire:confirm="{{__('client.products.delete-confirm', ['name' => $product->user_name])}}">{{__('client.commons.buttons.delete')}}</flux:menu.item>
+                                                    wire:confirm="{{__('client.products.delete-confirm', ['name' => $product->user_name])}}">{{__('client.commons.buttons.inactive')}}</flux:menu.item>
                                 </flux:menu>
                             </flux:dropdown>
                         </flux:table.cell>
