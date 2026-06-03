@@ -47,21 +47,17 @@ class ProductCategory extends Model
 
     const POTTERY_CERAMICS = 16;
 
-    const LOCAL_ORGANIC_PRODUCERS = 17;
+    const ARTISAN_SOAPS_COSMETICS = 17;
 
-    const ARTISAN_SOAPS_COSMETICS = 18;
+    const LOCAL_TEXTILE_SEWING = 18;
 
-    const NATURAL_ORGANIC_CARE = 19;
+    const CATERING_TERROIR_CUISINE = 19;
 
-    const LOCAL_TEXTILE_SEWING = 20;
+    const KITCHEN_UTENSILS = 20;
 
-    const CATERING_TERROIR_CUISINE = 21;
+    const LOCAL_FASHION_CLOTHING = 21;
 
-    const KITCHEN_UTENSILS = 22;
-
-    const LOCAL_FASHION_CLOTHING = 23;
-
-    const LOCAL_WINES_SPIRITS = 24;
+    const LOCAL_WINES_SPIRITS = 22;
 
     /**
      * RELATIONS

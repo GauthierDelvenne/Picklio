@@ -100,7 +100,6 @@ class Product extends Model
             ProductCategory::LOCAL_WINES_SPIRITS,
             ProductCategory::BELGIAN_CHOCOLATES,
             ProductCategory::CATERING_TERROIR_CUISINE,
-            ProductCategory::LOCAL_ORGANIC_PRODUCERS,
         ]);
     }
 
@@ -120,7 +119,6 @@ class Product extends Model
             ProductCategory::LOCAL_HOME_LINEN,
             ProductCategory::KITCHEN_UTENSILS,
             ProductCategory::FURNITURE_INTERIOR_DECO,
-            ProductCategory::NATURAL_ORGANIC_CARE,
         ]);
     }
 }
