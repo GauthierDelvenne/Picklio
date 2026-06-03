@@ -6,6 +6,7 @@ use App\Livewire\PicklioComponent;
 use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Stock;
 use App\Traits\SortingTrait;
 use Flux\Flux;
 use Livewire\Attributes\Computed;
@@ -17,6 +18,7 @@ class ClientStocks extends PicklioComponent
     use WithPagination;
 
     public $search;
+    public $statu;
 
     public $account;
 
@@ -34,11 +36,19 @@ class ClientStocks extends PicklioComponent
             ->get();
     }
 
-    public function updatedSearch()
+    public function updated()
     {
         $this->resetPage();
     }
-
+    #[Computed]
+    public function status()
+    {
+        return [
+            Stock::GOOD,
+            Stock::LOW,
+            Stock::VERYLOW,
+        ];
+    }
     public function delete(Product $product)
     {
         $productUpdated = $product->update([
@@ -59,6 +69,11 @@ class ClientStocks extends PicklioComponent
             'stock',
             'productCategory',
         ])
+            ->whereHas('stock', function ($query) {
+                $query->when($this->statu, function ($query) {
+                    $query->where('status', $this->statu);
+                });
+            })
             ->whereAccount($this->account->id)
             ->when($this->search, function ($query) {
                 $query->where('name', 'like', '%'.$this->search.'%');

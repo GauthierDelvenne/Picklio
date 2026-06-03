@@ -102,6 +102,14 @@
                             value="{{$categorys->id}}">{{__('client.products.categories.'.$categorys->id)}}</flux:select.option>
                     @endforeach
                 </flux:select>
+                <flux:select wire:model.live="statu" class="sm:w-5/12">
+                    <flux:select.option
+                        value="">{{__('admin.stocks.status.title')}}</flux:select.option>
+                    @foreach($this->status as $key => $statu)
+                        <flux:select.option
+                            value="{{$statu}}">{{__('admin.stocks.status.'.$statu)}}</flux:select.option>
+                    @endforeach
+                </flux:select>
                 <flux:input wire:model.live.debounce.500ms="search" icon="magnifying-glass" class="sm:w-5/12"
                             placeholder="{{__('client.commons.search')}}"/>
             </div>
@@ -109,7 +117,7 @@
 
         <flux:table>
             <flux:table.columns>
-                <flux:table.column>Photo</flux:table.column>
+                <flux:table.column>{{__('client.products.forms.picture_path.label')}}</flux:table.column>
                 <flux:table.column sortable :sorted="$sortBy === 'products.name'" :direction="$sortDirection"
                                    wire:click="sort('products.name')">{{__('client.products.forms.name.placeholder')}}
                 </flux:table.column>

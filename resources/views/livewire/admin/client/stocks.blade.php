@@ -37,6 +37,14 @@
                             value="{{$categories->id}}">{{__('client.products.categories.'.$categories->id)}}</flux:select.option>
                     @endforeach
                 </flux:select>
+                <flux:select wire:model.live="statu" class="sm:w-5/12">
+                    <flux:select.option
+                        value="">{{__('admin.stocks.status.title')}}</flux:select.option>
+                    @foreach($this->status as $key => $statu)
+                        <flux:select.option
+                            value="{{$statu}}">{{__('admin.stocks.status.'.$statu)}}</flux:select.option>
+                    @endforeach
+                </flux:select>
                 <flux:input wire:model.live.debounce.500ms="search" icon="magnifying-glass" class="sm:w-5/12"
                             placeholder="{{__('client.commons.search')}}"/>
             </div>
