@@ -92,7 +92,7 @@ class ClientDashboard extends PicklioComponent
     {
         $orderItems = $this->orderItems;
         if ($orderItems->isEmpty()) {
-            return;
+            return [];
         }
 
         return $orderItems

@@ -1,7 +1,7 @@
 <flux:main>
     <section class="flex flex-col justify-between gap-10 mb-12 sm:flex-row">
         <flux:heading size="xl" level="2">{{__('commons.pageName.admin.client.stocks')}}</flux:heading>
-        <flux:modal.trigger name="add-product">
+        <flux:modal.trigger name="product-add">
             <flux:button variant="primary">
                 <flux:icon.plus/>
                 {{__('client.products.add')}}
@@ -16,7 +16,8 @@
         </flux:card>
         <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">{{__('client.products.bestseller-product')}}</flux:heading>
-                                   <flux:text class="mt-2">{{!empty($this->bestSeller) ? $this->bestSeller['product']->name : __('admin.commons.empty')}}</flux:text>
+            <flux:text
+                class="mt-2">{{!empty($this->bestSeller) ? $this->bestSeller['product']->name : __('admin.commons.empty')}}</flux:text>
         </flux:card>
         <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">{{__('client.products.lowStock-product')}}</flux:heading>
@@ -133,5 +134,7 @@
         </flux:table>
         <flux:pagination :paginator="$this->products" class="flex-wrap"/>
     </div>
-
+    <flux:modal name="product-add" class="md:w-96">
+        <x-client.modals.stock.form submit="create" :button="__('client.commons.buttons.add')"/>
+    </flux:modal>
 </flux:main>
