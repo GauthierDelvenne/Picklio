@@ -4,10 +4,11 @@
             x-on:click="active = active === {{$position}} ? null : {{$position}}">{{__('front.merchant.cardContainer.'.$position.'.title')}}</h3>
         <div :class="{ 'active': active === {{$position}} }"
              x-on:click="active = active === {{$position}} ? null : {{$position}}"
+             x-on:keydown.enter="active = active === {{ $position }} ? null : {{ $position }}"
              class="accordionItem__titleContainer__svgContainer">
             <x-svg.svg title="{{__('svgTitle.arrow')}}"
                        class="accordionItem__titleContainer__svgContainer__svg"
-                       name="arrow"/>
+                       name="arrow" tab="true"/>
         </div>
     </div>
     <div x-cloak

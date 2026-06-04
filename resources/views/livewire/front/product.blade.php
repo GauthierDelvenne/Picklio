@@ -27,12 +27,12 @@
                 <p class="product__informationContainer__contentContainer__titleContainer__saleBy" itemprop="brand" itemscope itemtype="https://schema.org/Organization">
                     <span
                         class="product__informationContainer__contentContainer__titleContainer__saleBy__span"
-                        wire:click="goToMerchant({{$product->account->id}})">{{__('front.commons.sale-by')}}</span> <span  itemprop="name">{{$product->account->user->name}}</span>
+                        wire:click="goToMerchant({{$product->account->id}})" wire:keydown.enter="goToMerchant({{$product->account->id}})" tabindex="0" role="link">{{__('front.commons.sale-by')}}</span> <span  itemprop="name">{{$product->account->user->name}}</span>
                 </p>
             </div>
             <div class="product__informationContainer__contentContainer__descriptionContainer">
                 <p class="product__informationContainer__contentContainer__descriptionContainer__category" itemprop="category"
-                   wire:click="goToCategory({{$product->productCategory->id}})">{!!  __('client.products.categories.'.$product->product_category_id)!!}</p>
+                   wire:click="goToCategory({{$product->productCategory->id}})" wire:keydown.enter="goToCategory({{$product->productCategory->id}})" tabindex="0" role="link">{!!  __('client.products.categories.'.$product->product_category_id)!!}</p>
                 <p class="product__informationContainer__contentContainer__descriptionContainer__description" itemprop="description">{{$product->description}}</p>
             </div>
             <hr class="product__informationContainer__contentContainer__hr">

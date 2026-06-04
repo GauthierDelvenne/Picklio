@@ -14,7 +14,7 @@
             font-size: $text-sm;
             transition: background-color ease-in 0.3s;
 
-            &:hover {
+            &:hover, &:focus-visible {
                 background-color: $tangerine-300;
             }
         }

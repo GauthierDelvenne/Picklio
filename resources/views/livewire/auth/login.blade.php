@@ -17,11 +17,13 @@
                 <x-svg.svg title="{{__('svgTitle.eye')}}" class="register__inputContainer__svg"
                            name="eye"
                            x-show="!show"
-                           x-on:click="show = !show"/>
+                           x-on:click="show = !show" tab="true"
+                           x-on:keydown.enter="show = !show"/>
                 <x-svg.svg title="{{__('svgTitle.eye-slash')}}" class="register__inputContainer__svg"
                            name="eye-slash"
                            x-show="show"
-                           x-on:click="show = !show"/>
+                           x-on:click="show = !show"
+                           x-on:keydown.enter="show = !show" tab="true"/>
             </x-form.input>
         </div>
         <x-form.checkbox div-class="login__checkboxContainer" name="remember"

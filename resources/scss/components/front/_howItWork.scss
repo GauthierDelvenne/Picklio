@@ -47,7 +47,7 @@
         a {
             color: $tangerine-600;
             transition: color ease-in 0.3s;
-            &:hover{
+            &:hover, &:focus-visible{
                 color: $tangerine-500;
             }
         }

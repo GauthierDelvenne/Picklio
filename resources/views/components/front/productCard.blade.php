@@ -11,7 +11,8 @@
         @endif
         <div class="productCard__imgContainer__tagContainer">
             @if(!empty($category))
-                <div class="productCard__imgContainer__tagContainer__tagItem no-card-hover" wire:click.stop="{{$wireClickCategory}}">
+                <div class="productCard__imgContainer__tagContainer__tagItem no-card-hover" tabindex="0"
+                     role="link" wire:keydown.enter.stop="{{$wireClickCategory}}" wire:click.stop="{{$wireClickCategory}}">
                     <p class="productCard__imgContainer__tagContainer__tagItem__tag" itemprop="category">{{$category}}</p>
                 </div>
             @endif
@@ -25,7 +26,8 @@
     <div class="productCard__contentContainer">
         <div class="productCard__contentContainer__informationContainer">
             <p class="productCard__contentContainer__informationContainer__title" itemprop="name">{{$title}}</p>
-            <p class="productCard__contentContainer__informationContainer__saleBy no-card-hover" wire:click.stop="{{$wireClick}}" itemprop="brand" itemscope itemtype="https://schema.org/Organization"><span
+            <p class="productCard__contentContainer__informationContainer__saleBy no-card-hover" tabindex="0"
+               role="link" wire:keydown.enter.stop="{{$wireClick}}" wire:click.stop="{{$wireClick}}" itemprop="brand" itemscope itemtype="https://schema.org/Organization"><span
                     class="productCard__contentContainer__informationContainer__saleBy__span">{{__('front.commons.sale-by')}}</span> <span itemprop="name">{{$saleBy}}</span>
             </p>
         </div>

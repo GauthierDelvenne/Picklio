@@ -104,7 +104,7 @@
                         font-weight: 600;
                         transition: color ease-in 0.3s;
 
-                        &:hover {
+                        &:hover, &:focus-visible {
                             color: $tangerine-500;
                         }
                     }
@@ -171,7 +171,7 @@
                 background-color: $tangerine-300;
                 color: $tangerine-50;
 
-                &:hover {
+                &:hover, &:focus-visible {
                     color: $tangerine-100;
 
                     .icon {
