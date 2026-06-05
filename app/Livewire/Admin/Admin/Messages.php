@@ -25,6 +25,8 @@ class Messages extends PicklioComponent
     public $account;
 
     public $search;
+    public $sendSearch;
+    public $sendStatus;
 
     public $messageStatus;
 
@@ -158,11 +160,12 @@ class Messages extends PicklioComponent
     public function sendMessages()
     {
         return Message::ownMessage($this->account->id)
-            ->when($this->search, function ($query) {
-                $query->where('users.name', 'like', '%'.$this->search.'%');
+            ->with(['recipient.user'])
+            ->when($this->sendSearch, function ($query) {
+                $query->where('users.name', 'like', '%'.$this->sendSearch.'%');
             })
-            ->when($this->messageStatus, function ($query) {
-                $query->where('messages.message_status_id', $this->messageStatus);
+            ->when($this->sendStatus, function ($query) {
+                $query->where('messages.message_status_id', $this->sendStatus);
             })
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(15);
