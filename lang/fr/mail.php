@@ -67,6 +67,12 @@ return [
             'button' => 'Voir votre commande',
             'pay' => 'Le montant est à payer sur place',
         ],
+        'new-order' => [
+            'subject' => 'Nouvelle commande',
+            'title' => 'Commande #:name à faire',
+            'description' => 'Une nouvelle commande #:name vient d’être passée et est en attente de traitement. Veuillez la consulter et procéder aux actions nécessaires dans les meilleurs délais.',
+            'button' => 'Voir la commande',
+        ],
         'cancel-order' => [
             'subject' => 'Votre commande a été annulée',
             'title' => 'Commande :name annulée',

@@ -4,10 +4,13 @@ namespace App\Livewire\Front;
 
 use App\Livewire\Form\Front\ChooseSlotForm;
 use App\Livewire\PicklioComponent;
+use App\Mail\NewOrderMail;
 use App\Mail\PreventCartDeleteMail;
 use App\Mail\SuccessOrderMail;
+use App\Models\Account;
 use App\Models\Order;
 use App\Models\PickupSlot;
+use App\Models\Role;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Livewire\Attributes\Computed;
@@ -77,7 +80,9 @@ class Slot extends PicklioComponent
         if ($this->form->createOrder()) {
             $this->order->refresh();
             Mail::to($this->order->account->email)->send(new SuccessOrderMail($this->order));
-            // TODO MAIL TO ADMIN
+            $account = Account::where('role_id', Role::ADMIN)->first();
+            $email = $account->email;
+            Mail::to($email)->send(new NewOrderMail($this->order));
             $this->redirectRoute('front.order-confirmation', ['order' => $this->order]);
         }
     }
