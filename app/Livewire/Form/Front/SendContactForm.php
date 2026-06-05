@@ -31,8 +31,8 @@ class SendContactForm extends Form
     public function create()
     {
         $validatedData = $this->validate();
-        ContactMessage::create($validatedData);
-        return true;
+        $message = ContactMessage::create($validatedData);
+        return $message;
     }
 
     public function rules()

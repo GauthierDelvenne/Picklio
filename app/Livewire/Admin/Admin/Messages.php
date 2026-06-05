@@ -4,12 +4,16 @@ namespace App\Livewire\Admin\Admin;
 
 use App\Livewire\Form\Admin\Admin\CreateMessageForm;
 use App\Livewire\PicklioComponent;
+use App\Mail\CancelOrderMail;
+use App\Mail\MessageMail;
+use App\Models\Account;
 use App\Models\ContactMessage;
 use App\Models\Message;
 use App\Models\NewMerchantMessage;
 use App\Models\SuggestMessage;
 use App\Traits\SortingTrait;
 use Flux\Flux;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Computed;
 use Livewire\WithPagination;
 
@@ -51,9 +55,14 @@ class Messages extends PicklioComponent
 
     public function create()
     {
-        if ($this->form->create()) {
+        $message = $this->form->create();
+        if ($message) {
             Flux::toast(__('admin.messages.toast.create.success'), variant: 'success');
             Flux::modal('send-message')->close();
+            $account = Account::where('id', $this->form->recipient_id)->first();
+            $email = $account->email;
+            $sender = Account::where('id', $this->form->sender_id)->first();
+            Mail::to($email)->send(new MessageMail($sender, $message));
             $this->form->reset();
         } else {
             Flux::toast(__('admin.messages.toast.create.error'), variant: 'danger');

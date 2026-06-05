@@ -28,8 +28,8 @@ class SendMessageForm extends Form
     public function create()
     {
         $validatedData = $this->validate();
-        SuggestMessage::create($validatedData);
-        return true;
+        $message = SuggestMessage::create($validatedData);
+        return $message;
     }
 
     public function rules()

@@ -4,6 +4,7 @@ namespace App\Livewire\Front;
 
 use App\Livewire\Form\Front\SendMessageForm;
 use App\Livewire\PicklioComponent;
+use App\Mail\SuggestAdminMessageMail;
 use App\Mail\SuggestMessageMail;
 use App\Models\Account;
 use App\Models\Order;
@@ -42,9 +43,13 @@ class Catalogues extends PicklioComponent
 
     public function sendMessage()
     {
-        if ($this->form->create()) {
+        $message = $this->form->create();
+        if ($message) {
             $this->dispatch('form-sent');
+            $account = Account::where('id', $this->form->recipient_id)->first();
+            $email = $account->email;
             Mail::to($this->form->email)->send(new SuggestMessageMail);
+            Mail::to($email)->send(new SuggestAdminMessageMail($message, $this->form->name));
             $this->form->reset();
         }
     }

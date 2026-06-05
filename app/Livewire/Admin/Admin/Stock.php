@@ -6,7 +6,9 @@ use App\Livewire\Form\Admin\Client\UpdateProductForm;
 use App\Livewire\Form\Admin\Client\UpdateStockForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Product;
+use App\Models\StockMovement;
 use Flux\Flux;
+use Livewire\Attributes\Computed;
 
 class Stock extends PicklioComponent
 {
@@ -54,6 +56,13 @@ class Stock extends PicklioComponent
         } else {
             Flux::toast(__('client.products.toast.delete.error'), variant: 'danger');
         }
+    }
+    #[Computed]
+    public function stockMouvements()
+    {
+        return StockMovement::with('product')
+            ->where('product_id', $this->product->id)
+            ->paginate(10);
     }
     public function render()
     {

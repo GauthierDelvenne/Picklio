@@ -36,7 +36,7 @@ class CreateMessageForm extends Form
     public function create()
     {
         $validatedData = $this->validate();
-        Message::create([
+        $message = Message::create([
             'sender_id' => $this->sender_id,
             'recipient_id' => $validatedData['recipient_id'],
             'message_status_id' => $this->status_id,
@@ -44,7 +44,7 @@ class CreateMessageForm extends Form
             'description' => $validatedData['description'],
         ]);
 
-        return true;
+        return $message;
     }
 
     public function rules()

@@ -14,7 +14,7 @@
 
     <flux:field>
         <flux:label>
-            Raison du changement
+            {{__('admin.stocks.forms.type.label')}}
             <abbr title="{{ __('validation.abbr-required') }}" class="text-accent ml-1">*</abbr>
         </flux:label>
         <flux:select wire:model="formStock.type">
