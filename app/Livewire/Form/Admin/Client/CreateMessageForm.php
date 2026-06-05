@@ -11,7 +11,6 @@ use Livewire\Form;
 
 class CreateMessageForm extends Form
 {
-    public $messageStatuses;
 
     public $title;
 
@@ -28,7 +27,6 @@ class CreateMessageForm extends Form
     public function __construct(Component $component, $propertyName)
     {
         parent::__construct($component, $propertyName);
-        $this->messageStatuses = MessageStatus::all();
         $this->sender_id = $component->userConnected->account->id;
         $this->recipient_id = Account::where('role_id', Role::ADMIN)->first()->id;
     }

@@ -175,14 +175,14 @@
         <div class="mb-4 flex flex-col gap-4 justify-between lg:flex-row">
             <flux:heading size="l">{{__('admin.messages.newMerchantMessage')}}</flux:heading>
             <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap md:flex-nowrap">
-                <flux:select wire:model.live="suggestMessageStatus" class="sm:w-5/12">
+                <flux:select wire:model.live="newMerchantStatus" class="sm:w-5/12">
                     <flux:select.option value="">{{__('admin.messages.form.status.placeholder')}}</flux:select.option>
                     @foreach($this->form->messageStatuses as $key => $messageStatus)
                         <flux:select.option
                             value="{{$messageStatus->id}}">{{__('admin.messages.status.'.$messageStatus->id)}}</flux:select.option>
                     @endforeach
                 </flux:select>
-                <flux:input wire:model.live.debounce.500ms="suggestSearch" icon="magnifying-glass" class="sm:w-5/12"
+                <flux:input wire:model.live.debounce.500ms="newMerchantSearch" icon="magnifying-glass" class="sm:w-5/12"
                             placeholder="{{__('admin.commons.search')}}"/>
             </div>
         </div>
@@ -255,14 +255,14 @@
         <div class="mb-4 flex flex-col gap-4 justify-between lg:flex-row">
             <flux:heading size="l">{{__('admin.messages.contactMessage')}}</flux:heading>
             <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap md:flex-nowrap">
-                <flux:select wire:model.live="suggestMessageStatus" class="sm:w-5/12">
+                <flux:select wire:model.live="contactStatus" class="sm:w-5/12">
                     <flux:select.option value="">{{__('admin.messages.form.status.placeholder')}}</flux:select.option>
                     @foreach($this->form->messageStatuses as $key => $messageStatus)
                         <flux:select.option
                             value="{{$messageStatus->id}}">{{__('admin.messages.status.'.$messageStatus->id)}}</flux:select.option>
                     @endforeach
                 </flux:select>
-                <flux:input wire:model.live.debounce.500ms="suggestSearch" icon="magnifying-glass" class="sm:w-5/12"
+                <flux:input wire:model.live.debounce.500ms="contactSearch" icon="magnifying-glass" class="sm:w-5/12"
                             placeholder="{{__('admin.commons.search')}}"/>
             </div>
         </div>
@@ -334,14 +334,14 @@
         <div class="mb-4 flex flex-col gap-4 justify-between lg:flex-row">
             <flux:heading size="l">{{__('admin.messages.sendMessage')}}</flux:heading>
             <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap md:flex-nowrap">
-                <flux:select wire:model.live="messageStatus" class="sm:w-5/12">
+                <flux:select wire:model.live="sendStatus" class="sm:w-5/12">
                     <flux:select.option value="">{{__('admin.messages.form.status.placeholder')}}</flux:select.option>
                     @foreach($this->form->messageStatuses as $key => $messageStatus)
                         <flux:select.option
                             value="{{$messageStatus->id}}">{{__('admin.messages.status.'.$messageStatus->id)}}</flux:select.option>
                     @endforeach
                 </flux:select>
-                <flux:input wire:model.live.debounce.500ms="search" icon="magnifying-glass" class="sm:w-5/12"
+                <flux:input wire:model.live.debounce.500ms="sendSearch" icon="magnifying-glass" class="sm:w-5/12"
                             placeholder="{{__('admin.commons.search')}}"/>
             </div>
         </div>
