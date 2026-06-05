@@ -183,6 +183,7 @@ return [
             'type' => [
                 'label' => 'Raison du changement',
                 'attribute' => 'raison du changement',
+                'new' => 'Nouveau',
                 'supply' => 'Livraison',
                 'adjustment' => 'Ajustement',
                 'sale' => 'Vente',
@@ -229,7 +230,7 @@ return [
         'suggestMessage' => 'Les suggestion client',
         'newMerchantMessage' => 'Les inscriptions de nouveau commerçants',
         'contactMessage' => 'Les messages de contact',
-        'sendMessage' => 'Les messages de envoyés',
+        'sendMessage' => 'Les messages envoyés',
         'receiveMessage' => 'Les messages reçus',
         'information' => 'Les informations client',
         'merchant' => 'Le message du commerçant',

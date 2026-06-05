@@ -32,8 +32,8 @@ class SendMerchantMessageForm extends Form
     public function create()
     {
         $validatedData = $this->validate();
-        NewMerchantMessage::create($validatedData);
-        return true;
+        $message = NewMerchantMessage::create($validatedData);
+        return $message;
     }
 
     public function rules()

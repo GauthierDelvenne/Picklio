@@ -5,7 +5,9 @@ namespace App\Livewire\Admin\Client;
 use App\Livewire\Form\Admin\Client\UpdateProductForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Product;
+use App\Models\StockMovement;
 use Flux\Flux;
+use Livewire\Attributes\Computed;
 use Livewire\WithFileUploads;
 
 class ClientStock extends PicklioComponent
@@ -21,14 +23,7 @@ class ClientStock extends PicklioComponent
         $this->form->product = $this->product;
         $this->form->setProperties();
     }
-    public function update()
-    {
-        if ($this->form->update()) {
-            Flux::toast(__('client.products.toast.update.success'), variant: 'success');
-        } else {
-            Flux::toast(__('client.products.toast.update.error'), variant: 'danger');
-        }
-    }
+
     public function delete()
     {
         $productUpdated = $this->product->update([
@@ -44,10 +39,27 @@ class ClientStock extends PicklioComponent
         }
     }
 
+    public function update()
+    {
+        if ($this->form->update()) {
+            Flux::toast(__('client.products.toast.update.success'), variant: 'success');
+        } else {
+            Flux::toast(__('client.products.toast.update.error'), variant: 'danger');
+        }
+    }
+
+    #[Computed]
+    public function stockMouvements()
+    {
+        return StockMovement::with('product')
+            ->where('product_id', $this->product->id)
+            ->paginate(10);
+    }
+
     public function render()
     {
         return view('livewire.admin.client.stock')
             ->layout('layouts.client')
-            ->title(__('commons.pageName.admin.admin.stock').' | '.__('commons.pageName.admin.client.stock'));
+            ->title(__('commons.pageName.admin.admin.stock') . ' | ' . __('commons.pageName.admin.client.stock'));
     }
 }

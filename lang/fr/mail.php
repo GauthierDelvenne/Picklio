@@ -30,6 +30,30 @@ return [
             'description' => 'Vous nous avez envoyé des suggestions d’articles et/ou de commerçants. Celle-ci sera traitée sous peu et Picklio essaiera de pallier ce manque.',
             'button' => 'Retourner sur le site',
         ],
+        'contactMessage' => [
+            'subject' => 'Réception du formulaire',
+            'title' => 'Merci pour votre message',
+            'description' => 'Nous avons bien reçu votre demande et vous remercions de nous avoir contactés. Notre équipe reviendra vers vous dans les meilleurs délais.',
+            'button' => 'Retourner sur le site',
+        ],
+        'contactAdminMessage' => [
+            'subject' => 'Vous avez une nouvelle demande de contact',
+            'title' => 'Nouvelle demande de contact reçue',
+            'description' => 'Un utilisateur a soumis une demande via le formulaire de contact. Consultez le message pour en prendre connaissance et y répondre.',
+            'button' => 'Voir le message',
+        ],
+        'suggestAdminMessage' => [
+            'subject' => 'Vos avez de nouvelle suggestion',
+            'title' => 'Nouvelle suggestion de :name',
+            'description' => ':name vous a envoyé une nouvelle suggestion. Consultez-la pour en prendre connaissance.',
+            'button' => 'Voir le message',
+        ],
+        'newMerchantAdminMessage' => [
+            'subject' => 'Vos avez une demande d’intégration',
+            'title' => ':name souhaite rejoindre Picklio',
+            'description' => ':name a soumis une demande d’intégration à Picklio. Consultez sa demande pour l’examiner et y répondre.',
+            'button' => 'Voir le message',
+        ],
         'order' => [
             'subject' => 'Votre panier expire bientôt',
             'title' => 'Votre panier est sur le point d’être supprimé',
@@ -56,4 +80,18 @@ return [
             'button' => 'Voir votre commande',
         ],
     ],
+    'admin' => [
+        'message' => [
+            'subject' => 'Vos avez un nouveau message',
+            'title' => 'Vous avez un message de :name est attente',
+            'description' => 'Consultez votre boîte de réception pour lire le message envoyé par :name.',
+            'button' => 'Voir le message',
+        ],
+        'newProduct' => [
+            'subject' => 'Un nouveau produit a été ajouté',
+            'title' => ':name a ajouté un nouveau produit',
+            'description' => ':name a publié un nouveau produit sur la plateforme. Consultez sa fiche pour découvrir ses caractéristiques et vérifier sa mise en ligne.',
+            'button' => 'Voir le produit',
+        ],
+    ]
 ];

@@ -4,7 +4,9 @@ namespace App\Livewire\Front;
 
 use App\Livewire\Form\Front\SendContactForm;
 use App\Livewire\PicklioComponent;
+use App\Mail\ContactAdminMail;
 use App\Mail\ContactMail;
+use App\Mail\SuggestAdminMessageMail;
 use App\Models\Account;
 use App\Models\Role;
 use App\Models\Warehouse;
@@ -27,9 +29,14 @@ class Contact extends PicklioComponent
 
     public function sendForm()
     {
-        if ($this->form->create()) {
+        $message = $this->form->create();
+        if ($message) {
             $this->dispatch('send-form');
+            $account = Account::where('id', $this->form->recipient_id)->first();
+            $email = $account->email;
+            $role = $account->role_id;
             Mail::to($this->form->email)->send(new ContactMail);
+            Mail::to($email)->send(new ContactAdminMail($message, $role));
             $this->form->reset();
         }
     }

@@ -4,11 +4,15 @@ namespace App\Livewire\Admin\Client;
 
 use App\Livewire\Form\Admin\Client\CreateMessageForm;
 use App\Livewire\PicklioComponent;
+use App\Mail\ClientMessageMail;
+use App\Mail\MessageMail;
+use App\Models\Account;
 use App\Models\ContactMessage;
 use App\Models\Message;
 use App\Models\MessageStatus;
 use App\Traits\SortingTrait;
 use Flux\Flux;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Computed;
 use Livewire\WithPagination;
 
@@ -40,9 +44,14 @@ class ClientMessages extends PicklioComponent
 
     public function create()
     {
-        if ($this->form->create()) {
+        $message = $this->form->create();
+        if ($message) {
             Flux::toast(__('admin.messages.toast.create.success'), variant: 'success');
             Flux::modal('send-message')->close();
+            $account = Account::where('id', $this->form->recipient_id)->first();
+            $email = $account->email;
+            $sender = Account::where('id', $this->form->sender_id)->first();
+            Mail::to($email)->send(new ClientMessageMail($sender, $message));
             $this->form->reset();
         } else {
             Flux::toast(__('admin.messages.toast.create.error'), variant: 'danger');
@@ -81,12 +90,13 @@ class ClientMessages extends PicklioComponent
             })
             ->paginate(15);
     }
+
     #[Computed]
     public function sendMessages()
     {
         return Message::ownMessage($this->account->id)
             ->when($this->search, function ($query) {
-                $query->where('users.name', 'like', '%'.$this->search.'%');
+                $query->where('users.name', 'like', '%' . $this->search . '%');
             })
             ->when($this->messageStatus, function ($query) {
                 $query->where('messages.message_status_id', $this->messageStatus);
@@ -94,6 +104,7 @@ class ClientMessages extends PicklioComponent
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(15);
     }
+
     public function render()
     {
         return view('livewire.admin.client.messages')

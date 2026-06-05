@@ -105,7 +105,7 @@ class Stocks extends PicklioComponent
         return Product::with(['stock', 'account.user'])
             ->where('updated_at', '>=', now()->subDays(3))
             ->orderByDesc('updated_at')
-            ->limit(5)
+            ->limit(10)
             ->get();
     }
 

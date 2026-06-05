@@ -29,6 +29,7 @@ return [
     'products' => [
         'add' => 'Ajoutez un produit',
         'edit' => 'Éditez le produit',
+        'history' => 'Historique du stock',
         'total-product' => 'Nombre de produit',
         'discount-product' => 'Promotion en cours',
         'bestseller-product' => 'Meilleurs vente',

@@ -119,7 +119,7 @@
         <flux:pagination :paginator="$this->products" class="flex-wrap"/>
     </div>
     <div class="flex justify-between gap-10 mt-12">
-        <flux:card class="w-md">
+        <flux:card class="w-full">
             <flux:heading class="flex items-center gap-2">Dernière activité</flux:heading>
             @forelse($this->lastUpdateProductsActivities as $lastUpdateProductsActivity)
                 <div class="mt-2 flex gap-4 justify-between">

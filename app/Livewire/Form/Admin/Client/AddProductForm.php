@@ -88,7 +88,7 @@ class AddProductForm extends Form
             'type' => StockMovement::TYPE_NEW,
         ]);
 
-        return true;
+        return $product;
     }
 
     public function rules()
