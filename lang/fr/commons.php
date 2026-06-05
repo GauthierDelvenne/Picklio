@@ -13,7 +13,7 @@ return [
                 'stock' => 'Produit',
                 'messages' => 'Messages',
                 'message' => 'Message',
-                'statistics' => 'Statistique',
+                'statistics' => 'Chiffres',
                 'settings' => 'Paramètre',
                 'suggestMessage' => 'Suggestion',
                 'receiveMessage' => 'Reçu',
@@ -26,7 +26,7 @@ return [
                 'stock' => 'Produit',
                 'messages' => 'Messages',
                 'message' => 'Message',
-                'statistics' => 'Statistique',
+                'statistics' => 'Chiffres',
                 'settings' => 'Paramètre',
             ],
         ],
@@ -63,5 +63,15 @@ return [
     ],
     'head' => [
         'description' => 'Site de vente de produit de client locaux',
-    ]
+    ],
+    'stat' => [
+        'totalSale' => 'Ventes totals',
+        'monthSale' => 'Ventes du mois',
+        'daySale' => 'Ventes aujourd’hui',
+        'totalOrder' => 'Nombre de commandes totals',
+        'monthOrder' => 'Nombre de commandes du mois',
+        'dayOrder' => 'Nombre de commandes aujourd’hui',
+        'merchantCount' => 'Nombre de marchands actif',
+        'productCount' => 'Nombre de produit actif',
+    ],
 ];

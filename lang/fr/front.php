@@ -502,7 +502,7 @@ return [
             'title' => 'Vos commandes',
             'details' => 'Voir les détails',
             'see-more' => 'Voir plus',
-            'title-detail' => 'Votre commande',
+            'title-detail' => 'La commande',
             'return-detail' => 'Revenir précédemment',
         ],
         'account' => [
