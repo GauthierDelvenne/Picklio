@@ -23,6 +23,7 @@ services:
             - sail
         depends_on:
             - mysql
+            - selenium
     scheduler:
         build:
             context: ./vendor/laravel/sail/runtimes/8.5
@@ -83,6 +84,14 @@ services:
         ports:
             - 1025:1025
             - 8025:8025
+        networks:
+            - sail
+    selenium:
+        image: selenium/standalone-chromium
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        volumes:
+            - '/dev/shm:/dev/shm'
         networks:
             - sail
 networks:
