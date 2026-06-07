@@ -2,7 +2,9 @@
 
 namespace App\Livewire\Form\Admin\Admin\Setting;
 
+use App\Models\PickupSlot;
 use App\Models\Warehouse;
+use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\Form;
 
@@ -51,10 +53,11 @@ class UpdateWarehouseForm extends Form
     public function update()
     {
         $validatedData = $this->validate();
-        Warehouse::updateOrCreate([
+        $settings = Warehouse::updateOrCreate([
             'id' => $this->warehouse->id,
         ],
             $validatedData);
+        $this->regeneratePickupSlots($settings);
         return true;
     }
 
@@ -84,5 +87,32 @@ class UpdateWarehouseForm extends Form
             'opening_time' => strtolower(__('admin.settings.warehouse.forms.opening_time.attribute')),
             'closing_time' => strtolower(__('admin.settings.warehouse.forms.closing_time.attribute')),
         ];
+    }
+
+    private function regeneratePickupSlots($settings)
+    {
+        $days = [Carbon::TUESDAY, Carbon::WEDNESDAY, Carbon::THURSDAY, Carbon::FRIDAY, Carbon::SATURDAY];
+
+        $opening = Carbon::today()->setTimeFromTimeString($settings->opening_time);
+        $closing = Carbon::today()->setTimeFromTimeString($settings->closing_time);
+
+        PickupSlot::where('day_iso', '!=', 0)
+            ->where(function ($query) use ($opening, $closing) {
+                $query->whereTime('time', '<', $opening->format('H:i'))
+                    ->orWhereTime('time', '>=', $closing->format('H:i'));
+            })
+            ->update(['is_active' => false]);
+
+        foreach ($days as $day) {
+            $current = $opening->copy();
+
+            while ($current->lessThan($closing)) {
+                PickupSlot::updateOrCreate(
+                    ['time' => $current->format('H:i'), 'day_iso' => $day],
+                    ['is_active' => true]
+                );
+                $current->addMinutes(30);
+            }
+        }
     }
 }

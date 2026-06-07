@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['time', 'max_orders', 'day_iso'])]
+#[Fillable(['time', 'max_orders', 'day_iso', 'is_active'])]
 class PickupSlot extends Model
 {
     use HasFactory;

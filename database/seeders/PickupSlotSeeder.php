@@ -16,6 +16,7 @@ class PickupSlotSeeder extends Seeder
             'time' => Carbon::today()->setTime(0, 0)->format('H:i'),
             'day_iso' => 0,
             'max_orders' => 1000,
+            'is_active' => 1,
         ]);
         foreach ($days as $day) {
 
@@ -28,6 +29,7 @@ class PickupSlotSeeder extends Seeder
                 PickupSlot::factory()->create([
                     'time' => $current->format('H:i'),
                     'day_iso' => $day,
+                    'is_active' => 1,
                 ]);
 
                 $current->addMinutes(30);

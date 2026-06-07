@@ -67,6 +67,7 @@ class Slot extends PicklioComponent
         $dayOfWeek = Carbon::parse($this->form->pickup_date)->dayOfWeekIso;
 
         $slots = PickupSlot::where('day_iso', $dayOfWeek)
+            ->where('is_active', true)
             ->withCount(['orders' => function ($query) {
                 $query->where('pickup_date', $this->form->pickup_date);
             }])
