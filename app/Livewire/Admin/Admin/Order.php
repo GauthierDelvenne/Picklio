@@ -7,6 +7,7 @@ use App\Mail\CancelOrderMail;
 use App\Mail\PreparedOrderMail;
 use App\Models\Order as OrderModel;
 use Flux\Flux;
+use Illuminate\Support\Facades\Cache;
 use Mail;
 
 class Order extends PicklioComponent
@@ -23,6 +24,7 @@ class Order extends PicklioComponent
         $this->order->update([
             'status' => OrderModel::FINISHCART,
         ]);
+        Cache::forget("new_order_{$this->userConnected->id}");
         Mail::to($this->order->account->email)->send(new PreparedOrderMail($this->order));
         $this->redirectRoute('admin.order.index');
     }
@@ -36,6 +38,7 @@ class Order extends PicklioComponent
             $this->order->orderItems()->delete();
             $this->order->delete();
             Flux::toast(__('admin.orders.toast.delete.success'), variant: 'success');
+            Cache::forget("new_order_{$this->userConnected->id}");
             Mail::to($email)->send(new CancelOrderMail($code));
             $this->redirectRoute('admin.order.index');
         } else {
