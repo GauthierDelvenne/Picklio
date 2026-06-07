@@ -183,10 +183,10 @@ return [
             'type' => [
                 'label' => 'Raison du changement',
                 'attribute' => 'raison du changement',
-                'new' => 'Nouveau',
-                'supply' => 'Livraison',
-                'adjustment' => 'Ajustement',
-                'sale' => 'Vente',
+                '1' => 'Nouveau',
+                '2' => 'Livraison',
+                '3' => 'Ajustement',
+                '4' => 'Vente',
             ],
         ],
         'toast' => [

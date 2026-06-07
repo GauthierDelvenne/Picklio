@@ -5,6 +5,7 @@ namespace App\Livewire\Front;
 use App\Livewire\PicklioComponent;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\OrderStatus;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
@@ -19,7 +20,7 @@ class Basket extends PicklioComponent
         if (! empty($this->userConnected)) {
             $this->cart = Order::with(['orderItems', 'orderItems.product.stock', 'orderItems.product.productCategory'])
                 ->where('account_id', $this->userConnected->account->id)
-                ->where('status', Order::INITCART)
+                ->where('order_status_id', OrderStatus::INIT)
                 ->first();
             if (! empty($this->cart)) {
                 foreach ($this->cart->orderItems as $orderItem) {

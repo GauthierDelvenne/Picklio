@@ -7,18 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-#[Fillable(['product_id', 'quantity', 'type'])]
+#[Fillable(['product_id', 'quantity', 'stock_movement_type_id'])]
 class StockMovement extends Model
 {
     use HasFactory;
-
-    const TYPE_NEW = 'new';
-
-    const TYPE_SUPPLY = 'supply';
-
-    const TYPE_SALE = 'sale';
-
-    const TYPE_ADJUSTMENT = 'adjustment';
 
     /**
      * RELATIONS

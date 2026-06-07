@@ -6,11 +6,13 @@ use App\Livewire\PicklioComponent;
 use App\Mail\CancelOrderMail;
 use App\Models\Account;
 use App\Models\Order;
+use App\Models\OrderStatus;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Role;
 use App\Models\Status;
 use App\Models\Stock;
+use App\Models\StockStatus;
 use App\Traits\SortingTrait;
 use Flux\Flux;
 use Illuminate\Support\Facades\Mail;
@@ -67,8 +69,8 @@ class Dashboard extends PicklioComponent
     public function status()
     {
         return [
-            Stock::LOW,
-            Stock::VERYLOW,
+            StockStatus::LOW,
+            StockStatus::VERYLOW,
         ];
     }
 
@@ -83,9 +85,9 @@ class Dashboard extends PicklioComponent
     {
         return Product::with(['stock', 'productCategory', 'account.user'])
             ->whereHas('stock', function ($query) {
-                $query->where('status', '!=', Stock::GOOD)
+                $query->where('stock_status_id', '!=', StockStatus::GOOD)
                     ->when($this->statu, function ($query) {
-                        $query->where('status', $this->statu);
+                        $query->where('stock_status_id', $this->statu);
                     });
             })
             ->whereNot('products.is_active', 0)
@@ -105,7 +107,7 @@ class Dashboard extends PicklioComponent
     #[Computed]
     public function inWaitOrder()
     {
-        return Order::where('status', Order::INWAITCART)->count();
+        return Order::where('order_status_id', OrderStatus::INWAIT)->count();
     }
 
     #[Computed]

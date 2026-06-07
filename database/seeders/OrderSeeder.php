@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Account;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\OrderStatus;
 use App\Models\PickupSlot;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -49,7 +50,7 @@ class OrderSeeder extends Seeder
                     'account_id' => $client->id,
                     'pickup_slot_id' => $slot->id,
                     'pickup_date' => $pickupDate,
-                    'status' => 1,
+                    'order_status_id' => OrderStatus::INWAIT,
                     'total_price' => $totalPrice,
                 ]);
 

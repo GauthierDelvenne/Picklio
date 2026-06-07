@@ -6,6 +6,7 @@ use App\Models\Account;
 use App\Models\ContactMessage;
 use App\Models\MessageStatus;
 use App\Models\Order;
+use App\Models\OrderStatus;
 use App\Models\PickupSlot;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -71,7 +72,7 @@ it('adds a product to the cart and creates an order', function () {
         'product_id' => $product->id,
         'quantity' => 10,
         'quantity_reserved' => 0,
-        'status' => true
+        'stock_status_id' => true
     ]);
 
     Livewire::actingAs($user)
@@ -87,7 +88,7 @@ it('adds a product to the cart and creates an order', function () {
     $this->assertDatabaseHas('orders', [
         'account_id' => $clientAccount->id,
         'pickup_slot_id' => PickupSlot::TIMECREATEDCART,
-        'status' => Order::INITCART,
+        'order_status_id' => OrderStatus::INIT,
         'total_price' => 1000
     ]);
 
@@ -125,7 +126,7 @@ it('can increment and decrement product quantity from the shop card', function (
         'product_id' => $product->id,
         'quantity' => 5,
         'quantity_reserved' => 0,
-        'status' => true
+        'stock_status_id' => true
     ]);
 
     $component = Livewire::actingAs($user)

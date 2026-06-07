@@ -44,7 +44,7 @@ class UpdateStockForm extends Form
         StockMovement::create(
             ['product_id' => $this->product->id,
                 'quantity' => $validatedData['quantity'],
-                'type' => $validatedData['type'],
+                'stock_movement_type_id' => $validatedData['type'],
             ]);
 
         return true;

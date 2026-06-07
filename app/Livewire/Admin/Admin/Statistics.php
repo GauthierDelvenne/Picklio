@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Admin;
 
 use App\Livewire\PicklioComponent;
 use App\Models\Account;
+use App\Models\OrderStatus;
 use App\Models\Product;
 use App\Models\Role;
 use App\Models\Status;
@@ -16,7 +17,7 @@ class Statistics extends PicklioComponent
     #[Computed]
     public function finishedOrders()
     {
-        return Order::where('status', Order::FINISHCART)
+        return Order::where('order_status_id', OrderStatus::FINISH)
             ->get(['total_price', 'pickup_date']);
     }
 

@@ -6,6 +6,7 @@ use App\Livewire\PicklioComponent;
 use App\Mail\CancelOrderMail;
 use App\Mail\PreparedOrderMail;
 use App\Models\Order as OrderModel;
+use App\Models\OrderStatus;
 use Flux\Flux;
 use Illuminate\Support\Facades\Cache;
 use Mail;
@@ -22,7 +23,7 @@ class Order extends PicklioComponent
     public function endOrder()
     {
         $this->order->update([
-            'status' => OrderModel::FINISHCART,
+            'order_status_id' => OrderStatus::FINISH,
         ]);
         Cache::forget("new_order_{$this->userConnected->id}");
         Mail::to($this->order->account->email)->send(new PreparedOrderMail($this->order));

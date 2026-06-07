@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\Role;
 use App\Models\Stock;
 use App\Models\StockMovement;
+use App\Models\StockMovementType;
+use App\Models\StockStatus;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -26,17 +28,17 @@ class ProductSeeder extends Seeder
             foreach ($products as $product) {
                 $capacity = $product->productCategory->capacity;
                 $quantity = rand(1, $capacity);
-                $status = $quantity <= $capacity * 0.10 ? Stock::VERYLOW : ($quantity <= $capacity * 0.25 ? Stock::LOW : Stock::GOOD);
+                $status = $quantity <= $capacity * 0.10 ? StockStatus::VERYLOW : ($quantity <= $capacity * 0.25 ? StockStatus::LOW : StockStatus::GOOD);
 
                 Stock::factory()->create([
                     'product_id' => $product->id,
                     'quantity' => $quantity,
-                    'status' => $status,
+                    'stock_status_id' => $status,
                 ]);
                 StockMovement::factory()->create([
                     'product_id' => $product->id,
                     'quantity' => $quantity,
-                    'type' => StockMovement::TYPE_NEW,
+                    'stock_movement_type_id' => StockMovementType::TYPE_NEW,
                 ]);
             }
         }
