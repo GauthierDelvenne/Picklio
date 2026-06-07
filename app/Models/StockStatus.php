@@ -8,19 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Fillable(['status'])]
-class OrderStatus extends Model
+class StockStatus extends Model
 {
     use HasFactory;
-    const INIT = 0;
+    const GOOD = 1;
 
-    const INWAIT = 1;
+    const LOW = 2;
 
-    const FINISH = 2;
+    const VERYLOW = 3;
     /**
      * RELATION
      */
-    public function orders(): HasMany
+    public function stocks(): HasMany
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Stock::class);
     }
 }

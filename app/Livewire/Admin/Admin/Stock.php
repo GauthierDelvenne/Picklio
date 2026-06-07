@@ -30,9 +30,9 @@ class Stock extends PicklioComponent
     public function updateStock()
     {
         if ($this->formStock->update()) {
-            Flux::toast(__('client.stocks.toast.update.success'), variant: 'success');
+            Flux::toast(__('admin.stocks.toast.update.success'), variant: 'success');
         } else {
-            Flux::toast(__('client.stocks.toast.update.error'), variant: 'danger');
+            Flux::toast(__('admin.stocks.toast.update.error'), variant: 'danger');
         }
     }
 

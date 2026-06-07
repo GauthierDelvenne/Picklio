@@ -72,7 +72,7 @@ it('adds a product to the cart and creates an order', function () {
         'product_id' => $product->id,
         'quantity' => 10,
         'quantity_reserved' => 0,
-        'status' => true
+        'stock_status_id' => true
     ]);
 
     Livewire::actingAs($user)
@@ -126,7 +126,7 @@ it('can increment and decrement product quantity from the shop card', function (
         'product_id' => $product->id,
         'quantity' => 5,
         'quantity_reserved' => 0,
-        'status' => true
+        'stock_status_id' => true
     ]);
 
     $component = Livewire::actingAs($user)

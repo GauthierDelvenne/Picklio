@@ -18,13 +18,13 @@
             <abbr title="{{ __('validation.abbr-required') }}" class="text-accent ml-1">*</abbr>
         </flux:label>
         <flux:select wire:model="formStock.type">
-            <flux:select.option value="{{ \App\Models\StockMovement::TYPE_SUPPLY }}">
+            <flux:select.option value="{{ \App\Models\StockMovementType::TYPE_SUPPLY }}">
                 {{__('admin.stocks.forms.type.supply')}}
             </flux:select.option>
-            <flux:select.option value="{{ \App\Models\StockMovement::TYPE_ADJUSTMENT }}">
+            <flux:select.option value="{{ \App\Models\StockMovementType::TYPE_ADJUSTMENT }}">
                 {{__('admin.stocks.forms.type.adjustment')}}
             </flux:select.option>
-            <flux:select.option value="{{ \App\Models\StockMovement::TYPE_SALE }}">
+            <flux:select.option value="{{ \App\Models\StockMovementType::TYPE_SALE }}">
                 {{__('admin.stocks.forms.type.sale')}}
             </flux:select.option>
         </flux:select>

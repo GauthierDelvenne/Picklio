@@ -6,6 +6,8 @@ use App\Models\MessageStatus;
 use App\Models\OrderStatus;
 use App\Models\Role;
 use App\Models\Status;
+use App\Models\StockMovementType;
+use App\Models\StockStatus;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -30,6 +32,17 @@ class StatusSeeder extends Seeder
             ['status' => 'init'],
             ['status' => 'in_wait'],
             ['status' => 'finish'],
+        ]);
+        StockStatus::factory()->createMany([
+            ['status' => 'good'],
+            ['status' => 'low'],
+            ['status' => 'very_low'],
+        ]);
+        StockMovementType::factory()->createMany([
+            ['type' => 'new'],
+            ['type' => 'supply'],
+            ['type' => 'sale'],
+            ['type' => 'adjustment'],
         ]);
     }
 }

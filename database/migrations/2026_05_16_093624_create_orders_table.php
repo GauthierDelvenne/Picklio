@@ -47,6 +47,7 @@ return new class extends Migration {
     {
         Schema::dropIfExists('order_items');
         Schema::dropIfExists('orders');
+        Schema::dropIfExists('order_statuses');
         Schema::dropIfExists('pickup_slots');
     }
 };

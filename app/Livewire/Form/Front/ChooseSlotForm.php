@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\OrderStatus;
 use App\Models\Stock;
 use App\Models\StockMovement;
+use App\Models\StockMovementType;
 use Livewire\Component;
 use Livewire\Form;
 
@@ -44,7 +45,7 @@ class ChooseSlotForm extends Form
             StockMovement::create([
                 'product_id' => $orderItem->product_id,
                 'quantity' => -$orderItem->quantity,
-                'type' => StockMovement::TYPE_SALE,
+                'stock_movement_type_id' => StockMovementType::TYPE_SALE,
             ]);
         }
 

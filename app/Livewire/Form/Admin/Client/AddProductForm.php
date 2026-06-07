@@ -6,7 +6,9 @@ use App\Jobs\ProcessImage;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Stock;
+use App\Models\StockMovementType;
 use App\Models\StockMovement;
+use App\Models\StockStatus;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -80,12 +82,12 @@ class AddProductForm extends Form
         Stock::create([
             'product_id' => $product->id,
             'quantity' => 0,
-            'status' => Stock::VERYLOW,
+            'stock_status_id' => StockStatus::VERYLOW,
         ]);
         StockMovement::create([
             'product_id' => $product->id,
             'quantity' => 0,
-            'type' => StockMovement::TYPE_NEW,
+            'stock_movement_type_id' => StockMovementType::TYPE_NEW,
         ]);
 
         return $product;

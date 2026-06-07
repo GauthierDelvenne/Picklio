@@ -108,7 +108,7 @@
                             {{$product->quantity}}
                         </flux:table.cell>
                         <flux:table.cell>
-                            {{__('admin.stocks.forms.type.'.$product->type)}}
+                            {{__('admin.stocks.forms.type.'.$product->stock_movement_type_id)}}
                         </flux:table.cell>
                         <flux:table.cell>
                             {{\Carbon\Carbon::parse($product->created_at)->format('Y-m-d')}}

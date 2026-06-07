@@ -7,6 +7,7 @@ use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Stock;
+use App\Models\StockStatus;
 use App\Traits\SortingTrait;
 use Flux\Flux;
 use Livewire\Attributes\Computed;
@@ -58,8 +59,8 @@ class ClientDashboard extends PicklioComponent
     public function status()
     {
         return [
-            Stock::LOW,
-            Stock::VERYLOW,
+            StockStatus::LOW,
+            StockStatus::VERYLOW,
         ];
     }
     #[Computed]
@@ -70,9 +71,9 @@ class ClientDashboard extends PicklioComponent
             'productCategory',
         ])
             ->whereHas('stock', function ($query) {
-                $query->where('status', '!=', Stock::GOOD)
+                $query->where('stock_status_id', '!=', StockStatus::GOOD)
                     ->when($this->statu, function ($query) {
-                        $query->where('status', $this->statu);
+                        $query->where('stock_status_id', $this->statu);
                     });
             })
             ->whereAccount($this->account->id)

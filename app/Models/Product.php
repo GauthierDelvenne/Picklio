@@ -75,17 +75,17 @@ class Product extends Model
 
     public function scopeVeryLowStock(Builder $query): Builder
     {
-        return $query->whereRelation('stock', 'status', Stock::VERYLOW);
+        return $query->whereRelation('stock', 'stock_status_id', StockStatus::VERYLOW);
     }
 
     public function scopeLowStock(Builder $query): Builder
     {
-        return $query->whereRelation('stock', 'status', Stock::LOW);
+        return $query->whereRelation('stock', 'stock_status_id', StockStatus::LOW);
     }
     public function scopeLowOrVeryLowStock(Builder $query): Builder
     {
         return $query->whereRelation('stock', function (Builder $query) {
-            $query->whereIn('status', [Stock::LOW, Stock::VERYLOW]);
+            $query->whereIn('stock_status_id', [StockStatus::LOW, StockStatus::VERYLOW]);
         });
     }
     public function scopeAlimentaryProduct(Builder $query): Builder

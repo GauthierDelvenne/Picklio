@@ -7,20 +7,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['status'])]
-class OrderStatus extends Model
+#[Fillable(['type'])]
+class StockMovementType extends Model
 {
     use HasFactory;
-    const INIT = 0;
+    const TYPE_NEW = 1;
 
-    const INWAIT = 1;
+    const TYPE_SUPPLY = 2;
 
-    const FINISH = 2;
+    const TYPE_SALE = 3;
+
+    const TYPE_ADJUSTMENT = 4;
+
+
     /**
      * RELATION
      */
-    public function orders(): HasMany
+    public function stockMovements(): HasMany
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(StockMovement::class);
     }
 }

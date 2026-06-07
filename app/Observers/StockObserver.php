@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Stock;
+use App\Models\StockStatus;
 
 class StockObserver
 {
@@ -11,11 +12,11 @@ class StockObserver
         $capacity = $stock->product->productCategory->capacity;
 
         $status = match (true) {
-            $stock->isVeryLowStock($capacity) => Stock::VERYLOW,
-            $stock->isLowStock($capacity) => Stock::LOW,
-            default => Stock::GOOD,
+            $stock->isVeryLowStock($capacity) => StockStatus::VERYLOW,
+            $stock->isLowStock($capacity) => StockStatus::LOW,
+            default => StockStatus::GOOD,
         };
 
-        $stock->updateQuietly(['status' => $status]);
+        $stock->updateQuietly(['stock_status_id' => $status]);
     }
 }

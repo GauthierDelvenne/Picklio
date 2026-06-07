@@ -10,6 +10,7 @@ use App\Models\ProductCategory;
 use App\Models\Role;
 use App\Models\Status;
 use App\Models\Stock;
+use App\Models\StockStatus;
 use App\Traits\SortingTrait;
 use Flux\Flux;
 use Livewire\Attributes\Computed;
@@ -50,9 +51,9 @@ class Stocks extends PicklioComponent
     public function status()
     {
         return [
-            Stock::GOOD,
-            Stock::LOW,
-            Stock::VERYLOW,
+            StockStatus::GOOD,
+            StockStatus::LOW,
+            StockStatus::VERYLOW,
         ];
     }
 
@@ -68,7 +69,7 @@ class Stocks extends PicklioComponent
         return Product::with(['stock', 'productCategory', 'account.user'])
             ->whereHas('stock', function ($query) {
                 $query->when($this->statu, function ($query) {
-                    $query->where('status', $this->statu);
+                    $query->where('stock_status_id', $this->statu);
                 });
             })
             ->whereNot('products.is_active', 0)

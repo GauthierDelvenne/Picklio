@@ -4,6 +4,7 @@ use App\Models\Account;
 use App\Models\Product;
 use App\Models\Role;
 use App\Models\Stock;
+use App\Models\StockStatus;
 use App\Models\User;
 use Laravel\Dusk\Browser;
 
@@ -91,7 +92,7 @@ it('adds a product to the cart', function () {
     $user = User::factory()->create();
     $account = Account::factory()->create(['user_id' => $user->id, 'role_id' => Role::CLIENT]);
     $product = Product::factory()->create(['account_id' => $account->id]);
-    Stock::factory()->create(['product_id' => $product->id, 'quantity' => 1, 'status' => Stock::VERYLOW]);
+    Stock::factory()->create(['product_id' => $product->id, 'quantity' => 1, 'stock_status_id' => StockStatus::VERYLOW]);
     $this->browse(function (Browser $browser) use ($product, $user) {
         $browser->loginAs($user)
             ->visit(route('front.catalogue.show', $product->id))
