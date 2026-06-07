@@ -17,6 +17,7 @@ class AccountFactory extends Factory
      */
     public function definition(): array
     {
+
         return [
             'firstname' => $this->faker->firstName(),
             'lastname' => $this->faker->lastName(),
@@ -25,7 +26,7 @@ class AccountFactory extends Factory
             'phone' => $this->faker->phoneNumber(),
             'postal_code' => $this->faker->postcode(),
             'address' => $this->faker->streetAddress(),
-            'country' => $this->faker->country(),
+            'country' => 'BE',
         ];
     }
 }
