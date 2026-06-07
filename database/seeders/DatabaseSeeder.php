@@ -104,7 +104,20 @@ class DatabaseSeeder extends Seeder
             'email' => 'gauthierdelvenne@gmail.com',
             'phone' => '+32497324444',
         ]);
+
+        User::factory(4)
+            ->create()
+            ->each(function (User $user) {
+                Account::factory()->create([
+                    'user_id' => $user->id,
+                    'role_id' => Role::CLIENT,
+                    'status_id' => Status::ACTIVE,
+                    'email' => $user->email,
+                ]);
+            });
         $this->call(ProductSeeder::class);
         $this->call(PickupSlotSeeder::class);
+        $this->call(OrderSeeder::class);
+        $this->call(MessageSeeder::class);
     }
 }

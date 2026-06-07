@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->integer('day_iso');
             $table->time('time');
             $table->string('max_orders')->default('2');
+            $table->boolean('is_active');
             $table->timestamps();
         });
 

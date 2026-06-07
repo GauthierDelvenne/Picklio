@@ -38,10 +38,16 @@ it('create a new product', function () {
     Storage::fake('public');
     Queue::fake();
     $user = User::factory()->create();
+    $admin = User::factory()->create();
     Account::factory()->create([
         'id' => $user->id,
         'user_id' => $user->id,
-        'role_id' => Role::MERCHANT
+        'role_id' => Role::MERCHANT,
+    ]);
+    Account::factory()->create([
+        'id' => $admin->id,
+        'user_id' => $admin->id,
+        'role_id' => Role::ADMIN,
     ]);
     $category = ProductCategory::factory()->create(['name' => 'Bières artisanales', 'slug' => Str::slug('Bières artisanales'), 'capacity' => 200, 'tax' => 21]);
 
