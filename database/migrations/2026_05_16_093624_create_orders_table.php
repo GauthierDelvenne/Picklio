@@ -15,7 +15,11 @@ return new class extends Migration {
             $table->boolean('is_active');
             $table->timestamps();
         });
-
+        Schema::create('order_statuses', function (Blueprint $table) {
+            $table->id();
+            $table->string('status');
+            $table->timestamps();
+        });
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->uuid()->unique();
@@ -23,7 +27,7 @@ return new class extends Migration {
             $table->foreignId('account_id')->constrained();
             $table->foreignId('pickup_slot_id')->constrained();
             $table->date('pickup_date');
-            $table->unsignedInteger('status');
+            $table->foreignId('order_status_id');
             $table->unsignedInteger('total_price');
             $table->timestamps();
         });

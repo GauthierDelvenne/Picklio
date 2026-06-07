@@ -9,16 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['account_id', 'pickup_slot_id', 'status', 'total_price', 'pickup_date', 'uuid', 'id', 'code'])]
+#[Fillable(['account_id', 'pickup_slot_id', 'order_status_id', 'total_price', 'pickup_date', 'uuid', 'id', 'code'])]
 class Order extends Model
 {
     use HasFactory;
-
-    const INITCART = 0;
-
-    const INWAITCART = 1;
-
-    const FINISHCART = 2;
 
     /**
      * RELATIONS
@@ -65,7 +59,7 @@ class Order extends Model
      */
     public function scopeOrderCart(Builder $query, $accountId): Builder
     {
-        return $query->where('account_id', $accountId)->where('status', self::INITCART);
+        return $query->where('account_id', $accountId)->where('order_status_id', OrderStatus::INIT);
     }
 
     public function scopeOrderInWait(Builder $query): Builder
@@ -73,6 +67,6 @@ class Order extends Model
         return $query->with(['account', 'pickupSlot'])
             ->join('pickup_slots', 'pickup_slots.id', '=', 'orders.pickup_slot_id')
             ->select('orders.*')
-            ->where('status', Order::INWAITCART);
+            ->where('order_status_id', OrderStatus::INWAIT);
     }
 }

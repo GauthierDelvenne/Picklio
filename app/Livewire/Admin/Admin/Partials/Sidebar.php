@@ -8,6 +8,7 @@ use App\Models\Message;
 use App\Models\MessageStatus;
 use App\Models\NewMerchantMessage;
 use App\Models\Order;
+use App\Models\OrderStatus;
 use App\Models\SuggestMessage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
@@ -20,7 +21,7 @@ class Sidebar extends PicklioComponent
     {
         return Cache::remember("new_order_{$this->userConnected->id}", 60,
             function () {
-                return Order::where('status', Order::INWAITCART)->count();
+                return Order::where('order_status_id', OrderStatus::INWAIT)->count();
             });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Livewire\Form\Front;
 
 use App\Models\Order;
+use App\Models\OrderStatus;
 use App\Models\Stock;
 use App\Models\StockMovement;
 use Livewire\Component;
@@ -32,7 +33,7 @@ class ChooseSlotForm extends Form
             [
                 'pickup_slot_id' => $validatedData['pickup_slot_id'],
                 'pickup_date' => $validatedData['pickup_date'],
-                'status' => Order::INWAITCART,
+                'order_status_id' => OrderStatus::INWAIT,
             ]);
         foreach ($this->orderItems as $orderItem) {
 

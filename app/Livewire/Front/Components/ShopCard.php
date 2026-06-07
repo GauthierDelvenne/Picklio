@@ -5,6 +5,7 @@ namespace App\Livewire\Front\Components;
 use App\Livewire\PicklioComponent;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\OrderStatus;
 use App\Models\PickupSlot;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
@@ -58,7 +59,7 @@ class ShopCard extends PicklioComponent
         }
         DB::transaction(function () {
             $cart = Order::firstOrCreate(
-                ['account_id' => $this->account->id, 'status' => Order::INITCART],
+                ['account_id' => $this->account->id, 'order_status_id' => OrderStatus::INIT],
                 ['total_price' => 0, 'code' => Order::getGenerateCode(), 'uuid' => Str::uuid(), 'pickup_date' => now(), 'pickup_slot_id' => PickupSlot::TIMECREATEDCART]
             );
             $item = OrderItem::thisProductItem($cart->id, $this->productId)->first();

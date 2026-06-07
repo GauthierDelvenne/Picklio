@@ -9,6 +9,7 @@ use App\Mail\PreventCartDeleteMail;
 use App\Mail\SuccessOrderMail;
 use App\Models\Account;
 use App\Models\Order;
+use App\Models\OrderStatus;
 use App\Models\PickupSlot;
 use App\Models\Role;
 use Carbon\Carbon;
@@ -32,7 +33,7 @@ class Slot extends PicklioComponent
     {
         $this->order = $order;
         $this->today = Carbon::now();
-        if ($this->order->status != Order::INITCART) {
+        if ($this->order->status != OrderStatus::INIT) {
             $this->redirectRoute('front.basket');
         }
     }

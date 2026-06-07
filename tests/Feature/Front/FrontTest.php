@@ -6,6 +6,7 @@ use App\Models\Account;
 use App\Models\ContactMessage;
 use App\Models\MessageStatus;
 use App\Models\Order;
+use App\Models\OrderStatus;
 use App\Models\PickupSlot;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -87,7 +88,7 @@ it('adds a product to the cart and creates an order', function () {
     $this->assertDatabaseHas('orders', [
         'account_id' => $clientAccount->id,
         'pickup_slot_id' => PickupSlot::TIMECREATEDCART,
-        'status' => Order::INITCART,
+        'order_status_id' => OrderStatus::INIT,
         'total_price' => 1000
     ]);
 

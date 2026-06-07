@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Mail\PreventCartDeleteMail;
 use App\Models\Order;
+use App\Models\OrderStatus;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 use Mail;
@@ -17,7 +18,7 @@ class DeleteOldCart extends Command
     public function handle()
     {
         $preventCarts = Order::where('updated_at', '<', Carbon::now()->subMinutes(105))
-            ->where('status', Order::INITCART)
+            ->where('order_status_id', OrderStatus::INIT)
             ->with('orderItems.product.stock')
             ->get();
 
@@ -26,7 +27,7 @@ class DeleteOldCart extends Command
 
         }
         $carts = Order::where('updated_at', '<', Carbon::now()->subHours(2))
-            ->where('status', Order::INITCART)
+            ->where('order_status_id', OrderStatus::INIT)
             ->with('orderItems.product.stock')
             ->get();
         foreach ($carts as $cart) {

@@ -6,6 +6,7 @@ use App\Livewire\PicklioComponent;
 use App\Mail\CancelOrderMail;
 use App\Models\Account;
 use App\Models\Order;
+use App\Models\OrderStatus;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Role;
@@ -105,7 +106,7 @@ class Dashboard extends PicklioComponent
     #[Computed]
     public function inWaitOrder()
     {
-        return Order::where('status', Order::INWAITCART)->count();
+        return Order::where('order_status_id', OrderStatus::INWAIT)->count();
     }
 
     #[Computed]

@@ -5,6 +5,7 @@ namespace App\Livewire\Admin\Admin;
 use App\Livewire\PicklioComponent;
 use App\Mail\CancelOrderMail;
 use App\Models\Order;
+use App\Models\OrderStatus;
 use App\Traits\SortingTrait;
 use Flux\Flux;
 use Livewire\Attributes\Computed;
@@ -48,7 +49,7 @@ class Orders extends PicklioComponent
         return Order::with(['account', 'pickupSlot'])
             ->join('accounts', 'accounts.id', '=', 'orders.account_id')
             ->select('orders.*')
-            ->where('status', Order::FINISHCART)
+            ->where('order_status_id', OrderStatus::FINISH)
             ->when($this->historySearch, function ($query) {
                 $query->where('accounts.firstname', 'like', '%'.$this->historySearch.'%');
             })
@@ -65,13 +66,13 @@ class Orders extends PicklioComponent
     #[Computed]
     public function inWaitOrder()
     {
-        return Order::where('status', Order::INWAITCART)->count();
+        return Order::where('order_status_id', OrderStatus::INWAIT)->count();
     }
 
     #[Computed]
     public function finishOrder()
     {
-        return Order::where('status', Order::FINISHCART)->count();
+        return Order::where('order_status_id', OrderStatus::FINISH)->count();
     }
 
     public function delete($uuid)
