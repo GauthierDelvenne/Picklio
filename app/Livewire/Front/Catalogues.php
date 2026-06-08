@@ -30,13 +30,11 @@ class Catalogues extends PicklioComponent
 
     public $category = [];
 
-    public $categories;
 
     public SendMessageForm $form;
 
     public function mount(): void
     {
-        $this->categories = ProductCategory::orderby('name', 'asc')->get();
         $this->merchant = session()->pull('merchant', []);
         $this->category = session()->pull('category', []);
     }
@@ -100,7 +98,11 @@ class Catalogues extends PicklioComponent
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(20);
     }
-
+    #[Computed]
+    public function categories()
+    {
+        return ProductCategory::orderby('name', 'asc')->get();
+    }
     #[Computed]
     public function merchants()
     {
@@ -160,6 +162,24 @@ class Catalogues extends PicklioComponent
                     ->keyBy('product_id');
             }
             return null;
+        }
+    }
+
+    public function resetArray(string $name)
+    {
+        if ($name == 'category') {
+            $this->category = [];
+        } elseif ($name == 'merchant') {
+            $this->merchant = [];
+        }
+    }
+    public function selectArray(string $name)
+    {
+
+        if ($name == 'category') {
+            $this->category = $this->categories->pluck('id');
+        } elseif ($name == 'merchant') {
+            $this->merchant = $this->merchants->pluck('id');
         }
     }
 

@@ -44,11 +44,11 @@
 
         @if($activeTab == 'alimentaire')
             <x-front.productList :products="$this->alimentaryProducts" title="{{__('front.home.alimentaryList.title')}}"
-                                 button="{{__('front.home.alimentaryList.button')}}"/>
+                                 button="{{__('front.home.alimentaryList.button')}}" type="alimentaire"/>
         @elseif($activeTab == 'non-alimentaire')
             <x-front.productList :products="$this->noAlimentaryProducts"
                                  title="{{__('front.home.noAlimentaryList.title')}}"
-                                 button="{{__('front.home.noAlimentaryList.button')}}"/>
+                                 button="{{__('front.home.noAlimentaryList.button')}}" type="non-alimentaire"/>
         @endif
         <section class="home__categoriesSelectContainer__productCategories paddingMedia">
             <div class="home__categoriesSelectContainer__productCategories__titleContainer">

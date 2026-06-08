@@ -11,7 +11,6 @@
         background-color: $tangerine-100;
         z-index: 6;
         top: $space-16;
-        right: -$space-16;
         border-radius: $radius-md;
         display: grid;
         gap: $space-4;
@@ -19,6 +18,8 @@
 
         @include laptop-l {
             grid-template-columns: repeat(2, 1fr);
+            right: -$space-16;
+
         }
 
         &__searchContainer {
@@ -31,6 +32,10 @@
                 box-shadow: $box-shadow;
                 font-size: $text-sm;
             }
+        }
+
+        &__resetButton {
+            grid-column: span 2 / span 2;
         }
 
         &__item {
