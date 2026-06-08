@@ -46,7 +46,7 @@
                 font-size: $text-2xl;
             }
 
-            &:hover {
+            &:hover, &:focus-visible {
                 border-color: $tangerine-300;
                 box-shadow: $box-shadow, 0 0 0 3px $tangerine-200-50;
             }
@@ -70,7 +70,7 @@
                 width: 20px;
                 height: 20px;
 
-                &:hover {
+                &:hover, &:focus-visible {
                     fill: $tangerine-500;
                 }
             }
@@ -113,7 +113,7 @@
             top: calc($text-3xl - $text-xl);
         }
 
-        &:hover {
+        &:hover, &:focus-visible {
             color: $tangerine-400;
         }
     }

@@ -71,7 +71,7 @@
             font-weight: 600;
             transition: color 0.3s;
 
-            &:hover {
+            &:hover, &:focus-visible {
                 color: $tangerine-400;
             }
         }

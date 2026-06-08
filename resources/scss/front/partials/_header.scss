@@ -13,7 +13,7 @@
             height: 40px;
             transition: transform ease 0.3s;
 
-            &:hover {
+            &:hover, &:focus-visible {
                 transform: scale(1.05);
             }
         }
@@ -145,7 +145,7 @@
                             stroke-width: 10px;
                         }
 
-                        &:hover {
+                        &:hover, &:focus-visible {
                             fill: $tangerine-500;
                             transform: scale(1.1);
                         }
@@ -164,7 +164,7 @@
                     border-bottom: solid 3px $tangerine-600;
                 }
 
-                &:hover {
+                &:hover, &:focus-visible {
                     color: $tangerine-600;
                 }
 

@@ -72,7 +72,7 @@
                             transition: fill ease-in 0.3s;
                         }
 
-                        &:hover {
+                        &:hover, &:focus-visible {
                             .icon {
                                 fill: $tangerine-400;
 

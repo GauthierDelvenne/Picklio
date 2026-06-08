@@ -23,8 +23,9 @@
         transition: transform ease-in 0.3s, font-weight ease-in 0.3s;
     }
 
-    &:hover {
+    &:hover, &:focus-visible {
         background-color: $tangerine-200;
+        cursor: pointer;
 
         .productCategoryCard__svg {
             transform: scale(1.1) rotate(10deg);

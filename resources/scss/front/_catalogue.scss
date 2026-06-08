@@ -188,7 +188,7 @@
         transition: transform ease-in 0.3s, background-color ease-in 0.3s;
         padding: $space-4;
 
-        &:hover {
+        &:hover, &:focus-visible {
             transform: scale(1.1);
             background-color: $tangerine-200-50;
         }

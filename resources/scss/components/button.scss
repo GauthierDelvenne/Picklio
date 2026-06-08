@@ -14,8 +14,9 @@
         height: 20px;
     }
 
-    &:hover {
+    &:hover, &:focus-visible {
         color: $tangerine-500;
+        cursor: pointer;
 
         .icon {
             fill: $tangerine-500;
@@ -50,6 +51,10 @@
         @include wide {
             font-size: $text-xl;
         }
+
+        &:hover, &:focus-visible {
+            background-color: $tangerine-200-50;
+        }
     }
 
     &--filter {
@@ -59,7 +64,7 @@
             }
         }
 
-        &:hover {
+        &:hover, &:focus-visible {
             .icon {
                 rotate: -45deg;
 
@@ -84,13 +89,13 @@
         background-color: $error;
         color: $tangerine-950;
 
-        &:hover {
+        &:hover, &:focus-visible {
             color: white;
         }
     }
 
     &--left {
-        &:hover {
+        &:hover, &:focus-visible {
             .icon {
 
                 rotate: 135deg;

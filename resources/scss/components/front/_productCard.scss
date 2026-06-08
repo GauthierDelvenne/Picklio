@@ -8,8 +8,9 @@
     height: stretch;
     transition: background-color ease-in 0.2s;
 
-    &:hover {
+    &:hover, &:focus-visible {
         background-color: $tangerine-200;
+        cursor: pointer;
     }
 
     &:has(.no-card-hover:hover) {
@@ -54,7 +55,7 @@
                 }
 
                 &:not(.productCard__imgContainer__tagContainer__tagItem--new) {
-                    &:hover {
+                    &:hover, &:focus-visible {
                         background-color: $tangerine-400;
                         color: $tangerine-950;
                     }
@@ -85,7 +86,7 @@
                 font-size: $text-sm;
                 transition: color ease-in 0.3s;
 
-                &:hover {
+                &:hover, &:focus-visible {
                     color: $tangerine-600;
 
                     .productCard__contentContainer__informationContainer__saleBy__span {
@@ -124,7 +125,7 @@
                     height: 15px;
                     transition: transform ease-in 0.3s, fill ease-in 0.3s;
 
-                    &:hover {
+                    &:hover, &:focus-visible {
                         transform: scale(1.2);
                         fill: $tangerine-600;
                     }
@@ -155,7 +156,7 @@
                 height: 20px;
                 transition: transform ease-in 0.3s, fill ease-in 0.3s;
 
-                &:hover {
+                &:hover, &:focus-visible {
                     transform: scale(1.2);
                     fill: $tangerine-600;
                 }

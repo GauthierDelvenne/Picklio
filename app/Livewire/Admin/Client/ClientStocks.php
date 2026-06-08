@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Client;
 
+use App\Livewire\Form\Admin\Client\AddProductForm;
 use App\Livewire\PicklioComponent;
 use App\Models\OrderItem;
 use App\Models\Product;
@@ -11,12 +12,14 @@ use App\Models\StockStatus;
 use App\Traits\SortingTrait;
 use Flux\Flux;
 use Livewire\Attributes\Computed;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class ClientStocks extends PicklioComponent
 {
     use SortingTrait;
     use WithPagination;
+    use WithFileUploads;
 
     public $search;
     public $statu;
@@ -27,6 +30,7 @@ class ClientStocks extends PicklioComponent
 
     public $category;
     public $orderItems;
+    public AddProductForm $form;
 
     public function mount(): void
     {
@@ -36,7 +40,18 @@ class ClientStocks extends PicklioComponent
             ->where('merchant_id', $this->account->id)
             ->get();
     }
-
+    public function create()
+    {
+        if ($this->form->create()) {
+            Flux::toast(__('client.products.toast.create.success'), variant: 'success');
+            Flux::modal('add-product')->close();
+            $this->sortBy = 'created_at';
+            $this->sortDirection = 'desc';
+            $this->form->reset();
+        } else {
+            Flux::toast(__('client.products.toast.create.error'), variant: 'danger');
+        }
+    }
     public function updated()
     {
         $this->resetPage();

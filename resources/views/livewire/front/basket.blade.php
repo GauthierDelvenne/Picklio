@@ -34,9 +34,9 @@
                             :quantity="$orderItem->quantity"
                         />
 
-                        <x-svg.svg title="{{__('svgTitle.trash')}}" wire:click="delete({{$orderItem->id}})"
+                        <x-svg.svg title="{{__('svgTitle.trash')}}" wire:click="delete({{$orderItem->id}})" wire:keydown.enter="delete({{$orderItem->id}})"
                                    class="basket__container__basketContainer__itemContainer__card__delete__svg"
-                                   name="trash"/>
+                                   name="trash" tab="true"/>
                     </div>
                 @empty
                     <div class="basket__container__basketContainer__itemContainer__card">
