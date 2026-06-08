@@ -25,7 +25,7 @@
             width: auto;
         }
 
-        &:hover {
+        &:hover, &:focus-visible {
             color: $tangerine-500;
 
             .icon {

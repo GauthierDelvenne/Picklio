@@ -31,11 +31,13 @@
                     <x-svg.svg title="{{__('svgTitle.eye')}}" class="register__divContainer__inputContainer__svg"
                                name="eye"
                                x-show="!show"
-                               x-on:click="show = !show"/>
+                               x-on:click="show = !show"
+                               x-on:keydown.enter="show = !show" tab="true"/>
                     <x-svg.svg title="{{__('svgTitle.eye-slash')}}" class="register__divContainer__inputContainer__svg"
                                name="eye-slash"
                                x-show="show"
-                               x-on:click="show = !show"/>
+                               x-on:click="show = !show"
+                               x-on:keydown.enter="show = !show" tab="true"/>
                 </x-form.input>
             </div>
         </div>

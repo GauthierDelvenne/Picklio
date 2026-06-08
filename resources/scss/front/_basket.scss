@@ -63,7 +63,7 @@
 
                         }
 
-                        &:hover {
+                        &:hover, &:focus-visible {
                             color: $tangerine-600;
                             transform: scale(1.1);
                         }
@@ -86,7 +86,7 @@
                             height: 20px;
                             transition: transform ease-in 0.3s, fill ease-in 0.3s;
 
-                            &:hover {
+                            &:hover, &:focus-visible {
                                 transform: scale(1.2);
                                 fill: $tangerine-600;
                                 cursor: pointer;

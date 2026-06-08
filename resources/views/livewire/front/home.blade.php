@@ -55,7 +55,6 @@
                 <h2 class="home__categoriesSelectContainer__productCategories__titleContainer__title">{{__('front.home.productCategories.title')}}</h2>
 
             </div>
-            {{--                TODO REVOIR HOMOGÉNÉITÉ PICTOS--}}
             <div class="home__categoriesSelectContainer__productCategories__categoryContainer">
                 @foreach( $activeTab == 'alimentaire' ?
                             $this->alimentaryCategories :

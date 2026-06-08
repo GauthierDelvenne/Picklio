@@ -47,7 +47,7 @@
             background-color: $tangerine-300;
             color: $tangerine-50;
 
-            &:hover {
+            &:hover, &:focus-visible {
                 color: $tangerine-100;
                 .icon {
                     fill: $tangerine-100;

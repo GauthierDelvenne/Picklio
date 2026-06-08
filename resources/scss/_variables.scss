@@ -74,3 +74,15 @@ $radius-lg: 16px;
 OMBRES
  */
 $box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+/**
+Focus
+ */
+:focus {
+    outline: none;
+}
+:focus-visible {
+    outline: 3px solid $tangerine-500;
+    outline-offset: 4px;
+}
+

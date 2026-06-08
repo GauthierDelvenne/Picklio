@@ -29,6 +29,14 @@
 
         &__svgContainer {
             padding: $space-2;
+            cursor: pointer;
+
+            &:hover, &:focus-visible {
+                .accordionItem__titleContainer__svgContainer__svg {
+                    fill: $tangerine-600;
+                    transform: rotateY(180deg);
+                }
+            }
 
             &__svg {
                 rotate: -90deg;
@@ -36,7 +44,7 @@
                 height: 20px;
                 transition: fill ease-in 0.3s, transform ease-in 0.3s;
 
-                &:hover {
+                &:hover, &:focus-visible {
                     fill: $tangerine-600;
                     transform: rotateY(180deg);
                 }

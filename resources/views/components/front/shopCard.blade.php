@@ -13,24 +13,24 @@
         </p>
         <div x-on:click.prevent.stop
              class="shopCard__priceContainer__selectContainer @if($this->card) shopCard__priceContainer__selectContainer--card no-card-hover  @endif">
-            <x-svg.svg title="{{__('svgTitle.minus')}}" wire:click="decrement"
+            <x-svg.svg title="{{__('svgTitle.minus')}}" wire:click="decrement" wire:keydown.enter.stop="decrement"
                        class="shopCard__priceContainer__selectContainer__svg"
-                       name="minus"/>
+                       name="minus" tab="true"/>
             <input aria-label="{{__('admin.stocks.forms.quantity.attribute')}}" wire:model.live="quantity" type="number"
                    name="itemNumber" id="itemNumber-{{ $this->productId }}"
                    placeholder="00"
                    class="shopCard__priceContainer__selectContainer__value">
             @if($quantity !== $stockAvailable)
-                <x-svg.svg title="{{__('svgTitle.plus')}}" wire:click="increment"
+                <x-svg.svg title="{{__('svgTitle.plus')}}" wire:click="increment" wire:keydown.enter.stop="increment"
                            class="shopCard__priceContainer__selectContainer__svg"
-                           name="plus"/>
+                           name="plus" tab="true"/>
             @else
                 <p class="shopCard__priceContainer__selectContainer__max">{{__('front.order.max')}}</p>
             @endif
         </div>
         @if($this->card && !$this->basket)
             <div class="shopCard__priceContainer__svgContainer @if($this->quantity != 0) shopCard__priceContainer__svgContainer--active @endif no-card-hover">
-                <x-svg.svg title="{{__('svgTitle.basket')}}" wire:click="addToCart" x-on:click.prevent.stop
+                <x-svg.svg title="{{__('svgTitle.basket')}}" wire:click="addToCart" tab="true" wire:keydown.enter.stop="addToCart" x-on:click.prevent.stop
                            class="shopCard__priceContainer__svgContainer__svg no-card-hover"
                            name="basket"/>
             </div>

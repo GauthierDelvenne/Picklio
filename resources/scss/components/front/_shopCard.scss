@@ -43,7 +43,7 @@
                 height: 15px;
                 transition: transform ease-in 0.3s, fill ease-in 0.3s;
 
-                &:hover {
+                &:hover, &:focus-visible {
                     transform: scale(1.2);
                     fill: $tangerine-600;
                     cursor: pointer;
@@ -111,7 +111,7 @@
                 padding: $space-1;
                 transition: transform ease-in 0.3s, fill ease-in 0.3s;
 
-                &:hover {
+                &:hover, &:focus-visible {
                     transform: scale(1.2);
                     fill: $tangerine-600;
                     cursor: pointer;
@@ -151,7 +151,7 @@
                 rotate: 45deg;
                 fill: $tangerine-600;
 
-                &:hover {
+                &:hover, &:focus-visible {
                     fill: $tangerine-500;
                 }
             }

@@ -119,7 +119,7 @@
                         transition: background-color ease-in 0.3s;
                         cursor: pointer;
 
-                        &:hover {
+                        &:hover, &:focus-visible {
                             background-color: $tangerine-200;
 
                         }
@@ -200,7 +200,7 @@
                         transition: background-color ease-in 0.3s;
 
 
-                        &:hover {
+                        &:hover, &:focus-visible {
                             background-color: $tangerine-200;
 
                         }

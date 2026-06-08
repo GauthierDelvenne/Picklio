@@ -108,7 +108,7 @@
                 background-color: $tangerine-400;
                 color: $tangerine-950;
 
-                &:hover {
+                &:hover, &:focus-visible {
                     color: $tangerine-950;
                 }
             }
@@ -178,6 +178,7 @@
                 width: 400px;
                 height: 400px;
             }
+
             &__img {
                 object-fit: cover;
                 object-position: center;
@@ -221,6 +222,7 @@
                 display: flex;
                 gap: $space-4;
                 width: fit-content;
+
                 &__svg {
                     width: 20px;
                     height: 20px;
