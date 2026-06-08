@@ -14,6 +14,7 @@ Picklio est une application web qui centralise les produits de commerçants loca
 - 👤 [Personas](docs/personas.md)
 - ⚙️ [Fonctionnalités](docs/fonctionnalites.md)
 - 📖 [Documentation annexe](https://github.com/GauthierDelvenne/delvenne-gauthier-doc-PFE)
+- 🎨 [Figma](https://www.figma.com/design/6vDke2mktcffDg3rtTuQSz/Picklio?node-id=0-1&t=EC4YR0r9XJWCbAnf-1)
 ---
 
 ## 🧠 Concept
