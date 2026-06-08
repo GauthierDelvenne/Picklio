@@ -61,6 +61,16 @@ class Home extends PicklioComponent
     {
         return redirect()->route('front.catalogue.show', $id);
     }
+
+    public function goToCategories($type)
+    {
+        $categoryIds = $type === 'alimentaire'
+            ? array_keys($this->alimentaryCategories)
+            : array_keys($this->noAlimentaryCategories);
+
+        session(['category' => $categoryIds]);
+        $this->redirect(route('front.catalogue.index'));
+    }
     public function render()
     {
         return view('livewire.front.home')
