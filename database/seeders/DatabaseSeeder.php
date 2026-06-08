@@ -93,15 +93,15 @@ class DatabaseSeeder extends Seeder
 
         // CLIENT
         $userD = User::factory()->create([
-            'name' => 'Gauthier Delvenne',
-            'email' => 'gauthierdelvenne@gmail.com',
+            'name' => 'Client',
+            'email' => 'client@gmail.com',
         ]);
         Account::factory()->create([
             'user_id' => $userD->id,
             'role_id' => Role::CLIENT,
-            'firstname' => 'Gauthier',
-            'lastname' => 'Delvenne',
-            'email' => 'gauthierdelvenne@gmail.com',
+            'firstname' => 'Cli',
+            'lastname' => 'Ent',
+            'email' => 'client@gmail.com',
             'phone' => '+32497324444',
         ]);
 
