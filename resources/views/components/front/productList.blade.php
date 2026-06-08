@@ -7,8 +7,6 @@
 <section class="productList paddingMedia" itemscope itemtype="https://schema.org/ItemList">
     <div class="productList__titleContainer">
         <h2 class="productList__titleContainer__title">{{$title}}</h2>
-        <x-front.button-link :link="route('front.catalogue.index')" class="productList__titleContainer__button"
-                             :title="$button"/>
         <x-front.button-cta wire-click='goToCategories("{{ $type }}")'
                             class="productList__titleContainer__button"
                             :title="$button"/>
