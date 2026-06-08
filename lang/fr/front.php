@@ -268,6 +268,8 @@ return [
             'merchantFilter' => 'Commerçant(s)',
             'categoryFilter' => 'Catégorie(s)',
             'searchFilter' => 'Rechercher',
+            'resetFilter' => 'Tout désélectionner',
+            'selectFilter' => 'Tout sélectionner',
             'empty' => 'Il n’y a aucun article qui correspond à la recherche',
         ],
         'contactSection' => [

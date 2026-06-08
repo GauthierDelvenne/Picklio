@@ -28,6 +28,21 @@
                        class="filter__itemContainer__searchContainer__search">
             </div>
         @endif
+            @if(count($count) > 0)
+                <button
+                    wire:click="resetArray('{{$name}}')"
+                    type="button"
+                    class="button button--reset filter__itemContainer__resetButton">
+                    {{ __('front.catalogue.productSection.resetFilter') }}
+                </button>
+            @else
+                <button
+                    wire:click="selectArray('{{$name}}')"
+                    type="button"
+                    class="button button--reset filter__itemContainer__resetButton">
+                    {{ __('front.catalogue.productSection.selectFilter') }}
+                </button>
+            @endif
         @foreach($items as $item)
                 <div
                 class="filter__itemContainer__item">
