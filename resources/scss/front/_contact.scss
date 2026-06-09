@@ -40,10 +40,10 @@
             &__text {
                 max-width: 800px;
                 @include laptop-l {
-                    font-size: $text-xl;
+                    font-size: $text-lg;
                 }
                 @include desktop-l {
-                    font-size: $text-2xl;
+                    font-size: $text-xl;
                 }
             }
 

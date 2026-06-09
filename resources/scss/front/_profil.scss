@@ -161,26 +161,21 @@
             }
 
             &__text {
-
+                @include laptop-l {
+                    font-size: $text-lg;
+                }
+                @include desktop-l {
+                    font-size: $text-xl;
+                }
             }
 
 
             &__button {
                 display: flex;
                 gap: $space-2;
-                background-color: $tangerine-300;
-                color: $tangerine-50;
-
-                &:hover, &:focus-visible {
-                    color: $tangerine-100;
-
-                    .icon {
-                        fill: $tangerine-100;
-                    }
-                }
-
+                background-color: $tangerine-200;
+                color: $tangerine-600;
                 &__svg {
-                    fill: $tangerine-50;
                 }
             }
         }

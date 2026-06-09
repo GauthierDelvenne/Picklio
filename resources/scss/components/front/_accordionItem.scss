@@ -66,11 +66,22 @@
             &__item {
                 list-style: disc;
                 list-style-position: inside;
+                @include laptop-l {
+                    font-size: $text-lg;
+                }
+                @include desktop-l {
+                    font-size: $text-xl;
+                }
             }
         }
 
         &__content {
-
+            @include laptop-l {
+                font-size: $text-lg;
+            }
+            @include desktop-l {
+                font-size: $text-xl;
+            }
         }
     }
 }

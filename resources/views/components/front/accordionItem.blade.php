@@ -24,6 +24,9 @@
                 <li class="accordionItem__contentContainer__liste__item">{{__('front.merchant.cardContainer.'.$position.'.content.ulItem.4')}}</li>
             @endif
         </ul>
+        @if($position != 4)
         <p class="accordionItem__contentContainer__content">{{__('front.merchant.cardContainer.'.$position.'.content.endText')}}</p>
+        @endif
+
     </div>
 </article>

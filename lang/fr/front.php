@@ -6,7 +6,7 @@ return [
     'commons' => [
         'howItWork' => [
             'title' => 'Comment ça fonctionne ?',
-            'button' => 'Commencer maintenant',
+            'button' => 'Commencez maintenant',
             'stepOne' => [
                 'title' => 'Première étape',
                 'subTitle' => 'Inscrivez-vous',
@@ -215,7 +215,7 @@ return [
                 récupérer
                 vos achats en toute simplicité.',
             'buttonDiscover' => 'Découvrez les produits de nos commerçants',
-            'buttonJoin' => 'Devenir un de nos commerçants',
+            'buttonJoin' => 'Devenez un de nos commerçants',
             'quality' => [
                 '1' => 'Pratique',
                 '2' => 'Sans stress',
@@ -353,11 +353,11 @@ return [
                         '2' => 'Nous préparons les commandes',
                         '3' => 'Les clients viennent les récupérer sur place',
                     ],
-                    'endText' => 'Vous n’avez pas à gérer le retrait client, juste a vous assurer que l’état du stock et vous gagnez du temps au quotidien',
+                    'endText' => 'Gagnez du temps au quotidien en ne gérant que l’état de votre stock',
                 ],
             ],
             '4' => [
-                'title' => 'Développez votre visibilité',
+                'title' => 'Une meilleure visibilité',
                 'content' => [
                     'title' => 'Rejoindre la plateforme, c’est aussi :',
                     'ulItem' => [
@@ -423,7 +423,7 @@ return [
         ],
         'partContainer' => [
             'title' => 'Rejoindre Picklio, ça coûte combien ?',
-            'content' => 'Aucun abonnement, aucun frais d’entrée . Vous ne payerez que lorsque vous vendrez.',
+            'content' => 'Aucun abonnement, aucun frais d’entrée n’est requis. Vous ne payerez que lorsque vous vendrez.',
             'commissionContainer' => [
                 'title' => 'Commission par vente',
                 'content' => 'Un seul pourcentage retenu sur chaque vente réalisée via Picklio. Cette commission couvre le stockage à l’entrepôt, la gestion logistique et la mise en relation avec les clients.',
@@ -467,10 +467,10 @@ return [
         'informationContainer' => [
             'title' => 'Vos informations',
             'empty' => 'Vous devez avoir un compte pour voir les informations',
-            'edit-profil' => 'Modifier vos informations',
+            'edit-profil' => 'Modifiez vos informations',
             'toast-profil' => 'Vous avez bien modifier vos informations',
             'toast-delete' => 'Vous avez bien supprimer le compte',
-            'edit-password' => 'Modifier votre mot de passe',
+            'edit-password' => 'Modifiez votre mot de passe',
             'forget-password' => 'Mot de passe oublié ?',
             'form' => [
                 'email' => [
@@ -509,8 +509,8 @@ return [
         ],
         'account' => [
             'title' => 'Session et sécurité',
-            'disconnect' => 'Déconnecter mon compte',
-            'delete' => 'Supprimer mon compte',
+            'disconnect' => 'Déconnectez votre compte',
+            'delete' => 'Supprimez votre compte',
             'delete-message' => 'Voulez-vous vraiment supprimer votre compte ? <br/> Cette action est <strong>irréversible</strong> !',
         ],
     ],
@@ -521,7 +521,7 @@ return [
             'card' => [
                 'title' => 'Comment nous contacter ?',
                 'contact-us' => 'Pour nous contacter, vous pouvez remplir le formulaire
-                ci-dessous, nous joindre par téléphone ou par
+                ci-dessous ou nous joindre par téléphone ou par
                 e-mail.',
                 'contact-them' => 'Si vous souhaitez contacter l’un de nos marchands,
                 n’hésitez pas à compléter le formulaire en

@@ -112,7 +112,7 @@
                                   name="current_password"
                                   label="{!!__('front.profil.informationContainer.form.current_password.label')!!}"
                                   required="true" eye-icon="true"
-                                  x-bind:type="show ? 'text' : 'password'" model="current_password"
+                                  x-bind:type="show ? 'text' : 'password'" model="formPassword.current_password"
                                   placeholder="{{__('front.profil.informationContainer.form.current_password.label')}}"
                                   input-class="profil__informationContainer__modalContainer__form__inputContainer__input"
                                   input-error-class="profil__informationContainer__modalContainer__form__inputContainer__input__error">
@@ -134,7 +134,7 @@
                     <x-form.input div-class="profil__informationContainer__modalContainer__form__inputContainer"
                                   name="password"
                                   label="{!!__('auth.form.password.label')!!}" required="true" eye-icon="true"
-                                  x-bind:type="show ? 'text' : 'password'" model="password"
+                                  x-bind:type="show ? 'text' : 'password'" model="formPassword.password"
                                   placeholder="{{__('auth.form.password.placeholder')}}"
                                   input-class="profil__informationContainer__modalContainer__form__inputContainer__input"
                                   input-error-class="profil__informationContainer__modalContainer__form__inputContainer__input__error">
