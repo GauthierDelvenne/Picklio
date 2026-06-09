@@ -8,7 +8,7 @@ return [
         ],
         'register' => [
             'title' => 'Bienvenu :name !',
-            'description' => 'Merci de nous avoir rejoins. Vous pouvez maintenant profiter de l’application à 100%.',
+            'description' => 'Merci de nous avoir rejoint. Vous pouvez maintenant profiter de l’application à 100%.',
             'button' => 'Vers le site',
         ],
         'reset-password' => [
@@ -21,13 +21,13 @@ return [
         'newMerchantMessage' => [
             'subject' => 'Réception du formulaire',
             'title' => 'Merci d’avoir envoyé un formulaire',
-            'description' => 'Vous avez fait une demande d’intégration. Elle sera traitée sous peu et vous serez recontacté prochainement pour un entretien, si votre profil correspond à nos exigences.',
+            'description' => 'Votre demande d’intégration à bien été reçue. Si votre profil correspond à nos attentes, nous prendrons contact avec vous dans les meilleurs délais afin d’organiser un entretien.',
             'button' => 'Retourner sur le site',
         ],
         'suggestMessage' => [
             'subject' => 'Réception du formulaire',
             'title' => 'Merci pour votre retour',
-            'description' => 'Vous nous avez envoyé des suggestions d’articles et/ou de commerçants. Celle-ci sera traitée sous peu et Picklio essaiera de pallier ce manque.',
+            'description' => 'Vous nous avez envoyé des suggestions d’articles et/ou de commerçants. Celle-ci sera traitée sous peu et Picklio fera le nécessaire à ce besoin.',
             'button' => 'Retourner sur le site',
         ],
         'contactMessage' => [
