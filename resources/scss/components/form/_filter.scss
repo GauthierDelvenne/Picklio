@@ -26,6 +26,7 @@
             grid-column: span 2 / span 2;
 
             &__search {
+                width: 100%;
                 background-color: $tangerine-50;
                 padding: $space-2;
                 border-radius: $radius-md;

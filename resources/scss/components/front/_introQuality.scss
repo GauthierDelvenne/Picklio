@@ -1,5 +1,6 @@
 .introQuality {
     position: relative;
+    white-space: nowrap;
     @include laptop-l {
         font-size: $text-3xl;
     }

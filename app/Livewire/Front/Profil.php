@@ -6,6 +6,7 @@ use App\Livewire\Form\Front\UpdatePasswordForm;
 use App\Livewire\Form\Front\UpdateProfilForm;
 use App\Livewire\PicklioComponent;
 use App\Models\Order;
+use App\Models\OrderStatus;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Computed;
@@ -59,6 +60,7 @@ class Profil extends PicklioComponent
     {
         return Order::with(['orderItems', 'orderItems.product.stock', 'orderItems.product.productCategory'])
             ->where('account_id', $this->form->account->id)
+            ->whereIn('order_status_id', [OrderStatus::FINISH, OrderStatus::INWAIT])
             ->orderBy('pickup_date', 'desc')
             ->limit(5)
             ->get();

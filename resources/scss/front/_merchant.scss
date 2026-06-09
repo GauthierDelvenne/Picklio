@@ -267,11 +267,22 @@
                 }
 
                 &__content {
-
+                    @include laptop-l {
+                        font-size: $text-lg;
+                    }
+                    @include desktop-l {
+                        font-size: $text-xl;
+                    }
                 }
 
                 &__info {
                     font-weight: 500;
+                    @include laptop-l {
+                        font-size: $text-lg;
+                    }
+                    @include desktop-l {
+                        font-size: $text-xl;
+                    }
                 }
             }
 

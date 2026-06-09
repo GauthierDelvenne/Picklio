@@ -54,6 +54,7 @@ class UpdateProfilForm extends Form
             'firstname' => $validatedData['firstname'],
             'lastname' => $validatedData['lastname'],
             'email' => $validatedData['email'],
+            'phone' => $validatedData['phone'],
         ]);
         return true;
     }
