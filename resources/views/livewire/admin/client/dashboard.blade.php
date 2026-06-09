@@ -92,7 +92,7 @@
     <div
         class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl grow  mt-8">
         <div class="mb-4 flex flex-col gap-4 justify-between sm:flex-row">
-            <flux:heading size="l">{{__('commons.pageName.admin.admin.stocks')}}</flux:heading>
+            <flux:heading size="l">{{__('client.products.product-restock')}}</flux:heading>
             <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap md:flex-nowrap">
                 <flux:select wire:model.live="category" class="sm:w-5/12">
                     <flux:select.option
@@ -117,7 +117,7 @@
 
         <flux:table>
             <flux:table.columns>
-                <flux:table.column>{{__('client.products.forms.picture_path.label')}}</flux:table.column>
+                <flux:table.column>{{__('client.products.image')}}</flux:table.column>
                 <flux:table.column sortable :sorted="$sortBy === 'products.name'" :direction="$sortDirection"
                                    wire:click="sort('products.name')">{{__('client.products.forms.name.placeholder')}}
                 </flux:table.column>

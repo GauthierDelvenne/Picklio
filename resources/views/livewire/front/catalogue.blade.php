@@ -100,12 +100,12 @@
             </div>
         </div>
     </section>
-    <div class="catalogue__cart">
-        <a class="catalogue__cart__link" href="{{ route('front.basket') }}">
+    <a class="catalogue__cart" href="{{ route('front.basket') }}">
+        <div class="catalogue__cart__link">
             <p class="sr-only">{{__('front.catalogue.toBasket')}}</p>
             <x-svg.svg title="{{__('svgTitle.basket')}}"
                        class="catalogue__cart__link__svg"
                        name="basket"/>
-        </a>
-    </div>
+        </div>
+    </a>
 </div>

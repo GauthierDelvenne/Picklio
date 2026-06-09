@@ -19,14 +19,14 @@ return [
     ],
     'settings' => [
         'theme' => [
-            'title' => 'Changez le theme',
+            'title' => 'Changer le thème',
             'light' => 'Clair',
             'dark' => 'Sombre',
             'system' => 'Paramètre système',
         ],
-        'lang' => 'Changez la langue',
+        'lang' => 'Changer la langue',
         'accounts' => [
-            'title' => 'Changez les informations du compte',
+            'title' => 'Changer les informations du compte',
             'toast' => [
                 'update' => [
                     'success' => 'Le compte a bien été modifié',
@@ -35,7 +35,7 @@ return [
             ],
         ],
         'warehouse' => [
-            'title' => 'Changez les informations de l’entrepôt',
+            'title' => 'Changer les informations de l’entrepôt',
             'toast' => [
                 'update' => [
                     'success' => 'L’entrepôt a bien été modifié',
@@ -80,7 +80,7 @@ return [
     ],
     'merchants' => [
         'add' => 'Ajouter un commerçant',
-        'edit' => 'Éditez le commerçant',
+        'edit' => 'Éditer le commerçant',
         'total-merchants' => 'Nombre de commerçants',
         'new-merchants' => 'Nombre de nouveau commerçants',
         'actif-merchants' => 'Nombre de commerçants actif',
@@ -91,8 +91,8 @@ return [
         ],
         'shop-name' => 'Nom du commerce',
         'arrived' => 'Date d’arrivé',
-        'delete-confirm' => 'Voulez vous vraiment désactiver :name ?',
-        'delete-title' => 'Voulez vraiment le désactiver ?',
+        'delete-confirm' => 'Voulez-vous vraiment désactiver :name ?',
+        'delete-title' => 'Voulez-vous vraiment le désactiver ?',
         'delete-reversed' => 'Vous êtes sur le point de le désactiver.<br> Cette action est irréversible.',
         'form' => [
             'name' => [
@@ -117,9 +117,9 @@ return [
                 'attribute' => 'téléphone',
             ],
             'status' => [
-                'label' => 'Status',
-                'attribute' => 'status',
-                'placeholder' => 'Choisir un status',
+                'label' => 'Statut',
+                'attribute' => 'statut',
+                'placeholder' => 'Choisir un statut',
             ],
             'postal_code' => [
                 'label' => 'Code postal',
@@ -220,7 +220,7 @@ return [
             '22' => 'Vins & Spiritueux',
         ],
         'status' => [
-            'title' => 'Choisir un status',
+            'title' => 'Choisir un statut',
             '1' => 'Bon',
             '2' => 'Bas',
             '3' => 'Critique',
@@ -236,7 +236,7 @@ return [
         'merchant' => 'Le message du commerçant',
         'information-merchant' => 'Les informations du nouveau commerçant',
         'user-message' => 'Le message du client',
-        'send' => 'Envoyez un message',
+        'send' => 'Envoyer un message',
         'edit' => 'Modifier un message',
         'shop-name' => 'Nom du commerce',
         'user-name' => 'Nom de la personne',
@@ -248,8 +248,8 @@ return [
         'user-merchantSuggest' => 'Suggestion de commerçants',
         'user-productSuggest' => 'Suggestion de produits',
         'admin-name' => 'Nom de L’entrepôt',
-        'delete-confirm' => 'Voulez vous vraiment supprimer le message de :name ?',
-        'delete-title' => 'Voulez vraiment le supprimer ?',
+        'delete-confirm' => 'Voulez-vous vraiment supprimer le message de :name ?',
+        'delete-title' => 'Voulez-vous vraiment le supprimer ?',
         'delete-reversed' => 'Vous êtes sur le point de le supprimer.<br> Cette action est irréversible.',
         'title' => 'Le message',
         'form' => [
@@ -264,9 +264,9 @@ return [
                 'placeholder' => 'Le contenu du message',
             ],
             'status' => [
-                'label' => 'Status',
-                'attribute' => 'status',
-                'placeholder' => 'Le status du message',
+                'label' => 'Statut',
+                'attribute' => 'statut',
+                'placeholder' => 'Le statut du message',
             ],
             'recipient' => [
                 'label' => 'Envoyer à',
@@ -279,9 +279,10 @@ return [
             ],
         ],
         'status' => [
-            '1' => 'Valide',
-            '2' => 'En attente',
-            '3' => 'Invalide',
+            '1' => 'Accepté',
+            '2' => 'Non lu',
+            '3' => 'Refusé',
+            '4' => 'Lu'
         ],
         'toast' => [
             'create' => [
@@ -309,7 +310,7 @@ return [
         'email' => 'Email',
         'phone' => 'Téléphone',
         'date' => 'Date',
-        'status' => 'Status',
+        'status' => 'Statut',
         'total' => 'Total',
         'slot' => 'Créneaux',
         'in-progress' => 'En cours',
@@ -324,8 +325,8 @@ return [
         'product-name' => 'Nom du produit',
         'product-quantity' => 'Quantité',
         'product-price' => 'Prix',
-        'delete-confirm' => 'Voulez vous vraiment annuler la commande :name ?',
-        'delete-title' => 'Voulez vraiment annuler la commande ?',
+        'delete-confirm' => 'Voulez-vous vraiment annuler la commande :name ?',
+        'delete-title' => 'Voulez-vous vraiment annuler la commande ?',
         'delete-reversed' => 'Vous êtes sur le point d’annuler la commande.<br> Cette action est irréversible.',
         'toast' => [
             'create' => [

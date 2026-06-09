@@ -12,23 +12,12 @@ class ClientReceiveMessage extends PicklioComponent
 {
     public Message $receiveMessage;
 
-    public function validateMessage()
+    public function readMessage()
     {
         Message::updateOrCreate([
             'id' => $this->receiveMessage->id,
         ], [
-            'message_status_id' => MessageStatus::VALID,
-        ]);
-        Flux::toast(__('admin.messages.toast.update.success'), variant: 'success');
-        Cache::forget("unread_messages_{$this->userConnected->id}");
-    }
-
-    public function refuseMessage()
-    {
-        Message::updateOrCreate([
-            'id' => $this->receiveMessage->id,
-        ], [
-            'message_status_id' => MessageStatus::UNVALID,
+            'message_status_id' => MessageStatus::READ,
         ]);
         Flux::toast(__('admin.messages.toast.update.success'), variant: 'success');
         Cache::forget("unread_messages_{$this->userConnected->id}");

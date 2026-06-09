@@ -27,6 +27,7 @@ class StatusSeeder extends Seeder
             ['status' => 'valid'],
             ['status' => 'unread'],
             ['status' => 'unvalid'],
+            ['status' => 'read'],
         ]);
         OrderStatus::factory()->createMany([
             ['status' => 'init'],

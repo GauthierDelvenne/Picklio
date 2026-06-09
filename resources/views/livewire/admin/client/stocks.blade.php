@@ -53,7 +53,7 @@
 
         <flux:table>
             <flux:table.columns>
-                <flux:table.column>Photo</flux:table.column>
+                <flux:table.column>{{__('client.products.image')}}</flux:table.column>
                 <flux:table.column sortable :sorted="$sortBy === 'products.name'" :direction="$sortDirection"
                                    wire:click="sort('products.name')">{{__('client.products.forms.name.placeholder')}}
                 </flux:table.column>
