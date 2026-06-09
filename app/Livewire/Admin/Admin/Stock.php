@@ -32,7 +32,7 @@ class Stock extends PicklioComponent
         if ($this->formStock->update()) {
             Flux::toast(__('admin.stocks.toast.update.success'), variant: 'success');
             Flux::modal('update-stock')->close();
-            $this->formStock->reset();
+            $this->formStock->reset('quantity', 'type');
         } else {
             Flux::toast(__('admin.stocks.toast.update.error'), variant: 'danger');
         }
@@ -49,6 +49,7 @@ class Stock extends PicklioComponent
             Flux::toast(__('client.products.toast.update.error'), variant: 'danger');
         }
     }
+
     public function delete()
     {
         $productUpdated = $this->product->update([
@@ -62,6 +63,7 @@ class Stock extends PicklioComponent
             Flux::toast(__('client.products.toast.delete.error'), variant: 'danger');
         }
     }
+
     #[Computed]
     public function stockMouvements()
     {
@@ -69,10 +71,11 @@ class Stock extends PicklioComponent
             ->where('product_id', $this->product->id)
             ->paginate(10);
     }
+
     public function render()
     {
         return view('livewire.admin.admin.stock')
             ->layout('layouts.admin')
-            ->title(__('commons.pageName.admin.admin.stock').' | Admin');
+            ->title(__('commons.pageName.admin.admin.stock') . ' | Admin');
     }
 }

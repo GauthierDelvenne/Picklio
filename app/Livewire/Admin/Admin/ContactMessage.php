@@ -16,7 +16,7 @@ class ContactMessage extends PicklioComponent
     public function readMessage()
     {
         ContactMessageModel::updateOrCreate([
-            'id' => $this->receiveMessage->id,
+            'id' => $this->contactMessage->id,
         ], [
             'message_status_id' => MessageStatus::READ,
         ]);
