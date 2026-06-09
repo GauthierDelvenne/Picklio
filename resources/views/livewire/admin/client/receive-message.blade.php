@@ -16,12 +16,10 @@
                 <span
                     class="font-bold">{{__('admin.messages.form.description.placeholder')}} :</span> {{$this->receiveMessage->description}}
             </flux:text>
-
         </div>
     </flux:card>
     <div class="flex flex-col gap-10 sm:flex-row">
-        <flux:button wire:click="validateMessage"
-                     variant="primary">{{__('client.commons.buttons.validate')}}</flux:button>
-        <flux:button wire:click="refuseMessage" variant="danger">{{__('client.commons.buttons.refuse')}}</flux:button>
+        <flux:button wire:click="readMessage"
+                     variant="primary">{{__('client.commons.buttons.read')}}</flux:button>
     </div>
 </flux:main>

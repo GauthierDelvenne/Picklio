@@ -13,23 +13,12 @@ class ContactMessage extends PicklioComponent
 {
     public ContactMessageModel $contactMessage;
 
-    public function validateMessage()
+    public function readMessage()
     {
         ContactMessageModel::updateOrCreate([
-            'id' => $this->contactMessage->id,
+            'id' => $this->receiveMessage->id,
         ], [
-            'message_status_id' => MessageStatus::VALID,
-        ]);
-        Flux::toast(__('admin.messages.toast.update.success'), variant: 'success');
-        Cache::forget("unread_messages_{$this->userConnected->id}");
-    }
-
-    public function refuseMessage()
-    {
-        ContactMessageModel::updateOrCreate([
-            'id' => $this->contactMessage->id,
-        ], [
-            'message_status_id' => MessageStatus::UNVALID,
+            'message_status_id' => MessageStatus::READ,
         ]);
         Flux::toast(__('admin.messages.toast.update.success'), variant: 'success');
         Cache::forget("unread_messages_{$this->userConnected->id}");

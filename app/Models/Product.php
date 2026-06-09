@@ -49,7 +49,7 @@ class Product extends Model
 
     public function getPriceFormattedWithoutSymbolAttribute(): string
     {
-        return number_format($this->price / 100, 2, ',', ' ');
+        return number_format($this->price / 100, 2, '.', ' ');
     }
 
     public function pictureUrl(int $size = 600): string

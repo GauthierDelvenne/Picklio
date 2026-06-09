@@ -30,7 +30,7 @@ return [
 
     'settings' => [
         'theme' => [
-            'title' => 'Changez le theme',
+            'title' => 'Changez le thème',
             'light' => 'Clair',
             'dark' => 'Sombre',
             'system' => 'Paramètre système',
@@ -238,7 +238,7 @@ return [
         'inviteMerchant' => [
             'title' => 'Vous êtes marchand, producteur, vendeur ?',
             'content' => 'Entrez dans notre réseau de commerçants connectés. Faites partie d’une plateforme qui réinvente le shopping local : vos produits sont centralisés dans un entrepôt unique, vos ventes sont suivies en temps réel, et vos clients bénéficient d’un retrait simple et rapide. Rejoignez-nous pour développer votre commerce sans complexité.',
-            'button' => 'Nous rejoindre maintenant',
+            'button' => 'Rejoignez maintenant',
         ],
     ],
     'catalogue' => [

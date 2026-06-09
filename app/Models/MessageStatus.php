@@ -19,6 +19,7 @@ class MessageStatus extends Model
     const UNREAD = 2;
 
     const UNVALID = 3;
+    const READ = 4;
 
     /**
      * RELATIONS

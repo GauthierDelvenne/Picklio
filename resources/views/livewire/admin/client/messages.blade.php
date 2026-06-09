@@ -17,7 +17,7 @@
                     <flux:select.option value="">{{__('admin.messages.form.status.placeholder')}}</flux:select.option>
                     @foreach($this->messageStatuses as $key => $messageStatus)
                         <flux:select.option
-                            value="{{$messageStatus->id}}">{{__('admin.messages.status.'.$messageStatus->id)}}</flux:select.option>
+                            value="{{$messageStatus}}">{{__('admin.messages.status.'.$messageStatus)}}</flux:select.option>
                     @endforeach
                 </flux:select>
                 <flux:input wire:model.live.debounce.500ms="search" icon="magnifying-glass" class="sm:w-5/12"
@@ -30,7 +30,8 @@
                 <flux:table.column sortable :sorted="$sortBy === 'users.name'" :direction="$sortDirection"
                                    wire:click="sort('users.name')">{{__('admin.messages.admin-name')}}
                 </flux:table.column>
-                <flux:table.column>{{__('admin.messages.form.status.label')}}</flux:table.column>
+                <flux:table.column sortable :sorted="$sortBy === 'message_status_id'" :direction="$sortDirection"
+                                   wire:click="sort('message_status_id')">{{__('admin.messages.form.status.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.form.title.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.form.description.label')}}</flux:table.column>
                 <flux:table.column></flux:table.column>
@@ -46,17 +47,16 @@
                             </a>
                         </flux:table.cell>
                         <flux:table.cell>
-                            <flux:badge :color=" $message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
-                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc')">
+                            <flux:badge :color="$message->message_status_id == \App\Models\MessageStatus::READ ? 'cyan' : ($message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
+                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc'))">
                                 • {{__('admin.messages.status.'.$message->message_status_id)}}
                             </flux:badge>
-
                         </flux:table.cell>
                         <flux:table.cell>
                             {{$message->title }}
                         </flux:table.cell>
                         <flux:table.cell>
-                            {{$message->description }}
+                            {{ Str::words($message->description, 5, '...') }}
                         </flux:table.cell>
                         <flux:table.cell>
                             <flux:dropdown position="left" align="center">
@@ -96,7 +96,7 @@
                     <flux:select.option value="">{{__('admin.messages.form.status.placeholder')}}</flux:select.option>
                     @foreach($this->messageStatuses as $key => $messageStatus)
                         <flux:select.option
-                            value="{{$messageStatus->id}}">{{__('admin.messages.status.'.$messageStatus->id)}}</flux:select.option>
+                            value="{{$messageStatus}}">{{__('admin.messages.status.'.$messageStatus)}}</flux:select.option>
                     @endforeach
                 </flux:select>
                 <flux:input wire:model.live.debounce.500ms="contactSearch" icon="magnifying-glass" class="sm:w-5/12"
@@ -108,7 +108,8 @@
             <flux:table.columns>
                 <flux:table.column>{{__('admin.messages.user-name')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.user-email')}}</flux:table.column>
-                <flux:table.column>{{__('admin.messages.form.status.label')}}</flux:table.column>
+                <flux:table.column sortable :sorted="$sortBy === 'message_status_id'" :direction="$sortDirection"
+                                   wire:click="sort('message_status_id')">{{__('admin.messages.form.status.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.user-title')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.user-description')}}</flux:table.column>
                 <flux:table.column></flux:table.column>
@@ -126,8 +127,8 @@
                             {{$message->email }}
                         </flux:table.cell>
                         <flux:table.cell>
-                            <flux:badge :color=" $message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
-                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc')">
+                            <flux:badge :color="$message->message_status_id == \App\Models\MessageStatus::READ ? 'cyan' : ($message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
+                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc'))">
                                 • {{__('admin.messages.status.'.$message->message_status_id)}}
                             </flux:badge>
                         </flux:table.cell>
@@ -175,7 +176,7 @@
                     <flux:select.option value="">{{__('admin.messages.form.status.placeholder')}}</flux:select.option>
                     @foreach($this->messageStatuses as $key => $messageStatus)
                         <flux:select.option
-                            value="{{$messageStatus->id}}">{{__('admin.messages.status.'.$messageStatus->id)}}</flux:select.option>
+                            value="{{$messageStatus}}">{{__('admin.messages.status.'.$messageStatus)}}</flux:select.option>
                     @endforeach
                 </flux:select>
                 <flux:input wire:model.live.debounce.500ms="sendSearch" icon="magnifying-glass" class="sm:w-5/12"
@@ -188,7 +189,8 @@
                 <flux:table.column sortable :sorted="$sortBy === 'users.name'" :direction="$sortDirection"
                                    wire:click="sort('users.name')">{{__('admin.messages.shop-name')}}
                 </flux:table.column>
-                <flux:table.column>{{__('admin.messages.form.status.label')}}</flux:table.column>
+                <flux:table.column sortable :sorted="$sortBy === 'message_status_id'" :direction="$sortDirection"
+                                   wire:click="sort('message_status_id')">{{__('admin.messages.form.status.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.form.title.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.form.description.label')}}</flux:table.column>
                 <flux:table.column></flux:table.column>
@@ -204,8 +206,8 @@
                             </a>
                         </flux:table.cell>
                         <flux:table.cell>
-                            <flux:badge :color=" $message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
-                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc')">
+                            <flux:badge :color="$message->message_status_id == \App\Models\MessageStatus::READ ? 'cyan' : ($message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
+                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc'))">
                                 • {{__('admin.messages.status.'.$message->message_status_id)}}
                             </flux:badge>
 

@@ -55,6 +55,7 @@ class ResetPassword extends PicklioComponent
 
         Session::flash('status', __($status));
         $this->dispatch('success');
+        $this->redirectRoute('auth.login');
     }
 
     public function render()

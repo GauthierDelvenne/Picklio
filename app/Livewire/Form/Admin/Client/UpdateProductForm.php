@@ -111,7 +111,7 @@ class UpdateProductForm extends Form
             'category_id' => 'required|exists:product_categories,id',
             'price' => 'required|decimal:0,2',
             'is_active' => 'nullable|boolean',
-            'picture_path' => 'required|file',
+            'picture_path' => 'nullable|file',
         ];
 
     }
