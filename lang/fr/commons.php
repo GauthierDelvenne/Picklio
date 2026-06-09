@@ -71,7 +71,7 @@ return [
         'totalOrder' => 'Nombre total de commandes',
         'monthOrder' => 'Nombre de commandes du mois',
         'dayOrder' => 'Nombre de commandes du jour',
-        'merchantCount' => 'Nombre de marchands actif',
-        'productCount' => 'Nombre de produit actif',
+        'merchantCount' => 'Nombre de marchands actifs',
+        'productCount' => 'Nombre de produits actifs',
     ],
 ];

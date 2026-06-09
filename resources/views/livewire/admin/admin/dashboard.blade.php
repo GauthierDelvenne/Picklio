@@ -101,7 +101,7 @@
     <div
         class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl mt-8">
         <div class="mb-4 flex flex-col gap-4 justify-between lg:flex-row">
-            <flux:heading size="l">{{__('commons.pageName.admin.admin.stocks')}}</flux:heading>
+            <flux:heading size="l">{{__('client.products.product-restock')}}</flux:heading>
             <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap md:flex-nowrap">
                 <flux:select wire:model.live="merchant" class="sm:w-5/12">
                     <flux:select.option value="">{{__('admin.stocks.choose-merchant')}}</flux:select.option>

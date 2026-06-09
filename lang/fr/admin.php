@@ -30,7 +30,7 @@ return [
             'toast' => [
                 'update' => [
                     'success' => 'Le compte a bien été modifié',
-                    'error' => 'Une erreur est survenu lors de la modification',
+                    'error' => 'Une erreur est survenue lors de la modification',
                 ],
             ],
         ],
@@ -39,7 +39,7 @@ return [
             'toast' => [
                 'update' => [
                     'success' => 'L’entrepôt a bien été modifié',
-                    'error' => 'Une erreur est survenu lors de la modification',
+                    'error' => 'Une erreur est survenue lors de la modification',
                 ],
             ],
             'forms' => [
@@ -82,12 +82,11 @@ return [
         'add' => 'Ajouter un commerçant',
         'edit' => 'Éditer le commerçant',
         'total-merchants' => 'Nombre de commerçants',
-        'new-merchants' => 'Nombre de nouveau commerçants',
+        'new-merchants' => 'Nombre de nouveaux commerçants',
         'actif-merchants' => 'Nombre de commerçants actif',
         'status' => [
             '1' => 'Actif',
-            '2' => 'En attente',
-            '3' => 'Inactif',
+            '2' => 'Inactif',
         ],
         'shop-name' => 'Nom du commerce',
         'arrived' => 'Date d’arrivé',
@@ -143,56 +142,54 @@ return [
         'toast' => [
             'create' => [
                 'success' => 'Le commerçant a bien été crée',
-                'error' => 'Une erreur est survenu lors de la création',
+                'error' => 'Une erreur est survenue lors de la création',
             ],
             'update' => [
                 'success' => 'Le commerçant a bien été modifié',
-                'error' => 'Une erreur est survenu lors de la modification',
+                'error' => 'Une erreur est survenue lors de la modification',
             ],
             'delete' => [
                 'success' => 'Le commerçant a bien été supprimé',
-                'error' => 'Une erreur est survenu lors de la suppression',
+                'error' => 'Une erreur est survenue lors de la suppression',
             ],
         ],
     ],
     'stocks' => [
         'totals' => 'Stock total',
-        'very-low-stock' => 'Stock urgent (sous 10%)',
-        'low-stock' => 'Stock critique (entre 10% et 25%)',
-        'status-stock' => 'États du stock (sous 25%)',
+        'very-low-stock' => 'Stock critique (< 10%)',
+        'low-stock' => 'Stock bas (entre 10% et 25%)',
+        'status-stock' => 'État du stock (< 25%)',
         'choose-merchant' => 'Choisir un commerçant',
         'name-merchant' => 'Nom du commerçant',
         'sell-by' => 'Vendu par',
         'product-detail' => 'Détails du produit',
-        'name' => 'Nom du produit',
-        'description' => 'Description du produit',
-        'category' => 'Catégorie du produit',
+        'name' => 'Nom',
+        'description' => 'Description',
+        'category' => 'Catégorie',
         'stock-status' => 'États du stock',
         'product-status' => 'États du produit',
         'online' => 'En ligne',
         'offline' => 'Hors ligne',
         'product-value' => 'Valeur du produit',
-        'product-price' => 'Prix du produit',
-        'product-percentage' => 'Pourcentage du produit',
+        'product-price' => 'Prix',
         'forms' => [
             'quantity' => [
                 'label' => 'Quantité',
                 'attribute' => 'quantité',
-                'description' => 'Il y actuellement :quantity produit(s)',
+                'description' => 'Il y a actuellement :quantity produit(s) <br/>  <small>(Indiquer le symbole + ou -)<small>',
             ],
             'type' => [
                 'label' => 'Raison du changement',
                 'attribute' => 'raison du changement',
-                '1' => 'Nouveau',
-                '2' => 'Livraison',
+                '1' => 'Livraison',
+                '2' => 'Vente',
                 '3' => 'Ajustement',
-                '4' => 'Vente',
             ],
         ],
         'toast' => [
             'update' => [
                 'success' => 'Le stock a bien été modifié',
-                'error' => 'Une erreur est survenu lors de la modification',
+                'error' => 'Une erreur est survenue lors de la modification',
             ],
         ],
         'categories' => [
@@ -227,8 +224,8 @@ return [
         ],
     ],
     'messages' => [
-        'suggestMessage' => 'Les suggestion client',
-        'newMerchantMessage' => 'Les inscriptions de nouveau commerçants',
+        'suggestMessage' => 'Les suggestions des clients',
+        'newMerchantMessage' => 'Les inscriptions des nouveaux commerçants',
         'contactMessage' => 'Les messages de contact',
         'sendMessage' => 'Les messages envoyés',
         'receiveMessage' => 'Les messages reçus',
@@ -287,29 +284,30 @@ return [
         'toast' => [
             'create' => [
                 'success' => 'Le message a bien été crée',
-                'error' => 'Une erreur est survenu lors de la création',
+                'error' => 'Une erreur est survenue lors de la création',
             ],
             'update' => [
                 'success' => 'Le message a bien été modifié',
-                'error' => 'Une erreur est survenu lors de la modification',
+                'error' => 'Une erreur est survenue lors de la modification',
             ],
             'delete' => [
                 'success' => 'Le message a bien été supprimé',
-                'error' => 'Une erreur est survenu lors de la suppression',
+                'error' => 'Une erreur est survenue lors de la suppression',
             ],
         ],
     ],
     'orders' => [
-        'today-order' => 'Commandes Aujourd’hui',
+        'today-order' => 'Commandes du jour',
         'inWait-order' => 'Commandes en attente',
-        'complete-order' => 'Commande compléter',
-        'progress-order' => 'Commande en cours',
+        'complete-order' => 'Commandes complétées',
+        'progress-order' => 'Commandes en cours',
         'code' => 'Numéro de commande',
         'client-name' => 'Nom du client',
         'name' => 'Nom',
         'email' => 'Email',
         'phone' => 'Téléphone',
-        'date' => 'Date',
+        'date' => 'Date de retrait',
+        'stock-date' => 'Date',
         'status' => 'Statut',
         'total' => 'Total',
         'slot' => 'Créneaux',
@@ -331,11 +329,11 @@ return [
         'toast' => [
             'create' => [
                 'success' => 'La commande a bien été crée',
-                'error' => 'Une erreur est survenu lors de la création',
+                'error' => 'Une erreur est survenue lors de la création',
             ],
             'delete' => [
                 'success' => 'La commande a bien été annulée',
-                'error' => 'Une erreur est survenu lors de la suppression',
+                'error' => 'Une erreur est survenue lors de la suppression',
             ],
         ],
     ],

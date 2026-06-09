@@ -6,6 +6,7 @@
     </flux:breadcrumbs>
     <section class="flex flex-col gap-4 justify-between content-center items-start sm:flex-row">
         <flux:heading size="xl" level="2">{{__('admin.orders.order-by')}} #{{$this->order->code}}</flux:heading>
+        @if($this->order->order_status_id == \App\Models\OrderStatus::INWAIT)
         <div class="flex flex-col gap-4 md:flex-row">
             <flux:button wire:click="endOrder"
                          variant="primary">{{__('admin.orders.end-order')}}
@@ -14,6 +15,7 @@
                 <flux:button variant="danger">{{__('admin.orders.delete-order')}}</flux:button>
             </flux:modal.trigger>
         </div>
+        @endif
     </section>
     <flux:separator variant="subtle"/>
     <div class="flex flex-col gap-10 md:flex-row">

@@ -4,6 +4,7 @@ namespace App\Livewire\Form\Admin\Client;
 
 use App\Models\Stock;
 use App\Models\StockMovement;
+use App\Models\StockMovementType;
 use Livewire\Component;
 use Livewire\Form;
 
@@ -17,7 +18,7 @@ class UpdateStockForm extends Form
 
     public $quantity;
 
-    public $type;
+    public $type = StockMovementType::TYPE_SUPPLY;
 
     public function __construct(Component $component, $propertyName)
     {

@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
         // WAREHOUSE
         $userC = User::factory()->create([
             'name' => 'Ware House',
-            'email' => 'warhouse@gmail.com',
+            'email' => 'warehouse@gmail.com',
         ]);
         Account::factory()->create([
             'user_id' => $userC->id,

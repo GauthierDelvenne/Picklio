@@ -46,7 +46,7 @@ class Messages extends PicklioComponent
 
     public function mount(): void
     {
-        $this->sortBy = 'users.name';
+        $this->sortBy = 'message_status_id';
         $this->account = $this->userConnected->account;
     }
 

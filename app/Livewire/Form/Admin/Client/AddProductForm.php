@@ -30,11 +30,8 @@ class AddProductForm extends Form
 
     public $price;
 
-    public $percentage;
 
-    public $start_at;
 
-    public $end_at;
 
     public $is_active = false;
 
@@ -87,7 +84,7 @@ class AddProductForm extends Form
         StockMovement::create([
             'product_id' => $product->id,
             'quantity' => 0,
-            'stock_movement_type_id' => StockMovementType::TYPE_NEW,
+            'stock_movement_type_id' => StockMovementType::TYPE_SUPPLY,
         ]);
 
         return $product;

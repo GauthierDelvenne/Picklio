@@ -45,6 +45,9 @@
                     <flux:text><span
                             class="font-bold">{{__('admin.stocks.category')}} :</span> {{__('admin.stocks.categories.'.$product->product_category_id)}}
                     </flux:text>
+                    <flux:text><span
+                            class="font-bold">{{__('admin.stocks.product-price')}} :</span> {{$this->product->priceFormatted}}
+                    </flux:text>
                 </div>
             </div>
         </flux:card>
@@ -67,24 +70,6 @@
             </div>
         </flux:card>
     </div>
-    <flux:card>
-        <flux:heading size="xl">{{__('admin.stocks.product-value')}}</flux:heading>
-        <div class="flex flex-col gap-5 mt-2">
-            <flux:text><span
-                    class="font-bold">{{__('admin.stocks.product-price')}} :</span> {{$this->product->priceFormatted}}
-            </flux:text>
-            @if(!empty($this->product->percentage))
-                <flux:text><span class="font-bold">{{__('admin.stocks.product-percentage')}} :</span>
-                    {{$this->product->percentage}}%
-                </flux:text>
-                <flux:text><span
-                        class="font-bold">{{__('words.of')}}</span> {{\Carbon\Carbon::parse($this->product->start_at)->format('Y-m-d')}}
-                    <span
-                        class="font-bold">{{__('words.at')}}</span> {{\Carbon\Carbon::parse($this->product->end_at)->format('Y-m-d')}}
-                </flux:text>
-            @endif
-        </div>
-    </flux:card>
     <div
         class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
         <div class="mb-4 flex flex-col gap-4 justify-between sm:flex-row">
@@ -96,7 +81,7 @@
                 <flux:table.column>{{__('client.products.forms.name.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.orders.product-quantity')}}</flux:table.column>
                 <flux:table.column>{{__('admin.stocks.forms.type.label')}}</flux:table.column>
-                <flux:table.column>{{__('admin.orders.date')}}</flux:table.column>
+                <flux:table.column>{{__('admin.orders.stock-date')}}</flux:table.column>
             </flux:table.columns>
             <flux:table.rows>
                 @forelse($this->stockMouvements as $product)

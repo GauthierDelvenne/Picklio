@@ -46,6 +46,7 @@
                 <flux:table.column sortable :sorted="$sortBy === 'users.name'" :direction="$sortDirection"
                                    wire:click="sort('users.name')">{{__('admin.merchants.shop-name')}}
                 </flux:table.column>
+                <flux:table.column>{{__('client.products.total-product')}}</flux:table.column>
                 <flux:table.column>{{__('admin.merchants.form.status.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.merchants.arrived')}}</flux:table.column>
                 <flux:table.column></flux:table.column>
@@ -60,8 +61,10 @@
                             </a>
                         </flux:table.cell>
                         <flux:table.cell>
-                            <flux:badge :color=" $merchant->status_id == \App\Models\Status::ACTIVE ? 'green' :
-                            ($merchant->status_id == \App\Models\Status::INWAIT ? 'yellow' : 'zinc')">
+                            {{$merchant->products->count()}}
+                        </flux:table.cell>
+                        <flux:table.cell>
+                            <flux:badge :color=" $merchant->status_id == \App\Models\Status::ACTIVE ? 'green' : 'zinc'">
                                 • {{__('admin.merchants.status.'.$merchant->status_id)}}
                             </flux:badge>
 
