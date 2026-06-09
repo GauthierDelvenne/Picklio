@@ -26,7 +26,7 @@
                 <flux:table.column>{{__('client.products.forms.name.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.orders.product-quantity')}}</flux:table.column>
                 <flux:table.column>{{__('admin.stocks.forms.type.label')}}</flux:table.column>
-                <flux:table.column>{{__('admin.orders.date')}}</flux:table.column>
+                <flux:table.column>{{__('admin.orders.stock-date')}}</flux:table.column>
             </flux:table.columns>
             <flux:table.rows>
                 @forelse($this->stockMouvements as $product)
