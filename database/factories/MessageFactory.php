@@ -16,7 +16,7 @@ class MessageFactory extends Factory
         return [
             'title' => $this->faker->realText(20),
             'description' => $this->faker->realText(200),
-            'message_status_id' => rand(MessageStatus::READ, MessageStatus::UNREAD),
+            'message_status_id' => MessageStatus::UNREAD,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
