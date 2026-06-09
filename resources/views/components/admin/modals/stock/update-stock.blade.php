@@ -6,9 +6,9 @@
             <abbr title="{{ __('validation.abbr-required') }}" class="text-accent ml-1">*</abbr>
         </flux:label>
         <flux:description>
-            {{__('admin.stocks.forms.quantity.description', ['quantity' => $this->formStock->realQuantity])}}
+            {!!__('admin.stocks.forms.quantity.description', ['quantity' => $this->formStock->realQuantity])!!}
         </flux:description>
-        <flux:input wire:model="formStock.quantity"/>
+        <flux:input type="number" wire:model="formStock.quantity"/>
         <flux:error name="formStock.quantity"/>
     </flux:field>
 
@@ -19,13 +19,10 @@
         </flux:label>
         <flux:select wire:model="formStock.type">
             <flux:select.option value="{{ \App\Models\StockMovementType::TYPE_SUPPLY }}">
-                {{__('admin.stocks.forms.type.supply')}}
+                {{__('admin.stocks.forms.type.'.\App\Models\StockMovementType::TYPE_SUPPLY)}}
             </flux:select.option>
             <flux:select.option value="{{ \App\Models\StockMovementType::TYPE_ADJUSTMENT }}">
-                {{__('admin.stocks.forms.type.adjustment')}}
-            </flux:select.option>
-            <flux:select.option value="{{ \App\Models\StockMovementType::TYPE_SALE }}">
-                {{__('admin.stocks.forms.type.sale')}}
+                {{__('admin.stocks.forms.type.'.\App\Models\StockMovementType::TYPE_ADJUSTMENT)}}
             </flux:select.option>
         </flux:select>
         <flux:error name="formStock.type"/>

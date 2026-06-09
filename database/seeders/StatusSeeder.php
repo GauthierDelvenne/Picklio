@@ -20,7 +20,6 @@ class StatusSeeder extends Seeder
     {
         Status::factory()->createMany([
             ['status' => 'active'],
-            ['status' => 'in_wait'],
             ['status' => 'inactive'],
         ]);
         MessageStatus::factory()->createMany([
@@ -40,7 +39,6 @@ class StatusSeeder extends Seeder
             ['status' => 'very_low'],
         ]);
         StockMovementType::factory()->createMany([
-            ['type' => 'new'],
             ['type' => 'supply'],
             ['type' => 'sale'],
             ['type' => 'adjustment'],

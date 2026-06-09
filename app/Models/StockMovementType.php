@@ -11,13 +11,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class StockMovementType extends Model
 {
     use HasFactory;
-    const TYPE_NEW = 1;
 
-    const TYPE_SUPPLY = 2;
+    const TYPE_SUPPLY = 1;
 
-    const TYPE_SALE = 3;
+    const TYPE_SALE = 2;
 
-    const TYPE_ADJUSTMENT = 4;
+    const TYPE_ADJUSTMENT = 3;
 
 
     /**

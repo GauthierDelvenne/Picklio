@@ -30,11 +30,8 @@ class UpdateProductForm extends Form
 
     public $price;
 
-    public $percentage;
 
-    public $start_at;
 
-    public $end_at;
 
     public $is_active;
 
@@ -55,9 +52,6 @@ class UpdateProductForm extends Form
         $this->description = $this->product->description;
         $this->category_id = $this->product->product_category_id;
         $this->price = $this->product->priceFormattedWithoutSymbol;
-        $this->percentage = $this->product->percentage;
-        $this->start_at = $this->product->start_at;
-        $this->end_at = $this->product->end_at;
         $this->is_active = $this->product->is_active;
         $this->real_picture_path = $this->product->picture_path;
     }

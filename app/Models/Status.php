@@ -16,10 +16,7 @@ class Status extends Model
      * CONST
      */
     const ACTIVE = 1;
-
-    const INWAIT = 2;
-
-    const INACTIVE = 3;
+    const INACTIVE = 2;
 
     /**
      * RELATION

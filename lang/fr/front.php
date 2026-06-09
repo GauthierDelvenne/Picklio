@@ -300,7 +300,7 @@ return [
             'toast' => [
                 'create' => [
                     'success' => 'Le message a bien été envoyé',
-                    'error' => 'Une erreur est survenu lors de l’envoye',
+                    'error' => 'Une erreur est survenue lors de l’envoye',
                 ],
             ],
         ],
@@ -381,7 +381,7 @@ return [
                 'toast' => [
                     'create' => [
                         'success' => 'Le message a bien été envoyé',
-                        'error' => 'Une erreur est survenu lors de l’envoye',
+                        'error' => 'Une erreur est survenue lors de l’envoye',
                     ],
                 ],
                 'form' => [
@@ -575,15 +575,15 @@ return [
         'toast' => [
             'add' => [
                 'success' => 'Produit(s) ajouté(s)',
-                'error' => 'Une erreur est survenu lors de l’ajout',
+                'error' => 'Une erreur est survenue lors de l’ajout',
             ],
             'remove' => [
                 'success' => 'Produit(s) supprimé(s)',
-                'error' => 'Une erreur est survenu lors de la suppression',
+                'error' => 'Une erreur est survenue lors de la suppression',
             ],
             'max' => [
                 'success' => 'Vous avez atteint la quantité maximale',
-                'error' => 'Une erreur est survenu lors de l’ajout',
+                'error' => 'Une erreur est survenue lors de l’ajout',
             ],
             'register' => [
                 'success' => 'Vous devez avoir un compte pour créer un panier',

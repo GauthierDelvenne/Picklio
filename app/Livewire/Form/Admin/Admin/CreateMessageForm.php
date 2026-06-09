@@ -11,6 +11,7 @@ use Livewire\Form;
 class CreateMessageForm extends Form
 {
     public $messageStatuses;
+    public $statuses;
 
     public $title;
 
@@ -28,6 +29,9 @@ class CreateMessageForm extends Form
     {
         parent::__construct($component, $propertyName);
         $this->messageStatuses = MessageStatus::all();
+        $this->statuses = [
+            '2', '4'
+        ];
         $this->sender_id = $component->userConnected->account->id;
         $this->recipients = Account::with('user')->merchants()->get();
     }

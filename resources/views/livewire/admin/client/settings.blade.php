@@ -6,10 +6,12 @@
             <flux:heading size="l">{{__('front.settings.theme.title')}}</flux:heading>
         </div>
         <flux:card class="col-span-2">
-            <flux:radio.group x-data variant="segmented" x-model="$flux.appearance">
-                <flux:radio value="light" icon="sun">{{__('front.settings.theme.light')}}</flux:radio>
-                <flux:radio value="dark" icon="moon">{{__('front.settings.theme.dark')}}</flux:radio>
-                <flux:radio value="system" icon="computer-desktop">{{__('front.settings.theme.system')}}</flux:radio>
+            <flux:radio.group         variant="cards"
+                                      x-data x-model="$flux.appearance" class=" flex flex-col gap-4">
+                <flux:radio value="light" icon="sun" label="{{__('admin.settings.theme.light')}}"/>
+                <flux:radio value="dark" icon="moon" label="{{__('admin.settings.theme.dark')}}"/>
+                <flux:radio value="system"
+                            icon="computer-desktop" label="{{__('admin.settings.theme.system')}}"/>
             </flux:radio.group>
         </flux:card>
         <div>

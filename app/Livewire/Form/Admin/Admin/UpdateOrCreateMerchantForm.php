@@ -14,6 +14,7 @@ use Livewire\Form;
 class UpdateOrCreateMerchantForm extends Form
 {
     public $account;
+    public $userId;
 
     public $name;
 
@@ -50,6 +51,7 @@ class UpdateOrCreateMerchantForm extends Form
         if (! $this->account) {
             return;
         }
+        $this->userId = $this->account->user->id ?? null;
         $this->name = $this->account->user->name ?? null;
         $this->firstname = $this->account->firstname;
         $this->lastname = $this->account->lastname;
@@ -67,7 +69,7 @@ class UpdateOrCreateMerchantForm extends Form
     {
         $validatedData = $this->validate();
         $user = User::updateOrCreate(
-            ['email' => $validatedData['email']],
+            ['id' => $this->userId],
             ['name' => $validatedData['name'],
                 'email' => $validatedData['email'],
                 'password' => \Hash::make('password'),
@@ -94,7 +96,8 @@ class UpdateOrCreateMerchantForm extends Form
                 'required',
                 'email',
                 Rule::unique('users', 'email')->ignore($this->account?->user_id),
-            ],            'phone' => 'nullable',
+            ],
+            'phone' => 'nullable',
             'status_id' => 'required',
             'postal_code' => 'required',
             'address' => 'required|string',

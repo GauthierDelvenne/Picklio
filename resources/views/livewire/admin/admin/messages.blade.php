@@ -10,15 +10,15 @@
 
     </section>
     <div
-            class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
+        class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
         <div class="mb-4 flex flex-col gap-4 justify-between lg:flex-row">
             <flux:heading size="l">{{__('admin.messages.receiveMessage')}}</flux:heading>
             <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap md:flex-nowrap">
                 <flux:select wire:model.live="messageStatus" class="sm:w-5/12">
                     <flux:select.option value="">{{__('admin.messages.form.status.placeholder')}}</flux:select.option>
-                    @foreach($this->form->messageStatuses as $key => $messageStatus)
+                    @foreach($this->form->statuses as $key => $messageStatus)
                         <flux:select.option
-                                value="{{$messageStatus->id}}">{{__('admin.messages.status.'.$messageStatus->id)}}</flux:select.option>
+                            value="{{$messageStatus}}">{{__('admin.messages.status.'.$messageStatus)}}</flux:select.option>
                     @endforeach
                 </flux:select>
                 <flux:input wire:model.live.debounce.500ms="search" icon="magnifying-glass" class="sm:w-5/12"
@@ -31,7 +31,8 @@
                 <flux:table.column sortable :sorted="$sortBy === 'users.name'" :direction="$sortDirection"
                                    wire:click="sort('users.name')">{{__('admin.messages.shop-name')}}
                 </flux:table.column>
-                <flux:table.column>{{__('admin.messages.form.status.label')}}</flux:table.column>
+                <flux:table.column sortable :sorted="$sortBy === 'message_status_id'" :direction="$sortDirection"
+                                   wire:click="sort('message_status_id')">{{__('admin.messages.form.status.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.form.title.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.form.description.label')}}</flux:table.column>
                 <flux:table.column></flux:table.column>
@@ -47,8 +48,8 @@
                             </a>
                         </flux:table.cell>
                         <flux:table.cell>
-                            <flux:badge :color=" $message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
-                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc')">
+                            <flux:badge :color="$message->message_status_id == \App\Models\MessageStatus::READ ? 'cyan' : ($message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
+                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc'))">
                                 • {{__('admin.messages.status.'.$message->message_status_id)}}
                             </flux:badge>
 
@@ -67,7 +68,7 @@
                                 <flux:menu>
                                     <a href="{{route('admin.message.receive.show', $message->id)}}">
                                         <flux:menu.item
-                                                class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.show')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.show')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="delete({{$message}})"
                                                     class="text-accent hover:text-accent-content"
@@ -90,7 +91,7 @@
     </div>
 
     <div
-            class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl mt-8">
+        class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl mt-8">
         <div class="mb-4 flex flex-col gap-4 justify-between lg:flex-row">
             <flux:heading size="l">{{__('admin.messages.suggestMessage')}}</flux:heading>
             <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap md:flex-nowrap">
@@ -98,7 +99,7 @@
                     <flux:select.option value="">{{__('admin.messages.form.status.placeholder')}}</flux:select.option>
                     @foreach($this->form->messageStatuses as $key => $messageStatus)
                         <flux:select.option
-                                value="{{$messageStatus->id}}">{{__('admin.messages.status.'.$messageStatus->id)}}</flux:select.option>
+                            value="{{$messageStatus->id}}">{{__('admin.messages.status.'.$messageStatus->id)}}</flux:select.option>
                     @endforeach
                 </flux:select>
                 <flux:input wire:model.live.debounce.500ms="suggestSearch" icon="magnifying-glass" class="sm:w-5/12"
@@ -110,7 +111,8 @@
             <flux:table.columns>
                 <flux:table.column>{{__('admin.messages.user-name')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.user-email')}}</flux:table.column>
-                <flux:table.column>{{__('admin.messages.form.status.label')}}</flux:table.column>
+                <flux:table.column sortable :sorted="$sortBy === 'message_status_id'" :direction="$sortDirection"
+                                   wire:click="sort('message_status_id')">{{__('admin.messages.form.status.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.user-merchantSuggest')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.user-productSuggest')}}</flux:table.column>
                 <flux:table.column></flux:table.column>
@@ -128,8 +130,8 @@
                             {{$message->email }}
                         </flux:table.cell>
                         <flux:table.cell>
-                            <flux:badge :color=" $message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
-                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc')">
+                            <flux:badge :color="$message->message_status_id == \App\Models\MessageStatus::READ ? 'cyan' : ($message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
+                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc'))">
                                 • {{__('admin.messages.status.'.$message->message_status_id)}}
                             </flux:badge>
 
@@ -148,7 +150,7 @@
                                 <flux:menu>
                                     <a href="{{route('admin.message.suggest.show', $message->id)}}">
                                         <flux:menu.item
-                                                class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.show')}}</flux:menu.item>
+                                            class="text-accent hover:text-accent-content">{{__('admin.commons.buttons.show')}}</flux:menu.item>
                                     </a>
                                     <flux:menu.item wire:click="deleteSuggest({{$message}})"
                                                     class="text-accent hover:text-accent-content"
@@ -191,7 +193,8 @@
             <flux:table.columns>
                 <flux:table.column>{{__('admin.messages.shop-name')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.user-email')}}</flux:table.column>
-                <flux:table.column>{{__('admin.messages.form.status.label')}}</flux:table.column>
+                <flux:table.column sortable :sorted="$sortBy === 'message_status_id'" :direction="$sortDirection"
+                                   wire:click="sort('message_status_id')">{{__('admin.messages.form.status.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.user-description')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.user-address')}}</flux:table.column>
                 <flux:table.column></flux:table.column>
@@ -209,8 +212,8 @@
                             {{$message->email }}
                         </flux:table.cell>
                         <flux:table.cell>
-                            <flux:badge :color=" $message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
-                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc')">
+                            <flux:badge :color="$message->message_status_id == \App\Models\MessageStatus::READ ? 'cyan' : ($message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
+                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc'))">
                                 • {{__('admin.messages.status.'.$message->message_status_id)}}
                             </flux:badge>
 
@@ -271,7 +274,8 @@
             <flux:table.columns>
                 <flux:table.column>{{__('admin.messages.user-name')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.user-email')}}</flux:table.column>
-                <flux:table.column>{{__('admin.messages.form.status.label')}}</flux:table.column>
+                <flux:table.column sortable :sorted="$sortBy === 'message_status_id'" :direction="$sortDirection"
+                                   wire:click="sort('message_status_id')">{{__('admin.messages.form.status.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.user-title')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.user-description')}}</flux:table.column>
                 <flux:table.column></flux:table.column>
@@ -289,8 +293,8 @@
                             {{$message->email }}
                         </flux:table.cell>
                         <flux:table.cell>
-                            <flux:badge :color=" $message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
-                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc')">
+                            <flux:badge :color="$message->message_status_id == \App\Models\MessageStatus::READ ? 'cyan' : ($message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
+                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc'))">
                                 • {{__('admin.messages.status.'.$message->message_status_id)}}
                             </flux:badge>
                         </flux:table.cell>
@@ -336,9 +340,9 @@
             <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap md:flex-nowrap">
                 <flux:select wire:model.live="sendStatus" class="sm:w-5/12">
                     <flux:select.option value="">{{__('admin.messages.form.status.placeholder')}}</flux:select.option>
-                    @foreach($this->form->messageStatuses as $key => $messageStatus)
+                    @foreach($this->form->statuses as $key => $messageStatus)
                         <flux:select.option
-                            value="{{$messageStatus->id}}">{{__('admin.messages.status.'.$messageStatus->id)}}</flux:select.option>
+                            value="{{$messageStatus}}">{{__('admin.messages.status.'.$messageStatus)}}</flux:select.option>
                     @endforeach
                 </flux:select>
                 <flux:input wire:model.live.debounce.500ms="sendSearch" icon="magnifying-glass" class="sm:w-5/12"
@@ -351,7 +355,8 @@
                 <flux:table.column sortable :sorted="$sortBy === 'users.name'" :direction="$sortDirection"
                                    wire:click="sort('users.name')">{{__('admin.messages.shop-name')}}
                 </flux:table.column>
-                <flux:table.column>{{__('admin.messages.form.status.label')}}</flux:table.column>
+                <flux:table.column sortable :sorted="$sortBy === 'message_status_id'" :direction="$sortDirection"
+                                   wire:click="sort('message_status_id')">{{__('admin.messages.form.status.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.form.title.label')}}</flux:table.column>
                 <flux:table.column>{{__('admin.messages.form.description.label')}}</flux:table.column>
                 <flux:table.column></flux:table.column>
@@ -367,8 +372,8 @@
                             </a>
                         </flux:table.cell>
                         <flux:table.cell>
-                            <flux:badge :color=" $message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
-                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc')">
+                            <flux:badge :color="$message->message_status_id == \App\Models\MessageStatus::READ ? 'cyan' : ($message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
+                            ($message->message_status_id == \App\Models\MessageStatus::UNVALID ? 'red' : 'zinc'))">
                                 • {{__('admin.messages.status.'.$message->message_status_id)}}
                             </flux:badge>
 

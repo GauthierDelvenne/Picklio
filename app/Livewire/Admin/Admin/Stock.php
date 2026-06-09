@@ -31,6 +31,8 @@ class Stock extends PicklioComponent
     {
         if ($this->formStock->update()) {
             Flux::toast(__('admin.stocks.toast.update.success'), variant: 'success');
+            Flux::modal('update-stock')->close();
+            $this->formStock->reset();
         } else {
             Flux::toast(__('admin.stocks.toast.update.error'), variant: 'danger');
         }
@@ -40,6 +42,9 @@ class Stock extends PicklioComponent
     {
         if ($this->form->update()) {
             Flux::toast(__('client.products.toast.update.success'), variant: 'success');
+            Flux::modal('update-product')->close();
+            $this->form->reset();
+            $this->product->refresh();
         } else {
             Flux::toast(__('client.products.toast.update.error'), variant: 'danger');
         }

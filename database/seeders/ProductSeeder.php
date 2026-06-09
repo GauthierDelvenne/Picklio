@@ -38,7 +38,7 @@ class ProductSeeder extends Seeder
                 StockMovement::factory()->create([
                     'product_id' => $product->id,
                     'quantity' => $quantity,
-                    'stock_movement_type_id' => StockMovementType::TYPE_NEW,
+                    'stock_movement_type_id' => StockMovementType::TYPE_SUPPLY,
                 ]);
             }
         }
