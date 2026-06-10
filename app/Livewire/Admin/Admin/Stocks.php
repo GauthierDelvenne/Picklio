@@ -60,7 +60,9 @@ class Stocks extends PicklioComponent
     #[Computed(persist: true)]
     public function merchants()
     {
-        return Account::where('role_id', Role::MERCHANT)->with('user')->get();
+        return Account::where('role_id', Role::MERCHANT)
+            ->where('status_id', 1)->with('user')
+            ->get();
     }
 
     #[Computed]
