@@ -127,7 +127,9 @@
                             </a>
                         </flux:table.cell>
                         <flux:table.cell>
-                            {{$message->email }}
+                            <a href="mailto:{{$message->email }}">
+                                {{$message->email }}
+                            </a>
                         </flux:table.cell>
                         <flux:table.cell>
                             <flux:badge :color="$message->message_status_id == \App\Models\MessageStatus::READ ? 'cyan' : ($message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
@@ -209,7 +211,9 @@
                             </a>
                         </flux:table.cell>
                         <flux:table.cell>
-                            {{$message->email }}
+                            <a href="mailto:{{$message->email }}">
+                                {{$message->email }}
+                            </a>
                         </flux:table.cell>
                         <flux:table.cell>
                             <flux:badge :color="$message->message_status_id == \App\Models\MessageStatus::READ ? 'cyan' : ($message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :
@@ -290,7 +294,9 @@
                             </a>
                         </flux:table.cell>
                         <flux:table.cell>
-                            {{$message->email }}
+                            <a href="mailto: {{$message->email }}">
+                                {{$message->email }}
+                            </a>
                         </flux:table.cell>
                         <flux:table.cell>
                             <flux:badge :color="$message->message_status_id == \App\Models\MessageStatus::READ ? 'cyan' : ($message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :

@@ -83,8 +83,8 @@ it('delete the user when clicking the delete button', function () {
             ->waitFor('.profil__account__buttonContainer')
             ->click('.profil__account__buttonContainer .button--danger')
             ->pause(500)
-            ->click('[wire\\:click="delete"]')
-            ->pause(500)
+            ->click('.profil__account__modalContainer__modal .button--danger')
+            ->pause(3000)
             ->assertGuest();
     });
 });

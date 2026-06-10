@@ -11,7 +11,7 @@
     <div
         class="bg-zinc-100 text-black dark:bg-[color-mix(in_oklab,white_10%,transparent)] dark:text-white p-10 rounded-2xl">
         <div class="mb-4 flex flex-col gap-4 justify-between sm:flex-row">
-            <flux:heading size="l">{{__('commons.pageName.admin.admin.messages')}}</flux:heading>
+            <flux:heading size="l">{{__('admin.messages.receiveMessage')}}</flux:heading>
             <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:flex-wrap md:flex-nowrap">
                 <flux:select wire:model.live="messageStatus" class="sm:w-5/12">
                     <flux:select.option value="">{{__('admin.messages.form.status.placeholder')}}</flux:select.option>
@@ -124,7 +124,9 @@
                             </a>
                         </flux:table.cell>
                         <flux:table.cell>
+                            <a href="mailto:{{$message->email}}">
                             {{$message->email }}
+                            </a>
                         </flux:table.cell>
                         <flux:table.cell>
                             <flux:badge :color="$message->message_status_id == \App\Models\MessageStatus::READ ? 'cyan' : ($message->message_status_id == \App\Models\MessageStatus::VALID ? 'green' :

@@ -86,6 +86,15 @@
                     @include desktop-l {
                         font-size: $text-xl;
                     }
+
+                    &__link {
+                        color: $tangerine-600;
+                        transition: color ease-in 0.3s;
+
+                        &:hover {
+                            color: $tangerine-500;
+                        }
+                    }
                 }
             }
 
@@ -99,6 +108,7 @@
                     @include desktop-l {
                         font-size: $text-xl;
                     }
+
                     &__span {
                         font-weight: 600;
 
