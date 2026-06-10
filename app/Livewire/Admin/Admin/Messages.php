@@ -126,6 +126,7 @@ class Messages extends PicklioComponent
             ->when($this->suggestMessageStatus, function ($query) {
                 $query->where('suggest_messages.message_status_id', $this->suggestMessageStatus);
             })
+            ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(15);
     }
 
@@ -140,6 +141,7 @@ class Messages extends PicklioComponent
             ->when($this->newMerchantStatus, function ($query) {
                 $query->where('new_merchant_messages.message_status_id', $this->newMerchantStatus);
             })
+            ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(15);
     }
 
@@ -153,6 +155,7 @@ class Messages extends PicklioComponent
             ->when($this->contactStatus, function ($query) {
                 $query->where('contact_messages.message_status_id', $this->contactStatus);
             })
+            ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(15);
     }
 

@@ -94,6 +94,7 @@ class ClientMessages extends PicklioComponent
             ->when($this->contactStatus, function ($query) {
                 $query->where('contact_messages.message_status_id', $this->contactStatus);
             })
+            ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(15);
     }
 
