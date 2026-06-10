@@ -89,7 +89,7 @@ return [
             '2' => 'Inactif',
         ],
         'shop-name' => 'Nom du commerce',
-        'arrived' => 'Date d’arrivé',
+        'arrived' => 'Date d’arrivée',
         'delete-confirm' => 'Voulez-vous vraiment désactiver :name ?',
         'delete-title' => 'Voulez-vous vraiment le désactiver ?',
         'delete-reversed' => 'Vous êtes sur le point de le désactiver.<br> Cette action est irréversible.',

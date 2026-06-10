@@ -48,6 +48,7 @@ class UpdateProductForm extends Form
         if (! $this->product) {
             return;
         }
+        $this->account_id = $this->product->account_id;
         $this->name = $this->product->name;
         $this->description = $this->product->description;
         $this->category_id = $this->product->product_category_id;
