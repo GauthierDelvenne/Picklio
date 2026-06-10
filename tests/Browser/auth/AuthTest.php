@@ -9,9 +9,9 @@ it('test password visibility toggle on login page', function () {
     $this->browse(function (Browser $browser) {
         $browser->visit(route('auth.login'))
             ->assertAttribute('input[name="password"]', 'type', 'password')
-            ->click('svg[name="eye"]')
+            ->click('svg[aria-label="Afficher le mot de passe"]')
             ->assertAttribute('input[name="password"]', 'type', 'text')
-            ->click('svg[name="eye-slash"]')
+            ->click('svg[aria-label="Masquer le mot de passe"]')
             ->assertAttribute('input[name="password"]', 'type', 'password');
     });
 });

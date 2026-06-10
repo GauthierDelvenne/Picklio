@@ -34,7 +34,8 @@ beforeEach(function () {
         'id' => PickupSlot::TIMECREATEDCART,
         'day_iso' => 1,
         'time' => '00:00:00',
-        'max_orders' => '2'
+        'max_orders' => '2',
+        'is_active' => true,
     ]);
 });
 
