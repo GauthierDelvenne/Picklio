@@ -6,9 +6,11 @@
     </flux:breadcrumbs>
     <section class="flex justify-between content-center items-center">
         <flux:heading size="xl" level="2">{{__('client.products.edit')}}</flux:heading>
+        @if($this->product->is_active == 1)
         <flux:modal.trigger name="delete-product">
             <flux:button variant="danger">{{__('client.commons.buttons.inactive')}}</flux:button>
         </flux:modal.trigger>
+        @endif
     </section>
     <flux:separator variant="subtle"/>
     <x-client.modals.stock.form submit="update" button="{{__('client.commons.buttons.edit')}}"/>

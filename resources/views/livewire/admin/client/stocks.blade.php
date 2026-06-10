@@ -115,9 +115,12 @@
                                        class="text-accent hover:text-accent-content">
                                         <flux:menu.item>{{__('client.commons.buttons.edit')}}</flux:menu.item>
                                     </a>
+                                    @if($product->is_active == 1)
+
                                     <flux:menu.item wire:click="delete({{$product}})"
                                                     class="text-accent hover:text-accent-content"
                                                     wire:confirm="{{__('client.products.delete-confirm', ['name' => $product->user_name])}}">{{__('client.commons.buttons.inactive')}}</flux:menu.item>
+                                    @endif
                                 </flux:menu>
                             </flux:dropdown>
                         </flux:table.cell>

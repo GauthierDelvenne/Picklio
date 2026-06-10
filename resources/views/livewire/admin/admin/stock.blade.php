@@ -14,9 +14,11 @@
             <flux:modal.trigger name="update-product">
                 <flux:button variant="primary">{{__('admin.commons.buttons.edit')}}</flux:button>
             </flux:modal.trigger>
-            <flux:modal.trigger name="delete-product">
-                <flux:button variant="danger">{{__('admin.commons.buttons.inactive')}}</flux:button>
-            </flux:modal.trigger>
+            @if($this->product->is_active == 1)
+                <flux:modal.trigger name="delete-product">
+                    <flux:button variant="danger">{{__('admin.commons.buttons.inactive')}}</flux:button>
+                </flux:modal.trigger>
+            @endif
         </div>
     </section>
     <flux:separator variant="subtle"/>
@@ -26,7 +28,8 @@
             <div class="mt-2 flex flex-col gap-10 sm:flex-row">
                 <div class="max-w-50 min-w-50 h-50 rounded">
                     @if($product->picture_path == 'images/missing-product.webp')
-                        <img src="{{asset($product->picture_path)}}" alt="{{$product->name}}" class="w-full h-full object-cover rounded">
+                        <img src="{{asset($product->picture_path)}}" alt="{{$product->name}}"
+                             class="w-full h-full object-cover rounded">
                     @else
                         <img
                             src="{{ $product->pictureUrl(600) }}"
