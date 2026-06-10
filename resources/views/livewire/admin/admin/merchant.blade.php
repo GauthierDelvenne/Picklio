@@ -6,9 +6,11 @@
     </flux:breadcrumbs>
     <section class="flex justify-between content-center items-center">
         <flux:heading size="xl" level="2">{{__('admin.merchants.edit')}}</flux:heading>
-        <flux:modal.trigger name="delete-merchant">
-            <flux:button variant="danger">{{__('admin.commons.buttons.inactive')}}</flux:button>
-        </flux:modal.trigger>
+        @if($this->form->status_id == \App\Models\Status::ACTIVE)
+            <flux:modal.trigger name="delete-merchant">
+                <flux:button variant="danger">{{__('admin.commons.buttons.inactive')}}</flux:button>
+            </flux:modal.trigger>
+        @endif
     </section>
     <flux:separator variant="subtle"/>
     <x-admin.modals.merchant.form submit="update" button="{{__('admin.commons.buttons.edit')}}"/>
