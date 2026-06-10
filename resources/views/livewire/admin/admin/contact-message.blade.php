@@ -13,9 +13,14 @@
     </flux:breadcrumbs>
     <div class="flex justify-between content-center items-center">
         <flux:heading size="xl">{{__('admin.messages.user-message')}}</flux:heading>
-        <flux:modal.trigger name="delete-message">
-            <flux:button variant="danger">{{__('admin.commons.buttons.delete')}}</flux:button>
-        </flux:modal.trigger>
+        <div>
+            <flux:modal.trigger name="delete-message">
+                <flux:button variant="danger">{{__('admin.commons.buttons.delete')}}</flux:button>
+            </flux:modal.trigger>
+            <flux:button variant="primary" href="mailto:{{$this->contactMessage->email}}">
+                {{__('admin.messages.answerMail')}}
+            </flux:button>
+        </div>
     </div>
     <flux:separator variant="subtle"/>
     <div class="flex flex-col gap-10">
@@ -28,10 +33,12 @@
                             class="font-bold">{{__('admin.messages.user-name')}} :</span> {{$this->contactMessage->name}}
                     </flux:text>
                     <flux:text><span
-                            class="font-bold">{{__('admin.messages.user-email')}} :</span> {{$this->contactMessage->email}}
+                            class="font-bold">{{__('admin.messages.user-email')}} :</span><a
+                            href="mailto:{{$this->contactMessage->email}}"> {{$this->contactMessage->email}}</a>
                     </flux:text>
                     <flux:text><span
-                            class="font-bold">{{__('admin.messages.user-phone')}} :</span> {{$this->contactMessage->phone}}
+                            class="font-bold">{{__('admin.messages.user-phone')}} :</span><a
+                            href="tel:{{$this->contactMessage->phone}}"> {{$this->contactMessage->phone}}</a>
                     </flux:text>
                 </div>
             </div>

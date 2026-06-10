@@ -227,6 +227,8 @@ return [
         'suggestMessage' => 'Les suggestions des clients',
         'newMerchantMessage' => 'Les inscriptions des nouveaux commerçants',
         'contactMessage' => 'Les messages de contact',
+        'oneReceiveMessage' => 'Message reçu',
+        'answerMail' => 'Répondre par mail',
         'sendMessage' => 'Les messages envoyés',
         'receiveMessage' => 'Les messages reçus',
         'information' => 'Les informations client',

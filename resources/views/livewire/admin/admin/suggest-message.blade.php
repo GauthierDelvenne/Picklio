@@ -6,9 +6,14 @@
     </flux:breadcrumbs>
     <div class="flex justify-between content-center items-center">
         <flux:heading size="xl">{{__('admin.messages.user-message')}}</flux:heading>
+        <div>
         <flux:modal.trigger name="delete-message">
             <flux:button variant="danger">{{__('admin.commons.buttons.delete')}}</flux:button>
         </flux:modal.trigger>
+        <flux:button variant="primary" href="mailto:{{$this->suggestMessage->email}}">
+            {{__('admin.messages.answerMail')}}
+        </flux:button>
+    </div>
     </div>
     <flux:separator variant="subtle"/>
     <div class="flex flex-col gap-10">
@@ -21,7 +26,7 @@
                             class="font-bold">{{__('admin.messages.user-name')}} :</span> {{$this->suggestMessage->name}}
                     </flux:text>
                     <flux:text><span
-                            class="font-bold">{{__('admin.messages.user-email')}} :</span> {{$this->suggestMessage->email}}
+                            class="font-bold">{{__('admin.messages.user-email')}} :</span> <a href="mailto:{{$this->suggestMessage->email}}">{{$this->suggestMessage->email}}</a>
                     </flux:text>
                 </div>
             </div>

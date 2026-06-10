@@ -21,7 +21,7 @@
                 <div class="orderConfirmation__cardContainer__card__productContainer">
                     <p class="orderConfirmation__cardContainer__card__productContainer__information">{{$item->quantity}}
                         x</p>
-                    <p class="orderConfirmation__cardContainer__card__productContainer__information">{{$item->product->name}} - {{$item->product->priceFormatted}} </p>
+                    <p class="orderConfirmation__cardContainer__card__productContainer__information"><a href="{{ route('front.catalogue.show', $item->product->id) }}" class="orderConfirmation__cardContainer__card__productContainer__information__link">{{$item->product->name}} </a>- {{$item->priceFormatted}} </p>
                 </div>
             @endforeach
         </div>

@@ -10,7 +10,7 @@
     <ul>
         @foreach($orderItems as $orderItem)
             <li>
-                {{ $orderItem->quantity }}x - {{$orderItem->product->name}} - {{$orderItem->product->priceFormatted}}</li>
+                {{ $orderItem->quantity }}x - {{$orderItem->product->name}} - {{$orderItem->priceFormatted}}</li>
         @endforeach
     </ul>
     <p><span

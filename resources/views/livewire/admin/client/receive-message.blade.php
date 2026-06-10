@@ -5,7 +5,7 @@
         <flux:breadcrumbs.item>{{$this->receiveMessage->title}}</flux:breadcrumbs.item>
     </flux:breadcrumbs>
     <div class="flex justify-between content-center items-center">
-        <flux:heading size="xl">{{__('admin.messages.merchant')}}</flux:heading>
+        <flux:heading size="xl">{{__('admin.messages.oneReceiveMessage')}}</flux:heading>
         <flux:modal.trigger name="delete-message">
             <flux:button variant="danger">{{__('admin.commons.buttons.delete')}}</flux:button>
         </flux:modal.trigger>
