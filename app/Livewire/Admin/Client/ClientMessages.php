@@ -12,6 +12,7 @@ use App\Models\Message;
 use App\Models\MessageStatus;
 use App\Traits\SortingTrait;
 use Flux\Flux;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Computed;
 use Livewire\WithPagination;
@@ -110,7 +111,26 @@ class ClientMessages extends PicklioComponent
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate(15);
     }
-
+    public function delete(Message $message)
+    {
+        if ($message->delete()) {
+            Flux::toast(__('admin.messages.toast.delete.success'), variant: 'success');
+            Flux::modal('delete-message')->close();
+            Cache::forget("unread_messages_{$this->userConnected->id}");
+        } else {
+            Flux::toast(__('admin.messages.toast.delete.error'), variant: 'danger');
+        }
+    }
+    public function deleteContact(ContactMessage $message)
+    {
+        if ($message->delete()) {
+            Flux::toast(__('admin.messages.toast.delete.success'), variant: 'success');
+            Flux::modal('delete-message')->close();
+            Cache::forget("unread_messages_{$this->userConnected->id}");
+        } else {
+            Flux::toast(__('admin.messages.toast.delete.error'), variant: 'danger');
+        }
+    }
     public function render()
     {
         return view('livewire.admin.client.messages')

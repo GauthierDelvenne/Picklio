@@ -29,6 +29,7 @@ class ClientProduct extends PicklioComponent
             $merchant = Account::where('id', $this->form->account_id)->first();
             Mail::to($email)->send(new NewProductMail($merchant, $product));
             $this->form->reset();
+            $this->redirectRoute('client.stock.show', $product->id);
         } else {
             Flux::toast(__('client.products.toast.create.error'), variant: 'danger');
         }

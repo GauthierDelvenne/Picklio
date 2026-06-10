@@ -187,7 +187,7 @@
         <flux:table>
             <flux:table.columns>
                 <flux:table.column sortable :sorted="$sortBy === 'users.name'" :direction="$sortDirection"
-                                   wire:click="sort('users.name')">{{__('admin.messages.shop-name')}}
+                                   wire:click="sort('users.name')">{{__('admin.settings.warehouse.forms.name.label')}}
                 </flux:table.column>
                 <flux:table.column sortable :sorted="$sortBy === 'message_status_id'" :direction="$sortDirection"
                                    wire:click="sort('message_status_id')">{{__('admin.messages.form.status.label')}}</flux:table.column>

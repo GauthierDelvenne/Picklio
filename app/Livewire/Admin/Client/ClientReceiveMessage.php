@@ -28,7 +28,8 @@ class ClientReceiveMessage extends PicklioComponent
         if ($this->receiveMessage->delete()) {
             Flux::toast(__('admin.messages.toast.delete.success'), variant: 'success');
             Flux::modal('delete-message')->close();
-            $this->redirectRoute('admin.message.index');
+            $this->redirectRoute('client.message.index');
+            Cache::forget("unread_messages_{$this->userConnected->id}");
         } else {
             Flux::toast(__('admin.messages.toast.delete.error'), variant: 'danger');
         }

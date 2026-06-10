@@ -6,11 +6,11 @@
 
 @section('description')
     {{__('mail.front.new-order.description', ['name' => $order->code])}}
-    <p style="font-weight: bold">{{__('front.profil.order.title-detail')}}</p>
+    <p style="font-weight: bold">{{__('front.profil.order.title-detail')}} :</p>
     <ul>
         @foreach($orderItems as $orderItem)
-            <li>{{__('admin.stocks.forms.quantity.attribute')}}
-                : {{ $orderItem->quantity }} - {{$orderItem->product->name}}</li>
+            <li>
+                 {{ $orderItem->quantity }}x - {{$orderItem->product->name}}</li>
         @endforeach
     </ul>
     <p><span

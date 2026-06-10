@@ -92,7 +92,7 @@
                         </flux:table.cell>
                         <flux:table.cell>
                             @if($product->is_active == 0)
-                                <flux:badge color="grey">{{__('admin.merchants.status.3')}}</flux:badge>
+                                <flux:badge color="grey">{{__('admin.merchants.status.2')}}</flux:badge>
                             @else
                                 <flux:badge
                                     :color=" $product->stock->isVeryLowStock($product->productCategory->capacity) ? 'red' : ($product->stock->isLowStock($product->productCategory->capacity) ? 'yellow' : 'green')">

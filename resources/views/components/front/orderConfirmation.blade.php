@@ -21,7 +21,7 @@
                 <div class="orderConfirmation__cardContainer__card__productContainer">
                     <p class="orderConfirmation__cardContainer__card__productContainer__information">{{$item->quantity}}
                         x</p>
-                    <p class="orderConfirmation__cardContainer__card__productContainer__information">{{$item->product->name}}</p>
+                    <p class="orderConfirmation__cardContainer__card__productContainer__information">{{$item->product->name}} - {{$item->product->priceFormatted}} </p>
                 </div>
             @endforeach
         </div>
