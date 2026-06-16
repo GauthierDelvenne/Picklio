@@ -9,9 +9,12 @@ use App\Models\Product;
 use App\Models\StockMovement;
 use Flux\Flux;
 use Livewire\Attributes\Computed;
+use Livewire\WithFileUploads;
 
 class Stock extends PicklioComponent
 {
+    use WithFileUploads;
+
     public Product $product;
 
     public UpdateProductForm $form;
