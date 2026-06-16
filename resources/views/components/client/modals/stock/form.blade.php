@@ -53,9 +53,11 @@
 
     @if($this->form->picture_path instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)
         <div class="w-32 h-32 mt-2">
-            <img src="{{ $this->form->picture_path->temporaryUrl() }}"
-                 alt="{{$this->form->name}}"
-                 class="w-full h-full object-cover object-center">
+            @if(str_starts_with($this->form->picture_path->getMimeType(), 'image/'))
+                <img src="{{ $this->form->picture_path->temporaryUrl() }}"
+                     alt="{{$this->form->name}}"
+                     class="w-full h-full object-cover object-center">
+            @endif
         </div>
     @elseif(isset($this->form->real_picture_path) && $this->form->real_picture_path)
         <div class="w-32 h-32 mt-2">

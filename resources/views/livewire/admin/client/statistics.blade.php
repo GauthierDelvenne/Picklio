@@ -1,6 +1,6 @@
 <flux:main>
     <section class="flex justify-between gap-10 mb-12">
-        <flux:heading size="xl" level="2">{{__('commons.pageName.admin.client.settings')}}</flux:heading>
+        <flux:heading size="xl" level="2">{{__('commons.pageName.admin.client.statistics')}}</flux:heading>
     </section>
     <div class="flex flex-col justify-between gap-10 mb-12 md:flex-row">
         <flux:card class="w-full">
