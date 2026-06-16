@@ -47,7 +47,7 @@
             {{__('client.products.forms.picture_path.label')}}
             <abbr title="{{ __('validation.abbr-required') }}" class="text-accent ml-1">*</abbr>
         </flux:label>
-        <flux:input type="file" wire:model="form.picture_path" />
+        <flux:input type="file" wire:model="form.picture_path" accept=".jpg,.jpeg,.png,.webp"/>
         <flux:error name="form.picture_path" />
     </flux:field>
 
